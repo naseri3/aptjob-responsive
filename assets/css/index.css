@@ -1,18 +1,5 @@
-#navbar .etesys {
-  font-size: 16px;
-  font-weight: 700;
-  display: flex;
-}
-#navbar .etesys a.bann-etesys::before {
-  content: "";
-  display: inline-block;
-  width: 36px;
-  height: 36px;
-  margin-right: 6px;
-  background-image: url("../img/etesys_icon.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  vertical-align: middle;
+#navbar .search-box {
+  width: 900px;
 }
 
 /* Top Button */
