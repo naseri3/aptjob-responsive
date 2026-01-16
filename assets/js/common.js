@@ -1,12 +1,12 @@
 /** header, footer */
 (function () {
-    const isSub = location.pathname.includes("/subPage/");
+    const isSub = location.pathname.includes("/assets/components/");
     const pathPrefix = isSub ? "../" : "./";
 
     // ✅ header
     const headerEl = document.querySelector("#headerWrap");
     if (headerEl) {
-        fetch(pathPrefix + "assets/components/header.html", { cache: "no-store" })
+        fetch(pathPrefix + "./assets/components/header.html", { cache: "no-store" })
         .then(res => res.text())
         .then(html => {
             headerEl.innerHTML = html;
