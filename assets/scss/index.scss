@@ -1,1 +1,4 @@
-@import url(./_component.scss);
+@use 'base/global';
+@use 'components/component';
+@use 'pages/login';
+@use 'pages/resume';
