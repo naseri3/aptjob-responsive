@@ -1,0 +1,15 @@
+/* Sass 변수는 :root 밖에 */
+$color-primary: #0D6EFD;
+$color-text: #202020;
+$color-border: #e5e5e5;
+$navi-color:#494949;
+
+$radius-md: 8px;
+$font-sm: 14px;
+$font-md: 15px;
+
+/* CSS 변수는 필요하면 따로 */
+:root {
+  --color-primary: #0D6EFD;
+  --bg-color:#f9fafc;
+}

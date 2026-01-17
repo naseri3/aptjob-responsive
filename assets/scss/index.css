@@ -1,0 +1,120 @@
+@charset "UTF-8";
+/* Sass 변수는 :root 밖에 */
+/* CSS 변수는 필요하면 따로 */
+:root {
+  --color-primary: #0D6EFD;
+  --bg-color:#f9fafc;
+}
+
+/* ==============================
+   Header / Navbar
+================================ */
+.site-navbar {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  /* 1단 */
+  /* 2단 */
+}
+.site-navbar .site-navbar__top {
+  /* 햄버거 버튼 */
+}
+.site-navbar .site-navbar__top .site-logo img {
+  height: 42px;
+}
+.site-navbar .site-navbar__top .site-search--pc .site-search__input {
+  border: 1.5px solid #0D6EFD;
+  width: 100%;
+  padding: 5px;
+  border-radius: 5px;
+}
+.site-navbar .site-navbar__top .site-partner {
+  color: #202020;
+  font-weight: 600;
+  font-size: 18px;
+}
+.site-navbar .site-navbar__top .site-partner::before {
+  content: "";
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+  margin-right: 6px;
+  background-image: url("../images/etesys_icon.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  vertical-align: middle;
+}
+.site-navbar .site-navbar__top .site-hamburger {
+  width: 50px;
+  border: 1px solid #e5e5e5;
+  border-radius: 5px;
+  padding: 6px;
+}
+.site-navbar .site-navbar__top .site-hamburger:focus {
+  box-shadow: none;
+}
+.site-navbar .site-navbar__top .site-hamburger .navbar-toggler-icon {
+  width: 20px;
+}
+.site-navbar .site-nav .site-nav__inner .site-nav__menu .site-nav__item .site-nav__link {
+  color: #494949;
+}
+.site-navbar .site-nav .site-nav__inner .site-nav__menu .site-nav__item .site-nav__dropdown .dropdown-item {
+  color: #494949;
+  font-size: 14px;
+}
+.site-navbar .site-nav .site-nav__inner .site-util .site-util__link {
+  color: #494949;
+}
+
+/* Top Button */
+.back-to-top {
+  position: fixed;
+  right: 24px;
+  bottom: 30px;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  border: none;
+  background: #ffffff;
+  border: 1px solid #ddd;
+  color: #333;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  transform: translateY(16px) scale(0.95);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 220ms ease, transform 220ms ease;
+  z-index: 9999;
+}
+
+/* pages */
+#pages {
+  background-color: var(--bg-color);
+  padding-bottom: 50px;
+  /* carousel */
+}
+#pages .top-carousel {
+  padding-top: 30px;
+}
+#pages .top-carousel .carousel .carousel-inner .carousel-item img {
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 767px) {
+  #pages .top-carousel .carousel-item {
+    height: 250px;
+    min-height: 250px;
+    overflow: hidden;
+    background-color: rgb(0, 0, 0);
+  }
+  #pages .top-carousel .carousel-item img {
+    width: 100%;
+    height: 120%;
+    -o-object-fit: cover;
+       object-fit: cover;
+    -o-object-position: center center;
+       object-position: center center;
+  }
+}/*# sourceMappingURL=index.css.map */

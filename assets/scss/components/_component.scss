@@ -1,0 +1,104 @@
+@use '../base/global' as *;
+
+/* ==============================
+   Header / Navbar
+================================ */
+.site-navbar {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    /* 1단 */
+    .site-navbar__top {
+        .site-logo {
+            img {
+                height: 42px;
+            }
+        }
+        .site-search--pc {
+            .site-search__input {
+                border: 1.5px solid $color-primary;
+                width: 100%;
+                padding: 5px;
+                border-radius: 5px;
+            }
+        }
+        .site-partner {
+            color:$color-text;
+            font-weight: 600;
+            font-size: 18px;
+            &::before {
+                content: "";
+                display: inline-block;
+                width: 36px;
+                height: 36px;
+                margin-right: 6px;
+                background-image: url('../images/etesys_icon.png');
+                background-repeat: no-repeat;
+                background-size: cover;
+                vertical-align: middle;
+            }
+        }
+        /* 햄버거 버튼 */
+        .site-hamburger {
+            width: 50px;
+            border: 1px solid $color-border;
+            border-radius: 5px;
+            padding: 6px;
+            &:focus {
+                box-shadow: none;
+            }
+            .navbar-toggler-icon {
+                width: 20px;
+            }
+        }
+    }
+    /* 2단 */
+    .site-nav {
+        .site-nav__inner {
+            .site-nav__menu {
+                .site-nav__item {
+                    .site-nav__link {
+                        color:$navi-color;
+                    }
+                    .site-nav__dropdown {
+                        .dropdown-item {
+                            color:$navi-color;
+                            font-size: 14px;;
+                        }
+                    }
+                }
+            }
+            .site-util {
+                .site-util__link {
+                    color: $navi-color;
+                }
+            }
+        }
+    }
+}
+
+  
+  
+
+/* Top Button */
+.back-to-top {
+    position: fixed;
+    right: 24px;
+    bottom: 30px;
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    border: none;
+    background: #ffffff;
+    border: 1px solid #ddd;
+    color: #333;
+    display: grid;
+    place-items: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    transform: translateY(16px) scale(0.95);
+    opacity: 0;
+    pointer-events: none;
+    transition:
+        opacity 220ms ease,
+        transform 220ms ease;
+    z-index: 9999;
+}
