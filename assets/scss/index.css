@@ -1,22 +1,17 @@
 @charset "UTF-8";
+/* Sass 변수는 :root 밖에 */
+/* CSS 변수는 필요하면 따로 */
 :root {
   --color-primary: #0D6EFD;
   --bg-color:#f9fafc;
-  --color-text: #202020;
-  --color-border: #e5e5e5;
-  --navi-color:#494949;
-  --radius-md: 8px;
-  --font-sm: 14px;
-  --font-md: 15px;
 }
 
 /* ==============================
    Header / Navbar
 ================================ */
 .site-navbar {
-  box-shadow: 0 2px 6px #c6c6c6;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   /* 1단 */
-  /* 모바일 검색바 */
   /* 2단 */
 }
 .site-navbar .site-navbar__top {
@@ -26,16 +21,15 @@
   height: 42px;
 }
 .site-navbar .site-navbar__top .site-search--pc .site-search__input {
-  border: 2px solid var(--color-primary);
+  border: 1.5px solid #0D6EFD;
   width: 100%;
   padding: 5px;
   border-radius: 5px;
 }
 .site-navbar .site-navbar__top .site-partner {
-  color: var(color-text);
+  color: #202020;
   font-weight: 600;
   font-size: 18px;
-  color: var(--color-text);
 }
 .site-navbar .site-navbar__top .site-partner::before {
   content: "";
@@ -50,7 +44,7 @@
 }
 .site-navbar .site-navbar__top .site-hamburger {
   width: 50px;
-  border: 1px solid var(--color-border);
+  border: 1px solid #e5e5e5;
   border-radius: 5px;
   padding: 6px;
 }
@@ -60,26 +54,15 @@
 .site-navbar .site-navbar__top .site-hamburger .navbar-toggler-icon {
   width: 20px;
 }
-.site-navbar .site-search--mobile .site-search__input {
-  border: 2px solid var(--color-primary);
-}
-.site-navbar .site-nav .site-nav__inner .site-nav__menu .site-nav__item {
-  font-weight: 600;
-}
 .site-navbar .site-nav .site-nav__inner .site-nav__menu .site-nav__item .site-nav__link {
-  color: var(--color-text);
+  color: #494949;
 }
 .site-navbar .site-nav .site-nav__inner .site-nav__menu .site-nav__item .site-nav__dropdown .dropdown-item {
-  color: var(--navi-color);
+  color: #494949;
   font-size: 14px;
 }
 .site-navbar .site-nav .site-nav__inner .site-util .site-util__link {
-  color: var(--navi-color);
-  font-weight: 500;
-}
-.site-navbar .site-nav .site-nav__inner .site-util .site-util__btn {
-  font-weight: bold;
-  padding: 5px 15px;
+  color: #494949;
 }
 
 /* Top Button */
@@ -113,9 +96,6 @@
 }
 #pages .top-carousel {
   padding-top: 30px;
-}
-#pages .top-carousel .carousel .carousel-inner {
-  border-radius: 10px;
 }
 #pages .top-carousel .carousel .carousel-inner .carousel-item img {
   width: 100%;

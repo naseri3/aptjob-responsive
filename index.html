@@ -23,29 +23,110 @@
 
 <body>
     <!-- header -->
-    <header>
-        <nav id="navbar" class="navbar navbar-expand-lg">
-            <div class="container-fluid container">
-                <a class="navbar-brand" href="#"><img src="./assets/images/logo.png" width="140" alt="" srcset=""></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2 search-box" type="search" placeholder="Search" aria-label="Search" />
+    <header class="site-header">
+        <nav class="navbar navbar-expand-lg bg-white border-bottom site-navbar">
+            <div class="container flex-column site-navbar__container">
+                <!-- 1단 : 로고 / 검색 / 햄버거 -->
+                <div class="w-100 d-flex align-items-center py-3 site-navbar__top">
+                    <!-- 로고 -->
+                    <a class="navbar-brand me-3 site-logo" href="#">
+                        <img src="./assets/images/logo.png" alt="아파트잡">
+                    </a>
+                    <!-- 검색창 (PC) -->
+                    <form class="d-none d-lg-flex flex-grow-1 mx-4 site-search site-search--pc">
+                        <input type="search" class="site-search__input"
+                            placeholder="관리소명, 직무, 지역, 채용제목으로 공고를 검색해주세요." />
                     </form>
+
+                    <!-- 이테시스 (PC) -->
+                    <a class="d-none d-lg-block ms-auto text-decoration-none site-partner" href="#">
+                        이테시스
+                    </a>
+                    <!-- 햄버거 -->
+                    <button class="navbar-toggler ms-auto d-lg-none site-hamburger" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#mainNav">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
                 </div>
-                <div class="etesys">
-                    <a href="https://www.etesys.co.kr/" target="_blank" title="새창 열림" class="bann-logo bann-etesys">이테시스</a>
+                <!-- 검색창 (모바일) -->
+                <div class="w-100 d-lg-none mb-3 site-search site-search--mobile">
+                    <input type="search" class="form-control site-search__input"
+                        placeholder="관리소명, 직무, 지역, 채용제목으로 공고를 검색해주세요." />
+                </div>
+                <!-- 2단 : 네비게이션 -->
+                <div class="collapse navbar-collapse w-100 site-nav" id="mainNav">
+                    <div class="d-lg-flex w-100 justify-content-between site-nav__inner">
+                        <!-- 메뉴 -->
+                        <ul class="navbar-nav gap-lg-4 mb-3 mb-lg-0 site-nav__menu">
+                            <li class="nav-item site-nav__item">
+                                <a class="nav-link site-nav__link" href="#">지역/직무 검색</a>
+                            </li>
+                            <li class="nav-item site-nav__item">
+                                <a class="nav-link site-nav__link" href="#">위탁사 검색</a>
+                            </li>
+                            <li class="nav-item site-nav__item">
+                                <a class="nav-link site-nav__link" href="#">단지정보</a>
+                            </li>
+                            <li class="nav-item dropdown site-nav__item">
+                                <a class="nav-link dropdown-toggle site-nav__link" data-bs-toggle="dropdown">
+                                    고객센터
+                                </a>
+                                <ul class="dropdown-menu site-nav__dropdown">
+                                    <li><a class="dropdown-item" href="#">공지사항</a></li>
+                                    <li><a class="dropdown-item" href="#">FAQ</a></li>
+                                    <li><a class="dropdown-item" href="#">문의하기</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <!-- 유틸 -->
+                        <div class="d-flex gap-3 align-items-center site-util">
+                            <a href="#" class="text-decoration-none site-util__link">로그인</a>
+                            <a href="#" class="text-decoration-none site-util__link">회원가입</a>
+                            <button class="btn btn-outline-primary btn-sm site-util__btn">
+                                관리서비스
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </nav>
     </header>
-    <main>
-        <section>
-
+    <main id="pages">
+        <section class="top-carousel container">
+            <!-- PC 배너 -->
+            <div class="carousel slide d-none d-md-block" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="./assets/images/banner1.jpg" class="w-100" alt="">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./assets/images/banner2.jpg" class="w-100" alt="">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./assets/images/banner3.jpg" class="w-100" alt="">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./assets/images/banner4.jpg" class="w-100" alt="">
+                    </div>
+                </div>
+            </div>
+            <!-- 모바일 배너 -->
+            <div class="carousel slide d-md-none" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="./assets/images/banner1.jpg" class="w-100" alt="">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./assets/images/banner2.jpg" class="w-100" alt="">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./assets/images/banner3.jpg" class="w-100" alt="">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./assets/images/banner4.jpg" class="w-100" alt="">
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
 

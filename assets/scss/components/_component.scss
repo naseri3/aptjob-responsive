@@ -1,9 +1,95 @@
-#navbar {
-    .search-box {
-        width: 900px;
+@use '../base/global';
+
+/* ==============================
+   Header / Navbar
+================================ */
+.site-navbar {
+    box-shadow: 0 2px 6px #c6c6c6;
+    /* 1단 */
+    .site-navbar__top {
+        .site-logo {
+            img {
+                height: 42px;
+            }
+        }
+        .site-search--pc {
+            .site-search__input {
+                border: 2px solid var(--color-primary);
+                width: 100%;
+                padding: 5px;
+                border-radius: 5px;
+            }
+        }
+        .site-partner {
+            color:var(color-text);
+            font-weight: 600;
+            font-size: 18px;
+            color:var(--color-text);
+            &::before {
+                content: "";
+                display: inline-block;
+                width: 36px;
+                height: 36px;
+                margin-right: 6px;
+                background-image: url('../images/etesys_icon.png');
+                background-repeat: no-repeat;
+                background-size: cover;
+                vertical-align: middle;
+            }
+        }
+        /* 햄버거 버튼 */
+        .site-hamburger {
+            width: 50px;
+            border: 1px solid var(--color-border);
+            border-radius: 5px;
+            padding: 6px;
+            &:focus {
+                box-shadow: none;
+            }
+            .navbar-toggler-icon {
+                width: 20px;
+            }
+        }
+    }
+    /* 모바일 검색바 */
+    .site-search--mobile {
+        .site-search__input {
+            border: 2px solid var(--color-primary);
+        }
+    }
+    /* 2단 */
+    .site-nav {
+        .site-nav__inner {
+            .site-nav__menu {
+                .site-nav__item {
+                    font-weight: 600;
+                    .site-nav__link {
+                        color:var(--color-text);
+                    }
+                    .site-nav__dropdown {
+                        .dropdown-item {
+                            color:var(--navi-color);
+                            font-size: 14px;;
+                        }
+                    }
+                }
+            }
+            .site-util {
+                .site-util__link {
+                    color: var(--navi-color);
+                    font-weight: 500;
+                }
+                .site-util__btn {
+                    font-weight: bold;
+                    padding: 5px 15px;
+                }
+            }
+        }
     }
 }
 
+  
+  
 
 /* Top Button */
 .back-to-top {
