@@ -297,7 +297,7 @@
   background: #fff;
   text-decoration: none;
   color: inherit;
-  transition: all 0.25s ease;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
   position: relative;
 }
 #pages .premium .premium__grid .premium-card__top {
@@ -348,6 +348,7 @@
   transition: opacity 0.25s ease;
 }
 #pages .premium-card:hover {
+  border: 1px solid #e5e5e5 !important;
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
   transform: translateY(-4px);
 }
