@@ -13,28 +13,51 @@
             }
         }
         .site-search--pc {
-            .site-search__input {
-                border: 2px solid var(--color-primary);
+            width: 65%;
+            .site-search__wrapper {
+                position: relative;
                 width: 100%;
-                padding: 5px;
+            }
+            .site-search__icon {
+                position: absolute;
+                left: 14px;
+                top: 50%;
+                transform: translateY(-50%);
+                font-size: 16px;
+                color: #999;
+                pointer-events: none;
+            }
+            .site-search__input {
+                width: 100%;
+                padding: 8px 12px 8px 42px; 
                 border-radius: 5px;
+                border: 1px solid var(--search-input);
+                background-color: var(--bg-color);
+            }
+            .site-search__wrapper:focus-within {
+                .site-search__icon {
+                color: var(--color-primary);
+                }
             }
         }
         .site-partner {
-            color:var(color-text);
+            display: inline-flex;
+            align-items: center; 
             font-weight: 600;
-            font-size: 18px;
-            color:var(--color-text);
+            font-size: 16px;
+            color: #0C3779;
+            text-decoration: none;
+            border:1px solid var(--search-input);
+            padding: 4px 8px;
+            border-radius: 10px;
             &::before {
                 content: "";
-                display: inline-block;
-                width: 36px;
-                height: 36px;
-                margin-right: 6px;
-                background-image: url('../images/etesys_icon.png');
+                width: 32px;
+                height: 32px;
+                background-image: url('/assets/images/etesys_icon2.png');
                 background-repeat: no-repeat;
                 background-size: cover;
-                vertical-align: middle;
+                flex-shrink: 0; 
             }
         }
         /* 햄버거 버튼 */
@@ -52,9 +75,27 @@
         }
     }
     /* 모바일 검색바 */
-    .site-search--mobile {
+   .site-search--mobile {
+        .site-search__wrapper {
+            position: relative;
+            width: 100%;
+        }
+
+        .site-search__icon {
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 16px;
+            color: #999;
+            pointer-events: none;
+        }
+
         .site-search__input {
-            border: 2px solid var(--color-primary);
+            padding: 10px 12px 10px 42px;
+            border-radius: 6px;
+            font-size: 15px;
+            background-color: var(--bg-color);
         }
     }
     /* 2단 */
@@ -62,9 +103,9 @@
         .site-nav__inner {
             .site-nav__menu {
                 .site-nav__item {
-                    font-weight: 600;
+                    font-weight: 700;
                     .site-nav__link {
-                        color:var(--color-text);
+                        color:var(--navi-color);
                     }
                     .site-nav__dropdown {
                         .dropdown-item {
@@ -77,7 +118,7 @@
             .site-util {
                 .site-util__link {
                     color: var(--navi-color);
-                    font-weight: 500;
+                    font-weight: 600;
                 }
                 .site-util__btn {
                     font-weight: bold;
@@ -87,9 +128,6 @@
         }
     }
 }
-
-  
-  
 
 /* Top Button */
 .back-to-top {

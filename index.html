@@ -11,10 +11,8 @@
     <!-- bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <!-- ✅ Font Awesome (권장 CDN) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-        integrity="sha512-KP4m9j+ijfrzAghdR/V1s9D4Rc6SzE7zvDzr6oGgN8ay5LRK3Jgy4KbkITrKpClqCBQEVqhiTQ9BzIZW2Tvx7Q=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Font Awesome (권장 CDN) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
     <!-- Custom Styles -->
@@ -33,13 +31,14 @@
                         <img src="./assets/images/logo.png" alt="아파트잡">
                     </a>
                     <!-- 검색창 (PC) -->
-                    <form class="d-none d-lg-flex flex-grow-1 mx-4 site-search site-search--pc">
-                        <input type="search" class="site-search__input"
-                            placeholder="관리소명, 직무, 지역, 채용제목으로 공고를 검색해주세요." />
+                    <form class="site-search site-search--pc d-none d-lg-flex">
+                        <div class="site-search__wrapper">
+                            <i class="fa-solid fa-magnifying-glass site-search__icon"></i>
+                            <input type="search" class="site-search__input" placeholder="검색어를 입력해주세요."/>
+                        </div>
                     </form>
-
                     <!-- 이테시스 (PC) -->
-                    <a class="d-none d-lg-block ms-auto text-decoration-none site-partner" href="#">
+                    <a class="d-none d-lg-flex ms-auto site-partner" href="#">
                         이테시스
                     </a>
                     <!-- 햄버거 -->
@@ -50,8 +49,14 @@
                 </div>
                 <!-- 검색창 (모바일) -->
                 <div class="w-100 d-lg-none mb-3 site-search site-search--mobile">
-                    <input type="search" class="form-control site-search__input"
-                        placeholder="관리소명, 직무, 지역, 채용제목으로 공고를 검색해주세요." />
+                    <div class="site-search__wrapper">
+                        <i class="fa-solid fa-magnifying-glass site-search__icon"></i>
+                        <input
+                        type="search"
+                        class="form-control site-search__input"
+                        placeholder="검색어를 입력해주세요."
+                        />
+                    </div>
                 </div>
                 <!-- 2단 : 네비게이션 -->
                 <div class="collapse navbar-collapse w-100 site-nav" id="mainNav">
@@ -80,8 +85,7 @@
                         </ul>
                         <!-- 유틸 -->
                         <div class="d-flex gap-3 align-items-center site-util">
-                            <a href="#" class="text-decoration-none site-util__link">로그인</a>
-                            <a href="#" class="text-decoration-none site-util__link">회원가입</a>
+                            <a href="#" class="text-decoration-none site-util__link">로그인/회원가입</a>
                             <button class="btn btn-outline-primary btn-sm site-util__btn">
                                 관리서비스
                             </button>
@@ -128,7 +132,93 @@
                 </div>
             </div>
         </section>
+        <section class="company-section container">
+            <div class="company-slider">
+                <!-- prev -->
+                <button class="slider-btn slider-btn--prev" aria-label="이전">
+                    ‹
+                </button>
+                <!-- viewport -->
+                <div class="company-slider__viewport">
+                    <ul class="company-slider__track">
+                        <li class="company-card">
+                            <div class="company-card__inner">
+                                <img src="./assets/images/brand1.png" alt="">
+                                <p class="company-card__name">거창유지관리(주)</p>
+                            </div>
+                        </li>
+                        <li class="company-card">
+                            <div class="company-card__inner">
+                                <img src="./assets/images/brand12.png" alt="">
+                                <p class="company-card__name">율산개발</p>
+                            </div>
+                        </li>
+                        <li class="company-card">
+                            <div class="company-card__inner">
+                                <img src="./assets/images/brand3.png" alt="">
+                                <p class="company-card__name">광인개발</p>
+                            </div>
+                        </li>
+                        <li class="company-card">
+                            <div class="company-card__inner">
+                                <img src="./assets/images/brand4.png" alt="">
+                                <p class="company-card__name">더씨앤(주)</p>
+                                </div>
+                        </li>
+                        <li class="company-card">
+                            <div class="company-card__inner">
+                                <img src="./assets/images/brand5.png" alt="">
+                                <p class="company-card__name">(주)동우개발</p>
+                            </div>
+                        </li>
+                        <li class="company-card">
+                            <div class="company-card__inner">
+                                <img src="./assets/images/brand6.png" alt="">
+                                <p class="company-card__name">(주)백운에프엠</p>
+                            </div>
+                        </li>
+                        <li class="company-card">
+                            <div class="company-card__inner">
+                                <img src="./assets/images/brand7.png" alt="">
+                                <p class="company-card__name">부건피앤피(주)</p>
+                            </div>
+                        </li>
+                        <li class="company-card">
+                            <div class="company-card__inner">
+                                <img src="./assets/images/brand8.png" alt="">
+                                <p class="company-card__name">서림주택관리(주)</p>
+                            
+                            </div>
+                        </li>
+                        <li class="company-card">
+                            <div class="company-card__inner">
+                                <img src="./assets/images/brand9.png" alt="">
+                                <p class="company-card__name">(주)서일개발</p>
+                            </div>
+                        </li>
+                        <li class="company-card">
+                            <div class="company-card__inner">
+                                <img src="./assets/images/brand10.png" alt="">
+                                <p class="company-card__name">신한영관리(주)</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- next -->
+                <button class="slider-btn slider-btn--next" aria-label="다음">
+                    ›
+                </button>
+            </div>
+        </section>
+        <!-- 프리미엄 카드 -->
+        <section class="premium container">
+            <h2 class="premium__title">프리미엄</h2>
+            <div class="premium__grid">
+                <!-- JS 렌더링 -->
+            </div>
+        </section>
     </main>
+
 
 
 
@@ -136,13 +226,17 @@
     <!-- <footer id="footer"></footer> -->
 
     <!-- Back to Top -->
-    <!-- <button id="backToTop" class="back-to-top" aria-label="맨 위로 이동" title="맨 위로" type="button">
-        <!- 단순한 화살표 아이콘 (SVG) ->
+    <button id="backToTop" class="back-to-top" aria-label="맨 위로 이동" title="맨 위로" type="button">
+        <!-- 단순한 화살표 아이콘 (SVG) -->
         <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
             <path d="M12 4l-8 8h5v8h6v-8h5z"></path>
         </svg>
-    </button> -->
-    <!-- <script src="./assets/js/common.js"></script> -->
+    </button>
+    <script src="./assets/js/common.js"></script>
+    <script src="./assets/js/bramdCard.js"></script>
+
+    <!-- 프리미엄 카드 (모듈) -->
+    <script type="module" src="./assets/js/premium.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
