@@ -12,90 +12,22 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <!-- Font Awesome (권장 CDN) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
     <!-- Custom Styles -->
     <link rel="stylesheet" href="./assets/css/index.css">
 </head>
+<!--  추후 <body data-page="search"> -->
 
-<body>
-    <!-- header -->
-    <header id="head" class="header-wrap">
-        <nav class="navbar navbar-expand-lg bg-white border-bottom site-navbar">
-            <div class="container flex-column site-navbar__container">
-                <!-- 1단 : 로고 / 검색 / 햄버거 -->
-                <div class="w-100 d-flex align-items-center py-3 site-navbar__top">
-                    <!-- 로고 -->
-                    <a class="navbar-brand me-3 site-logo" href="#">
-                        <img src="./assets/images/logo.png" alt="아파트잡">
-                    </a>
-                    <!-- 검색창 (PC) -->
-                    <form class="site-search site-search--pc d-none d-lg-flex">
-                        <div class="site-search__wrapper">
-                            <i class="fa-solid fa-magnifying-glass site-search__icon"></i>
-                            <input type="search" class="site-search__input" placeholder="검색어를 입력해주세요."/>
-                        </div>
-                    </form>
-                    <!-- 이테시스 (PC) -->
-                    <a class="d-none d-lg-flex ms-auto site-partner" href="#">
-                        이테시스
-                    </a>
-                    <!-- 햄버거 -->
-                    <button class="navbar-toggler ms-auto d-lg-none site-hamburger" type="button"
-                        data-bs-toggle="collapse" data-bs-target="#mainNav">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                </div>
-                <!-- 검색창 (모바일) -->
-                <div class="w-100 d-lg-none mb-3 site-search site-search--mobile">
-                    <div class="site-search__wrapper">
-                        <i class="fa-solid fa-magnifying-glass site-search__icon"></i>
-                        <input
-                        type="search"
-                        class="form-control site-search__input"
-                        placeholder="검색어를 입력해주세요."
-                        />
-                    </div>
-                </div>
-                <!-- 2단 : 네비게이션 -->
-                <div class="collapse navbar-collapse w-100 site-nav" id="mainNav">
-                    <div class="d-lg-flex w-100 justify-content-between site-nav__inner">
-                        <!-- 메뉴 -->
-                        <ul class="navbar-nav gap-lg-4 mb-3 mb-lg-0 site-nav__menu">
-                            <li class="nav-item site-nav__item">
-                                <a class="nav-link site-nav__link" href="#">지역/직무 검색</a>
-                            </li>
-                            <li class="nav-item site-nav__item">
-                                <a class="nav-link site-nav__link" href="#">위탁사 검색</a>
-                            </li>
-                            <li class="nav-item site-nav__item">
-                                <a class="nav-link site-nav__link" href="#">단지정보</a>
-                            </li>
-                            <li class="nav-item dropdown site-nav__item">
-                                <a class="nav-link dropdown-toggle site-nav__link" data-bs-toggle="dropdown">
-                                    고객센터
-                                </a>
-                                <ul class="dropdown-menu site-nav__dropdown">
-                                    <li><a class="dropdown-item" href="#">공지사항</a></li>
-                                    <li><a class="dropdown-item" href="#">FAQ</a></li>
-                                    <li><a class="dropdown-item" href="#">문의하기</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <!-- 유틸 -->
-                        <div class="d-flex gap-3 align-items-center site-util">
-                            <a href="#" class="text-decoration-none site-util__link">로그인/회원가입</a>
-                            <button class="btn btn-outline-primary btn-sm site-util__btn">
-                                관리서비스
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </nav>
-    </header>
+<body data-page="index">
+    <!-- PC header -->
+    <header id="headerWrap"></header>
+
     <main id="pages">
+        <!-- carousel -->
         <section class="top-carousel container">
             <!-- PC 배너 -->
             <div class="carousel slide d-none d-md-block" data-bs-ride="carousel">
@@ -132,6 +64,8 @@
                 </div>
             </div>
         </section>
+
+        <!-- brand Card -->
         <section class="company-section container">
             <div class="company-slider">
                 <!-- prev -->
@@ -163,7 +97,7 @@
                             <div class="company-card__inner">
                                 <img src="./assets/images/brand4.png" alt="">
                                 <p class="company-card__name">더씨앤(주)</p>
-                                </div>
+                            </div>
                         </li>
                         <li class="company-card">
                             <div class="company-card__inner">
@@ -187,7 +121,7 @@
                             <div class="company-card__inner">
                                 <img src="./assets/images/brand8.png" alt="">
                                 <p class="company-card__name">서림주택관리(주)</p>
-                            
+
                             </div>
                         </li>
                         <li class="company-card">
@@ -210,6 +144,7 @@
                 </button>
             </div>
         </section>
+
         <!-- 프리미엄 카드 -->
         <section class="premium container">
             <h2 class="premium__title">프리미엄</h2>
@@ -217,26 +152,63 @@
                 <!-- JS 렌더링 -->
             </div>
         </section>
+
+        <!-- 실시간 공고 PC버전 -->
+        <section class="realtime-job d-none d-lg-block container">
+            <h2 class="realtime-job__title">실시간 공고</h2>
+            <table class="table realtime-job__table">
+                <colgroup>
+                    <col style="width:5%;"> <!-- 즐겨찾기 -->
+                    <col style="width:16%;"> <!-- 공고제목 -->
+                    <col style="width:14%;"> <!-- 근무지역 -->
+                    <col style="width:auto;"> <!-- 직무 -->
+                    <col style="width:14%;"> <!-- 급여 -->
+                    <col style="width:14%;"> <!-- 단지명 -->
+                    <col style="width:auto;"> <!-- 단지규모 -->
+                    <col style="width:auto;"> <!-- 마감일 -->
+                    <col style="width:auto;"> <!-- 버튼 -->
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>번호</th>
+                        <th>공고제목</th>
+                        <th>근무지역</th>
+                        <th>직무</th>
+                        <th>급여</th>
+                        <th>단지명</th>
+                        <th>단지규모</th>
+                        <th>마감일</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="jobListPC"></tbody>
+            </table>
+        </section>
+
+        <!-- 실시간 공고 모바일버전 -->
+        <section class="realtime-job-mobile d-lg-none container">
+            <h2 class="realtime-job__title">실시간 공고</h2>
+            <div id="jobListMobile" class="job-card-list"></div>
+        </section>
+
     </main>
 
-
-
-
-    <!-- footer -->
-    <!-- <footer id="footer"></footer> -->
-
+    <!-- PC footer -->
+    <footer id="footer"></footer>
     <!-- Back to Top -->
-    <button id="backToTop" class="back-to-top" aria-label="맨 위로 이동" title="맨 위로" type="button">
-        <!-- 단순한 화살표 아이콘 (SVG) -->
-        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <path d="M12 4l-8 8h5v8h6v-8h5z"></path>
-        </svg>
-    </button>
-    <script src="./assets/js/common.js"></script>
+    <div id="backToTopWrap"></div>
+    <!-- 모바일 하단 네비 -->
+    <div id="bottomNavWrap"></div>
+
+    
+    <script src="/assets/js/common.js"></script>
     <script src="./assets/js/bramdCard.js"></script>
 
     <!-- 프리미엄 카드 (모듈) -->
     <script type="module" src="./assets/js/premium.js"></script>
+    <!-- 실시간 공고 (모듈) -->
+    <script type="module" src="./assets/js/renderJob.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>

@@ -1,0 +1,147 @@
+/* ==================================================
+   Realtime Job - Common
+================================================== */
+.realtime-job__title {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+.is-soon {
+  color: #ff3b30 !important;
+  font-weight: 600;
+  font-size: 15px;
+}
+/* 공고 제목 */
+.realtime-job__table {
+  td.job-title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  /* 단지명 (6번째 컬럼) */
+  td:nth-child(6) {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+.job-detail-btn {
+    font-weight: bold;
+    width: 100%;
+    border-radius: 50px;
+}
+/* ==================================================
+   Realtime Job - PC (Table / List)
+================================================== */
+.realtime-job {
+  margin-top: 40px;
+  &__table {
+    border-top: 2px solid #808080;
+    font-size: 14px;
+    table-layout: fixed;
+    thead th {
+      background-color: #f8f8f8;
+      border-bottom: 2px solid #808080;
+      font-weight: 600;
+      font-size: 15px;
+      text-align: center;
+      vertical-align: middle;
+      padding: 12px 8px;
+      white-space: nowrap;
+    }
+    tbody td {
+      vertical-align: middle;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+      padding: 12px 8px;
+      word-break: break-word;
+      background-color: transparent;
+    }
+  }
+}
+/* 즐겨찾기 */
+.job-fav {
+  cursor: pointer;
+  font-size: 23px;
+  color: #bbb;
+  &.is-active {
+    color: #f5a623;
+  }
+}
+/* 공고 제목 */
+.job-title {
+  text-align: left;
+  font-weight: 500;
+}
+/* ==================================================
+   Realtime Job - Mobile (Card)
+================================================== */
+.realtime-job-mobile {
+  margin-top: 32px;
+}
+.job-card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.job-card {
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  padding: 14px;
+  background-color: #fff;
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    }
+  &__title {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.4;
+    margin: 0;
+    color: #222;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  &__deadline {
+    font-size: 17px;
+    white-space: nowrap;
+    color: #ff3b30;
+    margin-right: 10px;
+  }
+  &__info {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 10px;
+    li {
+      font-size: 14px;
+      color: #555;
+      line-height: 1.5;
+      strong {
+        margin-right: 6px;
+        font-weight: 500;
+      }
+    }
+  }
+  &__footer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    .job-detail-btn {
+        width: 30%;
+    }
+  }
+}
+/* ==================================================
+   Responsive Adjust
+================================================== */
+@media (max-width: 991px) {
+  .realtime-job {
+    margin-top: 24px;
+  }
+  .job-fav {
+    font-size: 30px;
+  }
+}

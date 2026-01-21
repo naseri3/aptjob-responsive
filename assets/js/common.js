@@ -1,52 +1,113 @@
-/** header, footer */
+// assets/js/common.js
 (function () {
-    const isSub = location.pathname.includes("/assets/components/");
-    const pathPrefix = isSub ? "../" : "./";
+  document.addEventListener("DOMContentLoaded", () => {
+    loadHeader();
+    loadFooter();
+    loadTopButton();
+    loadBottomNav();
+  });
 
-    // ✅ header
-    const headerEl = document.querySelector("#headerWrap");
-    if (headerEl) {
-        fetch(pathPrefix + "./assets/components/header.html", { cache: "no-store" })
-        .then(res => res.text())
-        .then(html => {
-            headerEl.innerHTML = html;
-            fixRelativePaths(headerEl);
-        })
-        .catch(err => console.error("Header load error:", err));
-    }
+  function loadHeader() {
+    const headerEl = document.getElementById("headerWrap");
+    if (!headerEl) return;
 
-    // ✅ footer
-    const footerEl = document.querySelector("#footer");
-    if (footerEl) {
-        fetch(pathPrefix + "assets/components/footer.html", { cache: "no-store" })
-        .then(res => res.text())
-        .then(html => {
-            footerEl.innerHTML = html;
-            fixRelativePaths(footerEl);
-        })
-        .catch(err => console.error("Footer load error:", err));
-    }
+    fetch("/assets/components/header.html", { cache: "no-store" })
+      .then((res) => {
+        if (!res.ok) throw new Error("Header fetch failed: " + res.status);
+        return res.text();
+      })
+      .then((html) => {
+        headerEl.innerHTML = html;
+      })
+      .catch((err) => console.error(err));
+  }
 
-    // ✅ 경로 자동 보정 함수
-    function fixRelativePaths(container) {
-        container.querySelectorAll("img, a, link").forEach(el => {
-        ["src", "href"].forEach(attr => {
-            if (el.hasAttribute(attr)) {
-            const val = el.getAttribute(attr);
-            if (val && !val.startsWith("http") && !val.startsWith("#")) {
-                if (val.startsWith("assets/")) {
-                el.setAttribute(attr, pathPrefix + val);
-                } else if (val.startsWith("/assets/")) {
-                el.setAttribute(attr, pathPrefix + val.replace(/^\//, ""));
-                }
-            }
-            }
-        });
-        });
-    }
+  function loadFooter() {
+    const footerEl = document.getElementById("footer");
+    if (!footerEl) return;
+
+    fetch("/assets/components/footer.html", { cache: "no-store" })
+      .then((res) => {
+        if (!res.ok) throw new Error("Footer fetch failed: " + res.status);
+        return res.text();
+      })
+      .then((html) => {
+        footerEl.innerHTML = html;
+      })
+      .catch((err) => console.error(err));
+  }
+
+  function loadTopButton() {
+    const wrap = document.getElementById("backToTopWrap");
+    if (!wrap) return;
+
+    fetch("/assets/components/topButton.html", { cache: "no-store" })
+      .then((res) => {
+        if (!res.ok) throw new Error("TopButton fetch failed: " + res.status);
+        return res.text();
+      })
+      .then((html) => {
+        wrap.innerHTML = html;
+        initBackToTop(); // ✅ 로드 후 초기화
+      })
+      .catch((err) => console.error(err));
+  }
+
+  function initBackToTop() {
+    const btn = document.getElementById("backToTop");
+    if (!btn) return;
+
+    const onScroll = () => {
+      if (window.scrollY > 300) btn.classList.add("is-show");
+      else btn.classList.remove("is-show");
+    };
+
+    window.addEventListener("scroll", onScroll);
+    onScroll(); // ✅ 처음 로드 시에도 상태 반영
+
+    btn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
 })();
 
 
+function loadBottomNav() {
+  const wrap = document.getElementById("bottomNavWrap");
+  if (!wrap) return;
 
-/* 위로가기 버튼 */
-document.addEventListener("DOMContentLoaded",()=>{var a=document.getElementById("backToTop");if(!a)return;window.addEventListener("scroll",()=>{window.scrollY>300?a.classList.add("show"):a.classList.remove("show")}),a.addEventListener("click",()=>{window.scrollTo({top:0,behavior:"smooth"})})});
+  fetch("/assets/components/bottomNav.html", { cache: "no-store" })
+    .then(res => {
+      if (!res.ok) throw new Error("BottomNav load failed");
+      return res.text();
+    })
+    .then(html => {
+      wrap.innerHTML = html;
+      setActiveBottomNav(); // 🔥 페이지별 활성 처리
+    })
+    .catch(err => console.error(err));
+}
+
+function setActiveBottomNav() {
+  const page = document.body.dataset.page;
+
+  document
+    .querySelectorAll(".bottom-nav__item")
+    .forEach(item => item.classList.remove("is-active"));
+
+  if (page === "index") {
+    document.querySelector(".bottom-nav__item--home")?.classList.add("is-active");
+  }
+
+  if (page === "search") {
+    document.querySelector(".bottom-nav__item--search")?.classList.add("is-active");
+  }
+
+  if (page === "partner") {
+    document.querySelector(".bottom-nav__item--partner")?.classList.add("is-active");
+  }
+
+  if (page === "mypage") {
+    document.querySelector(".bottom-nav__item--mypage")?.classList.add("is-active");
+  }
+}

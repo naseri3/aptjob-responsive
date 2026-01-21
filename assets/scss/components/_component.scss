@@ -1,4 +1,4 @@
-@use '../base/global';
+@use "../base/global";
 
 /* ==============================
    Header / Navbar
@@ -29,58 +29,45 @@
             }
             .site-search__input {
                 width: 100%;
-                padding: 8px 12px 8px 42px; 
+                padding: 8px 12px 8px 42px;
                 border-radius: 5px;
                 border: 1px solid var(--search-input);
                 background-color: var(--bg-color);
             }
             .site-search__wrapper:focus-within {
                 .site-search__icon {
-                color: var(--color-primary);
+                    color: var(--color-primary);
                 }
             }
         }
         .site-partner {
             display: inline-flex;
-            align-items: center; 
+            align-items: center;
+            margin-left: auto; /* ⭐ 이게 핵심 */
             font-weight: 600;
             font-size: 16px;
-            color: #0C3779;
+            color: #0c3779;
             text-decoration: none;
-            border:1px solid var(--search-input);
+            border: 1px solid var(--search-input);
             padding: 4px 8px;
             border-radius: 10px;
             &::before {
                 content: "";
                 width: 32px;
                 height: 32px;
-                background-image: url('/assets/images/etesys_icon2.png');
+                background-image: url("/assets/images/etesys_icon2.png");
                 background-repeat: no-repeat;
                 background-size: cover;
-                flex-shrink: 0; 
-            }
-        }
-        /* 햄버거 버튼 */
-        .site-hamburger {
-            width: 50px;
-            border: 1px solid var(--color-border);
-            border-radius: 5px;
-            padding: 6px;
-            &:focus {
-                box-shadow: none;
-            }
-            .navbar-toggler-icon {
-                width: 20px;
+                flex-shrink: 0;
             }
         }
     }
     /* 모바일 검색바 */
-   .site-search--mobile {
+    .site-search--mobile {
         .site-search__wrapper {
             position: relative;
             width: 100%;
         }
-
         .site-search__icon {
             position: absolute;
             left: 14px;
@@ -90,7 +77,6 @@
             color: #999;
             pointer-events: none;
         }
-
         .site-search__input {
             padding: 10px 12px 10px 42px;
             border-radius: 6px;
@@ -105,12 +91,12 @@
                 .site-nav__item {
                     font-weight: 700;
                     .site-nav__link {
-                        color:var(--navi-color);
+                        color: var(--navi-color);
                     }
                     .site-nav__dropdown {
                         .dropdown-item {
-                            color:var(--navi-color);
-                            font-size: 14px;;
+                            color: var(--navi-color);
+                            font-size: 14px;
                         }
                     }
                 }
@@ -128,28 +114,221 @@
         }
     }
 }
-
-/* Top Button */
-.back-to-top {
+/* ==================================================
+   Mobile Bottom Navigation
+================================================== */
+.bottom-nav {
     position: fixed;
-    right: 24px;
-    bottom: 30px;
-    width: 48px;
-    height: 48px;
-    border-radius: 12px;
-    border: none;
-    background: #ffffff;
-    border: 1px solid #ddd;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 64px;
+    background-color: #fff;
+    border-top: 1px solid #e5e5e5;
+    z-index: 1030;
+    /* 리스트 */
+    &__list {
+        display: flex;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    /* 아이템 */
+    &__item {
+        flex: 1;
+        /* 활성 상태 */
+        &.is-active {
+            .bottom-nav__link {
+                color: var(--bs-primary);
+                font-weight: 600;
+            }
+            .bottom-nav__icon {
+                color: var(--bs-primary);
+            }
+        }
+        /* 홈 강조 */
+        &--home {
+            .bottom-nav__icon {
+                font-size: 25px;
+            }
+        }
+        /* 의미별 확장용 (현재 스타일 없음, JS/기획용) */
+        &--search {
+        }
+        &--partner {
+        }
+        &--cs {
+        }
+        &--mypage {
+        }
+    }
+    /* 링크 */
+    &__link {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+        font-size: 12px;
+        color: #666;
+        text-decoration: none;
+
+        &:active {
+            background-color: rgba(0, 0, 0, 0.04);
+        }
+    }
+    /* 아이콘 */
+    &__icon {
+        font-size: 25px;
+        line-height: 1;
+        color: inherit;
+    }
+    /* 텍스트 */
+    &__label {
+        line-height: 1;
+        font-size: 14px;
+        margin-top: 5px;
+        font-weight: 600;
+    }
+}
+
+/* ==================================================
+    PC footer
+================================================== */
+.apt-footer {
+    border-top: 1px solid #dcdcdc;
+    background-color: #fff;
+    padding: 20px 0 24px;
+    font-size: 13px;
     color: #333;
-    display: grid;
-    place-items: center;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-    cursor: pointer;
-    transform: translateY(16px) scale(0.95);
-    opacity: 0;
-    pointer-events: none;
-    transition:
-        opacity 220ms ease,
-        transform 220ms ease;
-    z-index: 9999;
+    line-height: 1.6;
+}
+/* 상단 링크 */
+.apt-footer__links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    a {
+        color: #333;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 16px;
+        padding: 5px 15px;
+        &:hover {
+            text-decoration: underline;
+        }
+        &:first-child {
+            padding-left: 0;
+        }
+    }
+    .divider {
+        color: #999;
+        font-size: 12px;
+    }
+}
+.apt-footer__info {
+    p {
+        margin: 2px 0;
+        font-size: 14px;
+        color: #444;
+    }
+    .copyright {
+        margin-top: 6px;
+        color: #666;
+        font-size: 14px;
+    }
+}
+
+/* ==================================================
+    Mobile footer
+================================================== */
+.apt-footer-mobile {
+    border-top: 1px solid #dcdcdc;
+    background-color: #fff;
+    padding: 18px 0 22px;
+    font-size: 14px;
+    color: #333;
+    line-height: 1.6;
+    text-align: center;
+    padding-bottom: calc(22px + 64px);
+}
+.apt-footer-mobile__links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px 14px;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 14px;
+    li a {
+        color: #333;
+        font-weight: 500;
+        text-decoration: none;
+
+        &.is-strong {
+            font-weight: 700;
+        }
+    }
+}
+.apt-footer-mobile__info {
+    .copyright {
+        margin-top: 8px;
+        font-size: 14px;
+        color: #666;
+    }
+}
+
+/* =========================
+   Back To Top Button
+========================= */
+.back-to-top {
+  position: fixed;
+  right: 24px;
+  bottom: 30px;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  background: #ffffff;
+  color: #333;
+
+  display: grid;
+  place-items: center;
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+
+  /* hidden state */
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(16px) scale(0.95);
+
+  transition:
+    opacity 220ms ease,
+    transform 220ms ease;
+
+  z-index: 9999;
+
+  /* show state */
+  &.is-show {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0) scale(1);
+  }
+
+  svg {
+    fill: currentColor;
+  }
+}
+
+/* 모바일 하단 네비 고려 */
+@media (max-width: 991px) {
+  .back-to-top {
+    bottom: 90px;
+    right: 16px;
+  }
 }

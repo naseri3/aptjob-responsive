@@ -1,0 +1,64 @@
+<div id="head" class="header-wrap">
+    <nav class="navbar navbar-expand-lg bg-white border-bottom site-navbar">
+        <div class="container flex-column site-navbar__container">
+            <!-- 1단 : 로고 / 검색 -->
+            <div class="w-100 d-flex align-items-center py-3 site-navbar__top">
+                <a class="navbar-brand me-3 site-logo" href="#">
+                    <img src="./assets/images/logo.png" alt="아파트잡">
+                </a>
+                <!-- 검색창 (PC) -->
+                <form class="site-search site-search--pc d-none d-lg-flex">
+                    <div class="site-search__wrapper">
+                        <i class="fa-solid fa-magnifying-glass site-search__icon"></i>
+                        <input type="search" class="site-search__input" placeholder="검색어를 입력해주세요.">
+                    </div>
+                </form>
+                <!-- 이테시스 (모바일 + PC 공용) -->
+                <a href="#" class="site-partner site-partner--responsive">
+                    이테시스
+                </a>
+            </div>
+            <!-- 검색창 (모바일) -->
+            <div class="w-100 d-lg-none mb-3 site-search site-search--mobile">
+                <div class="site-search__wrapper">
+                    <i class="fa-solid fa-magnifying-glass site-search__icon"></i>
+                    <input type="search" class="form-control site-search__input" placeholder="검색어를 입력해주세요.">
+                </div>
+            </div>
+            <!-- 2단 : PC 네비게이션 (✔ 그대로 유지) -->
+            <div class="collapse navbar-collapse w-100 site-nav d-none d-lg-block">
+                <div class="d-lg-flex w-100 justify-content-between site-nav__inner">
+                    <!-- 메뉴 -->
+                    <ul class="navbar-nav gap-lg-4 site-nav__menu">
+                        <li class="nav-item site-nav__item">
+                            <a class="nav-link site-nav__link" href="#">지역/직무 검색</a>
+                        </li>
+                        <li class="nav-item site-nav__item">
+                            <a class="nav-link site-nav__link" href="#">위탁사 검색</a>
+                        </li>
+                        <li class="nav-item site-nav__item">
+                            <a class="nav-link site-nav__link" href="#">단지정보</a>
+                        </li>
+                        <li class="nav-item dropdown site-nav__item">
+                            <a class="nav-link dropdown-toggle site-nav__link" data-bs-toggle="dropdown">
+                                고객센터
+                            </a>
+                            <ul class="dropdown-menu site-nav__dropdown">
+                                <li><a class="dropdown-item" href="#">공지사항</a></li>
+                                <li><a class="dropdown-item" href="#">FAQ</a></li>
+                                <li><a class="dropdown-item" href="#">문의하기</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <!-- 유틸 -->
+                    <div class="d-flex gap-3 align-items-center site-util">
+                        <a href="#" class="text-decoration-none site-util__link">로그인/회원가입</a>
+                        <button class="btn btn-outline-primary btn-sm site-util__btn">
+                            관리서비스
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>

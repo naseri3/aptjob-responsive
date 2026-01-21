@@ -12,10 +12,10 @@ grid.innerHTML = premiumList.map(item => `
       <h3 class="premium-card__title">${item.title}</h3>
 
       <ul class="premium-card__info">
-        <li>${item.location}</li>
-        <li>${item.job}</li>
-        <li>${item.career}</li>
-        <li>${item.salary}</li>
+        <li><strong>지역 : </strong> ${item.location}</li>
+        <li><strong>직무 : </strong>${item.job}</li>
+        <li><strong>경력 : </strong>${item.experience} | <strong>학력 : </strong>${item.education}</li>
+        <li><strong>급여 : </strong>${item.salary}</li>
       </ul>
 
       <div class="premium-card__bottom">
