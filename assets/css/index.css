@@ -9,6 +9,18 @@
   --font-sm: 14px;
   --font-md: 15px;
   --search-input:#cbcbcb;
+  --color-primary-hover: #0B5ED7;
+  --color-primary-light: #edf3fb;
+  --color-accent: #20C997; /* success */
+  --color-danger: #DC3545; /* error / deadline */
+  --color-warning: #FFC107; /* notice (optional) */
+  --pastel-blue: #eef4ff;
+  --pastel-mint: #eef4ff;
+  --pastel-light-blue: #f8fbff;
+  --pastel-yellow: #fffa9f;
+  --pastel-pink: #FDECEF;
+  --pastel-purple: #F1ECFF;
+  --pastel-red: #ffe2f0;
 }
 
 /* ==============================
@@ -18,57 +30,62 @@
   box-shadow: 0 2px 6px #c6c6c6;
   /* 1단 */
   /* 모바일 검색바 */
-  /* 2단 */
 }
 .site-navbar .site-navbar__top .site-logo img {
   height: 42px;
 }
-.site-navbar .site-navbar__top .site-search--pc {
-  width: 65%;
+.site-navbar .site-navbar__top .site-search {
+  flex: 1;
+  max-width: 700px;
 }
-.site-navbar .site-navbar__top .site-search--pc .site-search__wrapper {
+.site-navbar .site-navbar__top .site-search__wrapper {
   position: relative;
   width: 100%;
 }
-.site-navbar .site-navbar__top .site-search--pc .site-search__icon {
+.site-navbar .site-navbar__top .site-search__icon {
   position: absolute;
   left: 14px;
   top: 50%;
   transform: translateY(-50%);
+  color: var(--bs-primary);
   font-size: 16px;
-  color: #999;
-  pointer-events: none;
 }
-.site-navbar .site-navbar__top .site-search--pc .site-search__input {
+.site-navbar .site-navbar__top .site-search__input {
   width: 100%;
-  padding: 8px 12px 8px 42px;
-  border-radius: 5px;
-  border: 1px solid var(--search-input);
+  padding: 10px 14px 10px 40px;
+  border-radius: 50px;
+  border: 2px solid var(--bs-primary);
   background-color: var(--bg-color);
-}
-.site-navbar .site-navbar__top .site-search--pc .site-search__wrapper:focus-within .site-search__icon {
-  color: var(--color-primary);
-}
-.site-navbar .site-navbar__top .site-partner {
-  display: inline-flex;
-  align-items: center;
-  margin-left: auto; /* ⭐ 이게 핵심 */
-  font-weight: 600;
   font-size: 16px;
-  color: #0c3779;
-  text-decoration: none;
-  border: 1px solid var(--search-input);
-  padding: 4px 8px;
-  border-radius: 10px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
-.site-navbar .site-navbar__top .site-partner::before {
-  content: "";
-  width: 32px;
-  height: 32px;
-  background-image: url("/assets/images/etesys_icon2.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  flex-shrink: 0;
+.site-navbar .site-navbar__top .site-search__input:focus {
+  outline: none;
+  border-color: var(--bs-primary);
+  box-shadow: 0 0 0 2px rgba(13, 110, 253, 0.15);
+}
+.site-navbar .site-navbar__top .site-search--pc {
+  display: flex;
+}
+.site-navbar .site-navbar__top .site-user {
+  margin-left: auto;
+}
+.site-navbar .site-navbar__top .site-user__btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  border: 1px solid transparent;
+  background-color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  color: #6e6e6e;
+  cursor: pointer;
+}
+.site-navbar .site-navbar__top .site-user__btn i {
+  font-size: 20px;
+  color: #6e6e6e;
 }
 .site-navbar .site-search--mobile .site-search__wrapper {
   position: relative;
@@ -80,32 +97,15 @@
   top: 50%;
   transform: translateY(-50%);
   font-size: 16px;
-  color: #999;
+  color: var(--bs-primary);
   pointer-events: none;
 }
 .site-navbar .site-search--mobile .site-search__input {
   padding: 10px 12px 10px 42px;
-  border-radius: 6px;
+  border-radius: 50px;
   font-size: 15px;
   background-color: var(--bg-color);
-}
-.site-navbar .site-nav .site-nav__inner .site-nav__menu .site-nav__item {
-  font-weight: 700;
-}
-.site-navbar .site-nav .site-nav__inner .site-nav__menu .site-nav__item .site-nav__link {
-  color: var(--navi-color);
-}
-.site-navbar .site-nav .site-nav__inner .site-nav__menu .site-nav__item .site-nav__dropdown .dropdown-item {
-  color: var(--navi-color);
-  font-size: 14px;
-}
-.site-navbar .site-nav .site-nav__inner .site-util .site-util__link {
-  color: var(--navi-color);
-  font-weight: 600;
-}
-.site-navbar .site-nav .site-nav__inner .site-util .site-util__btn {
-  font-weight: bold;
-  padding: 5px 15px;
+  border: 2px solid var(--bs-primary);
 }
 
 /* ==================================================
@@ -116,14 +116,14 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 64px;
+  height: 70px;
   background-color: #fff;
-  border-top: 1px solid #e5e5e5;
+  border-top: 1px solid #dddddd;
   z-index: 1030;
   /* 리스트 */
   /* 아이템 */
   /* 링크 */
-  /* 아이콘 */
+  /* 아이콘 (img 기준) */
   /* 텍스트 */
 }
 .bottom-nav__list {
@@ -136,18 +136,13 @@
 .bottom-nav__item {
   flex: 1;
   /* 활성 상태 */
-  /* 홈 강조 */
-  /* 의미별 확장용 (현재 스타일 없음, JS/기획용) */
 }
-.bottom-nav__item.is-active .bottom-nav__link {
-  color: var(--bs-primary);
-  font-weight: 600;
+.bottom-nav__item.is-active .bottom-nav__label {
+  color: var(--color-primary);
+  font-weight: 700;
 }
 .bottom-nav__item.is-active .bottom-nav__icon {
-  color: var(--bs-primary);
-}
-.bottom-nav__item--home .bottom-nav__icon {
-  font-size: 25px;
+  transform: translateY(-2px);
 }
 .bottom-nav__link {
   height: 100%;
@@ -156,23 +151,25 @@
   align-items: center;
   justify-content: center;
   gap: 4px;
-  font-size: 12px;
-  color: #666;
+  font-size: 14px;
+  color: var(--text-secondary);
   text-decoration: none;
 }
 .bottom-nav__link:active {
   background-color: rgba(0, 0, 0, 0.04);
 }
 .bottom-nav__icon {
-  font-size: 25px;
-  line-height: 1;
-  color: inherit;
+  width: 32px;
+  height: 32px;
+  display: block;
+  transition: transform 0.2s ease;
 }
 .bottom-nav__label {
   line-height: 1;
   font-size: 14px;
-  margin-top: 5px;
+  margin-top: 4px;
   font-weight: 600;
+  color: var(--text-secondary);
 }
 
 /* ==================================================
@@ -302,355 +299,538 @@
     bottom: 90px;
     right: 16px;
   }
+  .site-user .site-user__btn i {
+    font-size: 24px !important;
+  }
 }
 /* ==================================================
-   Realtime Job - Common
+   Job List – PC / Mobile 공통
 ================================================== */
-.realtime-job__title {
-  font-size: 22px;
-  font-weight: 700;
-  margin-bottom: 16px;
-}
-
-.is-soon {
-  color: #ff3b30 !important;
-  font-weight: 600;
-  font-size: 15px;
-}
-
-/* 공고 제목 */
-.realtime-job__table {
-  /* 단지명 (6번째 컬럼) */
-}
-.realtime-job__table td.job-title {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.realtime-job__table td:nth-child(6) {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.job-detail-btn {
-  font-weight: bold;
-  width: 100%;
-  border-radius: 50px;
-}
-
-/* ==================================================
-   Realtime Job - PC (Table / List)
-================================================== */
-.realtime-job {
-  margin-top: 40px;
-}
-.realtime-job__table {
-  border-top: 2px solid #808080;
-  font-size: 14px;
-  table-layout: fixed;
-}
-.realtime-job__table thead th {
-  background-color: #f8f8f8;
-  border-bottom: 2px solid #808080;
-  font-weight: 600;
-  font-size: 15px;
-  text-align: center;
-  vertical-align: middle;
-  padding: 12px 8px;
-  white-space: nowrap;
-}
-.realtime-job__table tbody td {
-  vertical-align: middle;
-  text-align: center;
-  border-bottom: 1px solid #ddd;
-  padding: 12px 8px;
-  word-break: break-word;
-  background-color: transparent;
-}
-
-/* 즐겨찾기 */
-.job-fav {
-  cursor: pointer;
-  font-size: 23px;
-  color: #bbb;
-}
-.job-fav.is-active {
-  color: #f5a623;
-}
-
-/* 공고 제목 */
-.job-title {
-  text-align: left;
-  font-weight: 500;
-}
-
-/* ==================================================
-   Realtime Job - Mobile (Card)
-================================================== */
-.realtime-job-mobile {
-  margin-top: 32px;
-}
-
-.job-card-list {
+/* =========================
+   PC Job List Wrapper
+========================= */
+#jobListPC {
   display: flex;
   flex-direction: column;
+  gap: 10px;
+}
+
+/* =========================
+   PC Job Row
+========================= */
+.job-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  font-size: 16px;
+}
+
+.job-row__badge {
+  width: 250px;
+  padding: 4px 10px;
+  border-radius: 8px;
+  color: var(--color-text);
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-shrink: 0;
+}
+
+/* D-bay 태그 */
+.job-row__tag {
+  padding: 3px 8px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 6px;
+  background: var(--pastel-red);
+  color: var(--color-danger);
+  width: 80px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.job-row__complex {
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: var(--pastel-mint);
+  color: var(--color-primary);
+  font-weight: 600;
+  font-size: 16px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-shrink: 0;
+}
+
+.job-row__info {
+  flex: 1;
+  color: #444;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 급여 */
+.job-row__salary {
+  font-weight: 700;
+  color: var(--color-text);
+  white-space: nowrap;
+}
+
+/* 더보기 링크 */
+.job-row__link {
+  font-weight: 600;
+  color: #fff;
+  background-color: var(--color-primary);
+  padding: 5px 10px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+/* ==================================================
+   Mobile Job List Wrapper
+================================================== */
+.job-card-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 12px;
 }
 
+/* 아주 작은 화면에서는 1열 */
+@media (max-width: 360px) {
+  .job-card-list {
+    grid-template-columns: 1fr;
+  }
+}
+/* =========================
+   Mobile Job Card
+========================= */
 .job-card {
-  border: 1px solid #e5e5e5;
-  border-radius: 12px;
+  position: relative;
+  background: #fff;
+  border-radius: 16px;
   padding: 14px;
-  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
 }
-.job-card__header {
+
+.job-card__head {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 8px;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 5px;
 }
+
+/* D-bay 뱃지 */
+.job-card__badge {
+  display: inline-block;
+  padding: 4px 10px;
+  font-size: 13px;
+  font-weight: bold;
+  border-radius: 8px;
+  background: var(--pastel-red);
+  color: var(--color-danger);
+  margin-bottom: 2px;
+}
+
 .job-card__title {
-  font-size: 20px;
-  font-weight: 600;
-  line-height: 1.4;
-  margin: 0;
-  color: #222;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 6px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.job-card__deadline {
-  font-size: 17px;
-  white-space: nowrap;
-  color: #ff3b30;
-  margin-right: 10px;
-}
-.job-card__info {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 10px;
-}
-.job-card__info li {
+
+.job-card__complex {
+  display: inline-block;
   font-size: 14px;
-  color: #555;
-  line-height: 1.5;
+  font-weight: 600;
+  background: var(--pastel-mint);
+  color: var(--color-primary);
+  padding: 4px 10px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  margin-top: 5px;
 }
-.job-card__info li strong {
-  margin-right: 6px;
-  font-weight: 500;
+
+.job-card__area {
+  font-size: 14px;
+  color: #666;
 }
-.job-card__footer {
-  display: flex;
-  justify-content: flex-end;
+
+/* 급여 */
+.job-card__salary {
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+.job-card__salary strong {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+/* 상세보기 버튼 */
+.job-card__btn {
+  display: inline-flex;
   align-items: center;
-}
-.job-card__footer .job-detail-btn {
-  width: 30%;
+  justify-content: center;
+  width: 100%;
+  padding: 10px 0;
+  border-radius: 12px;
+  background: var(--color-primary);
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
 }
 
 /* ==================================================
-   Responsive Adjust
+   Favorite Star (PC + Mobile)
 ================================================== */
-@media (max-width: 991px) {
-  .realtime-job {
-    margin-top: 24px;
-  }
-  .job-fav {
-    font-size: 30px;
-  }
+.job-fav {
+  cursor: pointer;
+  font-size: 24px;
+  color: #ccc;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  width: 24px;
+  text-align: center;
+  flex-shrink: 0;
 }
+
+/* 즐겨찾기 활성 */
+.job-fav.is-active {
+  color: #facc15;
+}
+
+/* PC 위치 – 왼쪽 맨 앞 */
+.job-row .job-fav {
+  margin-right: 10px;
+}
+
+/* Mobile 위치 – 우측 상단 */
+.job-card .job-fav {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+}
+
 /* =========================
    Pages
 ========================= */
 #pages {
-  background-color: var(--bg-color);
   padding-bottom: 50px;
+  background-color: var(--bg-color);
   /* =========================
      Top Carousel
   ========================= */
   /* =========================
-     Brand Card Slider
+   PC Quick Box (Banner Overlap)
   ========================= */
-  /* viewport */
-  /* arrows */
+  /* ==================================================
+  Company Trust Marquee (FINAL)
+   ================================================== */
+  /* 공통 트랙 */
+  /* 위 → */
+  /* 아래 ← */
+  /* 브랜드 아이템 */
+  /* 애니메이션 */
+  /* =========================
+     Premium Section
+  ========================= */
+  /* =========================
+  Premium Grid
+  ========================= */
+  /* =========================
+  Placeholder Card
+  ========================= */
 }
 #pages .top-carousel {
   padding-top: 30px;
+  position: relative;
+}
+#pages .top-carousel .carousel {
+  position: relative;
+  height: 300px;
+}
+#pages .top-carousel .carousel-control-toggle {
+  position: absolute;
+  left: 16px;
+  bottom: 16px;
+  z-index: 10;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+#pages .top-carousel .carousel-control-toggle:hover {
+  background: rgba(0, 0, 0, 0.7);
+}
+#pages .top-carousel .carousel-control-toggle:focus {
+  outline: none;
 }
 #pages .top-carousel .carousel .carousel-inner {
   border-radius: 10px;
+  height: 100%;
 }
 #pages .top-carousel .carousel .carousel-inner .carousel-item img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
-#pages .company-section {
-  padding: 20px 0;
-}
-#pages .company-slider {
+#pages .quick-box-wrap {
   position: relative;
+  margin-top: -20px;
+  z-index: 20;
+}
+#pages .quick-box-wrap .quick-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 24px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+  list-style: none;
+  width: 80%;
+  margin: 0 auto 40px;
+  background-color: var(--pastel-light-blue);
+}
+#pages .quick-box-wrap .quick-box__item {
+  flex: 1;
   display: flex;
   align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: transform 0.25s ease;
+  border-left: 2px solid #dddddd;
+  padding-left: 20px;
 }
-#pages .company-slider__viewport {
+#pages .quick-box-wrap .quick-box__item:first-child {
+  border-left: 0;
+}
+#pages .quick-box-wrap .quick-box__item img {
+  width: 42px;
+  height: 42px;
+}
+#pages .quick-box-wrap .quick-box__item span {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+#pages .quick-box-wrap .quick-box__item:hover {
+  transform: translateY(-4px);
+}
+#pages .company-trust-bg {
+  background-color: var(--color-primary-light);
+  padding: 10px 0 30px;
+  margin-bottom: 80px;
+}
+#pages .company-trust {
+  margin-top: 40px;
+}
+#pages .company-trust__title {
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+#pages .company-marquee-box {
   overflow: hidden;
   width: 100%;
-  /* track */
 }
-#pages .company-slider__viewport .company-slider__track {
-  display: flex;
-  gap: 16px;
-  padding: 4px;
-  transition: transform 0.35s ease;
-  will-change: transform;
-  /* card */
-}
-#pages .company-slider__viewport .company-slider__track .company-card {
-  min-width: 120px;
-  height: 120px;
-  background: #fff;
-  border: 1px solid #e5e5e5;
-  border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
-  cursor: grab;
-  transition: box-shadow 0.25s ease, transform 0.25s ease;
+#pages .company-marquee-track {
   display: flex;
   align-items: center;
-  justify-content: center;
+  gap: 40px;
+  width: -moz-max-content;
+  width: max-content;
+  padding: 14px 0;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
 }
-#pages .company-slider__viewport .company-slider__track .company-card__inner {
+#pages .company-marquee-track:hover {
+  animation-play-state: paused;
+}
+#pages .marquee-left {
+  animation-name: marqueeLeft;
+  animation-duration: 40s;
+}
+#pages .marquee-right {
+  animation-name: marqueeRight;
+  animation-duration: 45s;
+}
+#pages .company-marquee-item {
+  min-width: 140px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
   text-align: center;
+  text-decoration: none;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 5px 15px;
 }
-#pages .company-slider__viewport .company-slider__track .company-card img {
-  height: 30px;
+#pages .company-marquee-item img {
+  height: 40px;
   -o-object-fit: contain;
      object-fit: contain;
-  transition: transform 0.25s ease;
 }
-#pages .company-slider__viewport .company-slider__track .company-card__name {
-  font-size: 14px;
+#pages .company-marquee-item span {
+  margin-top: 6px;
+  font-size: 16px;
   font-weight: 600;
-  color: #111;
-  line-height: 1.2;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  color: #343434;
+  white-space: nowrap;
 }
-#pages .company-slider__viewport .company-slider__track .company-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
-  border-color: #ddd;
+@keyframes marqueeLeft {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
-#pages .company-slider__viewport .company-slider__track .company-card:hover img {
-  transform: scale(1.05);
+@keyframes marqueeRight {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
 }
-#pages .company-slider__viewport .company-slider__track .company-card:active {
-  cursor: grabbing;
-  transform: translateY(-3px);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
-}
-#pages .company-slider__viewport .company-slider__track .company-card:active img {
-  transform: scale(1.02);
-}
-#pages .slider-btn {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  border: 1px solid #ddd;
-  background: #fff;
-  font-size: 30px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-#pages .slider-btn--prev {
-  margin-right: 4px;
-}
-#pages .slider-btn--next {
-  margin-left: 4px;
-}
-#pages .slider-btn:hover {
-  background: #f5f5f5;
-}
-#pages .slider-btn:disabled {
-  opacity: 0.3;
-  cursor: not-allowed;
-}
-#pages .premium .premium__title, #pages .premium .realtime-job__title, #pages .realtime-job .premium__title, #pages .realtime-job .realtime-job__title, #pages .realtime-job-mobile .premium__title, #pages .realtime-job-mobile .realtime-job__title {
+#pages .premium .premium__title,
+#pages .premium .realtime-job__title,
+#pages .realtime-job .premium__title,
+#pages .realtime-job .realtime-job__title,
+#pages .realtime-job-mobile .premium__title,
+#pages .realtime-job-mobile .realtime-job__title {
   font-weight: 700;
   font-size: 2rem;
   margin-bottom: 20px;
 }
-#pages .premium .premium__grid, #pages .realtime-job .premium__grid, #pages .realtime-job-mobile .premium__grid {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  gap: 15px;
+#pages .premium {
+  margin-top: 48px;
+  overflow: visible;
 }
-@media (min-width: 992px) {
-  #pages .premium .premium__grid, #pages .realtime-job .premium__grid, #pages .realtime-job-mobile .premium__grid {
-    grid-template-columns: repeat(4, 1fr);
+#pages .premium__title {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+#pages .premium__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 8px 4px;
+  overflow: visible;
+}
+@media (max-width: 1200px) {
+  #pages .premium__grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
-#pages .premium .premium__grid .premium-card, #pages .realtime-job .premium__grid .premium-card, #pages .realtime-job-mobile .premium__grid .premium-card {
+@media (max-width: 992px) {
+  #pages .premium__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 576px) {
+  #pages .premium__grid {
+    grid-template-columns: 1fr;
+  }
+}
+#pages .premium-card {
+  position: relative;
   display: block;
-  border: 2px solid #0d6efd;
-  border-radius: 15px;
-  overflow: hidden;
+  width: 100%;
   background: #fff;
+  border-radius: 16px;
+  padding: 24px 18px 18px;
   text-decoration: none;
   color: inherit;
-  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
-  position: relative;
+  border: 1px solid #eee;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
-#pages .premium .premium__grid .premium-card__top, #pages .realtime-job .premium__grid .premium-card__top, #pages .realtime-job-mobile .premium__grid .premium-card__top {
-  background: #e7f2ff;
-  padding: 12px;
-  text-align: center;
+#pages .premium-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
+}
+#pages .premium-card__badge {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--pastel-blue);
+  color: var(--color-primary);
+  font-size: 14px;
   font-weight: 600;
+  letter-spacing: 0.5px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  width: 90%;
+  text-align: center;
 }
-#pages .premium .premium__grid .premium-card__body, #pages .realtime-job .premium__grid .premium-card__body, #pages .realtime-job-mobile .premium__grid .premium-card__body {
-  padding: 16px;
-}
-#pages .premium .premium__grid .premium-card__title, #pages .realtime-job .premium__grid .premium-card__title, #pages .realtime-job-mobile .premium__grid .premium-card__title {
+#pages .premium-card__title {
+  margin-top: 28px;
   font-size: 18px;
   font-weight: 700;
-  margin-bottom: 12px;
+  color: #111;
+  text-align: center;
+  line-height: 1.4;
 }
-#pages .premium .premium__grid .premium-card__info, #pages .realtime-job .premium__grid .premium-card__info, #pages .realtime-job-mobile .premium__grid .premium-card__info {
-  font-size: 14px;
-  line-height: 1.6;
-  margin-bottom: 16px;
-  list-style: none;
-  padding-left: 0;
+#pages .premium-card__tags {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 10px;
+  flex-wrap: wrap;
 }
-#pages .premium .premium__grid .premium-card__info strong, #pages .realtime-job .premium__grid .premium-card__info strong, #pages .realtime-job-mobile .premium__grid .premium-card__info strong {
+#pages .tag {
+  padding: 4px 10px;
+  font-size: 13px;
   font-weight: 500;
-  margin-right: 6px;
+  border-radius: 20px;
+  background-color: #f1f5f9;
+  color: #555;
+  white-space: nowrap;
 }
-#pages .premium .premium__grid .premium-card__bottom, #pages .realtime-job .premium__grid .premium-card__bottom, #pages .realtime-job-mobile .premium__grid .premium-card__bottom {
+#pages .premium-card__footer {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid #eee;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-#pages .premium .premium__grid .premium-card__btn, #pages .realtime-job .premium__grid .premium-card__btn, #pages .realtime-job-mobile .premium__grid .premium-card__btn {
-  background: #0d6efd;
-  color: #fff;
-  padding: 6px 14px;
-  border-radius: 20px;
-  font-size: 14px;
-  font-weight: 600;
-}
-#pages .premium .premium__grid .premium-card__period, #pages .realtime-job .premium__grid .premium-card__period, #pages .realtime-job-mobile .premium__grid .premium-card__period {
-  color: #ff3b30;
+#pages .premium-card__detail {
+  font-size: 15px;
+  background-color: var(--color-primary);
   font-weight: 700;
-  font-size: 16px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: #fff;
+  width: 100px;
+  text-align: center;
+}
+#pages .premium-card__deadline {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--color-danger);
 }
 #pages .premium-card::after {
   content: "";
@@ -671,6 +851,38 @@
 #pages .realtime-job__title {
   margin-top: 50px;
 }
+#pages .premium-card--placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  cursor: default;
+  background: #fff;
+  border: 1px solid #ddd;
+  box-shadow: none;
+}
+#pages .premium-card--placeholder:hover {
+  transform: none;
+  box-shadow: none;
+}
+#pages .placeholder-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  color: #777;
+}
+#pages .placeholder-content img {
+  width: 120px;
+  opacity: 0.6;
+}
+#pages .placeholder-text strong {
+  display: block;
+  font-size: 17px;
+  font-weight: 700;
+  color: #444;
+  margin-bottom: 4px;
+}
 
 /* =========================
    Responsive
@@ -682,64 +894,100 @@
        premium card (mobile)
     ========================= */
   }
-  #pages .top-carousel .carousel-item {
-    height: 250px;
-    min-height: 250px;
+  #pages .top-carousel .carousel {
+    height: 200px;
     overflow: hidden;
+  }
+  #pages .top-carousel .carousel-item {
+    height: 200px;
     background-color: #000;
   }
   #pages .top-carousel .carousel-item img {
     width: 100%;
-    height: 120%;
+    height: 100%;
     -o-object-fit: cover;
        object-fit: cover;
-    -o-object-position: center center;
-       object-position: center center;
+    -o-object-position: center;
+       object-position: center;
+    display: block;
   }
-  #pages .company-slider__viewport .company-slider__track .company-card {
-    width: 90px;
-    height: 100px;
+  #pages .company-trust-bg {
+    margin-top: 30px;
   }
-  #pages .company-slider__viewport .company-slider__track .company-card img {
-    min-height: 20px;
-    margin-top: 10px;
+  #pages .company-trust {
+    margin-top: 30px;
   }
-  #pages .company-slider__viewport .company-slider__track .company-card__name {
-    font-size: 14px;
+  #pages .company-trust__title {
+    font-size: 1.1rem;
   }
-  #pages .premium .premium__title, #pages .premium .realtime-job__title, #pages .realtime-job .premium__title, #pages .realtime-job .realtime-job__title, #pages .realtime-job-mobile .premium__title, #pages .realtime-job-mobile .realtime-job__title {
+  #pages .company-marquee-item {
+    min-width: 120px;
+    gap: 10px;
+  }
+  #pages .company-marquee-item img {
+    height: 30px;
+  }
+  #pages .company-marquee-item span {
+    font-size: 15px;
+    line-height: 1.2;
+  }
+  #pages .premium .premium__title,
+  #pages .premium .realtime-job__title,
+  #pages .realtime-job .premium__title,
+  #pages .realtime-job .realtime-job__title,
+  #pages .realtime-job-mobile .premium__title,
+  #pages .realtime-job-mobile .realtime-job__title {
     font-size: 1.6rem;
   }
-  #pages .premium .premium__grid, #pages .realtime-job .premium__grid, #pages .realtime-job-mobile .premium__grid {
+  #pages .premium .premium__grid,
+  #pages .realtime-job .premium__grid,
+  #pages .realtime-job-mobile .premium__grid {
     grid-template-columns: repeat(1, 1fr);
   }
-  #pages .premium .premium__grid .premium-card__top, #pages .realtime-job .premium__grid .premium-card__top, #pages .realtime-job-mobile .premium__grid .premium-card__top {
+  #pages .premium .premium__grid .premium-card,
+  #pages .realtime-job .premium__grid .premium-card,
+  #pages .realtime-job-mobile .premium__grid .premium-card {
+    border-radius: 10px;
+  }
+  #pages .premium .premium__grid .premium-card__top,
+  #pages .realtime-job .premium__grid .premium-card__top,
+  #pages .realtime-job-mobile .premium__grid .premium-card__top {
     font-size: 16px;
     padding: 14px 10px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
-  #pages .premium .premium__grid .premium-card__title, #pages .realtime-job .premium__grid .premium-card__title, #pages .realtime-job-mobile .premium__grid .premium-card__title {
+  #pages .premium .premium__grid .premium-card__title,
+  #pages .realtime-job .premium__grid .premium-card__title,
+  #pages .realtime-job-mobile .premium__grid .premium-card__title {
     font-size: 20px;
     line-height: 1.3;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
-  #pages .premium .premium__grid .premium-card__info, #pages .realtime-job .premium__grid .premium-card__info, #pages .realtime-job-mobile .premium__grid .premium-card__info {
+  #pages .premium .premium__grid .premium-card__info,
+  #pages .realtime-job .premium__grid .premium-card__info,
+  #pages .realtime-job-mobile .premium__grid .premium-card__info {
     font-size: 14px;
     line-height: 1.7;
   }
-  #pages .premium .premium__grid .premium-card__info li, #pages .realtime-job .premium__grid .premium-card__info li, #pages .realtime-job-mobile .premium__grid .premium-card__info li {
+  #pages .premium .premium__grid .premium-card__info li,
+  #pages .realtime-job .premium__grid .premium-card__info li,
+  #pages .realtime-job-mobile .premium__grid .premium-card__info li {
     margin-bottom: 2px;
   }
-  #pages .premium .premium__grid .premium-card__btn, #pages .realtime-job .premium__grid .premium-card__btn, #pages .realtime-job-mobile .premium__grid .premium-card__btn {
+  #pages .premium .premium__grid .premium-card__btn,
+  #pages .realtime-job .premium__grid .premium-card__btn,
+  #pages .realtime-job-mobile .premium__grid .premium-card__btn {
     font-size: 16px;
     width: 30%;
     text-align: center;
   }
-  #pages .premium .premium__grid .premium-card__period, #pages .realtime-job .premium__grid .premium-card__period, #pages .realtime-job-mobile .premium__grid .premium-card__period {
+  #pages .premium .premium__grid .premium-card__period,
+  #pages .realtime-job .premium__grid .premium-card__period,
+  #pages .realtime-job-mobile .premium__grid .premium-card__period {
     font-size: 18px;
   }
 }/*# sourceMappingURL=index.css.map */

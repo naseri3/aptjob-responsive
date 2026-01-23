@@ -6,197 +6,313 @@
    Pages
 ========================= */
 #pages {
-    background-color: var(--bg-color);
     padding-bottom: 50px;
+    background-color: var(--bg-color);
     /* =========================
      Top Carousel
   ========================= */
     .top-carousel {
         padding-top: 30px;
+        position: relative;
         .carousel {
+            position: relative;
+            height: 300px;
+            &-control-toggle {
+                position: absolute;
+                left: 16px;
+                bottom: 16px;
+                z-index: 10;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                border: none;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: rgba(0, 0, 0, 0.5);
+                color: #fff;
+                font-size: 18px;
+                cursor: pointer;
+                transition: background-color 0.2s ease;
+                &:hover {
+                    background: rgba(0, 0, 0, 0.7);
+                }
+                &:focus {
+                    outline: none;
+                }
+            }
             .carousel-inner {
                 border-radius: 10px;
-
+                height: 100%;
                 .carousel-item {
                     img {
                         width: 100%;
-                        height: auto;
+                        height: 100%;
+                        object-fit: cover;
                     }
                 }
             }
         }
     }
     /* =========================
-     Brand Card Slider
+   PC Quick Box (Banner Overlap)
   ========================= */
-    .company-section {
-        padding: 20px 0;
-    }
-    .company-slider {
+    .quick-box-wrap {
         position: relative;
-        display: flex;
-        align-items: center;
-    }
-    /* viewport */
-    .company-slider__viewport {
-        overflow: hidden;
-        width: 100%;
-        /* track */
-        .company-slider__track {
+        margin-top: -20px;
+        z-index: 20;
+        .quick-box {
             display: flex;
-            gap: 16px;
-            padding: 4px;
-            transition: transform 0.35s ease;
-            will-change: transform;
-            /* card */
-            .company-card {
-                min-width: 120px;
-                height: 120px;
-                background: #fff;
-                border: 1px solid #e5e5e5;
-                border-radius: 12px;
-                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
-                cursor: grab;
-                transition: box-shadow 0.25s ease, transform 0.25s ease;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 24px;
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+            list-style: none;
+            width: 80%;
+            margin: 0 auto 40px;
+            background-color: var(--pastel-light-blue);
+            &__item {
+                flex: 1;
                 display: flex;
                 align-items: center;
-                justify-content: center;
-                &__inner {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    gap: 10px;
-                    text-align: center;
+                gap: 8px;
+                cursor: pointer;
+                transition: transform 0.25s ease;
+                border-left: 2px solid #dddddd;
+                padding-left: 20px;
+                &:first-child {
+                    border-left: 0;
                 }
-
                 img {
-                    height: 30px;
-                    object-fit: contain;
-                    transition: transform 0.25s ease;
+                    width: 42px;
+                    height: 42px;
                 }
-                &__name {
-                    font-size: 14px;
+                span {
+                    font-size: 18px;
                     font-weight: 600;
-                    color: #111;
-                    line-height: 1.2;
-                    display: -webkit-box;
-                    -webkit-line-clamp: 2;
-                    -webkit-box-orient: vertical;
-                    overflow: hidden;
+                    color: var(--color-text);
                 }
                 &:hover {
-                    transform: translateY(-6px);
-                    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
-                    border-color: #ddd;
-                    img {
-                        transform: scale(1.05);
-                    }
-                }
-                &:active {
-                    cursor: grabbing;
-                    transform: translateY(-3px);
-                    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
-                    img {
-                        transform: scale(1.02);
-                    }
+                    transform: translateY(-4px);
                 }
             }
         }
     }
-    /* arrows */
-    .slider-btn {
-        width: 36px;
-        height: 36px;
-        border-radius: 50%;
-        border: 1px solid #ddd;
-        background: #fff;
-        font-size: 30px;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        &--prev {
-            margin-right: 4px;
-        }
-        &--next {
-            margin-left: 4px;
-        }
-        &:hover {
-            background: #f5f5f5;
-        }
-        &:disabled {
-            opacity: 0.3;
-            cursor: not-allowed;
+
+    /* ==================================================
+   Company Trust Marquee (FINAL)
+    ================================================== */
+    .company-trust-bg {
+        background-color: var(--color-primary-light);
+        padding: 10px 0 30px;
+        margin-bottom: 80px;
+    }
+    .company-trust {
+        margin-top: 40px;
+        &__title {
+            text-align: center;
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 30px;
         }
     }
-    .premium, .realtime-job, .realtime-job-mobile {
-        .premium__title, .realtime-job__title {
+    .company-marquee-box {
+        overflow: hidden;
+        width: 100%;
+    }
+    /* 공통 트랙 */
+    .company-marquee-track {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+        width: max-content;
+        padding: 14px 0;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        &:hover {
+            animation-play-state: paused;
+        }
+    }
+    /* 위 → */
+    .marquee-left {
+        animation-name: marqueeLeft;
+        animation-duration: 40s;
+    }
+    /* 아래 ← */
+    .marquee-right {
+        animation-name: marqueeRight;
+        animation-duration: 45s;
+    }
+    /* 브랜드 아이템 */
+    .company-marquee-item {
+        min-width: 140px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        text-decoration: none;
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 5px 15px;
+        img {
+            height: 40px;
+            object-fit: contain;
+        }
+        span {
+            margin-top: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #343434;
+            white-space: nowrap;
+        }
+    }
+    /* 애니메이션 */
+    @keyframes marqueeLeft {
+        from {
+            transform: translateX(0);
+        }
+        to {
+            transform: translateX(-50%);
+        }
+    }
+    @keyframes marqueeRight {
+        from {
+            transform: translateX(-50%);
+        }
+        to {
+            transform: translateX(0);
+        }
+    }
+
+    .premium,
+    .realtime-job,
+    .realtime-job-mobile {
+        .premium__title,
+        .realtime-job__title {
             font-weight: 700;
             font-size: 2rem;
             margin-bottom: 20px;
         }
-        .premium__grid {
-            display: grid;
-            grid-template-columns: repeat(1, 1fr);
-            gap: 15px;
-            @media (min-width: 992px) {
-                grid-template-columns: repeat(4, 1fr);
-            }
-            .premium-card {
-                display: block;
-                border: 2px solid #0d6efd;
-                border-radius: 15px;
-                overflow: hidden;
-                background: #fff;
-                text-decoration: none;
-                color: inherit;
-                transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
-                position: relative;
-                &__top {
-                    background: #e7f2ff;
-                    padding: 12px;
-                    text-align: center;
-                    font-weight: 600;
-                }
-                &__body {
-                    padding: 16px;
-                }
-                &__title {
-                    font-size: 18px;
-                    font-weight: 700;
-                    margin-bottom: 12px;
-                }
-                &__info {
-                    font-size: 14px;
-                    line-height: 1.6;
-                    margin-bottom: 16px;
-                    list-style: none;
-                    padding-left: 0;
-                    strong {
-                        font-weight: 500;
-                        margin-right: 6px;
-                    }
-                }
-                &__bottom {
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                }
-                &__btn {
-                    background: #0d6efd;
-                    color: #fff;
-                    padding: 6px 14px;
-                    border-radius: 20px;
-                    font-size: 14px;
-                    font-weight: 600;
-                }
-                &__period {
-                    color: #ff3b30;
-                    font-weight: 700;
-                    font-size: 16px;
-                }
-            }
+    }
+    /* =========================
+   Premium Section
+========================= */
+
+    .premium {
+        margin-top: 48px;
+        overflow: visible;
+    }
+
+    .premium__title {
+        font-size: 22px;
+        font-weight: 700;
+        margin-bottom: 20px;
+    }
+
+    /* =========================
+    Premium Grid
+    ========================= */
+    .premium__grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        padding: 8px 4px;
+        overflow: visible;
+
+        @media (max-width: 1200px) {
+            grid-template-columns: repeat(3, 1fr);
         }
+
+        @media (max-width: 992px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (max-width: 576px) {
+            grid-template-columns: 1fr;
+        }
+    }
+    .premium-card {
+        position: relative;
+        display: block;
+        width: 100%;
+        background: #fff;
+        border-radius: 16px;
+        padding: 24px 18px 18px;
+        text-decoration: none;
+        color: inherit;
+        border: 1px solid #eee;
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+        transition:
+            transform 0.25s ease,
+            box-shadow 0.25s ease;
+        &:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
+        }
+    }
+    .premium-card__badge {
+        position: absolute;
+        top: 12px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--pastel-blue);
+        color: var(--color-primary);
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        padding: 4px 12px;
+        border-radius: 20px;
+        width: 90%;
+        text-align: center;
+    }
+    .premium-card__title {
+        margin-top: 28px;
+        font-size: 18px;
+        font-weight: 700;
+        color: #111;
+        text-align: center;
+        line-height: 1.4;
+    }
+    .premium-card__tags {
+        display: flex;
+        justify-content: center;
+        gap: 6px;
+        margin-top: 10px;
+        flex-wrap: wrap;
+    }
+    .tag {
+        padding: 4px 10px;
+        font-size: 13px;
+        font-weight: 500;
+        border-radius: 20px;
+        background-color: #f1f5f9;
+        color: #555;
+        white-space: nowrap;
+    }
+    .premium-card__footer {
+        margin-top: 14px;
+        padding-top: 12px;
+        border-top: 1px solid #eee;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .premium-card__detail {
+        font-size: 15px;
+        background-color: var(--color-primary);
+        font-weight: 700;
+        padding: 5px 10px;
+        border-radius: 5px;
+        color: #fff;
+        width: 100px;
+        text-align: center;
+    }
+    .premium-card__deadline {
+        font-size: 15px;
+        font-weight: 700;
+        color: var(--color-danger);
     }
     .premium-card::after {
         content: "";
@@ -217,85 +333,132 @@
     .realtime-job__title {
         margin-top: 50px;
     }
+    /* =========================
+    Placeholder Card
+    ========================= */
+    .premium-card--placeholder {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        cursor: default;
+        background: #fff;
+        border: 1px solid #ddd;
+        box-shadow: none;
+        &:hover {
+            transform: none;
+            box-shadow: none;
+        }
+    }
+    .placeholder-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        color: #777;
+        img {
+            width: 120px;
+            opacity: 0.6;
+        }
+    }
+    .placeholder-text {
+        strong {
+            display: block;
+            font-size: 17px;
+            font-weight: 700;
+            color: #444;
+            margin-bottom: 4px;
+        }
+    }
 }
 /* =========================
    Responsive
 ========================= */
 @media (max-width: 767px) {
-  #pages {
-    .top-carousel {
-      .carousel-item {
-        height: 250px;
-        min-height: 250px;
-        overflow: hidden;
-        background-color: #000;
-        img {
-          width: 100%;
-          height: 120%;
-          object-fit: cover;
-          object-position: center center;
+    #pages {
+        .top-carousel {
+            .carousel {
+                height: 200px;
+                overflow: hidden;
+            }
+            .carousel-item {
+                height: 200px;
+                background-color: #000;
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    object-position: center;
+                    display: block;
+                }
+            }
         }
-      }
-    }
-
-    /* brand card */
-    .company-slider__viewport {
-      .company-slider__track {
-        .company-card {
-          width: 90px;
-          height: 100px;
-          img {
-            min-height: 20px;
-            margin-top: 10px;
-          }
-
-          &__name {
-            font-size: 14px;
-          }
+        /* brand card */
+        .company-trust-bg {
+            margin-top: 30px;
         }
-      }
-    }
-    /* =========================
+        .company-trust {
+            margin-top: 30px;
+            &__title {
+                font-size: 1.1rem;
+            }
+        }
+        .company-marquee-item {
+            min-width: 120px;
+            gap: 10px;
+            img {
+                height: 30px;
+            }
+            span {
+                font-size: 15px;
+                line-height: 1.2;
+            }
+        }
+        /* =========================
        premium card (mobile)
     ========================= */
-    .premium, .realtime-job, .realtime-job-mobile {
-      .premium__title, .realtime-job__title {
-        font-size: 1.6rem;
-      }
-      .premium__grid {
-        grid-template-columns: repeat(1, 1fr);
-        .premium-card {
-          &__top {
-            font-size: 16px;
-            padding: 14px 10px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-          }
-          &__title {
-            font-size: 20px;
-            line-height: 1.3;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-          }
-          &__info {
-            font-size: 14px;
-            line-height: 1.7;
-            li {
-              margin-bottom: 2px;
+        .premium,
+        .realtime-job,
+        .realtime-job-mobile {
+            .premium__title,
+            .realtime-job__title {
+                font-size: 1.6rem;
             }
-          }
-          &__btn {
-            font-size: 16px;
-            width: 30%;
-            text-align: center;
-          }
-          &__period {
-            font-size: 18px;
-          }
+            .premium__grid {
+                grid-template-columns: repeat(1, 1fr);
+                .premium-card {
+                    border-radius: 10px;
+                    &__top {
+                        font-size: 16px;
+                        padding: 14px 10px;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }
+                    &__title {
+                        font-size: 20px;
+                        line-height: 1.3;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }
+                    &__info {
+                        font-size: 14px;
+                        line-height: 1.7;
+                        li {
+                            margin-bottom: 2px;
+                        }
+                    }
+                    &__btn {
+                        font-size: 16px;
+                        width: 30%;
+                        text-align: center;
+                    }
+                    &__period {
+                        font-size: 18px;
+                    }
+                }
+            }
         }
-      }
     }
-  }
 }

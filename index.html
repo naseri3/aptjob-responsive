@@ -31,11 +31,14 @@
         <section class="top-carousel container">
             <!-- PC 배너 -->
             <div class="carousel slide d-none d-md-block" data-bs-ride="carousel">
+                <button type="button" class="carousel-control-toggle" aria-label="정지">
+                    <i class="fa-solid fa-stop"></i>
+                </button>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="./assets/images/banner1.jpg" class="w-100" alt="">
+                        <img src="./assets/images/aptBanner.jpg" class="w-100" alt="">
                     </div>
-                    <div class="carousel-item">
+                    <!-- <div class="carousel-item">
                         <img src="./assets/images/banner2.jpg" class="w-100" alt="">
                     </div>
                     <div class="carousel-item">
@@ -43,16 +46,19 @@
                     </div>
                     <div class="carousel-item">
                         <img src="./assets/images/banner4.jpg" class="w-100" alt="">
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <!-- 모바일 배너 -->
             <div class="carousel slide d-md-none" data-bs-ride="carousel">
+                <button type="button" class="carousel-control-toggle" aria-label="정지">
+                    <i class="fa-solid fa-stop"></i>
+                </button>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="./assets/images/banner1.jpg" class="w-100" alt="">
+                        <img src="./assets/images/mobile-aptBanner.jpg" class="w-100" alt="">
                     </div>
-                    <div class="carousel-item">
+                    <!-- <div class="carousel-item">
                         <img src="./assets/images/banner2.jpg" class="w-100" alt="">
                     </div>
                     <div class="carousel-item">
@@ -60,90 +66,106 @@
                     </div>
                     <div class="carousel-item">
                         <img src="./assets/images/banner4.jpg" class="w-100" alt="">
+                    </div> -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 퀵 메뉴 박스 -->
+        <section class="quick-box-wrap d-none d-lg-block">
+            <div class="container">
+                <ul class="quick-box">
+                    <li class="quick-box__item">
+                        <img src="./assets/icons/i_map.png" alt="">
+                        <span>지역/직무</span>
+                    </li>
+                    <li class="quick-box__item">
+                        <img src="./assets/icons/i_company.png" alt="">
+                        <span>위탁사</span>
+                    </li>
+                    <li class="quick-box__item">
+                        <img src="./assets/icons/i_center.png" alt="">
+                        <span>고객센터</span>
+                    </li>
+                    <li class="quick-box__item">
+                        <img src="./assets/icons/i_user.png" alt="">
+                        <span>마이페이지</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- brand Card -->
+        <section class="company-trust-bg">
+            <div class="company-trust container">
+                <p class="company-trust__title">
+                    검증된 기업과 함께 성공적인 채용을 만들어갑니다.
+                </p>
+                <div class="company-marquee-box">
+                    <div class="company-marquee-track marquee-left" id="brandTrackTop">
+                        <a href="/brand/detail.html?id=1" class="company-marquee-item">
+                            <img src="./assets/images/brand1.png" alt="거창유지관리">
+                            <span>거창유지관리</span>
+                        </a>
+                        <a href="/brand/detail.html?id=2" class="company-marquee-item">
+                            <img src="./assets/images/brand2.png" alt="경기진흥주택관리(주)">
+                            <span>경기진흥주택관리(주)</span>
+                        </a>
+                        <a href="/brand/detail.html?id=3" class="company-marquee-item">
+                            <img src="./assets/images/brand3.png" alt="광인개발">
+                            <span>광인개발</span>
+                        </a>
+                        <a href="/brand/detail.html?id=4" class="company-marquee-item">
+                            <img src="./assets/images/brand4.png" alt="더씨앤(주)">
+                            <span>더씨앤(주)</span>
+                        </a>
+                        <a href="/brand/detail.html?id=5" class="company-marquee-item">
+                            <img src="./assets/images/brand5.png" alt="(주)동우개발">
+                            <span>(주)동우개발</span>
+                        </a>
+                        <a href="/brand/detail.html?id=6" class="company-marquee-item">
+                            <img src="./assets/images/brand6.png" alt="(주)백운에프엠">
+                            <span>(주)백운에프엠</span>
+                        </a>
+                        <a href="/brand/detail.html?id=7" class="company-marquee-item">
+                            <img src="./assets/images/brand7.png" alt="부건피앤피(주)">
+                            <span>부건피앤피(주)</span>
+                        </a>
+                    </div>
+                    <div class="company-marquee-track marquee-right" id="brandTrackBottom">
+                        <a href="/brand/detail.html?id=8" class="company-marquee-item">
+                            <img src="./assets/images/brand8.png" alt="서림주택관리(주)">
+                            <span>서림주택관리(주)</span>
+                        </a>
+                        <a href="/brand/detail.html?id=9" class="company-marquee-item">
+                            <img src="./assets/images/brand9.png" alt="서일개발">
+                            <span>서일개발</span>
+                        </a>
+                        <a href="/brand/detail.html?id=10" class="company-marquee-item">
+                            <img src="./assets/images/brand10.png" alt="신한영관리(주)">
+                            <span>신한영관리(주)</span>
+                        </a>
+                        <a href="/brand/detail.html?id=11" class="company-marquee-item">
+                            <img src="./assets/images/brand11.png" alt="에이비엠(주)">
+                            <span>에이비엠(주)</span>
+                        </a>
+                        <a href="/brand/detail.html?id=12" class="company-marquee-item">
+                            <img src="./assets/images/brand12.png" alt="율산개발">
+                            <span>율산개발</span>
+                        </a>
+                        <a href="/brand/detail.html?id=13" class="company-marquee-item">
+                            <img src="./assets/images/brand13.png" alt="태룡개발">
+                            <span>태룡개발</span>
+                        </a>
+                        <a href="/brand/detail.html?id=14" class="company-marquee-item">
+                            <img src="./assets/images/brand14.png" alt="(주)푸른종합주택관리">
+                            <span>(주)푸른종합주택관리</span>
+                        </a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- brand Card -->
-        <section class="company-section container">
-            <div class="company-slider">
-                <!-- prev -->
-                <button class="slider-btn slider-btn--prev" aria-label="이전">
-                    ‹
-                </button>
-                <!-- viewport -->
-                <div class="company-slider__viewport">
-                    <ul class="company-slider__track">
-                        <li class="company-card">
-                            <div class="company-card__inner">
-                                <img src="./assets/images/brand1.png" alt="">
-                                <p class="company-card__name">거창유지관리(주)</p>
-                            </div>
-                        </li>
-                        <li class="company-card">
-                            <div class="company-card__inner">
-                                <img src="./assets/images/brand12.png" alt="">
-                                <p class="company-card__name">율산개발</p>
-                            </div>
-                        </li>
-                        <li class="company-card">
-                            <div class="company-card__inner">
-                                <img src="./assets/images/brand3.png" alt="">
-                                <p class="company-card__name">광인개발</p>
-                            </div>
-                        </li>
-                        <li class="company-card">
-                            <div class="company-card__inner">
-                                <img src="./assets/images/brand4.png" alt="">
-                                <p class="company-card__name">더씨앤(주)</p>
-                            </div>
-                        </li>
-                        <li class="company-card">
-                            <div class="company-card__inner">
-                                <img src="./assets/images/brand5.png" alt="">
-                                <p class="company-card__name">(주)동우개발</p>
-                            </div>
-                        </li>
-                        <li class="company-card">
-                            <div class="company-card__inner">
-                                <img src="./assets/images/brand6.png" alt="">
-                                <p class="company-card__name">(주)백운에프엠</p>
-                            </div>
-                        </li>
-                        <li class="company-card">
-                            <div class="company-card__inner">
-                                <img src="./assets/images/brand7.png" alt="">
-                                <p class="company-card__name">부건피앤피(주)</p>
-                            </div>
-                        </li>
-                        <li class="company-card">
-                            <div class="company-card__inner">
-                                <img src="./assets/images/brand8.png" alt="">
-                                <p class="company-card__name">서림주택관리(주)</p>
-
-                            </div>
-                        </li>
-                        <li class="company-card">
-                            <div class="company-card__inner">
-                                <img src="./assets/images/brand9.png" alt="">
-                                <p class="company-card__name">(주)서일개발</p>
-                            </div>
-                        </li>
-                        <li class="company-card">
-                            <div class="company-card__inner">
-                                <img src="./assets/images/brand10.png" alt="">
-                                <p class="company-card__name">신한영관리(주)</p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <!-- next -->
-                <button class="slider-btn slider-btn--next" aria-label="다음">
-                    ›
-                </button>
-            </div>
-        </section>
 
         <!-- 프리미엄 카드 -->
         <section class="premium container">
@@ -154,41 +176,17 @@
         </section>
 
         <!-- 실시간 공고 PC버전 -->
-        <section class="realtime-job d-none d-lg-block container">
+        <section class="realtime-job container">
             <h2 class="realtime-job__title">실시간 공고</h2>
-            <table class="table realtime-job__table">
-                <colgroup>
-                    <col style="width:5%;"> <!-- 즐겨찾기 -->
-                    <col style="width:16%;"> <!-- 공고제목 -->
-                    <col style="width:14%;"> <!-- 근무지역 -->
-                    <col style="width:auto;"> <!-- 직무 -->
-                    <col style="width:14%;"> <!-- 급여 -->
-                    <col style="width:14%;"> <!-- 단지명 -->
-                    <col style="width:auto;"> <!-- 단지규모 -->
-                    <col style="width:auto;"> <!-- 마감일 -->
-                    <col style="width:auto;"> <!-- 버튼 -->
-                </colgroup>
-                <thead>
-                    <tr>
-                        <th>번호</th>
-                        <th>공고제목</th>
-                        <th>근무지역</th>
-                        <th>직무</th>
-                        <th>급여</th>
-                        <th>단지명</th>
-                        <th>단지규모</th>
-                        <th>마감일</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody id="jobListPC"></tbody>
-            </table>
-        </section>
+            <!-- PC -->
+            <div class="realtime-job d-none d-lg-block">
+                <div id="jobListPC"></div>
+            </div>
 
-        <!-- 실시간 공고 모바일버전 -->
-        <section class="realtime-job-mobile d-lg-none container">
-            <h2 class="realtime-job__title">실시간 공고</h2>
-            <div id="jobListMobile" class="job-card-list"></div>
+            <!-- Mobile -->
+            <div class="realtime-job-mobile d-lg-none">
+                <div id="jobListMobile" class="job-card-list"></div>
+            </div>
         </section>
 
     </main>
@@ -200,9 +198,10 @@
     <!-- 모바일 하단 네비 -->
     <div id="bottomNavWrap"></div>
 
-    
+
     <script src="/assets/js/common.js"></script>
-    <script src="./assets/js/bramdCard.js"></script>
+    <script src="/assets/js/carousel.js"></script>
+    <script src="./assets/js/brand-marquee.js"></script>
 
     <!-- 프리미엄 카드 (모듈) -->
     <script type="module" src="./assets/js/premium.js"></script>

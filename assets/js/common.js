@@ -11,7 +11,7 @@
     const headerEl = document.getElementById("headerWrap");
     if (!headerEl) return;
 
-    fetch("/assets/components/header.html", { cache: "no-store" })
+    fetch("/assets/components/header2.html", { cache: "no-store" })
       .then((res) => {
         if (!res.ok) throw new Error("Header fetch failed: " + res.status);
         return res.text();

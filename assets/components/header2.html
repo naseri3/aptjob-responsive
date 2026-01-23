@@ -1,0 +1,36 @@
+<div id="head" class="header-wrap">
+    <nav class="navbar navbar-expand-lg bg-white border-bottom site-navbar">
+        <div class="container flex-column site-navbar__container">
+            <!-- 1단 : 로고 / 검색 / 로그인 -->
+            <div class="w-100 d-flex align-items-center py-1 site-navbar__top">
+                <!-- 로고 -->
+                <a class="navbar-brand site-logo" href="#">
+                    <img src="./assets/images/logo.png" alt="아파트잡">
+                </a>
+                <!-- 검색창 (PC 전용) -->
+                <form class="site-search site-search--pc d-none d-lg-flex ms-4 me-3">
+                    <div class="site-search__wrapper">
+                    <i class="fa-solid fa-magnifying-glass site-search__icon"></i>
+                    <input type="search" class="site-search__input" placeholder="직무, 지역, 아파트명으로 검색해보세요.">
+                    </div>
+                </form>
+
+                <!-- 로그인 / 유저 아이콘 -->
+                <div class="site-user ms-auto">
+                    <button type="button" class="site-user__btn">
+                        <i class="fa-regular fa-user"></i>
+                        <span class="d-none d-sm-inline">로그인</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 검색창 (모바일) -->
+            <div class="w-100 d-lg-none mb-3 site-search site-search--mobile mt-1">
+                <div class="site-search__wrapper">
+                    <i class="fa-solid fa-magnifying-glass site-search__icon"></i>
+                    <input type="search" class="form-control site-search__input" placeholder="직무, 지역, 아파트명으로 검색해보세요.">
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
