@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>아파트잡 | 아파트 전문 구인구직 플랫폼</title>
+    <link rel="icon" href="/asstes/img/favicon.png" type="image/x-icon">
+    <!-- bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <!-- Font Awesome (권장 CDN) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="/assets/css/index.css">
+    <link rel="stylesheet" href="/assets/css/page.css">
+</head>
+
+<body data-page="search" data-header="sub">
+    <!-- PC header -->
+    <header id="headerWrap"></header>
+
+    <main id="pages" class="subPage">
+        <section id="search-wrapper" class="container">
+            <h2>채용공고 상세검색</h2>
+
+            <!-- pc search -->
+            <section id="pcSearch" class="d-none d-lg-block" aria-label="PC 검색 영역"></section>
+
+            <!-- mobile search -->
+            <section id="mobileSearch" class="d-lg-none"  aria-label="모바일 검색 영역"></section>
+        </section>
+
+        <!-- 실시간 공고 PC버전 -->
+        <section class="realtime-job container">
+            <h2 class="realtime-job__title subPage-jobList">전체 공고</h2>
+            <!-- PC -->
+            <div class="realtime-job d-none d-lg-block">
+                <div id="jobListPC"></div>
+            </div>
+
+            <!-- Mobile -->
+            <div class="realtime-job-mobile d-lg-none">
+                <div id="jobListMobile" class="job-card-list"></div>
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- PC footer -->
+    <footer id="footer"></footer>
+    <!-- Back to Top -->
+    <div id="backToTopWrap"></div>
+    <!-- 모바일 하단 네비 -->
+    <div id="bottomNavWrap"></div>
+
+
+    <script src="/assets/js/common.js"></script>
+    <script src="/assets/js/recruitSearch.js"></script>
+    <script src="/assets/js/searchLoader.js"></script>
+
+    <!-- 실시간 공고 (모듈) -->
+    <script type="module" src="/assets/js/renderJob.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

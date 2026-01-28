@@ -8,19 +8,29 @@
   });
 
   function loadHeader() {
-    const headerEl = document.getElementById("headerWrap");
-    if (!headerEl) return;
+  const headerEl = document.getElementById("headerWrap");
+  if (!headerEl) return;
 
-    fetch("/assets/components/header2.html", { cache: "no-store" })
-      .then((res) => {
-        if (!res.ok) throw new Error("Header fetch failed: " + res.status);
-        return res.text();
-      })
-      .then((html) => {
-        headerEl.innerHTML = html;
-      })
-      .catch((err) => console.error(err));
-  }
+  const headerType = document.body.dataset.header || "main";
+
+  const headerMap = {
+    main: "/assets/components/header-main.html",
+    sub: "/assets/components/header-sub.html",
+  };
+
+  const url = headerMap[headerType] || headerMap.main;
+
+  fetch(url, { cache: "no-store" })
+    .then((res) => {
+      if (!res.ok) throw new Error("Header fetch failed: " + res.status);
+      return res.text();
+    })
+    .then((html) => {
+      headerEl.innerHTML = html;
+    })
+    .catch((err) => console.error(err));
+}
+
 
   function loadFooter() {
     const footerEl = document.getElementById("footer");

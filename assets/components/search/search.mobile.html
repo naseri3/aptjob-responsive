@@ -1,0 +1,979 @@
+<!-- 검색 버튼 영역 -->
+<div class="mobile-search-bar d-flex gap-2 py-1 px-2 overflow-auto">
+
+    <!-- 지역 -->
+    <button type="button" class="btn btn-secondary position-relative search-btn flex-shrink-0" data-type="region">
+        <span class="label">지역</span>
+    </button>
+    <!-- 직무 -->
+    <button type="button" class="btn btn-secondary position-relative search-btn flex-shrink-0" data-type="job">
+        <span class="label">직무</span>
+    </button>
+    <!-- 급여 -->
+    <button type="button" class="btn btn-secondary position-relative search-btn flex-shrink-0" data-type="salary">
+        <span class="label">급여</span>
+    </button>
+    <!-- 경력 -->
+    <button type="button" class="btn btn-secondary position-relative search-btn flex-shrink-0" data-type="career">
+        <span class="label">경력</span>
+    </button>
+    <!-- 상태 -->
+    <button type="button" class="btn btn-secondary position-relative search-btn flex-shrink-0" data-type="status">
+        <span class="label">상태</span>
+    </button>
+
+</div>
+
+<!-- 선택된 조건 미리보기 -->
+<div class="mobile-selected-preview p-3 bg-light">
+    <!-- JS로 태그 삽입 -->
+</div>
+<!-- 지역 선택 Bottom Sheet -->
+<div class="offcanvas offcanvas-bottom" tabindex="-1" id="regionSheet">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title">지역</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body p-0">
+        <div class="region-scroll-area">
+            <div class="d-flex h-100">
+                <!-- 좌측 시·도 -->
+                <ul class="list-group rounded-0 region-depth1">
+                    <li class="list-group-item active" data-district="all">전국</li>
+                    <li class="list-group-item" data-district="seoul">서울</li>
+                    <li class="list-group-item" data-district="gyeonggi">경기</li>
+                    <li class="list-group-item" data-district="incheon">인천</li>
+                    <li class="list-group-item" data-district="busan">부산</li>
+                    <li class="list-group-item" data-district="daegu">대구</li>
+                    <li class="list-group-item" data-district="daejeon">대전</li>
+                    <li class="list-group-item" data-district="sejong">세종</li>
+                    <li class="list-group-item" data-district="chungnam">충남</li>
+                    <li class="list-group-item" data-district="chungbuk">충북</li>
+                    <li class="list-group-item" data-district="ulsan">울산</li>
+                    <li class="list-group-item" data-district="gyeongnam">경남</li>
+                    <li class="list-group-item" data-district="gyeongbuk">경북</li>
+                    <li class="list-group-item" data-district="gwangju">광주</li>
+                    <li class="list-group-item" data-district="jeonnam">전남</li>
+                    <li class="list-group-item" data-district="jeonbuk">전북</li>
+                    <li class="list-group-item" data-district="gangwon">강원</li>
+                    <li class="list-group-item" data-district="jeju">제주</li>
+                </ul>
+                <!-- 전체 -->
+                <ul class="list-group rounded-0 region-depth2 all  d-none">
+                    <li class="list-group-item d-flex justify-content-between" data-district="all">
+                        전체
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item"></li>
+                    <li class="list-group-item"></li>
+                    <li class="list-group-item"></li>
+                    <li class="list-group-item"></li>
+                    <li class="list-group-item"></li>
+                    <li class="list-group-item"></li>
+                    <li class="list-group-item"></li>
+                    <li class="list-group-item"></li>
+                </ul>
+                <!-- 서울 -->
+                <ul class="list-group rounded-0 region-depth2 seoul">
+                    <li class="list-group-item d-flex justify-content-between" data-district="seoul-all">
+                        서울 전체
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="gangnam">강남구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="gangdong">강동구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="gangbuk">강북구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="gangseo">강서구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="gwanak">관악구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="gwanak">관악구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="gwangjin">광진구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="guro">구로구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="geumcheon">금천구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="nowon">노원구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="dobong">도봉구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="dongdaemun">동대문구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="dongjak">동작구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="mapo">마포구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="seodaemun">서대문구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="seocho">서초구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="seongdong">성동구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="seongbuk">성북구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="songpa">송파구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="yangcheon">양천구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="yeongdeungpo">영등포구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="yongsan">용산구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="eunpyeong">은평구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="jongno">종로구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="jung">중구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="jungnang">중랑구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                </ul>
+                <!-- 경기 -->
+                <ul class="list-group rounded-0 region-depth2 gyeonggi d-none">
+                    <li class="list-group-item d-flex justify-content-between" data-district="gyeonggi-all">
+                        경기 전체
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="gapyeong">가평군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="goyang-deogyang">고양시 덕양구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="goyang-ilsan-dong">고양시
+                        일산동구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="goyang-ilsan-seo">고양시 일산서구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="gwacheon">과천시
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="gwangmyeong">광명시
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="gwangju">광주시
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="guri">구리시
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="gunpo">군포시
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="gimpo">김포시
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="namyangju">남양주시
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="dongducheon">동두천시
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="bucheon">부천시
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="seongnam-bundang">성남시 분당구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="seongnam-sujeong">성남시 수정구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="seongnam-jungwon">성남시 중원구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="suwon-gwonseon">수원시 권선구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="suwon-yeongtong">수원시 영통구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="suwon-jangan">수원시 장안구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="suwon-paldal">수원시 팔달구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="siheung">시흥시
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="ansan-danwon">안산시 단원구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="ansan-sangnok">안산시 상록구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="anseong">안성
+                        <i class="fa-solid fa-check text-white"></i>시
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="anyang-dongan">안양시 동안구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="anyang-manan">안양시 만안구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="yangju">양주시
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="yangpyeong">양평군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="yeoju">여주시
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="yeoncheon">연천군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="osan">오산시
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="yongin-giheung">용인시 기흥구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="yongin-suji">용인시 수지구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="yongin-cheoin">용인시 처인구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="uiwang">의왕시
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="uijeongbu">의정부시
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="icheon">이천시
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="paju">파주시
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="pyeongtaek">평택시
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="pocheon">포천시
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="hanam">하남시
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="hwaseong">화성시
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                </ul>
+                <!-- 인천 -->
+                <ul class="list-group rounded-0 region-depth2 incheon d-none">
+                    <li class="list-group-item d-flex justify-content-between" data-district="incheon-ganghwa">인천 전체
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="incheon-ganghwa">강화군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="incheon-gyeyang">계약구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="incheon-namdong">남동구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="incheon-dong">동구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="incheon-michuhol">미추홀구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="incheon-bupyeong">부평구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="incheon-seo">서구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="incheon-yeonsu">연수구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="incheon-ongjin">옹진군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="incheon-jung">중구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                </ul>
+                <!-- 부산 -->
+                <ul class="list-group rounded-0 region-depth2 busan d-none">
+                    <li class="list-group-item d-flex justify-content-between" data-district="busan-all">
+                        부산 전체
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="busan-gangseo">강서구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="busan-geumjeong">금정구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="busan-gijang">기장군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="busan-nam">남구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="busan-dong">동구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="busan-dongnae">동래구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="busan-busanjin">부산진구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="busan-buk">북구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="busan-sasang">사상구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="busan-saha">사하구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="busan-seo">서구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="busan-suyeong">수영구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="busan-yeonje">연제구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="busan-yeongdo">영도구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="busan-jung">중구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="busan-haeundae">해운대구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                </ul>
+                <!-- 대구 -->
+                <ul class="list-group rounded-0 region-depth2 daegu d-none">
+                    <li class="list-group-item d-flex justify-content-between" data-district="daegu-all">
+                        대구 전체
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="daegu-nam">남구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="daegu-dalseo">달서구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="dalseong">달성군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="daegu-dong">동구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="daegu-buk">북구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="daegu-seo">서구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="daegu-suseong">수성구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="daegu-jung">중구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                </ul>
+                <!-- 대전 -->
+                <ul class="list-group rounded-0 region-depth2 daejeon d-none">
+                    <li class="list-group-item d-flex justify-content-between" data-district="daejeon-all">
+                        대전 전체
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="daejeon-daedeok">대덕구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="daejeon-dong">동구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="daejeon-seo">서구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="daejeon-yuseong">유성구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="daejeon-jung">중구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                </ul>
+                <!-- 세종 -->
+                <ul class="list-group rounded-0 region-depth2 sejong d-none">
+                    <li class="list-group-item d-flex justify-content-between" data-district="sejong-all">
+                        세종 전체
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                </ul>
+                <!-- 충남 -->
+                <ul class="list-group rounded-0 region-depth2 chungnam d-none">
+                    <li class="list-group-item d-flex justify-content-between" data-district="chungnam-all">
+                        충남 전체
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="gyeryong">계룡시
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="gongju">공주시
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="geumsan">금산군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="nonsan">논산시
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="dangjin">당진시
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="boryeong">보령시
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="buyeo">부여군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="seosan">서산시
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="seocheon">서천군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="asan">아산시
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="yesan">예산군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="cheonan-dongnam">천안시 동남구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="cheonan-seobuk">천안시 서북구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="cheongyang">청양군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="taean">태안군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="hongseong">흥성군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                </ul>
+                <!-- 충북 -->
+                <ul class="list-group rounded-0 region-depth2 chungbuk d-none">
+                    <li class="list-group-item d-flex justify-content-between" data-district="chungbuk-all">
+                        충북 전체
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="goesan">괴산군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="danyang">단양군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="boeun">보은군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="yeongdong">영동군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="okcheon">옥천군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="eumseong">음성군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="jecheon">제천시
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="jeungpyeong">증평군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="jincheon">진천군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="cheongju-sangdang">청주시 상당구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="cheongju-seowon">청주시 서원구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="cheongju-cheongwon">청주시
+                        청원구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="cheongju-heungdeok">청주시
+                        흥덕구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="chungju">충주시
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                </ul>
+                <!-- 울산 -->
+                <ul class="list-group rounded-0 region-depth2 ulsan d-none">
+                    <li class="list-group-item d-flex justify-content-between" data-district="ulsan-all">
+                        울산 전체
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="ulsan-nam">남구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="ulsan-dong">동구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="ulsan-buk">북구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="ulsan-ulju">울주군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="ulsan-jung">중구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                </ul>
+                <!-- 경남 -->
+                <ul class="list-group rounded-0 region-depth2 gyeongnam d-none">
+                    <li class="list-group-item d-flex justify-content-between" data-district="gyeongnam-all">
+                        경남 전체
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="geoje">거제시
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="geochang">거창군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="gyeongnam-goseong">고성군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="gimhae">김해시
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="namhae">남해군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="miryang">밀양시
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="sacheon">사천시
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="sancheong">산청군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="yangsan">양산시
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="uiryeong">의령군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="jinju">진주시
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="changnyeong">창녕군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="changwon-masanhappo">창원시
+                        마산합포구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="changwon-masanhoeweon">창원시
+                        마산화원구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="changwon-seongsan">창원시 성산구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="changwon-uichang">창원시 의창구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="changwon-jinhae">창원시 진해구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="tongyeong">통영시
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="hadong">하동군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="haman">함안구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="hamyang">함양군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="hapcheon">합천군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                </ul>
+                <!-- 경북 -->
+                <ul class="list-group rounded-0 region-depth2 gyeongbuk d-none">
+                    <li class="list-group-item d-flex justify-content-between" data-district="gyeongbuk-all">
+                        경북 전체
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="gyeongsan">경산시
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="gyeongju">경주시
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="goryeong">고령군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="gumi">구미시
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="gunwi">군위군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="gimcheon">김천시
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="munkyung">문경시
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="bonghwa">봉화군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="sangju">상주시
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="seongju">성주군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="andong">안동시
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="yeongdeok">영덕군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="yeongyang">영양군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="yeongju">영주시
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="yeongcheon">영천시
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="yecheon">예천군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="ulleung">울릉군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="uljin">울진군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="uiseong">의성군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="cheongdo">청도군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="cheongsong">청송군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="chilgok">칠곡군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="pohang-nam">포항시 남구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="pohang-buk">포항시 북구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                </ul>
+                <!-- 광주 -->
+                <ul class="list-group rounded-0 region-depth2 gwangju d-none">
+                    <li class="list-group-item d-flex justify-content-between" data-district="gwangju-all">
+                        광주 전체
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="gwangju-gwangsan">광산구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="gwangju-nam">남구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="gwangju-dong">동구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="gwangju-buk">북구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="gwangju-seo">서구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                </ul>
+                <!-- 전남 -->
+                <ul class="list-group rounded-0 region-depth2 jeonnam d-none">
+                    <li class="list-group-item d-flex justify-content-between" data-district="jeonnam-all">
+                        전남 전체
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="gangjin">강진군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="goheung">고흥군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="gokseong">곡성군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="gwangyang">광양시
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="gurye">구례군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="naju">나주시
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="damyang">담양군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="mokpo">목포시
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="muan">무안군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="boseong">보성군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="suncheon">순천시
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="sinan">신안군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="yeosu">여수시
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="yeonggwang">영광군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="yeongam">영암군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="wando">완도군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="jangseong">장성군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="jangheung">장흥군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="jindo">진도군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="hampyeong">함평군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="haenam">해남군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="hwasun">화순군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                </ul>
+                <!-- 전북 -->
+                <ul class="list-group rounded-0 region-depth2 jeonbuk d-none">
+                    <li class="list-group-item d-flex justify-content-between" data-district="jeonbuk-all">
+                        전북 전체
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="gochang">고창군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="gunsan">군산시
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="gimje">김제시
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="namwon">남원시
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="muju">무주군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="buan">부안군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="sunchang">순창군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="wanju">완주군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="iksan">익산시
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="imsil">임실군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="jangsu">장수군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="jeonju-deokjin">전주시 덕진구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="jeonju-wansan">전주시 완산구
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="jeongeup">정읍시
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="jinan">진안군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                </ul>
+                <!-- 강원 -->
+                <ul class="list-group rounded-0 region-depth2 gangwon d-none">
+                    <li class="list-group-item d-flex justify-content-between" data-district="gangwon-all">
+                        강원 전체
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="gangneung">강릉시
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="gangwon-goseong">고성군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="donghae">동해시
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="samcheok">삼척시
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="sokcho">속초시
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="yanggu">양구군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="yangyang">양양군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="yeongwol">영월군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="wonju">원주시
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="inje">인제군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="jeongseon">정선군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="cheorwon">철원군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="taebaek">춘천시
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="taebaek">태백시
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="pyeongchang">평창군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="hongcheon">흥천군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="hwacheon">화천군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="hoengseong">횡성군
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                </ul>
+                <!-- 제주 -->
+                <ul class="list-group rounded-0 region-depth2 jeju d-none">
+                    <li class="list-group-item d-flex justify-content-between" data-district="jeju-all">
+                        제주 전체
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="seogwipo">서귀포시
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between" data-district="jeju">제주시
+                        <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item"></li>
+                    <li class="list-group-item"></li>
+                    <li class="list-group-item"></li>
+                    <li class="list-group-item"></li>
+                    <li class="list-group-item"></li>
+                    <li class="list-group-item"></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 선택된 지역 (고정) -->
+        <div class="region-selected-fixed">
+            <p class="mb-2 fw-semibold">선택한 지역 <span class="text-primary">0</span></p>
+            <div class="d-flex flex-wrap gap-2 selected-region-tags">
+
+            </div>
+        </div>
+
+        <!-- 하단 버튼 (고정) -->
+        <div class="region-footer-fixed d-flex gap-2 pb-3 container">
+            <button class="btn btn-secondary region-reset-btn w-50">초기화</button>
+            <button class="btn btn-primary region-save-btn w-50">저장하기</button>
+        </div>
+
+    </div>
+</div>
+<!-- 직무 선택 Bottom Sheet -->
+<div class="offcanvas offcanvas-bottom" tabindex="-1" id="jobSheet"></div>
+<!-- 상세 선택 Bottom Sheet -->
+<div class="offcanvas offcanvas-bottom" tabindex="-1" id="salarySheet"></div>
+<div class="offcanvas offcanvas-bottom" tabindex="-1" id="careerSheet"></div>
+<div class="offcanvas offcanvas-bottom" tabindex="-1" id="statusSheet"></div>

@@ -2,6 +2,11 @@
 @use "./components/component";
 @use "./pages/renderJob";
 
+html, body {
+  height: auto;
+  overflow-y: auto;
+}
+
 /* =========================
    Pages
 ========================= */
