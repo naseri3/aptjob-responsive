@@ -33,12 +33,20 @@
   /* X 버튼 */
   /* 버튼 영역 */
   /* ===============================
-      Mobile Search
+      Mobile Search (공통)
   ================================ */
-  /* 버튼은 화면 기준 3개만 보이게 */
-  /* 뱃지 위치 */
+  /* ===============================
+      Mobile Offcanvas (공통)
+  ================================ */
+  /* ===============================
+  선택 태그 공통 X 버튼 스타일 (job 기준으로 통일)
+  ================================ */
+  /* region + job 공통 */
   /* ===============================
       Mobile Region Offcanvas
+  ================================ */
+  /* ===============================
+      Mobile Job Offcanvas
   ================================ */
 }
 .subPage #search-wrapper {
@@ -306,32 +314,14 @@
   font-size: 18px;
   font-weight: 700;
 }
-.subPage #regionSheet .offcanvas-body {
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-}
 .subPage .mobile-search-bar {
   display: flex;
   gap: 8px;
   padding: 6px 8px;
   overflow-x: auto;
 }
-.subPage .mobile-search-bar .search-btn {
-  padding: 8px 14px;
-  border-radius: 20px;
-  font-weight: 700;
-  background: #f1f3f5;
-  color: #333;
-  white-space: nowrap;
-}
-.subPage .mobile-search-bar .search-btn.is-active {
-  background: var(--bs-primary);
-  color: #fff;
-}
 .subPage .mobile-search-bar::-webkit-scrollbar {
-  display: none; /* Chrome, Safari */
+  display: none;
 }
 .subPage .mobile-search-bar .search-btn {
   flex: 0 0 calc(25% - 6px);
@@ -344,8 +334,13 @@
   padding: 6px 0;
   font-weight: 700;
   position: relative;
+  white-space: nowrap;
 }
-.subPage .search-btn .count {
+.subPage .mobile-search-bar .search-btn.is-active {
+  background: var(--bs-primary);
+  color: #fff;
+}
+.subPage .mobile-search-bar .search-btn .count {
   position: absolute;
   top: -4px;
   right: -6px;
@@ -354,12 +349,6 @@
 .subPage .offcanvas-bottom {
   height: 60vh;
   border-radius: 15px 15px 0 0;
-  /* =========================
-      상단 지역 리스트 스크롤 영역
-  ========================= */
-  /* =========================
-      선택된 지역 (항상 고정)
-  ========================= */
 }
 .subPage .offcanvas-bottom .offcanvas-header {
   border-bottom: 1px solid #dee2e6;
@@ -374,125 +363,214 @@
   display: flex;
   flex-direction: column;
   height: 100%;
+  overflow: hidden;
 }
-.subPage .offcanvas-bottom .region-scroll-area {
+.subPage .selected-region-tags .region-remove-btn,
+.subPage .selected-region-tags .job-remove-btn,
+.subPage .selected-job-tags .region-remove-btn,
+.subPage .selected-job-tags .job-remove-btn {
+  all: unset;
+  cursor: pointer;
+  /* 🔑 X 정렬 핵심 */
+  width: 16px;
+  height: 16px;
+  margin-left: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--bs-primary);
+  opacity: 0.8;
+}
+.subPage .selected-region-tags .region-remove-btn::before,
+.subPage .selected-region-tags .job-remove-btn::before,
+.subPage .selected-job-tags .region-remove-btn::before,
+.subPage .selected-job-tags .job-remove-btn::before {
+  content: "×";
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1;
+}
+.subPage .selected-region-tags .region-remove-btn:hover,
+.subPage .selected-region-tags .job-remove-btn:hover,
+.subPage .selected-job-tags .region-remove-btn:hover,
+.subPage .selected-job-tags .job-remove-btn:hover {
+  opacity: 1;
+}
+.subPage #regionSheet {
+  /* 선택된 지역 */
+}
+.subPage #regionSheet .region-scroll-area {
   flex: 1;
   overflow: hidden;
-  pointer-events: auto;
   overscroll-behavior: contain;
-  /* 좌측 시·도 */
+  /* 1depth */
+  /* 2depth */
 }
-.subPage .offcanvas-bottom .region-scroll-area .region-scroll-area > .d-flex {
+.subPage #regionSheet .region-scroll-area > .d-flex {
   height: 100%;
 }
-.subPage .offcanvas-bottom .region-scroll-area .region-depth1 {
+.subPage #regionSheet .region-scroll-area .region-depth1 {
   width: 34%;
-  max-height: 100%;
   overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-  /* 🔥 스크롤바 숨김 */
   scrollbar-width: none;
-  -ms-overflow-style: none;
 }
-.subPage .offcanvas-bottom .region-scroll-area .region-depth1::-webkit-scrollbar {
+.subPage #regionSheet .region-scroll-area .region-depth1::-webkit-scrollbar {
   display: none;
 }
-.subPage .offcanvas-bottom .region-scroll-area .region-depth1 .list-group-item {
+.subPage #regionSheet .region-scroll-area .region-depth1 .list-group-item {
   font-size: 14px;
   font-weight: 600;
   color: var(--navi-color);
-  border-bottom: 0 none;
+  border-bottom: none;
 }
-.subPage .offcanvas-bottom .region-scroll-area .region-depth1 .active {
+.subPage #regionSheet .region-scroll-area .region-depth1 .active {
   background-color: var(--color-primary-light);
-  border: none;
   color: var(--bs-primary);
+  border: none;
 }
-.subPage .offcanvas-bottom .region-scroll-area .region-depth2 {
+.subPage #regionSheet .region-scroll-area .region-depth2 {
   width: 66%;
-  max-height: 100%;
   overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-  /* 🔥 스크롤바 숨김 */
   scrollbar-width: none;
-  -ms-overflow-style: none;
 }
-.subPage .offcanvas-bottom .region-scroll-area .region-depth2::-webkit-scrollbar {
+.subPage #regionSheet .region-scroll-area .region-depth2::-webkit-scrollbar {
   display: none;
 }
-.subPage .offcanvas-bottom .region-scroll-area .region-depth2 .list-group-item {
-  width: 100%;
-  height: 100%;
-  cursor: pointer;
+.subPage #regionSheet .region-scroll-area .region-depth2 .list-group-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: 14px;
-  border-bottom: none;
   font-weight: 600;
+  cursor: pointer;
 }
-.subPage .offcanvas-bottom .region-scroll-area .region-depth2 .list-group-item i {
+.subPage #regionSheet .region-scroll-area .region-depth2 .list-group-item i {
   opacity: 0;
-  font-size: 14px;
 }
-.subPage .offcanvas-bottom .region-scroll-area .region-depth2 .list-group-item.selected {
-  background-color: #0d6efd;
+.subPage #regionSheet .region-scroll-area .region-depth2 .list-group-item.selected {
+  background-color: var(--bs-primary);
   color: #fff;
 }
-.subPage .offcanvas-bottom .region-scroll-area .region-depth2 .list-group-item.selected i {
+.subPage #regionSheet .region-scroll-area .region-depth2 .list-group-item.selected i {
   opacity: 1;
 }
-.subPage .offcanvas-bottom .region-scroll-area .selected-region {
-  background-color: #0d6efd;
-  color: #fff;
-  padding-right: 28px;
-  position: relative;
-}
-.subPage .offcanvas-bottom .region-scroll-area .selected-region .region-remove-btn {
-  position: absolute;
-  right: 8px;
-  top: 50%;
-  transform: translateY(-50%);
-  filter: invert(1);
-}
-.subPage .offcanvas-bottom .region-scroll-area .all .list-group-item:not(:first-child) {
-  border-bottom: none;
-}
-.subPage .offcanvas-bottom .region-selected-fixed {
-  flex-shrink: 0;
+.subPage #regionSheet .region-selected-fixed {
   padding: 12px;
   border-top: 1px solid #ddd;
-  background-color: #f8f9fa;
+  background: #f8f9fa;
 }
-.subPage .offcanvas-bottom .region-selected-fixed .selected-region-tags {
-  align-items: center;
-}
-.subPage .offcanvas-bottom .region-selected-fixed .selected-region-tags .selected-region {
-  background-color: #fff;
-  font-size: 14px;
-  padding: 6px 10px;
+.subPage #regionSheet .region-selected-fixed .selected-region {
+  min-height: 32px;
+  font-size: 15px;
+  padding: 6px 12px;
   border: 1px solid var(--bs-primary);
   color: var(--bs-primary);
+  border-radius: 50px;
+  font-weight: 600;
+  line-height: 1.2;
 }
-.subPage .offcanvas-bottom .region-selected-fixed .region-remove-btn {
-  width: 12px;
-  height: 12px;
-  margin-left: 6px;
-  opacity: 0.7;
-  filter: grayscale(50%) brightness(20%) contrast(50%);
-}
-.subPage .offcanvas-bottom .region-footer-fixed {
+.subPage #regionSheet .region-footer-fixed {
   position: sticky;
   bottom: 0;
   background: #fff;
   z-index: 11;
 }
-.subPage .offcanvas-bottom .region-footer-fixed .btn-secondary {
-  background-color: #a4a4a4;
-  border: none;
-  font-weight: bold;
+.subPage #jobSheet {
+  /* =========================
+      선택된 직무
+  ========================= */
 }
-.subPage .offcanvas-bottom .region-footer-fixed .btn-primary {
-  font-weight: bold;
-  border: none;
+.subPage #jobSheet .job-scroll-area {
+  flex: 1;
+  overflow: hidden;
+  overscroll-behavior: contain;
+  /* =========================
+      1depth
+  ========================= */
+  /* =========================
+      2depth
+  ========================= */
+}
+.subPage #jobSheet .job-scroll-area > .d-flex {
+  height: 100%;
+}
+.subPage #jobSheet .job-scroll-area .job-depth1 {
+  width: 50%;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+.subPage #jobSheet .job-scroll-area .job-depth1::-webkit-scrollbar {
+  display: none;
+}
+.subPage #jobSheet .job-scroll-area .job-depth1 .list-group-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.subPage #jobSheet .job-scroll-area .job-depth1 .list-group-item i {
+  opacity: 0;
+}
+.subPage #jobSheet .job-scroll-area .job-depth1 .list-group-item.selected {
+  background-color: var(--bs-primary);
+  color: #fff;
+}
+.subPage #jobSheet .job-scroll-area .job-depth1 .list-group-item.selected i {
+  opacity: 1;
+}
+.subPage #jobSheet .job-scroll-area .job-depth2 {
+  width: 50%;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+.subPage #jobSheet .job-scroll-area .job-depth2::-webkit-scrollbar {
+  display: none;
+}
+.subPage #jobSheet .job-scroll-area .job-depth2 .list-group-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.subPage #jobSheet .job-scroll-area .job-depth2 .list-group-item i {
+  opacity: 0;
+}
+.subPage #jobSheet .job-scroll-area .job-depth2 .list-group-item.selected {
+  background-color: var(--bs-primary);
+  color: #fff;
+}
+.subPage #jobSheet .job-scroll-area .job-depth2 .list-group-item.selected i {
+  opacity: 1;
+}
+.subPage #jobSheet .job-selected-fixed {
+  padding: 12px;
+  border-top: 1px solid #ddd;
+  background: #f8f9fa;
+}
+.subPage #jobSheet .job-selected-fixed .selected-job {
+  min-height: 32px;
+  font-size: 15px;
+  padding: 6px 12px;
+  border: 1px solid var(--bs-primary);
+  color: var(--bs-primary);
+  border-radius: 50px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+.subPage #jobSheet .job-footer-fixed {
+  position: sticky;
+  bottom: 0;
+  background: #fff;
+  z-index: 11;
+}
+.subPage #jobSheet .list-group-item.selected {
+  background-color: var(--bs-primary);
+  color: #fff;
+}
+.subPage #jobSheet .list-group-item.selected i {
+  opacity: 1;
 }/*# sourceMappingURL=page.css.map */

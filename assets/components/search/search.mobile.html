@@ -1,6 +1,5 @@
 <!-- 검색 버튼 영역 -->
 <div class="mobile-search-bar d-flex gap-2 py-1 px-2 overflow-auto">
-
     <!-- 지역 -->
     <button type="button" class="btn btn-secondary position-relative search-btn flex-shrink-0" data-type="region">
         <span class="label">지역</span>
@@ -21,7 +20,6 @@
     <button type="button" class="btn btn-secondary position-relative search-btn flex-shrink-0" data-type="status">
         <span class="label">상태</span>
     </button>
-
 </div>
 
 <!-- 선택된 조건 미리보기 -->
@@ -64,14 +62,6 @@
                         전체
                         <i class="fa-solid fa-check text-white"></i>
                     </li>
-                    <li class="list-group-item"></li>
-                    <li class="list-group-item"></li>
-                    <li class="list-group-item"></li>
-                    <li class="list-group-item"></li>
-                    <li class="list-group-item"></li>
-                    <li class="list-group-item"></li>
-                    <li class="list-group-item"></li>
-                    <li class="list-group-item"></li>
                 </ul>
                 <!-- 서울 -->
                 <ul class="list-group rounded-0 region-depth2 seoul">
@@ -945,12 +935,6 @@
                     <li class="list-group-item d-flex justify-content-between" data-district="jeju">제주시
                         <i class="fa-solid fa-check text-white"></i>
                     </li>
-                    <li class="list-group-item"></li>
-                    <li class="list-group-item"></li>
-                    <li class="list-group-item"></li>
-                    <li class="list-group-item"></li>
-                    <li class="list-group-item"></li>
-                    <li class="list-group-item"></li>
                 </ul>
             </div>
         </div>
@@ -971,9 +955,97 @@
 
     </div>
 </div>
+
 <!-- 직무 선택 Bottom Sheet -->
-<div class="offcanvas offcanvas-bottom" tabindex="-1" id="jobSheet"></div>
-<!-- 상세 선택 Bottom Sheet -->
+<div class="offcanvas offcanvas-bottom" tabindex="-1" id="jobSheet">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title">직무</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+
+    <div class="offcanvas-body p-0">
+        <div class="job-scroll-area">
+            <div class="d-flex h-100">
+                <!-- 직무 1depth -->
+                <ul class="list-group rounded-0 job-depth1">
+                    <li class="list-group-item" data-job="job-admin-director">
+                        소장 <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item" data-job="job-admin-manager">
+                        관리과장 <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item" data-job="job-admin-supervisor">
+                        관리주임 <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item" data-job="job-office-accounting">
+                        경리(회계) <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item" data-job="job-office-admin">
+                        서무식 <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item" data-job="job-tech-manager">
+                        기술과장 <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item" data-job="job-electric-staff">
+                        전기직 <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item" data-job="job-electric-manager">
+                        전기과장 <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item" data-job="job-electric-engineer">
+                        전기기사 <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                </ul>
+
+                <!-- 직무 2depth -->
+                <ul class="list-group rounded-0 job-depth2">
+                    <li class="list-group-item" data-job="job-facility-maintenance">
+                        설비직(영선) <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item" data-job="job-facility-manager">
+                        시설과장 <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item" data-job="job-facility-engineer">
+                        시설기사 <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item" data-job="job-mechanical-electric">
+                        기전직 <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item" data-job="job-landscape">
+                        조경기사 <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item" data-job="job-security">
+                        경비원 <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item" data-job="job-cleaning">
+                        미화원 <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                    <li class="list-group-item" data-job="job-etc">
+                        기타 <i class="fa-solid fa-check text-white"></i>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 선택된 직무 (고정) -->
+    <div class="job-selected-fixed">
+        <p class="mb-2 fw-semibold">
+            선택한 직무 <span class="text-primary">0</span>
+        </p>
+        <div class="d-flex flex-wrap gap-2 selected-job-tags">
+        </div>
+    </div>
+
+    <!-- 하단 버튼 (고정) -->
+    <div class="job-footer-fixed d-flex gap-2 pb-3 container">
+        <button class="btn btn-secondary job-reset-btn w-50">초기화</button>
+        <button class="btn btn-primary job-save-btn w-50">저장하기</button>
+    </div>
+</div>
+
+
+<!-- 급여 선택 Bottom Sheet -->
 <div class="offcanvas offcanvas-bottom" tabindex="-1" id="salarySheet"></div>
 <div class="offcanvas offcanvas-bottom" tabindex="-1" id="careerSheet"></div>
 <div class="offcanvas offcanvas-bottom" tabindex="-1" id="statusSheet"></div>
