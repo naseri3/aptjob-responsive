@@ -7,7 +7,7 @@ export const jobList = [
     salary: "월급300만원 (세전)",
     complexName: "서초 래미안 아파트",
     complexSize: 420,
-    deadline: "2026-01-31",
+    deadline: "채용시까지",
     isClosed: false
   },
   {
@@ -18,7 +18,7 @@ export const jobList = [
     salary: "월급450만원 (세전)",
     complexName: "강남 푸르지오",
     complexSize: 980,
-    deadline: "2026-01-29",
+    deadline: "채용시까지",
     isClosed: false
   },
   {
@@ -29,7 +29,7 @@ export const jobList = [
     salary: "월급380만원 (세전)",
     complexName: "판교 힐스테이트",
     complexSize: 720,
-    deadline: "2026-01-25",
+    deadline: "채용시까지",
     isClosed: false
   },
   {
@@ -40,7 +40,7 @@ export const jobList = [
     salary: "월급260만원 (세전)",
     complexName: "잠실 리센츠",
     complexSize: 560,
-    deadline: "2026-01-20",
+    deadline: "2026-06-10",
     isClosed: true
   },
   {
@@ -51,7 +51,7 @@ export const jobList = [
     salary: "월급310만원 (세전)",
     complexName: "일산 두산위브",
     complexSize: 830,
-    deadline: "2026-01-22",
+    deadline: "2026-05-30",
     isClosed: false
   },
   {
@@ -62,7 +62,7 @@ export const jobList = [
     salary: "월급360만원 (세전)",
     complexName: "송도 더샵",
     complexSize: 1100,
-    deadline: "2026-01-28",
+    deadline: "2026-05-30",
     isClosed: false
   },
   {
@@ -73,7 +73,7 @@ export const jobList = [
     salary: "월급280만원 (세전)",
     complexName: "해운대 아이파크",
     complexSize: 640,
-    deadline: "2026-01-18",
+    deadline: "2026-05-22",
     isClosed: true
   },
   {
@@ -84,7 +84,7 @@ export const jobList = [
     salary: "월급430만원 (세전)",
     complexName: "수성 범어자이",
     complexSize: 900,
-    deadline: "2026-01-30",
+    deadline: "2026-05-22",
     isClosed: false
   },
   {
@@ -95,7 +95,7 @@ export const jobList = [
     salary: "월급320만원 (세전)",
     complexName: "광주 센트럴파크",
     complexSize: 510,
-    deadline: "2026-01-24",
+    deadline: "2026-05-20",
     isClosed: false
   },
   {
@@ -106,7 +106,7 @@ export const jobList = [
     salary: "월급250만원 (세전)",
     complexName: "둔산 크로바",
     complexSize: 480,
-    deadline: "2026-01-19",
+    deadline: "2026-05-19",
     isClosed: true
   },
 
@@ -118,7 +118,7 @@ export const jobList = [
     salary: "월급370만원 (세전)",
     complexName: "마포 래미안",
     complexSize: 690,
-    deadline: "2026-01-27",
+    deadline: "2026-05-27",
     isClosed: false
   },
   {
@@ -129,7 +129,7 @@ export const jobList = [
     salary: "월급300만원 (세전)",
     complexName: "동백 자이",
     complexSize: 760,
-    deadline: "2026-01-21",
+    deadline: "채용시까지",
     isClosed: false
   },
   {
@@ -140,7 +140,7 @@ export const jobList = [
     salary: "월급340만원 (세전)",
     complexName: "중계 그린아파트",
     complexSize: 540,
-    deadline: "2026-01-23",
+    deadline: "2026-05-23",
     isClosed: false
   },
   {
@@ -151,7 +151,7 @@ export const jobList = [
     salary: "월급260만원 (세전)",
     complexName: "마곡 엘지사이언스파크",
     complexSize: 310,
-    deadline: "2026-01-16",
+    deadline: "2026-05-16",
     isClosed: true
   },
   {
@@ -162,7 +162,7 @@ export const jobList = [
     salary: "월급480만원 (세전)",
     complexName: "노원 중계그린",
     complexSize: 1500,
-    deadline: "2026-01-31",
+    deadline: "채용시까지",
     isClosed: false
   },
 
@@ -174,7 +174,7 @@ export const jobList = [
     salary: "월급309만원 (세전)",
     complexName: "세교 한신더휴",
     complexSize: 849,
-    deadline: "2026-01-23",
+    deadline: "2026-05-23",
     isClosed: false
   },
   {
@@ -185,7 +185,7 @@ export const jobList = [
     salary: "월급334만원 (세전)",
     complexName: "가람마을 10단지",
     complexSize: 972,
-    deadline: "2026-01-22",
+    deadline: "2026-05-30",
     isClosed: true
   },
   {
@@ -196,7 +196,7 @@ export const jobList = [
     salary: "월급434만원 (세전)",
     complexName: "우정에이치1단지",
     complexSize: 736,
-    deadline: "2026-01-20",
+    deadline: "2026-06-10",
     isClosed: true
   },
   {
@@ -207,7 +207,7 @@ export const jobList = [
     salary: "월급352만원 (세전)",
     complexName: "조원주공뉴타운2단지",
     complexSize: 1586,
-    deadline: "2026-01-23",
+    deadline: "2026-05-23",
     isClosed: false
   },
   {
@@ -218,7 +218,7 @@ export const jobList = [
     salary: "월급316만원 (세전)",
     complexName: "해운대아이파크",
     complexSize: 1631,
-    deadline: "2026-01-27",
+    deadline: "채용시까지",
     isClosed: false
   },
 
@@ -230,7 +230,7 @@ export const jobList = [
     salary: "월급281만원 (세전)",
     complexName: "신내동 하이츠",
     complexSize: 704,
-    deadline: "2026-01-31",
+    deadline: "2026-06-30",
     isClosed: false
   },
   {
@@ -241,7 +241,7 @@ export const jobList = [
     salary: "월급256만원 (세전)",
     complexName: "청원 리버타워",
     complexSize: 330,
-    deadline: "2025-12-23",
+    deadline: "채용시까지",
     isClosed: true
   },
   {
@@ -252,7 +252,7 @@ export const jobList = [
     salary: "월급401만원 (세전)",
     complexName: "도래울마을",
     complexSize: 1392,
-    deadline: "2025-12-12",
+    deadline: "채용시까지",
     isClosed: true
   },
   {
@@ -263,7 +263,7 @@ export const jobList = [
     salary: "월급290만원 (세전)",
     complexName: "한강신도시 자이",
     complexSize: 820,
-    deadline: "2026-01-26",
+    deadline: "2026-05-26",
     isClosed: false
   },
   {
@@ -274,7 +274,7 @@ export const jobList = [
     salary: "월급460만원 (세전)",
     complexName: "길음 뉴타운",
     complexSize: 1200,
-    deadline: "2026-01-28",
+    deadline: "2026-05-30",
     isClosed: false
   },
 
@@ -286,7 +286,7 @@ export const jobList = [
     salary: "월급330만원 (세전)",
     complexName: "다산 자이",
     complexSize: 980,
-    deadline: "2026-01-24",
+    deadline: "2026-05-20",
     isClosed: false
   },
   {
@@ -297,7 +297,7 @@ export const jobList = [
     salary: "월급270만원 (세전)",
     complexName: "흑석 한강센트레빌",
     complexSize: 560,
-    deadline: "2026-01-18",
+    deadline: "2026-05-22",
     isClosed: true
   },
   {
@@ -308,7 +308,7 @@ export const jobList = [
     salary: "월급390만원 (세전)",
     complexName: "부평 아이파크",
     complexSize: 840,
-    deadline: "2026-01-29",
+    deadline: "2026-06-20",
     isClosed: false
   },
   {
@@ -319,7 +319,7 @@ export const jobList = [
     salary: "월급410만원 (세전)",
     complexName: "평촌 자이",
     complexSize: 910,
-    deadline: "2026-01-30",
+    deadline: "2026-05-22",
     isClosed: false
   },
   {
@@ -330,7 +330,7 @@ export const jobList = [
     salary: "월급310만원 (세전)",
     complexName: "봉천 래미안",
     complexSize: 600,
-    deadline: "2026-01-22",
+    deadline: "2026-05-30",
     isClosed: false
   },
 
@@ -342,7 +342,7 @@ export const jobList = [
     salary: "월급285만원 (세전)",
     complexName: "산본 주공",
     complexSize: 740,
-    deadline: "2026-01-21",
+    deadline: "2026-05-21",
     isClosed: false
   },
   {
@@ -353,7 +353,7 @@ export const jobList = [
     salary: "월급440만원 (세전)",
     complexName: "불광 힐스테이트",
     complexSize: 1020,
-    deadline: "2026-01-27",
+    deadline: "2026-05-27",
     isClosed: false
   },
   {
@@ -364,7 +364,7 @@ export const jobList = [
     salary: "월급335만원 (세전)",
     complexName: "배곧 자이",
     complexSize: 890,
-    deadline: "2026-01-24",
+    deadline: "2026-05-20",
     isClosed: false
   },
   {
@@ -375,7 +375,7 @@ export const jobList = [
     salary: "월급255만원 (세전)",
     complexName: "미아 두산위브",
     complexSize: 520,
-    deadline: "2026-01-18",
+    deadline: "2026-05-22",
     isClosed: true
   },
   {
@@ -386,7 +386,7 @@ export const jobList = [
     salary: "월급395만원 (세전)",
     complexName: "동탄 센트럴파크",
     complexSize: 950,
-    deadline: "2026-01-30",
+    deadline: "2026-05-22",
     isClosed: false
   },
 
@@ -398,7 +398,7 @@ export const jobList = [
     salary: "월급365만원 (세전)",
     complexName: "목동 신시가지",
     complexSize: 780,
-    deadline: "2026-01-26",
+    deadline: "2026-05-26",
     isClosed: false
   },
   {
@@ -409,7 +409,7 @@ export const jobList = [
     salary: "월급315만원 (세전)",
     complexName: "철산 푸르지오",
     complexSize: 690,
-    deadline: "2026-01-23",
+    deadline: "2026-05-23",
     isClosed: false
   },
   {
@@ -420,7 +420,7 @@ export const jobList = [
     salary: "월급295만원 (세전)",
     complexName: "광안 센텀파크",
     complexSize: 610,
-    deadline: "2026-01-20",
+    deadline: "2026-06-10",
     isClosed: true
   },
   {
@@ -431,7 +431,7 @@ export const jobList = [
     salary: "월급470만원 (세전)",
     complexName: "서울역 센트럴자이",
     complexSize: 1180,
-    deadline: "2026-01-31",
+    deadline: "2026-06-30",
     isClosed: false
   },
   {
@@ -442,7 +442,7 @@ export const jobList = [
     salary: "월급340만원 (세전)",
     complexName: "미사 강변센트럴",
     complexSize: 860,
-    deadline: "2026-01-25",
+    deadline: "2026-06-10",
     isClosed: false
   },
 
@@ -454,7 +454,7 @@ export const jobList = [
     salary: "월급275만원 (세전)",
     complexName: "장안 래미안",
     complexSize: 580,
-    deadline: "2026-01-19",
+    deadline: "2026-05-19",
     isClosed: true
   },
   {
@@ -465,7 +465,7 @@ export const jobList = [
     salary: "월급385만원 (세전)",
     complexName: "고잔 롯데캐슬",
     complexSize: 910,
-    deadline: "2026-01-28",
+    deadline: "2026-05-30",
     isClosed: false
   },
   {
@@ -476,7 +476,7 @@ export const jobList = [
     salary: "월급355만원 (세전)",
     complexName: "독산 한신아파트",
     complexSize: 720,
-    deadline: "2026-01-26",
+    deadline: "2026-05-26",
     isClosed: false
   },
   {
@@ -487,7 +487,7 @@ export const jobList = [
     salary: "월급320만원 (세전)",
     complexName: "이천 센트럴자이",
     complexSize: 650,
-    deadline: "2026-01-24",
+    deadline: "2026-05-20",
     isClosed: false
   },
   {
@@ -498,7 +498,7 @@ export const jobList = [
     salary: "월급285만원 (세전)",
     complexName: "대연 힐스테이트",
     complexSize: 700,
-    deadline: "2026-01-21",
+    deadline: "2026-05-21",
     isClosed: false
   },
 
@@ -510,7 +510,7 @@ export const jobList = [
     salary: "월급460만원 (세전)",
     complexName: "광화문 센트럴파크",
     complexSize: 1120,
-    deadline: "2026-01-30",
+    deadline: "2026-05-22",
     isClosed: false
   },
   {
@@ -521,7 +521,7 @@ export const jobList = [
     salary: "월급335만원 (세전)",
     complexName: "고덕 자이",
     complexSize: 890,
-    deadline: "2026-01-25",
+    deadline: "2026-06-10",
     isClosed: false
   },
   {
@@ -532,7 +532,7 @@ export const jobList = [
     salary: "월급250만원 (세전)",
     complexName: "쌍문 한양아파트",
     complexSize: 540,
-    deadline: "2026-01-18",
+    deadline: "2026-05-22",
     isClosed: true
   },
   {
@@ -543,7 +543,7 @@ export const jobList = [
     salary: "월급390만원 (세전)",
     complexName: "갈매 센트럴파크",
     complexSize: 930,
-    deadline: "2026-01-29",
+    deadline: "채용시까지",
     isClosed: false
   },
   {
@@ -554,7 +554,7 @@ export const jobList = [
     salary: "월급365만원 (세전)",
     complexName: "고덕 래미안",
     complexSize: 780,
-    deadline: "2026-01-26",
+    deadline: "채용시까지",
     isClosed: false
   }
 ];

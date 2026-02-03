@@ -1,3 +1,54 @@
+/* ==================================================
+   Mobile Search Bar Drag Scroll
+================================================== */
+function bindDragScrollForMobileSearchBar(root = document) {
+    const slider = root.querySelector('.mobile-search-bar');
+    if (!slider) return;
+
+    // ✅ 중복 바인딩 방지
+    if (slider.dataset.dragBound === "true") return;
+    slider.dataset.dragBound = "true";
+
+    let isDown = false;
+    let startX = 0;
+    let scrollLeft = 0;
+
+    const getX = (e) => (e.touches ? e.touches[0].pageX : e.pageX);
+
+    const start = (e) => {
+        isDown = true;
+        slider.classList.add('is-dragging');
+        startX = getX(e);
+        scrollLeft = slider.scrollLeft;
+    };
+
+    const move = (e) => {
+        if (!isDown) return;
+        // ✅ 터치에서 스크롤 튀는 것 방지(가로 드래그 UX)
+        if (e.cancelable) e.preventDefault();
+
+        const x = getX(e);
+        const walk = (x - startX) * 1.2;
+        slider.scrollLeft = scrollLeft - walk;
+    };
+
+    const end = () => {
+        isDown = false;
+        slider.classList.remove('is-dragging');
+    };
+
+    // Mouse
+    slider.addEventListener('mousedown', start);
+    slider.addEventListener('mousemove', move);
+    slider.addEventListener('mouseleave', end);
+    slider.addEventListener('mouseup', end);
+
+    // Touch
+    slider.addEventListener('touchstart', start, { passive: true });
+    slider.addEventListener('touchmove', move, { passive: false });
+    slider.addEventListener('touchend', end);
+}
+
 /**
  * 검색 영역 로더
  * - PC / Mobile 검색 HTML 분리 로드
@@ -21,8 +72,13 @@
             const res = await fetch(url);
             if (!res.ok) throw new Error(res.status);
             const html = await res.text();
+
             target.innerHTML = html;
             target.dataset.loaded = 'true';
+
+            // ✅ 여기! HTML 주입이 끝난 뒤 드래그 바인딩
+            bindDragScrollForMobileSearchBar(target);
+
         } catch (e) {
             console.error('[Search Loader]', e);
         }
@@ -203,7 +259,6 @@ document.addEventListener('click', (e) => {
 
 /* ==================================================
    직무 선택 (fetch 대응 / document 이벤트 위임)
-   - 최대 3개 선택
 ================================================== */
 (() => {
     const MAX_SELECT = 3;
@@ -320,87 +375,185 @@ document.addEventListener('click', (e) => {
 })();
 
 /* ==================================================
-   3️⃣ 급여 (단일 조건)
+   급여 (단일 조건)
 ================================================== */
-(() => {
-    let salaryMin = null;
+/* =========================
+   1. 숫자만 입력 가능
+========================= */
+document.addEventListener('input', (e) => {
+    if (e.target.classList.contains('salary-inline-input')) {
+        // 숫자만 허용
+        let value = e.target.value.replace(/[^0-9]/g, '');
+        // 최대 4자리 제한
+        value = value.slice(0, 4);
+        e.target.value = value;
+    }
+});
+/* =========================
+   2. 버튼 이벤트 (초기화 / 선택완료)
+========================= */
+document.addEventListener('click', (e) => {
+    /* ---------- 초기화 ---------- */
+    if (e.target.classList.contains('salary-reset-btn')) {
+        const input = document.querySelector('.salary-inline-input');
+        if (!input) return;
+        input.value = '';
+        // 상단 급여 버튼 리셋
+        resetFilterLabel('salary', '급여');
+        return;
+    }
+    /* ---------- 선택완료 ---------- */
+    if (e.target.classList.contains('salary-save-btn')) {
+        const input = document.querySelector('.salary-inline-input');
+        if (!input) return;
 
-    document.addEventListener('click', (e) => {
-        const btn = e.target.closest('[data-salary]');
-        if (btn) salaryMin = Number(btn.dataset.salary);
-    });
-
-    document.addEventListener('click', (e) => {
-        if (!e.target.closest('.salary-save-btn')) return;
-
-        salaryMin
-            ? setFilterLabel('salary', `급여 ${salaryMin}만원 이상`)
-            : resetFilterLabel('salary', '급여');
-
-        bootstrap.Offcanvas.getInstance(
-            document.getElementById('salarySheet')
-        )?.hide();
-    });
-})();
-
-/* ==================================================
-   4️⃣ 경력 (문구 분기)
-================================================== */
-(() => {
-    let careerValue = null; // 'none' | 'new' | number
-
-    document.addEventListener('click', (e) => {
-        const btn = e.target.closest('[data-career]');
-        if (btn) careerValue = btn.dataset.career;
-    });
-
-    document.addEventListener('click', (e) => {
-        if (!e.target.closest('.career-save-btn')) return;
-
-        let text = '경력';
-        if (careerValue === 'none') text = '경력 무관';
-        else if (careerValue === 'new') text = '신입';
-        else if (!isNaN(careerValue)) text = `경력 ${careerValue}년 이상`;
-
-        text !== '경력'
-            ? setFilterLabel('career', text)
-            : resetFilterLabel('career', '경력');
-
-        bootstrap.Offcanvas.getInstance(
-            document.getElementById('careerSheet')
-        )?.hide();
-    });
-})();
-
-/* ==================================================
-   5️⃣ 상태 (라디오 단일 선택)
-================================================== */
-(() => {
-    let statusValue = null;
-    const map = {
-        all: '전체',
-        open: '채용중',
-        closed: '마감'
-    };
-
-    document.addEventListener('change', (e) => {
-        if (e.target.name === 'status') {
-            statusValue = e.target.value;
+        const value = input.value.trim();
+        if (value) {
+            // 상단 급여 버튼에 반영
+            setFilterLabel('salary', `월 ${value}만원 이상`);
+        } else {
+            resetFilterLabel('salary', '급여');
         }
-    });
+        // offcanvas 닫기
+        const sheet = document.getElementById('salarySheet');
+        const instance = bootstrap.Offcanvas.getInstance(sheet);
+        instance?.hide();
+    }
 
-    document.addEventListener('click', (e) => {
-        if (!e.target.closest('.status-save-btn')) return;
+});
 
-        statusValue
-            ? setFilterLabel('status', map[statusValue])
-            : resetFilterLabel('status', '상태');
 
-        bootstrap.Offcanvas.getInstance(
-            document.getElementById('statusSheet')
-        )?.hide();
-    });
-})();
+/* ==================================================
+   경력 (문구 분기)
+================================================== */
+let selectedCareerType = null;
+document.addEventListener('click', (e) => {
+    /* ---------- 경력 버튼 선택 ---------- */
+    if (e.target.classList.contains('career-btn')) {
+        const buttons = document.querySelectorAll('.career-btn');
+        const inputRow = document.querySelector('.career-input-row');
+        const input = document.querySelector('.career-inline-input');
+
+        buttons.forEach(btn => btn.classList.remove('selected'));
+        e.target.classList.add('selected');
+
+        selectedCareerType = e.target.dataset.value;
+
+        // 경력 선택 시 입력 노출
+        if (selectedCareerType === '경력') {
+            inputRow.classList.remove('d-none');
+            input?.focus();
+        } else {
+            inputRow.classList.add('d-none');
+            if (input) input.value = '';
+        }
+    }
+
+    /* ---------- 초기화 ---------- */
+    if (e.target.classList.contains('salary-reset-btn')) {
+        document
+            .querySelectorAll('.career-btn')
+            .forEach(btn => btn.classList.remove('selected'));
+
+        const input = document.querySelector('.career-inline-input');
+        const inputRow = document.querySelector('.career-input-row');
+
+        if (input) input.value = '';
+        inputRow?.classList.add('d-none');
+
+        selectedCareerType = null;
+        resetFilterLabel('career', '경력');
+    }
+
+    /* ---------- 선택완료 ---------- */
+    if (e.target.classList.contains('salary-save-btn')) {
+        const input = document.querySelector('.career-inline-input');
+        let label = '경력';
+
+        if (selectedCareerType === '신입') {
+            label = '신입';
+        }
+
+        if (selectedCareerType === '경력무관') {
+            label = '경력무관';
+        }
+
+        if (selectedCareerType === '경력') {
+            const year = input?.value.trim();
+            label = year ? `경력 ${year}년 이상` : '경력';
+        }
+
+        if (label === '경력') {
+            resetFilterLabel('career', '경력');
+        } else {
+            setFilterLabel('career', label);
+        }
+
+        // offcanvas 닫기
+        const sheet = document.getElementById('careerSheet');
+        bootstrap.Offcanvas.getInstance(sheet)?.hide();
+    }
+});
+
+/* =========================
+   숫자만 입력 (경력 연수)
+========================= */
+document.addEventListener('input', (e) => {
+    if (e.target.classList.contains('career-inline-input')) {
+        e.target.value = e.target.value.replace(/[^0-9]/g, '');
+    }
+});
+
+
+/* ==================================================
+   상태 (단일 선택)
+================================================== */
+let selectedStatus = null;
+
+document.addEventListener('click', (e) => {
+    /* =========================
+        상태 버튼 선택
+    ========================= */
+    const statusBtn = e.target.closest('#statusSheet .status-btn');
+    if (statusBtn) {
+        document
+            .querySelectorAll('#statusSheet .status-btn')
+            .forEach(b => b.classList.remove('selected'));
+
+        statusBtn.classList.add('selected');
+        selectedStatus = statusBtn.dataset.value;
+        return;
+    }
+
+    /* =========================
+        초기화
+    ========================= */
+    if (e.target.closest('#statusSheet .status-reset-btn')) {
+        document
+            .querySelectorAll('#statusSheet .status-btn')
+            .forEach(b => b.classList.remove('selected'));
+
+        selectedStatus = null;
+        resetFilterLabel('status', '상태');
+        return;
+    }
+
+    /* =========================
+        선택완료
+    ========================= */
+    if (e.target.closest('#statusSheet .status-save-btn')) {
+        if (!selectedStatus) {
+            resetFilterLabel('status', '상태');
+        } else {
+            setFilterLabel('status', selectedStatus);
+        }
+
+        // offcanvas 닫기
+        const sheet = document.getElementById('statusSheet');
+        bootstrap.Offcanvas.getInstance(sheet)?.hide();
+    }
+});
+
 
 
 /* ==================================================

@@ -33,7 +33,7 @@
             font-size: 1.2rem;
             margin-top: 20px;
             font-weight: bold;
-            color: var(--bs-primary);
+            color: var(--color-primary);
         }
         span {
             font-weight: 500;
@@ -85,14 +85,14 @@
             &:hover {
                 border-color: var(--color-primary);
                 background-color: transparent;
-                color: var(--bs-primary);
+                color: var(--color-primary);
                 font-weight: 600;
             }
         }
     }
     /* =========================
-   지역 선택 버튼 active 스타일
-========================= */
+        지역 선택 버튼 active 스타일
+    ========================= */
 
     /* 1depth : 시·도 버튼 */
     .region-options {
@@ -112,7 +112,7 @@
             &.active {
                 background-color: #fff;
                 border-color: var(--color-primary);
-                color: var(--bs-primary);
+                color: var(--color-primary);
                 font-weight: 600;
             }
         }
@@ -346,47 +346,49 @@
         .search-btn {
             flex: 0 0 calc(100% / 4 - 6px);
             min-width: calc(100% / 4 - 6px);
-
-            background: var(--color-primary-light);
-            color: var(--navi-color);
-            border: 1px solid var(--bs-primary);
+            background: #fff;
+            color: var(--bs-gray-700);
+            border: 1px solid var(--bs-gray-400);
             border-radius: 50px;
-            font-size: 15px;
-            padding: 6px 0;
+            font-size: 14px;
+            padding: 6px 10px;
             font-weight: 700;
             position: relative;
+
             white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
 
             &.is-active {
-                background: var(--bs-primary);
-                color: #fff;
+                border-color: var(--color-primary-hover);
+                color: var(--color-primary-hover);
             }
-
-            .count {
-                position: absolute;
-                top: -4px;
-                right: -6px;
-                background: var(--bs-primary);
-            }
+        }
+        /* 급여 버튼만 활성화 시 확장 */
+        .search-btn[data-type="salary"].is-active {
+            flex: 0 0 calc(100% / 3 - 6px);
+            min-width: calc(100% / 3 - 6px);
+        }
+        .search-btn[data-type="career"].is-active {
+            flex: 0 0 calc(100% / 3 - 6px);
+            min-width: calc(100% / 3 - 6px);
         }
     }
     /* ===============================
         Mobile Offcanvas (공통)
     ================================ */
     .offcanvas-bottom {
-        height: 60vh;
-        border-radius: 15px 15px 0 0;
-
+        height: 64vh;
+        border-radius: 15px 15px 0 0 !important;
+        background-color: var(--bg-color);
         .offcanvas-header {
             border-bottom: 1px solid #dee2e6;
-
             .offcanvas-title {
                 font-weight: 600;
-                font-size: 16px;
+                font-size: 18px;
                 padding: 5px 0;
             }
         }
-
         .offcanvas-body {
             padding: 0;
             display: flex;
@@ -412,13 +414,12 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-
-            color: var(--bs-primary);
+            color: var(--navi-color);
             opacity: 0.8;
             &::before {
-                content: "×";
-                font-size: 24px;
-                font-weight: 600;
+                content: "X";
+                font-size: 14px;
+                font-weight: 500;
                 line-height: 1;
             }
             &:hover {
@@ -454,10 +455,11 @@
                     font-weight: 600;
                     color: var(--navi-color);
                     border-bottom: none;
+                    background-color: #fff;
                 }
                 .active {
                     background-color: var(--color-primary-light);
-                    color: var(--bs-primary);
+                    color: var(--color-primary);
                     border: none;
                 }
             }
@@ -467,7 +469,6 @@
                 width: 66%;
                 overflow-y: auto;
                 scrollbar-width: none;
-
                 &::-webkit-scrollbar {
                     display: none;
                 }
@@ -475,14 +476,16 @@
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
+                    border-bottom: none;
                     font-size: 14px;
                     font-weight: 600;
                     cursor: pointer;
+                    background-color: #fff;
                     i {
                         opacity: 0;
                     }
                     &.selected {
-                        background-color: var(--bs-primary);
+                        background-color: var(--color-primary);
                         color: #fff;
                         i {
                             opacity: 1;
@@ -495,23 +498,17 @@
         .region-selected-fixed {
             padding: 12px;
             border-top: 1px solid #ddd;
-            background: #f8f9fa;
+            background: #fff;
             .selected-region {
                 min-height: 32px;
-                font-size: 15px;
+                font-size: 13px;
                 padding: 6px 12px;
-                border: 1px solid var(--bs-primary);
-                color: var(--bs-primary);
-                border-radius: 50px;
-                font-weight: 600;
+                background-color: var(--pastel-blue);
+                color: var(--bs-gray-800);
+                border-radius: 5px !important;
+                font-weight: 500;
                 line-height: 1.2;
             }
-        }
-        .region-footer-fixed {
-            position: sticky;
-            bottom: 0;
-            background: #fff;
-            z-index: 11;
         }
     }
     /* ===============================
@@ -534,7 +531,6 @@
                 width: 50%;
                 overflow-y: auto;
                 scrollbar-width: none;
-
                 &::-webkit-scrollbar {
                     display: none;
                 }
@@ -542,15 +538,17 @@
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
+                    border-bottom: none;
                     font-size: 14px;
                     font-weight: 600;
                     cursor: pointer;
+                    background-color: #fff;
                     i {
                         opacity: 0;
                     }
 
                     &.selected {
-                        background-color: var(--bs-primary);
+                        background-color: var(--color-primary);
                         color: #fff;
 
                         i {
@@ -567,7 +565,6 @@
                 width: 50%;
                 overflow-y: auto;
                 scrollbar-width: none;
-
                 &::-webkit-scrollbar {
                     display: none;
                 }
@@ -575,16 +572,17 @@
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
+                    border-bottom: none;
                     font-size: 14px;
                     font-weight: 600;
                     cursor: pointer;
-
+                    background-color: #fff;
                     i {
                         opacity: 0;
                     }
 
                     &.selected {
-                        background-color: var(--bs-primary);
+                        background-color: var(--color-primary);
                         color: #fff;
 
                         i {
@@ -600,30 +598,284 @@
         .job-selected-fixed {
             padding: 12px;
             border-top: 1px solid #ddd;
-            background: #f8f9fa;
+            background: #fff;
             .selected-job {
                 min-height: 32px;
-                font-size: 15px;
+                font-size: 13px;
                 padding: 6px 12px;
-                border: 1px solid var(--bs-primary);
-                color: var(--bs-primary);
-                border-radius: 50px;
-                font-weight: 600;
+                background-color: var(--pastel-blue);
+                color: var(--bs-gray-800);
+                border-radius: 5px;
+                font-weight: 500;
                 line-height: 1.2;
             }
         }
-        .job-footer-fixed {
-            position: sticky;
-            bottom: 0;
-            background: #fff;
-            z-index: 11;
-        }
         .list-group-item.selected {
-            background-color: var(--bs-primary);
+            background-color: var(--color-primary);
             color: #fff;
             i {
                 opacity: 1;
             }
         }
+    }
+    /* ===============================
+        Mobile Salary Offcanvas
+    ================================ */
+    #salarySheet {
+        display: flex;
+        flex-direction: column;
+        /* =========================
+            스크롤 영역
+        ========================= */
+        .salary-scroll-area {
+            flex: 1;
+            overflow-y: auto;
+            overscroll-behavior: contain;
+            scrollbar-width: none;
+            background-color: #fff;
+            padding: 20px;
+            &::-webkit-scrollbar {
+                display: none;
+            }
+            > .d-flex {
+                flex-direction: column;
+                height: 100%;
+            }
+            .salary-inline-row {
+                display: flex;
+                flex-direction: column;
+                align-items: start;
+                color: var(--bs-gray-800);
+                .salary-title {
+                    font-weight: 600;
+                    font-size: 16px;
+                    padding-bottom: 10px;
+                }
+
+                .salary-inline-input {
+                    width: 200px;
+                    height: 32px;
+                    padding: 4px 6px;
+                    border: 1px solid var(--bs-gray-400);
+                    border-radius: 4px;
+                    font-size: 14px;
+                    font-weight: 600;
+                    text-align: right;
+                    &:focus {
+                        outline: none;
+                        border-color: var(--color-primary);
+                    }
+                    &::placeholder {
+                        font-weight: 500;
+                        color: var(--bs-gray-500);
+                        text-align: end;
+                    }
+                }
+
+                .salary-unit {
+                    white-space: nowrap;
+                    color: var(--bs-gray-700);
+                    font-weight: 500;
+                }
+            }
+        }
+        /* =========================
+            선택된 급여 (고정 영역)
+        ========================= */
+        .salary-selected-fixed {
+            padding: 12px;
+            border-top: 1px solid #ddd;
+            background: #fff;
+            .selected-salary-tags {
+                .salary-tag {
+                    font-size: 13px;
+                    padding: 6px 12px;
+                    background-color: var(--pastel-blue);
+                    color: var(--bs-gray-800);
+                    border-radius: 5px;
+                    font-weight: 500;
+                    line-height: 1.2;
+                }
+            }
+        }
+        /* =========================
+            공통 selected 스타일 보정
+        ========================= */
+        .list-group-item.selected {
+            background-color: var(--color-primary);
+            color: #fff;
+
+            i {
+                opacity: 1;
+            }
+        }
+    }
+    /* ===============================
+        Mobile Career Offcanvas
+    ================================ */
+    #careerSheet {
+        display: flex;
+        flex-direction: column;
+
+        /* =========================
+            스크롤 영역
+        ========================= */
+        .career-scroll-area {
+            flex: 1;
+            overflow-y: auto;
+            overscroll-behavior: contain;
+            scrollbar-width: none;
+            background-color: #fff;
+            padding: 20px;
+            &::-webkit-scrollbar {
+                display: none;
+            }
+            > .d-flex {
+                flex-direction: column;
+                height: 100%;
+            }
+
+            /* =========================
+                경력 선택 버튼
+            ========================= */
+            .career-select-row {
+                display: flex;
+                gap: 10px;
+                flex-wrap: wrap;
+                .career-btn {
+                    flex: 1 1 calc(33.333% - 8px);
+                    min-width: calc(33.333% - 8px);
+                    padding: 10px 0;
+                    font-size: 14px;
+                    font-weight: 600;
+                    background: #fff;
+                    color: var(--bs-gray-700);
+                    border: 1px solid var(--bs-gray-400);
+                    border-radius: 8px;
+                    text-align: center;
+                    cursor: pointer;
+                    white-space: nowrap;
+                    &:focus {
+                        border-color: var(--color-primary);
+                        color: var(--color-primary);
+                    }
+
+                    &.selected {
+                        border-color: var(--color-primary);
+                        color: var(--color-primary);
+                    }
+                }
+            }
+            .career-input-row {
+                .career-inline-input {
+                    width: 100px;
+                    height: 32px;
+                    padding: 4px 6px;
+                    border: 1px solid var(--bs-gray-400);
+                    border-radius: 4px;
+                    font-size: 14px;
+                    font-weight: 600;
+                    text-align: right;
+                    &:focus {
+                        outline: none;
+                        border-color: var(--color-primary);
+                    }
+                    &::placeholder {
+                        font-weight: 500;
+                        color: var(--bs-gray-500);
+                        text-align: end;
+                    }
+                }
+            }
+        }
+    }
+    /* ===============================
+        Mobile Status Offcanvas
+    =============================== */
+    #statusSheet {
+        display: flex;
+        flex-direction: column;
+        /* =========================
+            스크롤 영역
+        ========================= */
+        .status-scroll-area {
+            flex: 1;
+            overflow-y: auto;
+            overscroll-behavior: contain;
+            scrollbar-width: none;
+            background-color: #fff;
+            padding: 20px;
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+
+            > .d-flex {
+                flex-direction: column;
+                height: 100%;
+            }
+
+            /* =========================
+                상태 선택 버튼
+            ========================= */
+            .status-select-row {
+                display: flex;
+                gap: 10px;
+                flex-wrap: wrap;
+
+                .status-btn {
+                    flex: 1 1 calc(33.333% - 8px);
+                    min-width: calc(33.333% - 8px);
+                    padding: 10px 0;
+                    font-size: 14px;
+                    font-weight: 600;
+                    background: #fff;
+                    color: var(--bs-gray-700);
+                    border: 1px solid var(--bs-gray-400);
+                    border-radius: 8px;
+                    text-align: center;
+                    cursor: pointer;
+                    white-space: nowrap;
+                    &:focus {
+                        border-color: var(--color-primary);
+                        color: var(--color-primary);
+                    }
+                    &.selected {
+                        border-color: var(--color-primary);
+                        color: var(--color-primary);
+                    }
+                }
+            }
+        }
+    }
+
+    /* =========================
+        하단 버튼 (고정) - 초기화, 선택완료
+    ============================ */
+    .footer-fixed {
+        position: sticky;
+        bottom: 0;
+        background: #fff;
+        z-index: 11;
+    }
+    .region-reset-btn,
+    .job-reset-btn,
+    .salary-reset-btn,
+    .career-reset-btn,
+    .status-reset-btn {
+        font-weight: 600;
+        padding: 10px;
+        &:hover {
+            background-color: transparent;
+            color: inherit;
+        }
+    }
+    .region-save-btn,
+    .job-save-btn,
+    .salary-save-btn,
+    .career-save-btn,
+    .status-save-btn {
+        font-weight: 600;
+        padding: 10px;
     }
 }

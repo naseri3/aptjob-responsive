@@ -42,8 +42,8 @@
             &__input {
                 width: 100%;
                 padding: 10px 14px 10px 40px;
-                border-radius: 50px;
-                border: 2px solid var(--bs-primary);
+                border-radius: 5px;
+                border: 1px solid #dadada;
                 background-color: var(--bg-color);
                 font-size: 16px;
                 transition:
@@ -161,10 +161,10 @@
         .site-search__input {
             width: 100%;
             padding: 10px 12px 10px 42px;
-            border-radius: 50px;
+            border-radius: 5px;
             font-size: 15px;
             background-color: var(--bg-color);
-            border: 2px solid var(--bs-primary);
+            border: 1px solid #dadada;
 
             &:focus {
                 outline: none;

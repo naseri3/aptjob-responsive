@@ -26,6 +26,7 @@
 <div class="mobile-selected-preview p-3 bg-light">
     <!-- JS로 태그 삽입 -->
 </div>
+
 <!-- 지역 선택 Bottom Sheet -->
 <div class="offcanvas offcanvas-bottom" tabindex="-1" id="regionSheet">
     <div class="offcanvas-header">
@@ -948,13 +949,14 @@
         </div>
 
         <!-- 하단 버튼 (고정) -->
-        <div class="region-footer-fixed d-flex gap-2 pb-3 container">
-            <button class="btn btn-secondary region-reset-btn w-50">초기화</button>
-            <button class="btn btn-primary region-save-btn w-50">저장하기</button>
+        <div class="footer-fixed d-flex gap-2 pb-3 container">
+            <button class="btn btn-outline-secondary region-reset-btn w-50">초기화</button>
+            <button class="btn btn-primary region-save-btn w-50">선택완료</button>
         </div>
 
     </div>
 </div>
+
 
 <!-- 직무 선택 Bottom Sheet -->
 <div class="offcanvas offcanvas-bottom" tabindex="-1" id="jobSheet">
@@ -1038,14 +1040,112 @@
     </div>
 
     <!-- 하단 버튼 (고정) -->
-    <div class="job-footer-fixed d-flex gap-2 pb-3 container">
-        <button class="btn btn-secondary job-reset-btn w-50">초기화</button>
-        <button class="btn btn-primary job-save-btn w-50">저장하기</button>
+    <div class="footer-fixed d-flex gap-2 pb-3 container">
+        <button class="btn btn-outline-secondary job-reset-btn w-50">초기화</button>
+        <button class="btn btn-primary job-save-btn w-50">선택완료</button>
     </div>
 </div>
 
 
 <!-- 급여 선택 Bottom Sheet -->
-<div class="offcanvas offcanvas-bottom" tabindex="-1" id="salarySheet"></div>
-<div class="offcanvas offcanvas-bottom" tabindex="-1" id="careerSheet"></div>
-<div class="offcanvas offcanvas-bottom" tabindex="-1" id="statusSheet"></div>
+<div class="offcanvas offcanvas-bottom" tabindex="-1" id="salarySheet">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title">급여</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body p-0">
+        <div class="salary-scroll-area">
+            <div class="d-flex h-100">
+                <!-- 월급여 입력 -->
+                <div class="salary-inline-row">
+                    <div class="salary-title">월 급여</div>
+
+                    <div class="salary-input-wrap">
+                        <input type="text" class="salary-inline-input" placeholder="금액" maxlength="4" />
+                        <span class="salary-unit">만원 이상</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 하단 버튼 (고정) -->
+    <div class="footer-fixed d-flex gap-2 pb-3 container">
+        <button class="btn btn-outline-secondary salary-reset-btn w-50">초기화</button>
+        <button class="btn btn-primary salary-save-btn w-50">선택완료</button>
+    </div>
+</div>
+
+
+<!-- 경력 선택 Bottom Sheet -->
+<div class="offcanvas offcanvas-bottom" tabindex="-1" id="careerSheet">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title">경력</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+
+    <div class="offcanvas-body p-0">
+        <div class="career-scroll-area">
+            <div class="d-flex h-100 flex-column gap-3">
+                <!-- 경력 선택 버튼 -->
+                <div class="career-select-row d-flex gap-2">
+                    <button type="button" class="btn btn-outline-secondary career-btn" data-value="신입">
+                        신입
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary career-btn" data-value="경력">
+                        경력
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary career-btn" data-value="경력무관">
+                        경력무관
+                    </button>
+                </div>
+                <!-- 경력 입력 (경력 선택 시만 노출) -->
+                <div class="career-input-row d-none">
+                    <input type="text" class="career-inline-input" placeholder="예) 3" />
+                    <span class="career-unit">년 이상</span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- 하단 버튼 (고정) -->
+    <div class="footer-fixed d-flex gap-2 pb-3 container">
+        <button class="btn btn-outline-secondary career-reset-btn w-50">초기화</button>
+        <button class="btn btn-primary career-save-btn w-50">선택완료</button>
+    </div>
+</div>
+
+
+<!-- 상태 선택 Bottom Sheet -->
+<div class="offcanvas offcanvas-bottom" tabindex="-1" id="statusSheet">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title">상태</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+
+    <div class="offcanvas-body p-0">
+        <div class="status-scroll-area">
+            <div class="d-flex h-100 flex-column gap-3">
+                <!-- 상태 선택 버튼 -->
+                <div class="status-select-row d-flex gap-2">
+                    <button type="button" class="btn btn-outline-secondary status-btn" data-value="전체">
+                        전체
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary status-btn" data-value="채용중">
+                        채용중
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary status-btn" data-value="마감">
+                        마감
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 하단 버튼 (고정) -->
+    <div class="footer-fixed d-flex gap-2 pb-3 container">
+        <button class="btn btn-outline-secondary status-reset-btn w-50">초기화</button>
+        <button class="btn btn-primary status-save-btn w-50">선택완료</button>
+    </div>
+</div>

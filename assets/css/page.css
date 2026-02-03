@@ -6,7 +6,7 @@
 
 .subPage {
   /* =========================
-     지역 선택 버튼 active 스타일
+      지역 선택 버튼 active 스타일
   ========================= */
   /* 1depth : 시·도 버튼 */
   /* 2depth : 구/군 버튼 */
@@ -48,6 +48,18 @@
   /* ===============================
       Mobile Job Offcanvas
   ================================ */
+  /* ===============================
+      Mobile Salary Offcanvas
+  ================================ */
+  /* ===============================
+      Mobile Career Offcanvas
+  ================================ */
+  /* ===============================
+      Mobile Status Offcanvas
+  =============================== */
+  /* =========================
+      하단 버튼 (고정) - 초기화, 선택완료
+  ============================ */
 }
 .subPage #search-wrapper {
   position: static;
@@ -75,7 +87,7 @@
   font-size: 1.2rem;
   margin-top: 20px;
   font-weight: bold;
-  color: var(--bs-primary);
+  color: var(--color-primary);
 }
 .subPage .local span,
 .subPage .occupation span {
@@ -130,7 +142,7 @@
 .subPage .district-options button:focus, .subPage .district-options button:hover {
   border-color: var(--color-primary);
   background-color: transparent;
-  color: var(--bs-primary);
+  color: var(--color-primary);
   font-weight: 600;
 }
 .subPage .region-options .btn.active {
@@ -144,7 +156,7 @@
 .subPage .district-options .btn.active {
   background-color: #fff;
   border-color: var(--color-primary);
-  color: var(--bs-primary);
+  color: var(--color-primary);
   font-weight: 600;
 }
 .subPage .occupation .btn.active {
@@ -319,6 +331,7 @@
   gap: 8px;
   padding: 6px 8px;
   overflow-x: auto;
+  /* 급여 버튼만 활성화 시 확장 */
 }
 .subPage .mobile-search-bar::-webkit-scrollbar {
   display: none;
@@ -326,36 +339,41 @@
 .subPage .mobile-search-bar .search-btn {
   flex: 0 0 calc(25% - 6px);
   min-width: calc(25% - 6px);
-  background: var(--color-primary-light);
-  color: var(--navi-color);
-  border: 1px solid var(--bs-primary);
+  background: #fff;
+  color: var(--bs-gray-700);
+  border: 1px solid var(--bs-gray-400);
   border-radius: 50px;
-  font-size: 15px;
-  padding: 6px 0;
+  font-size: 14px;
+  padding: 6px 10px;
   font-weight: 700;
   position: relative;
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .subPage .mobile-search-bar .search-btn.is-active {
-  background: var(--bs-primary);
-  color: #fff;
+  border-color: var(--color-primary-hover);
+  color: var(--color-primary-hover);
 }
-.subPage .mobile-search-bar .search-btn .count {
-  position: absolute;
-  top: -4px;
-  right: -6px;
-  background: var(--bs-primary);
+.subPage .mobile-search-bar .search-btn[data-type=salary].is-active {
+  flex: 0 0 calc(33.3333333333% - 6px);
+  min-width: calc(33.3333333333% - 6px);
+}
+.subPage .mobile-search-bar .search-btn[data-type=career].is-active {
+  flex: 0 0 calc(33.3333333333% - 6px);
+  min-width: calc(33.3333333333% - 6px);
 }
 .subPage .offcanvas-bottom {
-  height: 60vh;
-  border-radius: 15px 15px 0 0;
+  height: 64vh;
+  border-radius: 15px 15px 0 0 !important;
+  background-color: var(--bg-color);
 }
 .subPage .offcanvas-bottom .offcanvas-header {
   border-bottom: 1px solid #dee2e6;
 }
 .subPage .offcanvas-bottom .offcanvas-header .offcanvas-title {
   font-weight: 600;
-  font-size: 16px;
+  font-size: 18px;
   padding: 5px 0;
 }
 .subPage .offcanvas-bottom .offcanvas-body {
@@ -378,16 +396,16 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: var(--bs-primary);
+  color: var(--navi-color);
   opacity: 0.8;
 }
 .subPage .selected-region-tags .region-remove-btn::before,
 .subPage .selected-region-tags .job-remove-btn::before,
 .subPage .selected-job-tags .region-remove-btn::before,
 .subPage .selected-job-tags .job-remove-btn::before {
-  content: "×";
-  font-size: 24px;
-  font-weight: 600;
+  content: "X";
+  font-size: 14px;
+  font-weight: 500;
   line-height: 1;
 }
 .subPage .selected-region-tags .region-remove-btn:hover,
@@ -422,10 +440,11 @@
   font-weight: 600;
   color: var(--navi-color);
   border-bottom: none;
+  background-color: #fff;
 }
 .subPage #regionSheet .region-scroll-area .region-depth1 .active {
   background-color: var(--color-primary-light);
-  color: var(--bs-primary);
+  color: var(--color-primary);
   border: none;
 }
 .subPage #regionSheet .region-scroll-area .region-depth2 {
@@ -440,15 +459,17 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: none;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
+  background-color: #fff;
 }
 .subPage #regionSheet .region-scroll-area .region-depth2 .list-group-item i {
   opacity: 0;
 }
 .subPage #regionSheet .region-scroll-area .region-depth2 .list-group-item.selected {
-  background-color: var(--bs-primary);
+  background-color: var(--color-primary);
   color: #fff;
 }
 .subPage #regionSheet .region-scroll-area .region-depth2 .list-group-item.selected i {
@@ -457,23 +478,17 @@
 .subPage #regionSheet .region-selected-fixed {
   padding: 12px;
   border-top: 1px solid #ddd;
-  background: #f8f9fa;
+  background: #fff;
 }
 .subPage #regionSheet .region-selected-fixed .selected-region {
   min-height: 32px;
-  font-size: 15px;
+  font-size: 13px;
   padding: 6px 12px;
-  border: 1px solid var(--bs-primary);
-  color: var(--bs-primary);
-  border-radius: 50px;
-  font-weight: 600;
+  background-color: var(--pastel-blue);
+  color: var(--bs-gray-800);
+  border-radius: 5px !important;
+  font-weight: 500;
   line-height: 1.2;
-}
-.subPage #regionSheet .region-footer-fixed {
-  position: sticky;
-  bottom: 0;
-  background: #fff;
-  z-index: 11;
 }
 .subPage #jobSheet {
   /* =========================
@@ -506,15 +521,17 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: none;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
+  background-color: #fff;
 }
 .subPage #jobSheet .job-scroll-area .job-depth1 .list-group-item i {
   opacity: 0;
 }
 .subPage #jobSheet .job-scroll-area .job-depth1 .list-group-item.selected {
-  background-color: var(--bs-primary);
+  background-color: var(--color-primary);
   color: #fff;
 }
 .subPage #jobSheet .job-scroll-area .job-depth1 .list-group-item.selected i {
@@ -532,15 +549,17 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: none;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
+  background-color: #fff;
 }
 .subPage #jobSheet .job-scroll-area .job-depth2 .list-group-item i {
   opacity: 0;
 }
 .subPage #jobSheet .job-scroll-area .job-depth2 .list-group-item.selected {
-  background-color: var(--bs-primary);
+  background-color: var(--color-primary);
   color: #fff;
 }
 .subPage #jobSheet .job-scroll-area .job-depth2 .list-group-item.selected i {
@@ -549,28 +568,269 @@
 .subPage #jobSheet .job-selected-fixed {
   padding: 12px;
   border-top: 1px solid #ddd;
-  background: #f8f9fa;
+  background: #fff;
 }
 .subPage #jobSheet .job-selected-fixed .selected-job {
   min-height: 32px;
-  font-size: 15px;
+  font-size: 13px;
   padding: 6px 12px;
-  border: 1px solid var(--bs-primary);
-  color: var(--bs-primary);
-  border-radius: 50px;
-  font-weight: 600;
+  background-color: var(--pastel-blue);
+  color: var(--bs-gray-800);
+  border-radius: 5px;
+  font-weight: 500;
   line-height: 1.2;
 }
-.subPage #jobSheet .job-footer-fixed {
+.subPage #jobSheet .list-group-item.selected {
+  background-color: var(--color-primary);
+  color: #fff;
+}
+.subPage #jobSheet .list-group-item.selected i {
+  opacity: 1;
+}
+.subPage #salarySheet {
+  display: flex;
+  flex-direction: column;
+  /* =========================
+      스크롤 영역
+  ========================= */
+  /* =========================
+      선택된 급여 (고정 영역)
+  ========================= */
+  /* =========================
+      공통 selected 스타일 보정
+  ========================= */
+}
+.subPage #salarySheet .salary-scroll-area {
+  flex: 1;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: none;
+  background-color: #fff;
+  padding: 20px;
+}
+.subPage #salarySheet .salary-scroll-area::-webkit-scrollbar {
+  display: none;
+}
+.subPage #salarySheet .salary-scroll-area > .d-flex {
+  flex-direction: column;
+  height: 100%;
+}
+.subPage #salarySheet .salary-scroll-area .salary-inline-row {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  color: var(--bs-gray-800);
+}
+.subPage #salarySheet .salary-scroll-area .salary-inline-row .salary-title {
+  font-weight: 600;
+  font-size: 16px;
+  padding-bottom: 10px;
+}
+.subPage #salarySheet .salary-scroll-area .salary-inline-row .salary-inline-input {
+  width: 200px;
+  height: 32px;
+  padding: 4px 6px;
+  border: 1px solid var(--bs-gray-400);
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: right;
+}
+.subPage #salarySheet .salary-scroll-area .salary-inline-row .salary-inline-input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+.subPage #salarySheet .salary-scroll-area .salary-inline-row .salary-inline-input::-moz-placeholder {
+  font-weight: 500;
+  color: var(--bs-gray-500);
+  text-align: end;
+}
+.subPage #salarySheet .salary-scroll-area .salary-inline-row .salary-inline-input::placeholder {
+  font-weight: 500;
+  color: var(--bs-gray-500);
+  text-align: end;
+}
+.subPage #salarySheet .salary-scroll-area .salary-inline-row .salary-unit {
+  white-space: nowrap;
+  color: var(--bs-gray-700);
+  font-weight: 500;
+}
+.subPage #salarySheet .salary-selected-fixed {
+  padding: 12px;
+  border-top: 1px solid #ddd;
+  background: #fff;
+}
+.subPage #salarySheet .salary-selected-fixed .selected-salary-tags .salary-tag {
+  font-size: 13px;
+  padding: 6px 12px;
+  background-color: var(--pastel-blue);
+  color: var(--bs-gray-800);
+  border-radius: 5px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+.subPage #salarySheet .list-group-item.selected {
+  background-color: var(--color-primary);
+  color: #fff;
+}
+.subPage #salarySheet .list-group-item.selected i {
+  opacity: 1;
+}
+.subPage #careerSheet {
+  display: flex;
+  flex-direction: column;
+  /* =========================
+      스크롤 영역
+  ========================= */
+}
+.subPage #careerSheet .career-scroll-area {
+  flex: 1;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: none;
+  background-color: #fff;
+  padding: 20px;
+  /* =========================
+      경력 선택 버튼
+  ========================= */
+}
+.subPage #careerSheet .career-scroll-area::-webkit-scrollbar {
+  display: none;
+}
+.subPage #careerSheet .career-scroll-area > .d-flex {
+  flex-direction: column;
+  height: 100%;
+}
+.subPage #careerSheet .career-scroll-area .career-select-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.subPage #careerSheet .career-scroll-area .career-select-row .career-btn {
+  flex: 1 1 calc(33.333% - 8px);
+  min-width: calc(33.333% - 8px);
+  padding: 10px 0;
+  font-size: 14px;
+  font-weight: 600;
+  background: #fff;
+  color: var(--bs-gray-700);
+  border: 1px solid var(--bs-gray-400);
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.subPage #careerSheet .career-scroll-area .career-select-row .career-btn:focus {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+.subPage #careerSheet .career-scroll-area .career-select-row .career-btn.selected {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+.subPage #careerSheet .career-scroll-area .career-input-row .career-inline-input {
+  width: 100px;
+  height: 32px;
+  padding: 4px 6px;
+  border: 1px solid var(--bs-gray-400);
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: right;
+}
+.subPage #careerSheet .career-scroll-area .career-input-row .career-inline-input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+.subPage #careerSheet .career-scroll-area .career-input-row .career-inline-input::-moz-placeholder {
+  font-weight: 500;
+  color: var(--bs-gray-500);
+  text-align: end;
+}
+.subPage #careerSheet .career-scroll-area .career-input-row .career-inline-input::placeholder {
+  font-weight: 500;
+  color: var(--bs-gray-500);
+  text-align: end;
+}
+.subPage #statusSheet {
+  display: flex;
+  flex-direction: column;
+  /* =========================
+      스크롤 영역
+  ========================= */
+}
+.subPage #statusSheet .status-scroll-area {
+  flex: 1;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: none;
+  background-color: #fff;
+  padding: 20px;
+  /* =========================
+      상태 선택 버튼
+  ========================= */
+}
+.subPage #statusSheet .status-scroll-area::-webkit-scrollbar {
+  display: none;
+}
+.subPage #statusSheet .status-scroll-area > .d-flex {
+  flex-direction: column;
+  height: 100%;
+}
+.subPage #statusSheet .status-scroll-area .status-select-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.subPage #statusSheet .status-scroll-area .status-select-row .status-btn {
+  flex: 1 1 calc(33.333% - 8px);
+  min-width: calc(33.333% - 8px);
+  padding: 10px 0;
+  font-size: 14px;
+  font-weight: 600;
+  background: #fff;
+  color: var(--bs-gray-700);
+  border: 1px solid var(--bs-gray-400);
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.subPage #statusSheet .status-scroll-area .status-select-row .status-btn:focus {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+.subPage #statusSheet .status-scroll-area .status-select-row .status-btn.selected {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+.subPage .footer-fixed {
   position: sticky;
   bottom: 0;
   background: #fff;
   z-index: 11;
 }
-.subPage #jobSheet .list-group-item.selected {
-  background-color: var(--bs-primary);
-  color: #fff;
+.subPage .region-reset-btn,
+.subPage .job-reset-btn,
+.subPage .salary-reset-btn,
+.subPage .career-reset-btn,
+.subPage .status-reset-btn {
+  font-weight: 600;
+  padding: 10px;
 }
-.subPage #jobSheet .list-group-item.selected i {
-  opacity: 1;
+.subPage .region-reset-btn:hover,
+.subPage .job-reset-btn:hover,
+.subPage .salary-reset-btn:hover,
+.subPage .career-reset-btn:hover,
+.subPage .status-reset-btn:hover {
+  background-color: transparent;
+  color: inherit;
+}
+.subPage .region-save-btn,
+.subPage .job-save-btn,
+.subPage .salary-save-btn,
+.subPage .career-save-btn,
+.subPage .status-save-btn {
+  font-weight: 600;
+  padding: 10px;
 }/*# sourceMappingURL=page.css.map */

@@ -91,20 +91,23 @@ function renderJobListMobile(list) {
 }
 function calcDDay(deadline) {
     if (!deadline) return "";
+    if (deadline === "채용시까지") {
+        return "채용시까지";
+    }
     // deadline: "2026-01-31"
     const [y, m, d] = deadline.split("-").map(Number);
-    // 오늘 (시간 제거)
     const today = new Date();
     today.setHours(0, 0, 0, 0);
-    // 마감일
     const endDate = new Date(y, m - 1, d);
     endDate.setHours(0, 0, 0, 0);
-    const diff =
-        Math.ceil((endDate - today) / (1000 * 60 * 60 * 24));
+    const diff = Math.ceil(
+        (endDate - today) / (1000 * 60 * 60 * 24)
+    );
     if (diff > 0) return `D-${diff}`;
     if (diff === 0) return "오늘 마감";
     return "마감";
 }
+
 
 
 

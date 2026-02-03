@@ -73,8 +73,8 @@
 .site-navbar .site-navbar__top .site-search__input {
   width: 100%;
   padding: 10px 14px 10px 40px;
-  border-radius: 50px;
-  border: 2px solid var(--bs-primary);
+  border-radius: 5px;
+  border: 1px solid #dadada;
   background-color: var(--bg-color);
   font-size: 16px;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
@@ -167,10 +167,10 @@
 .site-navbar .site-search--mobile .site-search__input {
   width: 100%;
   padding: 10px 12px 10px 42px;
-  border-radius: 50px;
+  border-radius: 5px;
   font-size: 15px;
   background-color: var(--bg-color);
-  border: 2px solid var(--bs-primary);
+  border: 1px solid #dadada;
 }
 .site-navbar .site-search--mobile .site-search__input:focus {
   outline: none;
@@ -400,7 +400,7 @@
 }
 
 .job-row__badge {
-  width: 250px;
+  width: 500px;
   padding: 4px 10px;
   border-radius: 8px;
   color: var(--color-text);
@@ -419,7 +419,7 @@
   border-radius: 6px;
   background: var(--pastel-red);
   color: var(--color-danger);
-  width: 80px;
+  width: 90px;
   text-align: center;
   flex-shrink: 0;
 }
