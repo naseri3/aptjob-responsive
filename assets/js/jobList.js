@@ -1,3 +1,4 @@
+/*
 export const jobList = [
   {
     id: 1,
@@ -557,4 +558,139 @@ export const jobList = [
     deadline: "채용시까지",
     isClosed: false
   }
+];
+*/
+
+
+export const jobList = [
+    {
+        id: 1,
+        title: "관리소장 채용",
+        complexName: "한강푸르지오 1단지",
+        area: "서울 > 영등포구",
+        position: "관리소장",
+        salary: "월급 420만원",
+        deadline: "2026-03-15",
+        createdAt: "2026-02-01",
+        isFav: false,
+        isClosed: false
+    },
+    {
+        id: 2,
+        title: "전기기사 모집",
+        complexName: "래미안 센트럴",
+        area: "서울 > 동작구",
+        position: "전기기사",
+        salary: "월급 380만원",
+        deadline: "2026-03-20",
+        createdAt: "2026-02-02",
+        isFav: false,
+        isClosed: false
+    },
+    {
+        id: 3,
+        title: "시설과장 채용",
+        complexName: "힐스테이트 판교",
+        area: "경기 > 성남시",
+        position: "시설과장",
+        salary: "월급 450만원",
+        deadline: "채용시까지",
+        createdAt: "2026-02-03",
+        isFav: false,
+        isClosed: false
+    },
+    {
+        id: 4,
+        title: "경비원 모집",
+        complexName: "자이 아파트",
+        area: "경기 > 수원시",
+        position: "경비원",
+        salary: "월급 260만원",
+        deadline: "2026-03-10",
+        createdAt: "2026-02-04",
+        isFav: false,
+        isClosed: false
+    },
+    {
+        id: 5,
+        title: "시설주임 채용",
+        complexName: "롯데캐슬 골드",
+        area: "서울 > 송파구",
+        position: "시설주임",
+        salary: "월급 310만원",
+        deadline: "2026-03-18",
+        createdAt: "2026-02-05",
+        isFav: false,
+        isClosed: false
+    },
+
+    /* =========================
+       6 ~ 100 (패턴 유지)
+    ========================= */
+    ...Array.from({ length: 95 }).map((_, i) => {
+        const id = i + 6;
+        const positions = [
+            "소장",
+            "관리과장",
+            "관리주임",
+            "경리(회계)",
+            "사무직",
+            "기술과장",
+            "전기직",
+            "전기과장",
+            "전기기사",
+            "설비직(영선)",
+            "시설과장",
+            "시설기사",
+            "기전직",
+            "조경",
+            "경비",
+            "미화",
+            "기타"
+        ];
+        const areas = [
+            // 서울
+            "서울 > 강남구",
+            "서울 > 강동구",
+            "서울 > 강서구",
+            "서울 > 관악구",
+            "서울 > 광진구",
+            "서울 > 구로구",
+            "서울 > 노원구",
+            "서울 > 동대문구",
+            "서울 > 마포구",
+            "서울 > 송파구",
+            "서울 > 영등포구",
+
+            // 경기
+            "경기 > 수원시",
+            "경기 > 성남시",
+            "경기 > 고양시",
+            "경기 > 용인시",
+            "경기 > 남양주시",
+            "경기 > 부천시",
+            "경기 > 화성시",
+
+            // 광역시
+            "부산 > 해운대구",
+            "부산 > 수영구",
+            "대구 > 수성구",
+            "인천 > 연수구",
+            "광주 > 북구",
+            "대전 > 유성구",
+            "울산 > 남구"
+        ];
+        return {
+            id,
+            title: `${positions[id % 5]} 채용`,
+            complexName: `테스트 아파트 ${id}단지`,
+            area: areas[id % areas.length],
+            position: positions[id % positions.length],
+            salary: `월급 ${260 + (id % 10) * 20}만원`,
+            deadline: id % 4 === 0 ? "채용시까지" : `2026-03-${(id % 28) + 1}`,
+            createdAt: `2026-02-${(id % 28) + 1}`,
+            isFav: false,
+            isClosed: false
+        };
+    })
 ];

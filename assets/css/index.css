@@ -373,6 +373,146 @@
     font-size: 24px !important;
   }
 }
+/* ====================================================
+   Recommended Jobs
+==================================================== */
+/* 카드 공통 */
+.job-card {
+  display: block;
+  height: 100%;
+  padding: 20px 22px;
+  background: #fff;
+  border-radius: 14px;
+  border: 1px solid #e5e7eb;
+  text-decoration: none;
+  color: #111;
+  transition: all 0.25s ease;
+}
+
+/* hover (empty 제외) */
+.job-card:not(.job-card--empty):hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* 헤더 (라벨 + 즐겨찾기) */
+.job-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+/* 라벨 */
+.job-card__label {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--color-primary);
+  background: var(--pastel-blue);
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+/* 즐겨찾기 */
+.job-card__favorite {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-size: 25px;
+  color: #cbd5e1;
+  transition: none;
+  /* 비활성 hover */
+  /* 활성 상태 */
+  /* 접근성: 기본 outline 제거하고 싶다면 */
+}
+.job-card__favorite:not(.is-active):hover {
+  color: #facc15;
+}
+.job-card__favorite.is-active {
+  color: #facc15;
+}
+.job-card__favorite:focus-visible {
+  outline: none;
+}
+
+/* 제목 */
+.job-card__title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+/* 메타 */
+.job-card__meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.job-card__meta .badge {
+  background: #f1f5f9;
+  color: #555;
+  font-size: 13px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  margin-top: 10px;
+}
+.job-card__meta .salary {
+  margin-left: auto;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+/* footer */
+.job-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 14px;
+}
+
+/* deadline */
+.job-card__deadline {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-danger);
+  background-color: var(--pastel-red);
+  padding: 2px 8px;
+  border-radius: 5px;
+}
+
+/* 상세보기 */
+.job-card__detail {
+  font-size: 14px;
+  font-weight: 600;
+  background-color: var(--color-primary);
+  color: #fff;
+  padding: 5px 15px;
+  border-radius: 5px;
+}
+
+/* ===== Empty Card ===== */
+.job-card--empty {
+  min-height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border: 1px solid #ddd;
+  border-radius: 16px;
+  background: #fff;
+  color: #777;
+  font-weight: 600;
+  font-size: 16px;
+  pointer-events: none;
+  box-shadow: none !important;
+}
+.job-card--empty .job-card__img {
+  width: 40%;
+  margin-bottom: 10px;
+  opacity: 0.85;
+}
+
 /* ==================================================
    Job List – PC / Mobile 공통
 ================================================== */
@@ -480,14 +620,6 @@
 /* =========================
    Mobile Job Card
 ========================= */
-.job-card {
-  position: relative;
-  background: #fff;
-  border-radius: 16px;
-  padding: 14px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-}
-
 .job-card__head {
   display: flex;
   flex-direction: column;
@@ -589,6 +721,56 @@
   right: 12px;
 }
 
+/* realtime select */
+/* =========================
+   Header 정렬 (공통)
+========================= */
+.realtime-job__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  margin-top: 80px !important;
+}
+.realtime-job__header .subPage-jobList {
+  padding-top: 0 !important;
+}
+
+/* =========================
+   Controls
+========================= */
+.realtime-job__controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* =========================
+   Select
+========================= */
+.job-select {
+  height: 36px;
+  padding: 0 10px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  background: #fff;
+  cursor: pointer;
+}
+
+/* =========================
+   Mobile (한 줄 유지)
+========================= */
+@media (max-width: 767.98px) {
+  /* 개수 select만 숨김 */
+  #countSelect {
+    display: none;
+  }
+  /* 타이틀 줄바꿈 방지 */
+  .realtime-job__title {
+    white-space: nowrap;
+  }
+}
 html, body {
   height: auto;
   overflow-y: auto;
