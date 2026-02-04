@@ -133,7 +133,7 @@ function renderJobListMobile(list) {
       </div>
       <h3 class="job-card__title">${job.title}</h3>
       <p class="job-card__area">${job.area.replace(">", "·")}</p>
-      <p class="job-card__salary"><strong>${job.salary.replace("월급 ", "")}</strong></p>
+      <p class="job-card__salary">월급 <strong>${job.salary.replace("월급 ", "")}</strong>(세전)</p>
       <span class="job-card__btn">상세보기 ›</span>
     </div>
   `).join("");
