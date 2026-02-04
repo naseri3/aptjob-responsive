@@ -669,9 +669,6 @@
 .job-card__salary {
   font-size: 15px;
   margin-bottom: 10px;
-}
-.job-card__salary strong {
-  font-size: 16px;
   font-weight: 700;
 }
 
