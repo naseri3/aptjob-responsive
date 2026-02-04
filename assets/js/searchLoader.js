@@ -428,71 +428,71 @@ document.addEventListener('click', (e) => {
 ================================================== */
 let selectedCareerType = null;
 document.addEventListener('click', (e) => {
-    /* ---------- 경력 버튼 선택 ---------- */
-    if (e.target.classList.contains('career-btn')) {
-        const buttons = document.querySelectorAll('.career-btn');
-        const inputRow = document.querySelector('.career-input-row');
-        const input = document.querySelector('.career-inline-input');
+  /* ---------- 경력 버튼 선택 ---------- */
+  if (e.target.classList.contains('career-btn')) {
+    const buttons = document.querySelectorAll('.career-btn');
+    const inputRow = document.querySelector('.career-input-row');
+    const input = document.querySelector('.career-inline-input');
 
-        buttons.forEach(btn => btn.classList.remove('selected'));
-        e.target.classList.add('selected');
+    buttons.forEach(btn => btn.classList.remove('selected'));
+    e.target.classList.add('selected');
 
-        selectedCareerType = e.target.dataset.value;
+    selectedCareerType = e.target.dataset.value;
 
-        // 경력 선택 시 입력 노출
-        if (selectedCareerType === '경력') {
-            inputRow.classList.remove('d-none');
-            input?.focus();
-        } else {
-            inputRow.classList.add('d-none');
-            if (input) input.value = '';
-        }
+    // 경력 선택 시 입력 노출
+    if (selectedCareerType === '경력') {
+      inputRow.classList.remove('d-none');
+      input?.focus();
+    } else {
+      inputRow.classList.add('d-none');
+      if (input) input.value = '';
+    }
+  }
+
+  /* ---------- 초기화 ---------- */
+  if (e.target.classList.contains('career-reset-btn')) {
+    document
+      .querySelectorAll('.career-btn')
+      .forEach(btn => btn.classList.remove('selected'));
+
+    const input = document.querySelector('.career-inline-input');
+    const inputRow = document.querySelector('.career-input-row');
+
+    if (input) input.value = '';
+    inputRow?.classList.add('d-none');
+
+    selectedCareerType = null;
+    resetFilterLabel('career', '경력');
+  }
+
+  /* ---------- 선택완료 ---------- */
+  if (e.target.classList.contains('career-save-btn')) {
+    const input = document.querySelector('.career-inline-input');
+    let label = '경력';
+
+    if (selectedCareerType === '신입') {
+      label = '신입';
     }
 
-    /* ---------- 초기화 ---------- */
-    if (e.target.classList.contains('salary-reset-btn')) {
-        document
-            .querySelectorAll('.career-btn')
-            .forEach(btn => btn.classList.remove('selected'));
-
-        const input = document.querySelector('.career-inline-input');
-        const inputRow = document.querySelector('.career-input-row');
-
-        if (input) input.value = '';
-        inputRow?.classList.add('d-none');
-
-        selectedCareerType = null;
-        resetFilterLabel('career', '경력');
+    if (selectedCareerType === '경력무관') {
+      label = '경력무관';
     }
 
-    /* ---------- 선택완료 ---------- */
-    if (e.target.classList.contains('salary-save-btn')) {
-        const input = document.querySelector('.career-inline-input');
-        let label = '경력';
-
-        if (selectedCareerType === '신입') {
-            label = '신입';
-        }
-
-        if (selectedCareerType === '경력무관') {
-            label = '경력무관';
-        }
-
-        if (selectedCareerType === '경력') {
-            const year = input?.value.trim();
-            label = year ? `경력 ${year}년 이상` : '경력';
-        }
-
-        if (label === '경력') {
-            resetFilterLabel('career', '경력');
-        } else {
-            setFilterLabel('career', label);
-        }
-
-        // offcanvas 닫기
-        const sheet = document.getElementById('careerSheet');
-        bootstrap.Offcanvas.getInstance(sheet)?.hide();
+    if (selectedCareerType === '경력') {
+      const year = input?.value.trim();
+      label = year ? `경력 ${year}년 이상` : '경력';
     }
+
+    if (label === '경력') {
+      resetFilterLabel('career', '경력');
+    } else {
+      setFilterLabel('career', label);
+    }
+
+    // offcanvas 닫기
+    const sheet = document.getElementById('careerSheet');
+    bootstrap.Offcanvas.getInstance(sheet)?.hide();
+  }
 });
 
 /* =========================
