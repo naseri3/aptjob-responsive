@@ -109,7 +109,7 @@ function renderJobListPC(list) {
         <span class="job-row__divider">|</span>
         ${job.area.replace(">", "·")}
       </span>
-      <span class="job-row__salary">월급 ${job.salary} 이상</span>
+      <span class="job-row__salary">${job.salary}(세전)</span>
       <a href="/job/detail.html?id=${job.id}" class="job-row__link">
         상세보기 ›
       </a>
