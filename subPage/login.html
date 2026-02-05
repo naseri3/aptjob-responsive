@@ -19,8 +19,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
     <!-- Custom Styles -->
     <link rel="stylesheet" href="/assets/css/index.css">
-    <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js"
-        charset="utf-8"></script>
+    <script src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js"></script>
+    <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.7/kakao.min.js"
         integrity="sha384-tJkjbtDbvoxO+diRuDtwRO9JXR7pjWnfjfRn5ePUpl7e7RJCxKCwwnfqUAdXh53p"
@@ -65,17 +65,17 @@
                             <span class="input-group-text">
                                 <img src="/assets/icons/iconoir_user.png" width="20">
                             </span>
-                            <input type="text" class="form-control" placeholder="아이디">
+                            <input type="text" class="form-control" id="testId" placeholder="아이디">
                         </div>
                         <!-- 비밀번호 -->
                         <div class="input-group input-group-lg mt-3">
                             <span class="input-group-text">
                                 <img src="/assets/icons/mdi_password-outline.png" width="20">
                             </span>
-                            <input type="password" class="form-control" placeholder="비밀번호">
+                            <input type="password" class="form-control" id="testPw" placeholder="비밀번호">
                         </div>
                         <!-- 로그인 버튼 -->
-                        <button type="button" class="btn btn-primary btn-lg w-100 mt-4">
+                        <button type="button" class="btn btn-primary btn-lg w-100 mt-4" onclick="testLogin()">
                             로그인
                         </button>
                         <!-- 소셜 로그인 -->
@@ -112,18 +112,18 @@
                             <span class="input-group-text">
                                 <img src="/assets/icons/iconoir_user.png" width="20">
                             </span>
-                            <input type="text" class="form-control" placeholder="아이디">
+                            <input type="text" class="form-control" id="testId" placeholder="아이디">
                         </div>
                         <!-- 비밀번호 -->
                         <div class="input-group input-group-lg mt-3">
                             <span class="input-group-text">
                                 <img src="/assets/icons/mdi_password-outline.png" width="20">
                             </span>
-                            <input type="password" class="form-control" placeholder="비밀번호">
+                            <input type="password" class="form-control" id="testPw" placeholder="비밀번호">
                         </div>
 
                         <!-- 로그인 버튼 -->
-                        <button type="button" class="btn btn-primary btn-lg w-100 mt-4">
+                        <button type="button" class="btn btn-primary btn-lg w-100 mt-4" onclick="testLogin()">
                             로그인
                         </button>
                         <!-- 비밀번호 안내 -->
