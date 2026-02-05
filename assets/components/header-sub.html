@@ -10,25 +10,41 @@
                 <!-- 검색창 (PC 전용) -->
                 <form class="site-search site-search--pc d-none d-lg-flex ms-4 me-3">
                     <div class="site-search__wrapper">
-                    <i class="fa-solid fa-magnifying-glass site-search__icon"></i>
-                    <input type="search" class="site-search__input" placeholder="직무, 지역, 아파트명으로 검색해보세요.">
+                        <i class="fa-solid fa-magnifying-glass site-search__icon"></i>
+                        <input type="search" class="site-search__input" placeholder="직무, 지역, 아파트명으로 검색해보세요.">
                     </div>
                 </form>
                 <!-- 로그인 / 유저 아이콘 -->
                 <div class="site-user ms-auto">
                     <a href="/subPage/login.html" class="site-user__btn">
                         <i class="fa-regular fa-user"></i>
-                        <span class="d-none d-sm-inline">로그인</span>
+                        <span class="d-none d-sm-inline text-decoration-none">로그인</span>
                     </a>
                 </div>
             </div>
             <!-- 2단 : 지역직무검색 / 위탁사검색 / 고객센터 / 마이페이지 -->
             <div class="w-100 d-none d-lg-flex align-items-center py-1 site-navbar__bottom">
                 <ul>
-                    <li>지역/직무검색</li>
-                    <li>위탁사검색</li>
-                    <li>고객센터</li>
-                    <li>마이페이지</li>
+                    <li>
+                        <a href="/subpage/search.html" class="text-decoration-none text-dark">
+                            지역/직무검색
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/subpage/company.html" class="text-decoration-none text-dark">
+                            위탁사검색
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/subpage/customer.html" class="text-decoration-none text-dark">
+                            고객센터
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/subpage/mypage.html" class="text-decoration-none text-dark">
+                            마이페이지
+                        </a>
+                    </li>
                 </ul>
             </div>
             <!-- 검색창 (모바일) -->
