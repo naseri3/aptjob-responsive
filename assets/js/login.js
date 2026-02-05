@@ -192,3 +192,32 @@ function testLogin() {
     alert("아이디/비밀번호 틀림");
   }
 }
+
+
+
+window.addEventListener("load", function () {
+
+  if (typeof naver_id_login === "undefined") return;
+
+  const naverLogin = new naver_id_login(
+    "hLO6jennO8FmeKMz2ntZ",
+    window.location.origin + "/subpage/login.html"
+  );
+
+  naverLogin.get_naver_userprofile("naverSignInCallback()");
+});
+
+/* 콜백 */
+function naverSignInCallback() {
+
+  const email = naver_id_login.getProfileData("email");
+  const name  = naver_id_login.getProfileData("name");
+
+  console.log("네이버 로그인:", email, name);
+
+  localStorage.setItem("isLogin", "true");
+  localStorage.setItem("userName", name);
+
+  alert("네이버 로그인 성공!");
+  location.href = "/";
+}
