@@ -1,0 +1,212 @@
+/* ==================================================
+   LOGIN PAGE
+================================================== */
+
+/* 로그인 영역 */
+#login {
+    min-height: 60vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 120px;
+    padding-bottom: 80px;
+}
+
+/* 로그인 박스 */
+.login-wrap {
+  max-width: 420px;
+  width: 100%;
+}
+
+/* ==================================================
+   TABS
+================================================== */
+
+/* 탭 전체 라인 */
+.nav-tabs {
+  border-bottom: 1px solid #dee2e6;
+}
+
+/* 탭 기본 */
+.nav-tabs .nav-link {
+  position: relative;
+  margin-bottom: -1px;
+
+  border: 1px solid transparent;
+  border-bottom: 1px solid #dee2e6;
+
+  color: #666;
+  font-weight: 600;
+  background-color: #f8f9fa;
+
+  transition: all 0.2s ease;
+}
+
+/* hover */
+.nav-tabs .nav-link:hover {
+  color: var(--color-primary);
+  background-color: #fff;
+}
+
+/* active */
+.nav-tabs .nav-link.active {
+  color: var(--color-primary);
+  background-color: #fff;
+
+  border: 1px solid #dee2e6;
+  border-bottom: 1px solid #fff;
+}
+
+/* ==================================================
+   INPUT
+================================================== */
+
+/* input 공통 */
+.input-group-text {
+  background-color: #fff;
+}
+
+.form-control {
+  height: 52px;
+  font-size: 1rem;
+}
+
+/* placeholder */
+.form-control::placeholder {
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+.input-group-lg .form-control::placeholder {
+  font-size: 0.85rem;
+}
+
+/* focus */
+.form-control:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 0.15rem rgba(13, 110, 253, 0.15);
+}
+
+/* ==================================================
+   LOGIN BUTTON
+================================================== */
+
+.btn-primary {
+  height: 52px;
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.btn-primary:hover {
+  filter: brightness(0.95);
+}
+
+/* ==================================================
+   SOCIAL LOGIN
+================================================== */
+
+.social_login {
+  margin-top: 40px;
+}
+
+/* 공통 박스 */
+.social-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+
+  height: 48px;
+  padding: 0 12px;
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+/* =========================
+   Google
+========================= */
+.google_login {
+  &__img {
+    width: 22px;
+  }
+
+  &__title {
+    font-weight: 700;
+    color: #4285F4;
+  }
+}
+
+/* =========================
+   Naver (iframe 대응용)
+========================= */
+#naver_id_login {
+  width: 100%;
+}
+
+/* =========================
+   Kakao
+========================= */
+#kakao-login-btn img {
+  max-height: 38px;
+}
+
+/* ==================================================
+   ENTERPRISE LINK
+================================================== */
+
+.enterprise-find-your-pw a {
+  font-size: 0.9rem;
+  color: #666;
+  text-decoration: none;
+}
+
+.enterprise-find-your-pw a:hover {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+/* ==================================================
+   RESPONSIVE
+================================================== */
+
+/* Tablet ↓ */
+@media (max-width: 768px) {
+  #login {
+    min-height: auto;
+    padding: 40px 0;
+  }
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+    #login {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .login-wrap {
+        max-width: 100%;
+    }
+
+    .nav-tabs .nav-link {
+        font-size: 0.95rem;
+        padding: 10px;
+    }
+
+    .form-control {
+        height: 48px;
+    }
+
+    .btn-primary {
+        height: 48px;
+    }
+
+    .social-box {
+        height: 44px;
+        font-size: 1.1rem;
+    }
+    .google_login {
+    &__title {
+        font-weight: 700;
+        color: #4285F4;
+    }
+    }
+}

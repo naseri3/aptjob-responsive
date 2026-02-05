@@ -4,9 +4,11 @@
 
 /* 카드 공통 */
 .job-card {
+    position: relative;
+    overflow: hidden; 
     display: block;
     height: 100%;
-    padding: 20px 22px;
+    padding: 15px 20px;
     background: #fff;
     border-radius: 14px;
     border: 1px solid #e5e7eb;
@@ -45,11 +47,10 @@
     border: none;
     padding: 0;
     cursor: pointer;
-
-    font-size: 25px;
+    font-size: 26px;
     color: #cbd5e1;
     transition: none;
-
+    margin-top: -8px;
     /* 비활성 hover */
     &:not(.is-active):hover {
         color: #facc15;
@@ -317,33 +318,33 @@
 /* ==================================================
    Favorite Star (PC + Mobile)
 ================================================== */
-.job-fav {
-    cursor: pointer;
-    font-size: 24px;
-    color: #ccc;
-    user-select: none;
-    width: 24px;
-    text-align: center;
-    flex-shrink: 0;
-}
-
-/* 즐겨찾기 활성 */
-.job-fav.is-active {
-    color: #facc15;
-}
-
-/* PC 위치 – 왼쪽 맨 앞 */
-.job-row .job-fav {
-    margin-right: 10px;
-}
-
 /* Mobile 위치 – 우측 상단 */
 .job-card .job-fav {
     position: absolute;
     top: 12px;
     right: 12px;
+    font-size: 25px;
+    color: #ccc;
+    z-index: 2;
+    width: 24px;
+    text-align: center;
+    margin-top: -8px;
 }
 
+/* PC 위치 – 왼쪽 맨 앞 */
+.job-row .job-fav {
+    margin-right: 10px;
+    font-size: 25px;
+    color: #ccc;
+    z-index: 2;
+    width: 24px;
+    text-align: center;
+    margin-top:-8px;
+}
+/* 즐겨찾기 활성 */
+.job-fav.is-active {
+    color: #facc15;
+}
 
 
 

@@ -1,6 +1,7 @@
 @use "./base/global";
 @use "./components/component";
 @use "./pages/renderJob";
+@use "./pages/login";
 
 html, body {
   height: auto;
@@ -89,6 +90,11 @@ html, body {
                 padding-left: 20px;
                 &:first-child {
                     border-left: 0;
+                }
+                a {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
                 }
                 img {
                     width: 42px;

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>아파트잡 | 아파트 전문 구인구직 플랫폼</title>
+    <link rel="icon" href="/asstes/img/favicon.png" type="image/x-icon">
+    <!-- bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <!-- Font Awesome (권장 CDN) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="/assets/css/index.css">
+</head>
+
+<body data-page="login" data-header="sub">
+    <!-- PC header -->
+    <header id="headerWrap"></header>
+
+    <main id="pages" class="subPage">
+        <section id="login" class="container py-5">
+            <div class="login-wrap mx-auto">
+                <!-- 탭 메뉴 -->
+                <ul class="nav nav-tabs nav-justified" id="loginTab" role="tablist">
+                    <!-- 개인회원 -->
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="personal-tab" data-bs-toggle="tab"
+                            data-bs-target="#personal-pane" type="button" role="tab">
+                            개인회원
+                        </button>
+                    </li>
+                    <!-- 기업회원 -->
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="enterprise-tab" data-bs-toggle="tab"
+                            data-bs-target="#enterprise-pane" type="button" role="tab">
+                            기업회원
+                        </button>
+                    </li>
+                </ul>
+                <!-- 탭 콘텐츠 -->
+                <div class="tab-content">
+                    <!-- =========================
+                        개인회원 로그인
+                    ========================== -->
+                    <div class="tab-pane fade show active" id="personal-pane" role="tabpanel">
+                        <!-- 아이디 -->
+                        <div class="input-group input-group-lg mt-4">
+                            <span class="input-group-text">
+                                <img src="/assets/icons/iconoir_user.png" width="20">
+                            </span>
+                            <input type="text" class="form-control" placeholder="아이디">
+                        </div>
+                        <!-- 비밀번호 -->
+                        <div class="input-group input-group-lg mt-3">
+                            <span class="input-group-text">
+                                <img src="/assets/icons/mdi_password-outline.png" width="20">
+                            </span>
+                            <input type="password" class="form-control" placeholder="비밀번호">
+                        </div>
+                        <!-- 로그인 버튼 -->
+                        <button type="button" class="btn btn-primary btn-lg w-100 mt-4">
+                            로그인
+                        </button>
+                        <!-- 소셜 로그인 -->
+                        <div class="social_login mt-5">
+                            <div class="row g-2">
+                                <!-- Google -->
+                                <div class="col">
+                                    <div class="google_login social-box">
+                                        <img src="/assets/images/google_icon.png" class="google_login__img">
+                                        <span class="google_login__title">로그인</span>
+                                    </div>
+                                </div>
+                                <!-- Naver -->
+                                <div class="col">
+                                    <div id="naver_id_login" class="social-box text-center"></div>
+                                </div>
+                                <!-- Kakao -->
+                                <div class="col">
+                                    <a id="kakao-login-btn" href="javascript:loginWithKakao()"
+                                        class="social-box d-block text-center">
+                                        <img src="/assets/images/kakao_login_medium.png" class="img-fluid">
+                                    </a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- =========================
+                        기업회원 로그인
+                    ========================== -->
+                    <div class="tab-pane fade" id="enterprise-pane" role="tabpanel">
+                        <!-- 아이디 -->
+                        <div class="input-group input-group-lg mt-4">
+                            <span class="input-group-text">
+                                <img src="/assets/icons/iconoir_user.png" width="20">
+                            </span>
+                            <input type="text" class="form-control" placeholder="아이디">
+                        </div>
+                        <!-- 비밀번호 -->
+                        <div class="input-group input-group-lg mt-3">
+                            <span class="input-group-text">
+                                <img src="/assets/icons/mdi_password-outline.png" width="20">
+                            </span>
+                            <input type="password" class="form-control" placeholder="비밀번호">
+                        </div>
+
+                        <!-- 로그인 버튼 -->
+                        <button type="button" class="btn btn-primary btn-lg w-100 mt-4">
+                            로그인
+                        </button>
+                        <!-- 비밀번호 안내 -->
+                        <div class="enterprise-find-your-pw mt-4 text-center">
+                            <a href="#" target="_blank">
+                                관리본사/담당자 변경으로 인한 비밀번호 재설정
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <!-- PC footer -->
+    <footer id="footer"></footer>
+    <!-- Back to Top -->
+    <div id="backToTopWrap"></div>
+    <!-- 모바일 하단 네비 -->
+    <div id="bottomNavWrap"></div>
+
+
+    <script src="/assets/js/common.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -83,22 +83,31 @@ if (remainder !== 0) {
   }
 }
 
-// 즐겨찾기 클릭 처리 (이벤트 위임)
-grid.addEventListener("click", (e) => {
-  const favBtn = e.target.closest(".job-card__favorite");
-  if (!favBtn) return;
-
-  // 🔥 링크 이동 + 버블링 차단
-  e.preventDefault();
-  e.stopPropagation();
-
-  // 즐겨찾기 토글
-  const isActive = favBtn.classList.toggle("is-active");
-  favBtn.setAttribute("aria-pressed", isActive);
-
-  console.log("즐겨찾기 상태:", isActive ? "ON" : "OFF");
-});
-
-
-
 grid.innerHTML = html;
+
+// 즐겨찾기 클릭 처리 (이벤트 위임) - 캡처 단계에서 먼저 막기
+grid.addEventListener(
+  "click",
+  (e) => {
+    const favBtn = e.target.closest(".job-card__favorite");
+    if (!favBtn) return;
+
+    // ✅ 링크 이동 완전 차단 (모바일에서 특히 중요)
+    e.preventDefault();
+    e.stopPropagation();
+    if (typeof e.stopImmediatePropagation === "function") {
+      e.stopImmediatePropagation();
+    }
+
+    // 즐겨찾기 토글
+    const isActive = favBtn.classList.toggle("is-active");
+    favBtn.setAttribute("aria-pressed", isActive);
+
+    console.log("즐겨찾기 상태:", isActive ? "ON" : "OFF");
+  },
+  true // ⭐ 캡처 단계
+);
+
+
+
+
