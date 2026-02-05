@@ -38,7 +38,6 @@ if (authCode) {
    - 중복 init 제거
 ====================================================================== */
 (function initNaverLogin() {
-
     /* SDK 체크 */
     if (typeof naver_id_login === "undefined") return;
 
@@ -49,21 +48,16 @@ if (authCode) {
     /* 🔥 네이버 전용 Redirect URI */
     const NAVER_REDIRECT_URI =
         window.location.origin + "/subpage/login.html";
-
     try {
-
         const naverLogin = new naver_id_login(
             "hLO6jennO8FmeKMz2ntZ",
             NAVER_REDIRECT_URI
         );
-
         const state = naverLogin.getUniqState();
-
         naverLogin.setButton("white", 2, 40);
         naverLogin.setState(state);
         naverLogin.setPopup();
         naverLogin.init_naver_id_login();
-
     } catch (e) {
         console.error("[NAVER LOGIN INIT ERROR]", e);
     }
@@ -75,52 +69,78 @@ if (authCode) {
    카카오 로그인
    - SDK가 있는 페이지에서만 동작하도록 가드
 ====================================================================== */
-function loginWithKakao() {
-    if (!window.Kakao) {
-        alert("카카오 SDK가 로드되지 않았습니다. (로그인 페이지에서 시도해주세요)");
-        return;
-    }
-
-    Kakao.Auth.authorize({
-        redirectUri: REDIRECT_URI,
-    });
-}
-
-/* (데모용) 토큰 표시 - 카카오 SDK 있을 때만 실행 */
-(function safeDisplayKakaoToken() {
-    if (!window.Kakao) return;
-
-    try {
-        displayToken();
-    } catch (e) {
-        // 데모영역 없거나 SDK 상태 이슈면 무시
-    }
+(function initKakao() {
+  if (!window.Kakao) return;
+  const KAKAO_JS_KEY =
+    "1aeb3e9a49e983e68615734accc31d91"; // JS 키만 사용
+  if (!Kakao.isInitialized()) {
+    Kakao.init(KAKAO_JS_KEY);
+    console.log("Kakao SDK initialized");
+  }
 })();
 
-function displayToken() {
-    const token = getCookie("authorize-access-token");
-    if (!token) return;
+function loginWithKakao() {
+  if (!window.Kakao) {
+    alert("카카오 SDK 로드 안됨");
+    return;
+  }
+  const REDIRECT_URI =
+    window.location.origin + "/subpage/login.html";
 
-    Kakao.Auth.setAccessToken(token);
-
-    Kakao.Auth.getStatusInfo()
-        .then(function (res) {
-            if (res.status === "connected") {
-                const el = document.getElementById("token-result");
-                if (el) {
-                    el.innerText = "login success, token: " + Kakao.Auth.getAccessToken();
-                }
-            }
-        })
-        .catch(function () {
-            Kakao.Auth.setAccessToken(null);
-        });
+  Kakao.Auth.authorize({
+    redirectUri: REDIRECT_URI,
+  });
 }
+/* ======================================================================
+   KAKAO LOGIN SUCCESS
+====================================================================== */
 
-function getCookie(name) {
-    const parts = document.cookie.split(name + "=");
-    if (parts.length === 2) return parts[1].split(";")[0];
-}
+(function kakaoLoginSuccess() {
+
+  if (!window.Kakao) return;
+
+  const hash = window.location.hash;
+
+  if (!hash.includes("access_token")) return;
+
+  const token = new URLSearchParams(
+    hash.replace("#", "")
+  ).get("access_token");
+
+  if (!token) return;
+
+  Kakao.Auth.setAccessToken(token);
+
+  Kakao.API.request({
+    url: "/v2/user/me",
+
+    success: function (res) {
+
+      const name =
+        res.kakao_account.profile.nickname;
+
+      console.log("카카오 로그인:", name);
+
+      localStorage.setItem("isLogin", "true");
+      localStorage.setItem("userName", name);
+
+      alert("카카오 로그인 성공!");
+
+      location.href = "/";
+    },
+
+    fail: function (error) {
+      console.error(error);
+    },
+
+  });
+
+})();
+
+
+
+
+
 
 
 /* ======================================================================
@@ -198,19 +218,14 @@ function testLogin() {
 /* ======================================================
    NAVER LOGIN SUCCESS
 ====================================================== */
-
 window.addEventListener("load", function () {
-
     if (typeof naver_id_login === "undefined") return;
-
     const NAVER_REDIRECT_URI =
         window.location.origin + "/subpage/login.html";
-
     const naverLogin = new naver_id_login(
         "hLO6jennO8FmeKMz2ntZ",
         NAVER_REDIRECT_URI
     );
-
     /* 🔥 사용자 정보 요청 */
     naverLogin.get_naver_userprofile("naverSignInCallback()");
 
@@ -218,18 +233,13 @@ window.addEventListener("load", function () {
 
 /* 콜백 함수 */
 function naverSignInCallback() {
-
     const email = naver_id_login.getProfileData("email");
     const name = naver_id_login.getProfileData("name");
-
     console.log("네이버 로그인 성공:", email, name);
-
     /* 로그인 상태 저장 */
     localStorage.setItem("isLogin", "true");
     localStorage.setItem("userName", name);
-
     alert("네이버 로그인 성공!");
-
     /* 메인 이동 */
     location.href = "/";
 }
