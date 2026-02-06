@@ -46,8 +46,8 @@ const naverLogin = new naver_id_login(
   NAVER_REDIRECT_URI
 );
 
-/* 버튼 생성 */
 const state = naverLogin.getUniqState();
+
 naverLogin.setButton("white", 2, 40);
 naverLogin.setState(state);
 naverLogin.setPopup();
