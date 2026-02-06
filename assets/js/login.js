@@ -37,33 +37,24 @@ if (authCode) {
    - 로그인 페이지에서만/버튼 영역이 있을 때만 초기화
    - 중복 init 제거
 ====================================================================== */
-(function initNaverLogin() {
-    /* SDK 체크 */
-    if (typeof naver_id_login === "undefined") return;
+var naver_id_login = new naver_id_login("hLO6jennO8FmeKMz2ntZ", "https://portfolio-aptjob.netlify.app/");
+        var state = naver_id_login.getUniqState();
+        naver_id_login.setButton("white", 2,40);
+        naver_id_login.setDomain("https://portfolio-aptjob.netlify.app/subpage/login");
+        naver_id_login.setState(state);
+        naver_id_login.setPopup();
+        naver_id_login.init_naver_id_login();
 
-    /* 로그인 페이지 아니면 종료 */
-    const naverWrap = document.getElementById("naver_id_login");
-    if (!naverWrap) return;
-
-    /* 🔥 네이버 전용 Redirect URI */
-    const NAVER_REDIRECT_URI =
-        window.location.origin + "/subpage/login.html";
-    try {
-        const naverLogin = new naver_id_login(
-            "hLO6jennO8FmeKMz2ntZ",
-            NAVER_REDIRECT_URI
-        );
-        const state = naverLogin.getUniqState();
-        naverLogin.setButton("white", 2, 40);
-        naverLogin.setState(state);
-        naverLogin.setPopup();
-        naverLogin.init_naver_id_login();
-    } catch (e) {
-        console.error("[NAVER LOGIN INIT ERROR]", e);
-    }
-
-})();
-
+  // 접근 토큰 값 출력
+  alert(naver_id_login.oauthParams.access_token);
+  // 네이버 사용자 프로필 조회
+  naver_id_login.get_naver_userprofile("naverSignInCallback()");
+  // 네이버 사용자 프로필 조회 이후 프로필 정보를 처리할 callback function
+  function naverSignInCallback() {
+    alert(naver_id_login.getProfileData('email'));
+    alert(naver_id_login.getProfileData('nickname'));
+    alert(naver_id_login.getProfileData('age'));
+  }
 
 /* ======================================================================
    카카오 로그인
