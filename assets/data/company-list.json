@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "name": "거창유지관리",
+    "logo": "/assets/images/brand1.png"
+  },
+  {
+    "id": 2,
+    "name": "경기진흥주택관리(주)",
+    "logo": "/assets/images/brand2.png"
+  },
+  {
+    "id": 3,
+    "name": "광인개발",
+    "logo": "/assets/images/brand3.png"
+  },
+  {
+    "id": 4,
+    "name": "더씨앤(주)",
+    "logo": "/assets/images/brand4.png"
+  },
+  {
+    "id": 5,
+    "name": "(주)동우개발",
+    "logo": "/assets/images/brand5.png"
+  },
+   {
+    "id": 6,
+    "name": "(주)백운에프엠",
+    "logo": "/assets/images/brand6.png"
+  },
+   {
+    "id": 7,
+    "name": "부건피앤피(주)",
+    "logo": "/assets/images/brand7.png"
+  },
+   {
+    "id": 8,
+    "name": "서림주택관리(주)",
+    "logo": "/assets/images/brand8.png"
+  },
+   {
+    "id": 9,
+    "name": "서일개발",
+    "logo": "/assets/images/brand9.png"
+  },
+  {
+    "id": 10,
+    "name": "신한영관리(주)",
+    "logo": "/assets/images/brand10.png"
+  },
+  {
+    "id": 11,
+    "name": "에이비엠(주)",
+    "logo": "/assets/images/brand11.png"
+  },
+  {
+    "id": 12,
+    "name": "율산개발",
+    "logo": "/assets/images/brand12.png"
+  },
+   {
+    "id": 13,
+    "name": "태룡개발",
+    "logo": "/assets/images/brand13.png"
+  },
+   {
+    "id": 14,
+    "name": "(주)푸른종합주택관리",
+    "logo": "/assets/images/brand14.png"
+  }
+]
