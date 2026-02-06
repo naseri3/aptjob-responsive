@@ -47,6 +47,32 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
+
+/* ======================================================================
+   네이버 Access Token 처리
+====================================================================== */
+
+(function () {
+  const hash = window.location.hash;
+
+  if (hash.includes("access_token")) {
+    const token = new URLSearchParams(hash.substring(1))
+      .get("access_token");
+
+    console.log("네이버 토큰:", token);
+
+    // 포폴용 로그인 처리
+    localStorage.setItem("isLogin", "true");
+    localStorage.setItem("userName", "네이버회원");
+
+    alert("네이버 로그인 성공!");
+
+    // hash 제거
+    window.location.href = "/";
+  }
+})();
+
+
 /* ======================================================================
    3️⃣ 카카오 로그인
 ====================================================================== */
