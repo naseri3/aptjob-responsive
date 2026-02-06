@@ -24,6 +24,7 @@
   --btn-secondary: #EAEAEA;
   --btn-outline-color:#c2c2c2;
   --btn-light-gray:#ebebeb;
+  --color-light-gray:#f7f7f7;
 }
 
 /* ==============================
@@ -409,8 +410,8 @@
 .job-card__label {
   font-size: 13.5px;
   font-weight: 600;
-  color: var(--color-primary);
-  background: var(--pastel-blue);
+  color: var(--color-light-gray);
+  background: var(--bs-gray-600);
   padding: 4px 10px;
   border-radius: 999px;
 }
@@ -655,8 +656,8 @@
   display: inline-block;
   font-size: 14px;
   font-weight: 600;
-  background: var(--pastel-mint);
-  color: var(--color-primary);
+  background: var(--color-light-gray);
+  color: var(--bs-gray-600);
   padding: 4px 10px;
   border-radius: 6px;
   margin-bottom: 10px;
