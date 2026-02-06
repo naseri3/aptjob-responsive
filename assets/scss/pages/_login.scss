@@ -65,11 +65,10 @@
     background-color: #fff;
 }
 
-.form-control {
+.login-input {
     height: 52px;
-    font-size: 1rem;
+    font-size: 0.9rem !important;
 }
-
 /* placeholder */
 .form-control::placeholder {
     font-size: 0.9rem;
