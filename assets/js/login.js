@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function () {
 /* ======================================================================
    네이버 Access Token 처리
 ====================================================================== */
-
+/*
 (function () {
   const hash = window.location.hash;
 
@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function () {
     window.location.href = "/";
   }
 })();
-
+*/
 
 /* ======================================================================
    3️⃣ 카카오 로그인
@@ -184,3 +184,29 @@ function testLogin() {
 document.addEventListener("DOMContentLoaded", () => {
   checkLoginUI();
 });
+
+
+
+/* ======================================================================
+   소셜 로그인 성공여부
+====================================================================== */
+(function () {
+  /* query */
+  const params = new URLSearchParams(window.location.search);
+  const code = params.get("code");
+
+  /* hash */
+  const hash = window.location.hash;
+  const accessToken = new URLSearchParams(hash.substring(1))
+    .get("access_token");
+
+  if (code || accessToken) {
+
+    localStorage.setItem("isLogin", "true");
+    localStorage.setItem("userName", "소셜회원");
+
+    alert("소셜 로그인 성공!");
+    window.location.href = "/";
+  }
+
+})();
