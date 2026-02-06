@@ -37,24 +37,64 @@ if (authCode) {
    - 로그인 페이지에서만/버튼 영역이 있을 때만 초기화
    - 중복 init 제거
 ====================================================================== */
-var naver_id_login = new naver_id_login("hLO6jennO8FmeKMz2ntZ", "https://portfolio-aptjob.netlify.app/");
-        var state = naver_id_login.getUniqState();
-        naver_id_login.setButton("white", 2,40);
-        naver_id_login.setDomain("https://portfolio-aptjob.netlify.app/subpage/login");
-        naver_id_login.setState(state);
-        naver_id_login.setPopup();
-        naver_id_login.init_naver_id_login();
+const NAVER_CLIENT_ID = "hLO6jennO8FmeKMz2ntZ";
+const NAVER_REDIRECT_URI =
+  "https://portfolio-aptjob.netlify.app/subPage/login.html";
 
-  // 접근 토큰 값 출력
-  alert(naver_id_login.oauthParams.access_token);
-  // 네이버 사용자 프로필 조회
-  naver_id_login.get_naver_userprofile("naverSignInCallback()");
-  // 네이버 사용자 프로필 조회 이후 프로필 정보를 처리할 callback function
-  function naverSignInCallback() {
-    alert(naver_id_login.getProfileData('email'));
-    alert(naver_id_login.getProfileData('nickname'));
-    alert(naver_id_login.getProfileData('age'));
-  }
+const naverLogin = new naver_id_login(
+  NAVER_CLIENT_ID,
+  NAVER_REDIRECT_URI
+);
+
+/* 버튼 생성 */
+const state = naverLogin.getUniqState();
+naverLogin.setButton("white", 2, 40);
+naverLogin.setState(state);
+naverLogin.setPopup();
+naverLogin.init_naver_id_login();
+
+/* ======================================================
+   로그인 성공 체크
+====================================================== */
+
+window.addEventListener("load", function () {
+
+  /* 🔥 토큰 있을 때만 실행 */
+  if (!naverLogin.oauthParams.access_token) return;
+
+  console.log(
+    "NAVER TOKEN:",
+    naverLogin.oauthParams.access_token
+  );
+
+  /* 프로필 요청 */
+  naverLogin.get_naver_userprofile(
+    "naverSignInCallback()"
+  );
+});
+
+/* ======================================================
+   CALLBACK
+====================================================== */
+
+function naverSignInCallback() {
+
+  const email =
+    naverLogin.getProfileData("email");
+
+  const name =
+    naverLogin.getProfileData("name");
+
+  console.log("네이버 로그인 성공:", email, name);
+
+  localStorage.setItem("isLogin", "true");
+  localStorage.setItem("userName", name);
+  localStorage.setItem("loginType", "naver");
+
+  alert(name + "님 로그인 성공!");
+
+  location.href = "/";
+}
 
 /* ======================================================================
    카카오 로그인
