@@ -1,10 +1,6 @@
-/* ======================================================================
-   구글 로그인 (OAuth2 Authorization Code)
-====================================================================== */
+/** 구글 로그인 API */
 const GOOGLE_CLIENT_ID = "24355175704-aviumsce0orbnutandgjjsruphqca8g5.apps.googleusercontent.com";
-
-const REDIRECT_URI =
-    "http://127.0.0.1:5500/subPage/login.html";
+const REDIRECT_URI = "https://portfolio-aptjob.netlify.app/subpage/login.html";
 
 const GOOGLE_AUTH_URL =
     "https://accounts.google.com/o/oauth2/v2/auth" +
@@ -15,163 +11,73 @@ const GOOGLE_AUTH_URL =
 
 const googleBtn = document.querySelector(".google_login");
 
-if (googleBtn) {
-    googleBtn.addEventListener("click", () => {
-        window.location.href = GOOGLE_AUTH_URL;
-    });
-}
-
+googleBtn.addEventListener("click", () => {
+    window.location.href = GOOGLE_AUTH_URL;
+});
 const params = new URLSearchParams(window.location.search);
 const authCode = params.get("code");
 
 if (authCode) {
-    localStorage.setItem("isLogin", "true");
+    console.log("로그인 성공, code:", authCode);
     alert("로그인 성공!");
-    location.href = "/";
 }
 
 
-
-/* ======================================================================
-   네이버 로그인
-   - 로그인 페이지에서만/버튼 영역이 있을 때만 초기화
-   - 중복 init 제거
-====================================================================== */
-const NAVER_CLIENT_ID = "hLO6jennO8FmeKMz2ntZ";
-const NAVER_REDIRECT_URI =
-  "https://portfolio-aptjob.netlify.app/subPage/login.html";
-
-const naverLogin = new naver_id_login(
-  NAVER_CLIENT_ID,
-  NAVER_REDIRECT_URI
-);
-
-const state = naverLogin.getUniqState();
-
-naverLogin.setButton("white", 2, 40);
-naverLogin.setState(state);
-naverLogin.setPopup();
-naverLogin.init_naver_id_login();
-
-/* ======================================================
-   로그인 성공 체크
-====================================================== */
-
-window.addEventListener("load", function () {
-
-  /* 🔥 토큰 있을 때만 실행 */
-  if (!naverLogin.oauthParams.access_token) return;
-
-  console.log(
-    "NAVER TOKEN:",
-    naverLogin.oauthParams.access_token
+/** 네이버 로그인 API */
+document.addEventListener("DOMContentLoaded", function () {
+  var naver_id_login = new naver_id_login(
+    "hLO6jennO8FmeKMz2ntZ",
+    "https://portfolio-aptjob.netlify.app/subpage/login.html"
   );
 
-  /* 프로필 요청 */
-  naverLogin.get_naver_userprofile(
-    "naverSignInCallback()"
-  );
+  var state = naver_id_login.getUniqState();
+  naver_id_login.setButton("white", 2, 40);
+  naver_id_login.setState(state);
+  naver_id_login.setPopup();
+  naver_id_login.init_naver_id_login();
 });
+var naver_id_login = new naver_id_login("hLO6jennO8FmeKMz2ntZ", "https://portfolio-aptjob.netlify.app/subpage/login.html");
+        var state = naver_id_login.getUniqState();
+        naver_id_login.setButton("white", 2,40);
+        naver_id_login.setDomain("https://portfolio-aptjob.netlify.app");
+        naver_id_login.setState(state);
+        naver_id_login.setPopup();
+        naver_id_login.init_naver_id_login();
 
-/* ======================================================
-   CALLBACK
-====================================================== */
 
-function naverSignInCallback() {
-
-  const email =
-    naverLogin.getProfileData("email");
-
-  const name =
-    naverLogin.getProfileData("name");
-
-  console.log("네이버 로그인 성공:", email, name);
-
-  localStorage.setItem("isLogin", "true");
-  localStorage.setItem("userName", name);
-  localStorage.setItem("loginType", "naver");
-
-  alert(name + "님 로그인 성공!");
-
-  location.href = "/";
-}
-
-/* ======================================================================
-   카카오 로그인
-   - SDK가 있는 페이지에서만 동작하도록 가드
-====================================================================== */
-(function initKakao() {
-  if (!window.Kakao) return;
-  const KAKAO_JS_KEY =
-    "1aeb3e9a49e983e68615734accc31d91"; // JS 키만 사용
-  if (!Kakao.isInitialized()) {
-    Kakao.init(KAKAO_JS_KEY);
-    console.log("Kakao SDK initialized");
-  }
-})();
-
+/** 카카오 로그인 API */
 function loginWithKakao() {
-  if (!window.Kakao) {
-    alert("카카오 SDK 로드 안됨");
-    return;
+    Kakao.Auth.authorize({
+      redirectUri: 
+      'https://portfolio-aptjob.netlify.app/subpage/login.html'
+      // 앱에 등록된 카카오 로그인에서 사용할 Redirect URI 입력
+    });
   }
-  const REDIRECT_URI =
-    window.location.origin + "/subpage/login.html";
 
-  Kakao.Auth.authorize({
-    redirectUri: REDIRECT_URI,
-  });
-}
-/* ======================================================================
-   KAKAO LOGIN SUCCESS
-====================================================================== */
+  // 아래는 데모를 위한 UI 코드입니다.
+  displayToken()
+  function displayToken() {
+    var token = getCookie('authorize-access-token');
 
-(function kakaoLoginSuccess() {
+    if(token) {
+      Kakao.Auth.setAccessToken(token);
+      Kakao.Auth.getStatusInfo()
+        .then(function(res) {
+          if (res.status === 'connected') {
+            document.getElementById('token-result').innerText
+              = 'login success, token: ' + Kakao.Auth.getAccessToken();
+          }
+        })
+        .catch(function(err) {
+          Kakao.Auth.setAccessToken(null);
+        });
+    }
+  }
 
-  if (!window.Kakao) return;
-
-  const hash = window.location.hash;
-
-  if (!hash.includes("access_token")) return;
-
-  const token = new URLSearchParams(
-    hash.replace("#", "")
-  ).get("access_token");
-
-  if (!token) return;
-
-  Kakao.Auth.setAccessToken(token);
-
-  Kakao.API.request({
-    url: "/v2/user/me",
-
-    success: function (res) {
-
-      const name =
-        res.kakao_account.profile.nickname;
-
-      console.log("카카오 로그인:", name);
-
-      localStorage.setItem("isLogin", "true");
-      localStorage.setItem("userName", name);
-
-      alert("카카오 로그인 성공!");
-
-      location.href = "/";
-    },
-
-    fail: function (error) {
-      console.error(error);
-    },
-
-  });
-
-})();
-
-
-
-
-
+  function getCookie(name) {
+    var parts = document.cookie.split(name + '=');
+    if (parts.length === 2) { return parts[1].split(';')[0]; }
+  }
 
 
 /* ======================================================================
@@ -242,35 +148,4 @@ function testLogin() {
     } else {
         alert("아이디/비밀번호 틀림");
     }
-}
-
-
-
-/* ======================================================
-   NAVER LOGIN SUCCESS
-====================================================== */
-window.addEventListener("load", function () {
-    if (typeof naver_id_login === "undefined") return;
-    const NAVER_REDIRECT_URI =
-        window.location.origin + "/subpage/login.html";
-    const naverLogin = new naver_id_login(
-        "hLO6jennO8FmeKMz2ntZ",
-        NAVER_REDIRECT_URI
-    );
-    /* 🔥 사용자 정보 요청 */
-    naverLogin.get_naver_userprofile("naverSignInCallback()");
-
-});
-
-/* 콜백 함수 */
-function naverSignInCallback() {
-    const email = naver_id_login.getProfileData("email");
-    const name = naver_id_login.getProfileData("name");
-    console.log("네이버 로그인 성공:", email, name);
-    /* 로그인 상태 저장 */
-    localStorage.setItem("isLogin", "true");
-    localStorage.setItem("userName", name);
-    alert("네이버 로그인 성공!");
-    /* 메인 이동 */
-    location.href = "/";
 }
