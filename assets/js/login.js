@@ -97,7 +97,7 @@ function checkLoginUI() {
 
   if (isLogin) {
     btn.href = "#";
-    icon.classList.replace("fa-user", "fa-right-from-bracket");
+    icon.classList.replace("fa-right-from-bracket", "fa-user");
     text.textContent = "로그아웃";
   } else {
     btn.href = "/subpage/login.html";
@@ -119,9 +119,6 @@ document.addEventListener("click", (e) => {
   if (!isLogin) return;
 
   e.preventDefault();
-
-  const confirmLogout = confirm("로그아웃 하시겠습니까?");
-  if (!confirmLogout) return;
 
   localStorage.removeItem("isLogin");
   localStorage.removeItem("userName");
