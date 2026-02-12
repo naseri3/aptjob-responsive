@@ -127,6 +127,10 @@ function setActiveBottomNav() {
         document.querySelector(".bottom-nav__item--partner")?.classList.add("is-active");
     }
 
+    if (page === "service-center") {
+        document.querySelector(".bottom-nav__item--cs")?.classList.add("is-active");
+    }
+
     if (page === "mypage") {
         document.querySelector(".bottom-nav__item--mypage")?.classList.add("is-active");
     }

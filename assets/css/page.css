@@ -903,4 +903,283 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 18px;
   }
+}
+/* ============================================
+    company-detail.html
+==============================================*/
+#companyDetail {
+  padding-top: 40px;
+}
+
+.company-hero__title h3 {
+  font-weight: bold;
+}
+.company-hero__home-btn button {
+  font-weight: bold;
+}
+.company-hero__banner {
+  background-color: #011039 !important;
+  border-radius: 10px;
+  margin-top: 20px;
+  background: url(/assets/images/company-hero_bg.png) right center no-repeat;
+  margin-bottom: 30px;
+}
+.company-hero__logo-box {
+  background-color: #fff;
+  margin: 15px;
+  padding: 15px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.company-hero__logo-box img {
+  height: 50px;
+}
+.company-hero__content {
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.company-hero__content .company-hero__headline {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+.company-hero__content .company-hero__desc {
+  font-size: 1rem;
+  margin-bottom: 0;
+}
+.company-hero__tabs-item {
+  background-color: var(--pastel-blue);
+  padding: 10px;
+  font-weight: 600;
+  border: 1px solid #ccc;
+  color: #666;
+  /* 첫번째 */
+  /* 마지막 */
+}
+.company-hero__tabs-item:first-child {
+  border-left: none;
+}
+.company-hero__tabs-item:last-child {
+  border-right: none;
+}
+.company-hero__tabs-item:hover {
+  background-color: var(--color-primary);
+  color: #fff;
+  transition: all 0.3s ease;
+}
+.company-hero__tabs-item:active, .company-hero__tabs-item:focus {
+  background-color: var(--color-primary);
+  color: #fff;
+  border: 1px solid var(--color-primary);
+}
+
+/* ================================
+    소장채용 카드
+================================ */
+.director-card {
+  position: relative;
+  height: 100%;
+  padding: 20px 15px;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 14px;
+  transition: all 0.25s ease;
+  /* hover */
+  /* ====================
+      즐겨찾기
+  ==================== */
+  /* ====================
+      회사명
+  ==================== */
+  /* ====================
+      제목
+  ==================== */
+  /* ====================
+      태그
+  ==================== */
+  /* ====================
+      하단
+  ==================== */
+  /* D-day */
+  /* ====================
+      상세보기 버튼
+  ==================== */
+}
+.director-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08);
+}
+.director-card__favorite {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  border: none;
+  background: transparent;
+  font-size: 26px;
+  color: #b8c2d1;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background-color: #fff;
+}
+.director-card__favorite:hover {
+  color: #ffb400;
+}
+.director-card__favorite.is-active {
+  color: #ffb400;
+}
+.director-card__company {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 6px;
+  display: block;
+  width: 80%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.director-card__title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #202020;
+  margin-bottom: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.director-card__tags {
+  color: #494949;
+  margin-bottom: 8px;
+  line-height: 1.4;
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+.director-card__tags .director-card__tag {
+  font-size: 0.9rem !important;
+  font-weight: 600 !important;
+  background-color: transparent !important;
+  padding: 0 !important;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.director-card__bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.director-card__dday {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-danger);
+  background-color: var(--pastel-red);
+  padding: 2px 8px;
+  border-radius: 3px;
+}
+.director-card__detail {
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 18px;
+  border-radius: 6px;
+  background: var(--color-primary);
+  color: #fff;
+  transition: all 0.2s ease;
+}
+.director-card--empty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f9fafc;
+  border: 1px solid #ccc;
+}
+.director-card--empty:hover {
+  box-shadow: none;
+  transform: none;
+}
+.director-card__empty {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+.director-card__empty-img {
+  width: 150px;
+  margin-bottom: 12px;
+}
+.director-card__empty-text {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #6c6c6c;
+}
+
+/* 태블릿 */
+@media (max-width: 1200px) {
+  .company-hero__banner {
+    background: none;
+  }
+  .company-hero__content {
+    padding: 0 10px 10px;
+  }
+  .company-hero__logo-box {
+    margin: 10px;
+  }
+  .company-hero__logo-box img {
+    height: 35px;
+  }
+  .company-hero__content .company-hero__headline {
+    font-size: 1.3rem;
+  }
+  .company-hero__content .company-hero__desc {
+    font-size: 1rem;
+  }
+  .director-section h2 {
+    font-size: 1.5rem;
+  }
+  .director-card__tags .director-card__tag {
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+  .director-card__empty {
+    height: 155px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+/* 모바일 */
+@media (max-width: 768px) {
+  .company-hero__content {
+    padding: 15px 10px;
+  }
+  .company-hero__banner {
+    background: none;
+    margin: 20px 0;
+  }
+  .company-hero__logo-box {
+    margin: 10px 10px 0;
+  }
+  .company-hero__tabs {
+    margin: 3px;
+  }
+  .company-hero__content .company-hero__headline {
+    font-size: 1.05rem;
+  }
+  .company-hero__content .company-hero__desc {
+    font-size: 0.8rem;
+  }
+  .director-section h2 {
+    font-size: 1.3rem;
+  }
+  .director-card__tags .director-card__tag {
+    width: 100%;
+  }
+  .director-card__empty {
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }/*# sourceMappingURL=page.css.map */

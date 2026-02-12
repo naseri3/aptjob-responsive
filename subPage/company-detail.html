@@ -27,8 +27,55 @@
     <header id="headerWrap"></header>
 
     <main id="pages" class="subPage">
-        <section id="companyDetail" class="container">
-            
+        <section id="companyDetail" class="container company-hero">
+            <div class="row company-hero__header">
+                <div class="col company-hero__title d-flex justify-content-start">
+                    <h3>서일개발</h3>
+                </div>
+                <div class="col company-hero__home-btn d-flex justify-content-end">
+                    <button class="btn btn-outline-primary company-hero__btn">기업 홈페이지 바로가기</button>
+                </div>
+            </div>
+            <!-- 배너 영역 -->
+            <div class="row company-hero__banner">
+                <!-- 좌측 로고 -->
+                <div class=" col-5 col-lg-2 company-hero__logo-box">
+                    <img src="/assets/images/brand1.png" alt="" class="company-hero__logo">
+                </div>
+                <!-- 텍스트 -->
+                <div class="col-12 col-lg-8 company-hero__content">
+                    <p class="company-hero__headline">
+                        공동주택 관리의 기준을 만들어온 전문 관리기업 채용관
+                    </p>
+                    <p class="company-hero__desc">
+                        체계적인 시스템과 현장 중심 운영으로 신뢰받는 관리 서비스를 이어갑니다
+                    </p>
+                </div>
+            </div>
+            <!-- 탭 메뉴 -->
+            <div class="row company-hero__tabs d-flex">
+                <a href="#" class="col company-hero__tabs-item d-flex justify-content-center text-decoration-none">
+                    소장 채용
+                </a>
+                <a href="#" class="col company-hero__tabs-item d-flex justify-content-center text-decoration-none">
+                    전체 공고
+                </a>
+                <a href="#" class="col company-hero__tabs-item d-flex justify-content-center text-decoration-none">
+                    채용 절차
+                </a>
+                <a href="#" class="col company-hero__tabs-item d-flex justify-content-center text-decoration-none">
+                    기업 소개
+                </a>
+            </div>
+        </section>
+       
+        
+        <!-- 소장채용 -->
+        <section id="director" class="container director-section">
+            <h2>소장채용</h2>
+            <div class="row director-card-list g-4 mt-1">
+                <!-- JS로 데이터 렌더링 -->
+            </div>
         </section>
     </main>
 
@@ -42,7 +89,7 @@
 
 
     <script src="/assets/js/common.js"></script>
-    <script src="/assets/js/companyList_render.js"></script>
+    <script type="module" src="/assets/js/director-recruit.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
