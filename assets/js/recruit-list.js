@@ -43,6 +43,7 @@ function getDDayNumber(deadline) {
 /* =================================================
    페이지 기준 리스트
 ================================================= */
+/*
 function getJobListByPage() {
     const pageType = document.body.dataset.page;
 
@@ -56,7 +57,7 @@ function getJobListByPage() {
     // search
     return jobList;
 }
-
+*/
 /* =================================================
    정렬
 ================================================= */
