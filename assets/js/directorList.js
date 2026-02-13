@@ -107,7 +107,7 @@ export const directorList = [
     deadline: "2026-03-31",
     isClosed: false
   },
-  {
+/*  {
     id: 310,
     title: "시설관리 직원 채용",
     area: "강원 > 원주시",
@@ -118,5 +118,5 @@ export const directorList = [
     complexSize: 720,
     deadline: "2026-02-15",
     isClosed: false
-  }
+  }*/
 ];

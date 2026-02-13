@@ -400,3 +400,29 @@
     white-space: nowrap;
   }
 }
+
+
+/* ==================================================
+   전체 공고
+================================================== */
+#job-list-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+}
+.job-row--list {
+    border: 1px solid #ccc;
+    background-color: #fff;
+    padding: 10px;
+}
+.job--list-fav {
+    font-size: 22px;
+    color: #ccc;
+    z-index: 2;
+}
+.job--list-fav:hover {
+    color: #facc15;
+}
+.job--list-fav.is-active {
+    color: #facc15;
+}
