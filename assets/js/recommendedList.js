@@ -8,7 +8,7 @@ export const recommendedList = [
     salary: "월급 420만원(세전)",
     complexName: "래미안 서초 에스티지",
     complexSize: 820,
-    deadline: "2026-02-10",
+    deadline: "2026-06-30",
     isClosed: false
   },
   {
@@ -19,7 +19,7 @@ export const recommendedList = [
     salary: "월급 480만원(세전)",
     complexName: "힐스테이트 판교",
     complexSize: 980,
-    deadline: "2026-02-14",
+    deadline: "2026-06-30",
     isClosed: false
   },
   {
@@ -30,7 +30,7 @@ export const recommendedList = [
     salary: "월급 390만원(세전)",
     complexName: "광교 자이",
     complexSize: 740,
-    deadline: "2026-02-12",
+    deadline: "2026-06-30",
     isClosed: false
   },
   {
@@ -41,7 +41,7 @@ export const recommendedList = [
     salary: "월급 410만원(세전)",
     complexName: "마포 래미안 푸르지오",
     complexSize: 690,
-    deadline: "2026-02-13",
+    deadline: "2026-06-30",
     isClosed: false
   },
   {
@@ -52,7 +52,7 @@ export const recommendedList = [
     salary: "월급 395만원(세전)",
     complexName: "동탄 센트럴자이",
     complexSize: 950,
-    deadline: "2026-02-15",
+    deadline: "2026-06-30",
     isClosed: false
   },
   {
@@ -63,7 +63,7 @@ export const recommendedList = [
     salary: "월급 430만원(세전)",
     complexName: "송도 더샵 퍼스트월드",
     complexSize: 1100,
-    deadline: "2026-02-18",
+    deadline: "2026-06-30",
     isClosed: false
   },
   {
@@ -74,7 +74,7 @@ export const recommendedList = [
     salary: "월급 460만원(세전)",
     complexName: "잠실 엘스",
     complexSize: 1200,
-    deadline: "2026-02-16",
+    deadline: "2026-06-30",
     isClosed: false
   },
   /*
@@ -86,7 +86,7 @@ export const recommendedList = [
     salary: "월급 370만원(세전)",
     complexName: "과천 푸르지오 써밋",
     complexSize: 680,
-    deadline: "2026-02-17",
+    deadline: "2026-06-30",
     isClosed: false
   },
   {
@@ -97,7 +97,7 @@ export const recommendedList = [
     salary: "월급 350만원(세전)",
     complexName: "광교 중흥 S-클래스",
     complexSize: 720,
-    deadline: "2026-02-18",
+    deadline: "2026-06-30",
     isClosed: false
   }
     */

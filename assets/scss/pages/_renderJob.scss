@@ -5,7 +5,7 @@
 /* 카드 공통 */
 .job-card {
     position: relative;
-    overflow: hidden; 
+    overflow: hidden;
     display: block;
     height: 100%;
     padding: 15px 20px;
@@ -339,90 +339,260 @@
     z-index: 2;
     width: 24px;
     text-align: center;
-    margin-top:-8px;
+    margin-top: -8px;
 }
 /* 즐겨찾기 활성 */
 .job-fav.is-active {
     color: #facc15;
 }
 
-
-
-
 /* realtime select */
 /* =========================
    Header 정렬 (공통)
 ========================= */
 .realtime-job__header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 20px;
-  margin-top: 80px !important;
-  .subPage-jobList {
-    padding-top: 0 !important;
-  }
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    margin-top: 80px !important;
+    .subPage-jobList {
+        padding-top: 0 !important;
+    }
 }
 
 /* =========================
    Controls
 ========================= */
 .realtime-job__controls {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 /* =========================
    Select
 ========================= */
 .job-select {
-  height: 36px;
-  padding: 0 10px;
-  font-size: 14px;
-  border-radius: 6px;
-  border: 1px solid #d1d5db;
-  background: #fff;
-  cursor: pointer;
+    height: 36px;
+    padding: 0 10px;
+    font-size: 14px;
+    border-radius: 6px;
+    border: 1px solid #d1d5db;
+    background: #fff;
+    cursor: pointer;
 }
 
 /* =========================
    Mobile (한 줄 유지)
 ========================= */
 @media (max-width: 767.98px) {
-  /* 개수 select만 숨김 */
-  #countSelect {
-    display: none;
-  }
+    /* 개수 select만 숨김 */
+    #countSelect {
+        display: none;
+    }
 
-  /* 타이틀 줄바꿈 방지 */
-  .realtime-job__title {
-    white-space: nowrap;
-  }
+    /* 타이틀 줄바꿈 방지 */
+    .realtime-job__title {
+        white-space: nowrap;
+    }
 }
-
 
 /* ==================================================
    전체 공고
 ================================================== */
-#job-list-item {
+#jobBoardListPC {
     display: flex;
     flex-direction: column;
     gap: 0px;
 }
-.job-row--list {
-    border: 1px solid #ccc;
-    background-color: #fff;
+.job-board__row {
+    border-bottom: 1px solid #ccc;
     padding: 10px;
+    .job-board__favorite {
+        font-size: 22px;
+        color: #ccc;
+        z-index: 2;
+    }
+    .job-board__favorite:hover,
+    .job-board__favorite:active {
+        color: #facc15;
+    }
+    .job-board__favorite.is-active {
+        color: #facc15;
+    }
+    .job-board__dday {
+        display: inline-block;
+        width: 9%;
+    }
+    .job-board__deadline {
+        background: var(--pastel-red);
+        color: var(--color-danger);
+        padding: 4px 10px;
+        font-size: 14px;
+        font-weight: bold;
+        border-radius: 8px;
+    }
+    .job-board__title {
+        font-size: 18px;
+        font-weight: 600;
+        color: var(--bs-gray-700);
+        display: inline-flex;
+        align-items: center;
+        width: 35%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .job-board__meta {
+        display: inline-flex;
+        gap: 5px;
+        width: 28%;
+        .job-board__company {
+            color: var(--color-primary);
+            font-weight: 600;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    }
+    .job-board__salary {
+        color: var(--color-danger);
+        font-size: 15px;
+        font-weight: 600;
+        padding: 5px;
+        border-radius: 5px;
+        margin-right: 10px;
+    }
+    .job-board__link {
+        display: inline-flex;
+        align-items: flex-end;
+        justify-content: center;
+        padding: 5px 10px;
+        border-radius: 5px;
+        background: var(--color-primary);
+        color: #fff;
+        font-weight: 600;
+        text-decoration: none;
+        float: right;
+    }
 }
-.job--list-fav {
-    font-size: 22px;
-    color: #ccc;
-    z-index: 2;
+
+/* 모바일 전체공고 */
+.job-board-mobile__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0px;
 }
-.job--list-fav:hover {
-    color: #facc15;
+
+/* 아주 작은 화면에서는 1열 */
+@media (max-width: 360px) {
+    .job-board-mobile__list {
+        grid-template-columns: 1fr;
+    }
 }
-.job--list-fav.is-active {
-    color: #facc15;
+.job-board__card {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    .job-board__status {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .job-board__dday {
+            background: var(--pastel-red);
+            color: var(--color-danger);
+            padding: 4px 8%;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 5px;
+            width: fit-content;
+        }
+        .job-board__favorite {
+            font-size: 25px;
+            color: #ccc;
+            z-index: 2;
+        }
+        .job-board__favorite:hover,
+        .job-board__favorite:active {
+            color: #facc15;
+        }
+        .job-board__favorite.is-active {
+            color: #facc15;
+        }
+    }
+    .job-board__card-head {
+        .job-board__company {
+            font-size: 15px;
+            color: var(--color-primary);
+            font-weight: 600;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .job-board__title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-top: 5px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    }
+    .job-board__area,
+    .job-board__salary {
+        font-size: 14px;
+        background: var(--color-light-gray);
+        color: var(--bs-gray-700);
+        padding: 5px;
+        border-radius: 3px;
+        display: block;
+        width: fit-content;
+        margin: 3px 0;
+    }
+    .job-board__link {
+        margin-top: 10px;
+        background-color: var(--pastel-blue);
+        color: var(--color-primary);
+        padding: 7px 10px;
+        border-radius: 5px;
+        text-align: center;
+        font-weight: 700;
+    }
+}
+
+/* ==================================================
+   채용절차
+================================================== */
+#recruitment-process {
+    .recruitment-process__img {
+        img {
+            width: 75%;
+        }
+    }
+}
+@media (max-width: 767.98px) {
+    #recruitment-process {
+        .recruitment-process__img {
+            img {
+                width: 100%;
+            }
+        }
+    }
+}
+
+/* ==================================================
+   기업소개
+================================================== */
+#company-intro {
+    .company-intro__img {
+        border-radius: 10px;
+        img {
+             border-radius: 10px;
+        }
+    }
+    .company-intro__desc {
+        font-size: 15px;
+        line-height: 1.8;
+    }
 }

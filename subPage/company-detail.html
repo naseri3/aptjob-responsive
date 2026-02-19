@@ -53,23 +53,19 @@
                 </div>
             </div>
             <!-- 탭 메뉴 -->
-            <div class="row company-hero__tabs d-flex">
-                <a href="#" class="col company-hero__tabs-item d-flex justify-content-center text-decoration-none">
-                    소장 채용
-                </a>
-                <a href="#" class="col company-hero__tabs-item d-flex justify-content-center text-decoration-none">
-                    전체 공고
-                </a>
-                <a href="#" class="col company-hero__tabs-item d-flex justify-content-center text-decoration-none">
-                    채용 절차
-                </a>
-                <a href="#" class="col company-hero__tabs-item d-flex justify-content-center text-decoration-none">
-                    기업 소개
-                </a>
+            <div class="company-hero__tabs sticky-tabs">
+                <div class="container">
+                    <div class="row">
+                        <a class="col company-hero__tabs-item tab-btn" data-target="director">소장 채용</a>
+                        <a class="col company-hero__tabs-item tab-btn" data-target="job-board">전체 공고</a>
+                        <a class="col company-hero__tabs-item tab-btn" data-target="recruitment-process">채용 절차</a>
+                        <a class="col company-hero__tabs-item tab-btn" data-target="company-intro">기업 소개</a>
+                    </div>
+                </div>
             </div>
         </section>
-       
-        
+
+
         <!-- 소장채용 -->
         <section id="director" class="container director-section">
             <h2>소장채용</h2>
@@ -78,10 +74,10 @@
             </div>
         </section>
 
-        <!-- 전체 공고 PC버전 -->
-        <section class="realtime-job container">
+        <!-- 전체 공고 -->
+        <section id="job-board" class="job-board container">
             <div class="realtime-job__header">
-                <h2 class="realtime-job__title subPage-jobList">Explore Jobs</h2>
+                <h2 class="realtime-job__title subPage-jobList">전체공고</h2>
                 <div class="realtime-job__controls">
                     <!-- 정렬 -->
                     <select id="sortSelect" class="job-select">
@@ -101,19 +97,47 @@
             </div>
 
             <!-- PC -->
-            <div class="realtime-job d-none d-lg-block">
-                <div id="job-list-item"></div>
+            <div class="job-board d-none d-lg-block">
+                <div id="jobBoardListPC"></div>
             </div>
 
             <!-- Mobile -->
-            <div class="realtime-job-mobile d-lg-none">
-                <div id="jobListMobile" class="job-card-list"></div>
+            <div class="job-board-mobile d-lg-none">
+                <div id="jobBoardListMobile" class="job-board-mobile__list"></div>
             </div>
 
             <!-- Pagination -->
             <nav class="mt-4" aria-label="Explore Jobs pagination">
                 <ul id="pagination" class="pagination justify-content-center"></ul>
             </nav>
+        </section>
+
+
+        <!-- 채용절차 -->
+        <section id="recruitment-process" class="recruitment-process container mt-5">
+            <h2>채용절차</h2>
+            <div class="recruitment-process__img row g-4 mt-1 d-flex align-items-center justify-content-center">
+                <img src="../assets/images/recruitment-process.png" alt="" srcset="">
+            </div>
+        </section>
+
+
+        <!-- 기업소개 -->
+        <section id="company-intro" class="company-intro container mt-5">
+            <h2>기업소개</h2>
+            <div class="company-intro__img row g-4 mt-1">
+                <img src="../assets/images/company_banner.png" alt="기업소개 이미지">
+            </div>
+            <p class="company-intro__desc mt-3">
+                거창유지관리(주)는 단순한 시설 관리를 넘어, 입주민의 삶에 행복과 편리를 더하는 '라이프스타일 솔루션'을 제공하는 혁신적인 기업입니다. 체계적인 관리 시스템과 데이터 기반의 효율적인
+                운영, 그리고 진심 어린 소통을 바탕으로 고객의 깊은 신뢰를 얻으며 업계의 새로운 기준을 제시하고 있습니다.<br><br>
+                거창유지관리(주) 성장의 핵심 동력은 바로 '사람'과 '문화'입니다.
+                우리는 '새로운 생각, 따뜻한 마음, 줄기찬 도전'이라는 사훈 아래, 모든 구성원이 각자의 분야에서 최고 전문가로 성장할 수 있도록 지원을 아끼지 않습니다. 체계적인 전문 교육과 리더십
+                프로그램은 개인의 잠재력을 최대한으로 이끌어 내며, 수평적인 소통을 기반으로 서로의 아이디어를 존중하고 자유롭게 제안하는 문화를 가지고 있습니다. 실패를 두려워하지 않고 끊임없이 도전하며
+                함께 성장하는 곳, 그곳이 바로 거창유지관리(주)입니다.
+                사람에 대한 투자와 끊임없는 기술 혁신을 통해 주거 관리의 새로운 역사를 만들어가고 있는 거창유지관리(주)는, 앞으로도 가장 신뢰받는 업계의 리더로서 더 나은 주거 환경과 미래를 향한
+                발걸음을 멈추지 않을 것입니다.
+            </p>
         </section>
     </main>
 
@@ -127,6 +151,7 @@
 
 
     <script src="/assets/js/common.js"></script>
+    <script src="/assets/js/scrollIntoView.js"></script>
     <script type="module" src="/assets/js/director-recruit.js"></script>
     <script type="module" src="/assets/js/recruit-list.js"></script>
 

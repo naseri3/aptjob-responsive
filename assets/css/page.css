@@ -4,63 +4,6 @@
   height: auto;
 }
 
-.subPage {
-  /* =========================
-      지역 선택 버튼 active 스타일
-  ========================= */
-  /* 1depth : 시·도 버튼 */
-  /* 2depth : 구/군 버튼 */
-  /* =========================
-     Search Options (PC)
-  ========================= */
-  /* =========================
-      Option Block
-  ========================= */
-  /* ⭐ 제목 + 옵션을 한 줄로 */
-  /* =========================
-      Career / Status Options
-  ========================= */
-  /* =========================
-      Career Year Input
-  ========================= */
-  /* 전체 래퍼 */
-  /* =========================
-      선택된 조건 영역
-  ========================= */
-  /* 가이드 문구 */
-  /* 조건 라인 */
-  /* 태그 */
-  /* X 버튼 */
-  /* 버튼 영역 */
-  /* ===============================
-      Mobile Search (공통)
-  ================================ */
-  /* ===============================
-      Mobile Offcanvas (공통)
-  ================================ */
-  /* ===============================
-  선택 태그 공통 X 버튼 스타일 (job 기준으로 통일)
-  ================================ */
-  /* region + job 공통 */
-  /* ===============================
-      Mobile Region Offcanvas
-  ================================ */
-  /* ===============================
-      Mobile Job Offcanvas
-  ================================ */
-  /* ===============================
-      Mobile Salary Offcanvas
-  ================================ */
-  /* ===============================
-      Mobile Career Offcanvas
-  ================================ */
-  /* ===============================
-      Mobile Status Offcanvas
-  =============================== */
-  /* =========================
-      하단 버튼 (고정) - 초기화, 선택완료
-  ============================ */
-}
 .subPage #search-wrapper {
   position: static;
   height: auto;
@@ -145,10 +88,19 @@
   color: var(--color-primary);
   font-weight: 600;
 }
+.subPage {
+  /* =========================
+      지역 선택 버튼 active 스타일
+  ========================= */
+  /* 1depth : 시·도 버튼 */
+}
 .subPage .region-options .btn.active {
   background-color: var(--color-primary);
   border-color: var(--color-primary);
   color: #fff;
+}
+.subPage {
+  /* 2depth : 구/군 버튼 */
 }
 .subPage .district-options .btn {
   white-space: nowrap;
@@ -164,23 +116,35 @@
   border-color: var(--color-primary);
   color: #fff;
 }
+.subPage {
+  /* =========================
+     Search Options (PC)
+  ========================= */
+}
 .subPage .search-options {
   margin-top: 40px;
   display: flex;
   align-items: center;
   gap: 20px;
 }
+.subPage {
+  /* =========================
+      Option Block
+  ========================= */
+}
 .subPage .option {
   display: flex;
   flex-direction: column;
   /* 제목 */
-  /* 텍스트 입력 공통 */
 }
 .subPage .option .option-title {
   margin: 0 10px 0 0;
   font-weight: 700;
   font-size: 18px;
   white-space: nowrap;
+}
+.subPage .option {
+  /* 텍스트 입력 공통 */
 }
 .subPage .option input[type=text] {
   height: 30px;
@@ -189,10 +153,18 @@
   border: 1px solid var(--search-input);
   border-radius: 4px;
 }
+.subPage {
+  /* ⭐ 제목 + 옵션을 한 줄로 */
+}
 .subPage .option--inline {
   flex-direction: row;
   align-items: center;
   gap: 20px;
+}
+.subPage {
+  /* =========================
+      Career / Status Options
+  ========================= */
 }
 .subPage .career-options,
 .subPage .status-options {
@@ -222,6 +194,11 @@
   font-size: 16px;
   cursor: pointer;
 }
+.subPage {
+  /* =========================
+      Career Year Input
+  ========================= */
+}
 .subPage .career-year {
   width: 56px;
   height: 30px;
@@ -232,10 +209,18 @@
   border: 1px solid var(--search-input);
   border-radius: 4px;
 }
+.subPage {
+  /* 전체 래퍼 */
+}
 .subPage .search-condition-wrapper {
   border: 1px solid #ddd;
   border-radius: 8px;
   background-color: #fff;
+}
+.subPage {
+  /* =========================
+      선택된 조건 영역
+  ========================= */
 }
 .subPage .selected-box {
   display: flex;
@@ -270,9 +255,15 @@
   cursor: pointer;
   padding: 0;
 }
+.subPage {
+  /* 가이드 문구 */
+}
 .subPage .condition-guide {
   color: #666;
   font-size: 15px;
+}
+.subPage {
+  /* 조건 라인 */
 }
 .subPage .selected-line {
   display: flex;
@@ -287,6 +278,9 @@
   min-width: 60px;
   font-weight: 600;
   color: #333;
+}
+.subPage {
+  /* 태그 */
 }
 .subPage .selected-line span {
   display: inline-flex;
@@ -303,6 +297,9 @@
   word-break: break-word; /* ⭐ 단어 기준 줄바꿈 */
   line-height: 1.3;
 }
+.subPage {
+  /* X 버튼 */
+}
 .subPage .selected-line .remove-btn {
   background: none;
   border: none;
@@ -317,6 +314,9 @@
   color: var(--color-danger);
   font-weight: 700;
 }
+.subPage {
+  /* 버튼 영역 */
+}
 .subPage .btn-area {
   margin-top: 16px;
 }
@@ -326,12 +326,16 @@
   font-size: 18px;
   font-weight: 700;
 }
+.subPage {
+  /* ===============================
+      Mobile Search (공통)
+  ================================ */
+}
 .subPage .mobile-search-bar {
   display: flex;
   gap: 8px;
   padding: 6px 8px;
   overflow-x: auto;
-  /* 급여 버튼만 활성화 시 확장 */
 }
 .subPage .mobile-search-bar::-webkit-scrollbar {
   display: none;
@@ -355,6 +359,9 @@
   border-color: var(--color-primary-hover);
   color: var(--color-primary-hover);
 }
+.subPage .mobile-search-bar {
+  /* 급여 버튼만 활성화 시 확장 */
+}
 .subPage .mobile-search-bar .search-btn[data-type=salary].is-active {
   flex: 0 0 calc(33.3333333333% - 6px);
   min-width: calc(33.3333333333% - 6px);
@@ -362,6 +369,11 @@
 .subPage .mobile-search-bar .search-btn[data-type=career].is-active {
   flex: 0 0 calc(33.3333333333% - 6px);
   min-width: calc(33.3333333333% - 6px);
+}
+.subPage {
+  /* ===============================
+      Mobile Offcanvas (공통)
+  ================================ */
 }
 .subPage .offcanvas-bottom {
   height: 64vh;
@@ -382,6 +394,12 @@
   flex-direction: column;
   height: 100%;
   overflow: hidden;
+}
+.subPage {
+  /* ===============================
+  선택 태그 공통 X 버튼 스타일 (job 기준으로 통일)
+  ================================ */
+  /* region + job 공통 */
 }
 .subPage .selected-region-tags .region-remove-btn,
 .subPage .selected-region-tags .job-remove-btn,
@@ -414,18 +432,21 @@
 .subPage .selected-job-tags .job-remove-btn:hover {
   opacity: 1;
 }
-.subPage #regionSheet {
-  /* 선택된 지역 */
+.subPage {
+  /* ===============================
+      Mobile Region Offcanvas
+  ================================ */
 }
 .subPage #regionSheet .region-scroll-area {
   flex: 1;
   overflow: hidden;
   overscroll-behavior: contain;
-  /* 1depth */
-  /* 2depth */
 }
 .subPage #regionSheet .region-scroll-area > .d-flex {
   height: 100%;
+}
+.subPage #regionSheet .region-scroll-area {
+  /* 1depth */
 }
 .subPage #regionSheet .region-scroll-area .region-depth1 {
   width: 34%;
@@ -446,6 +467,9 @@
   background-color: var(--color-primary-light);
   color: var(--color-primary);
   border: none;
+}
+.subPage #regionSheet .region-scroll-area {
+  /* 2depth */
 }
 .subPage #regionSheet .region-scroll-area .region-depth2 {
   width: 66%;
@@ -475,6 +499,9 @@
 .subPage #regionSheet .region-scroll-area .region-depth2 .list-group-item.selected i {
   opacity: 1;
 }
+.subPage #regionSheet {
+  /* 선택된 지역 */
+}
 .subPage #regionSheet .region-selected-fixed {
   padding: 12px;
   border-top: 1px solid #ddd;
@@ -490,24 +517,23 @@
   font-weight: 500;
   line-height: 1.2;
 }
-.subPage #jobSheet {
-  /* =========================
-      선택된 직무
-  ========================= */
+.subPage {
+  /* ===============================
+      Mobile Job Offcanvas
+  ================================ */
 }
 .subPage #jobSheet .job-scroll-area {
   flex: 1;
   overflow: hidden;
   overscroll-behavior: contain;
-  /* =========================
-      1depth
-  ========================= */
-  /* =========================
-      2depth
-  ========================= */
 }
 .subPage #jobSheet .job-scroll-area > .d-flex {
   height: 100%;
+}
+.subPage #jobSheet .job-scroll-area {
+  /* =========================
+      1depth
+  ========================= */
 }
 .subPage #jobSheet .job-scroll-area .job-depth1 {
   width: 50%;
@@ -537,6 +563,11 @@
 .subPage #jobSheet .job-scroll-area .job-depth1 .list-group-item.selected i {
   opacity: 1;
 }
+.subPage #jobSheet .job-scroll-area {
+  /* =========================
+      2depth
+  ========================= */
+}
 .subPage #jobSheet .job-scroll-area .job-depth2 {
   width: 50%;
   overflow-y: auto;
@@ -565,6 +596,11 @@
 .subPage #jobSheet .job-scroll-area .job-depth2 .list-group-item.selected i {
   opacity: 1;
 }
+.subPage #jobSheet {
+  /* =========================
+      선택된 직무
+  ========================= */
+}
 .subPage #jobSheet .job-selected-fixed {
   padding: 12px;
   border-top: 1px solid #ddd;
@@ -587,17 +623,16 @@
 .subPage #jobSheet .list-group-item.selected i {
   opacity: 1;
 }
+.subPage {
+  /* ===============================
+      Mobile Salary Offcanvas
+  ================================ */
+}
 .subPage #salarySheet {
   display: flex;
   flex-direction: column;
   /* =========================
       스크롤 영역
-  ========================= */
-  /* =========================
-      선택된 급여 (고정 영역)
-  ========================= */
-  /* =========================
-      공통 selected 스타일 보정
   ========================= */
 }
 .subPage #salarySheet .salary-scroll-area {
@@ -655,6 +690,11 @@
   color: var(--bs-gray-700);
   font-weight: 500;
 }
+.subPage #salarySheet {
+  /* =========================
+      선택된 급여 (고정 영역)
+  ========================= */
+}
 .subPage #salarySheet .salary-selected-fixed {
   padding: 12px;
   border-top: 1px solid #ddd;
@@ -669,12 +709,22 @@
   font-weight: 500;
   line-height: 1.2;
 }
+.subPage #salarySheet {
+  /* =========================
+      공통 selected 스타일 보정
+  ========================= */
+}
 .subPage #salarySheet .list-group-item.selected {
   background-color: var(--color-primary);
   color: #fff;
 }
 .subPage #salarySheet .list-group-item.selected i {
   opacity: 1;
+}
+.subPage {
+  /* ===============================
+      Mobile Career Offcanvas
+  ================================ */
 }
 .subPage #careerSheet {
   display: flex;
@@ -690,9 +740,6 @@
   scrollbar-width: none;
   background-color: #fff;
   padding: 20px;
-  /* =========================
-      경력 선택 버튼
-  ========================= */
 }
 .subPage #careerSheet .career-scroll-area::-webkit-scrollbar {
   display: none;
@@ -700,6 +747,11 @@
 .subPage #careerSheet .career-scroll-area > .d-flex {
   flex-direction: column;
   height: 100%;
+}
+.subPage #careerSheet .career-scroll-area {
+  /* =========================
+      경력 선택 버튼
+  ========================= */
 }
 .subPage #careerSheet .career-scroll-area .career-select-row {
   display: flex;
@@ -752,6 +804,11 @@
   color: var(--bs-gray-500);
   text-align: end;
 }
+.subPage {
+  /* ===============================
+      Mobile Status Offcanvas
+  =============================== */
+}
 .subPage #statusSheet {
   display: flex;
   flex-direction: column;
@@ -766,9 +823,6 @@
   scrollbar-width: none;
   background-color: #fff;
   padding: 20px;
-  /* =========================
-      상태 선택 버튼
-  ========================= */
 }
 .subPage #statusSheet .status-scroll-area::-webkit-scrollbar {
   display: none;
@@ -776,6 +830,11 @@
 .subPage #statusSheet .status-scroll-area > .d-flex {
   flex-direction: column;
   height: 100%;
+}
+.subPage #statusSheet .status-scroll-area {
+  /* =========================
+      상태 선택 버튼
+  ========================= */
 }
 .subPage #statusSheet .status-scroll-area .status-select-row {
   display: flex;
@@ -803,6 +862,11 @@
 .subPage #statusSheet .status-scroll-area .status-select-row .status-btn.selected {
   border-color: var(--color-primary);
   color: var(--color-primary);
+}
+.subPage {
+  /* =========================
+      하단 버튼 (고정) - 초기화, 선택완료
+  ============================ */
 }
 .subPage .footer-fixed {
   position: sticky;
@@ -957,11 +1021,15 @@
   font-weight: 600;
   border: 1px solid #ccc;
   color: #666;
+  text-decoration: none;
+  text-align: center;
   /* 첫번째 */
-  /* 마지막 */
 }
 .company-hero__tabs-item:first-child {
   border-left: none;
+}
+.company-hero__tabs-item {
+  /* 마지막 */
 }
 .company-hero__tabs-item:last-child {
   border-right: none;
@@ -989,29 +1057,15 @@
   border-radius: 14px;
   transition: all 0.25s ease;
   /* hover */
-  /* ====================
-      즐겨찾기
-  ==================== */
-  /* ====================
-      회사명
-  ==================== */
-  /* ====================
-      제목
-  ==================== */
-  /* ====================
-      태그
-  ==================== */
-  /* ====================
-      하단
-  ==================== */
-  /* D-day */
-  /* ====================
-      상세보기 버튼
-  ==================== */
 }
 .director-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08);
+}
+.director-card {
+  /* ====================
+      즐겨찾기
+  ==================== */
 }
 .director-card__favorite {
   position: absolute;
@@ -1031,6 +1085,11 @@
 .director-card__favorite.is-active {
   color: #ffb400;
 }
+.director-card {
+  /* ====================
+      회사명
+  ==================== */
+}
 .director-card__company {
   font-size: 16px;
   font-weight: 700;
@@ -1042,6 +1101,11 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+.director-card {
+  /* ====================
+      제목
+  ==================== */
+}
 .director-card__title {
   font-size: 20px;
   font-weight: 700;
@@ -1050,6 +1114,11 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+.director-card {
+  /* ====================
+      태그
+  ==================== */
 }
 .director-card__tags {
   color: #494949;
@@ -1067,10 +1136,18 @@
   width: -moz-fit-content;
   width: fit-content;
 }
+.director-card {
+  /* ====================
+      하단
+  ==================== */
+}
 .director-card__bottom {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.director-card {
+  /* D-day */
 }
 .director-card__dday {
   font-size: 15px;
@@ -1079,6 +1156,11 @@
   background-color: var(--pastel-red);
   padding: 2px 8px;
   border-radius: 3px;
+}
+.director-card {
+  /* ====================
+      상세보기 버튼
+  ==================== */
 }
 .director-card__detail {
   font-size: 13px;

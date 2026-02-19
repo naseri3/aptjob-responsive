@@ -37,22 +37,17 @@
   /* ==========================
      1단 : 로고 / 검색 / 로그인
   =========================== */
-  /* ==========================
-     2단 : PC 전용 네비
-  =========================== */
-  /* ==========================
-     모바일 검색 (헤더 하단)
-  =========================== */
 }
 .site-navbar .site-navbar__top {
   width: 100%;
   display: flex;
   align-items: center;
-  /* PC 검색 */
-  /* 로그인 */
 }
 .site-navbar .site-navbar__top .site-logo img {
   height: 42px;
+}
+.site-navbar .site-navbar__top {
+  /* PC 검색 */
 }
 .site-navbar .site-navbar__top .site-search {
   flex: 1;
@@ -88,6 +83,9 @@
 .site-navbar .site-navbar__top .site-search--pc {
   display: flex;
 }
+.site-navbar .site-navbar__top {
+  /* 로그인 */
+}
 .site-navbar .site-navbar__top .site-user {
   margin-left: auto;
 }
@@ -107,6 +105,11 @@
 .site-navbar .site-navbar__top .site-user__btn i {
   font-size: 20px;
   color: #6e6e6e;
+}
+.site-navbar {
+  /* ==========================
+     2단 : PC 전용 네비
+  =========================== */
 }
 .site-navbar .site-navbar__bottom {
   justify-content: start;
@@ -129,7 +132,6 @@
   padding: 10px 8px;
   cursor: pointer;
   /* 언더라인 기본 상태 */
-  /* hover 시 */
 }
 .site-navbar .site-navbar__bottom li::after {
   content: "";
@@ -143,11 +145,19 @@
   transform: translateX(-50%);
   transition: width 0.25s ease;
 }
+.site-navbar .site-navbar__bottom li {
+  /* hover 시 */
+}
 .site-navbar .site-navbar__bottom li:hover {
   color: var(--bs-primary);
 }
 .site-navbar .site-navbar__bottom li:hover::after {
   width: 100%;
+}
+.site-navbar {
+  /* ==========================
+     모바일 검색 (헤더 하단)
+  =========================== */
 }
 .site-navbar .site-search--mobile {
   width: 100%;
@@ -191,10 +201,6 @@
   border-top: 1px solid #dddddd;
   z-index: 1030;
   /* 리스트 */
-  /* 아이템 */
-  /* 링크 */
-  /* 아이콘 (img 기준) */
-  /* 텍스트 */
 }
 .bottom-nav__list {
   display: flex;
@@ -202,6 +208,9 @@
   margin: 0;
   padding: 0;
   list-style: none;
+}
+.bottom-nav {
+  /* 아이템 */
 }
 .bottom-nav__item {
   flex: 1;
@@ -213,6 +222,9 @@
 }
 .bottom-nav__item.is-active .bottom-nav__icon {
   transform: translateY(-2px);
+}
+.bottom-nav {
+  /* 링크 */
 }
 .bottom-nav__link {
   height: 100%;
@@ -228,11 +240,17 @@
 .bottom-nav__link:active {
   background-color: rgba(0, 0, 0, 0.04);
 }
+.bottom-nav {
+  /* 아이콘 (img 기준) */
+}
 .bottom-nav__icon {
   width: 32px;
   height: 32px;
   display: block;
   transition: transform 0.2s ease;
+}
+.bottom-nav {
+  /* 텍스트 */
 }
 .bottom-nav__label {
   line-height: 1;
@@ -427,14 +445,18 @@
   transition: none;
   margin-top: -8px;
   /* 비활성 hover */
-  /* 활성 상태 */
-  /* 접근성: 기본 outline 제거하고 싶다면 */
 }
 .job-card__favorite:not(.is-active):hover {
   color: #facc15;
 }
+.job-card__favorite {
+  /* 활성 상태 */
+}
 .job-card__favorite.is-active {
   color: #facc15;
+}
+.job-card__favorite {
+  /* 접근성: 기본 outline 제거하고 싶다면 */
 }
 .job-card__favorite:focus-visible {
   outline: none;
@@ -775,30 +797,191 @@
 /* ==================================================
    전체 공고
 ================================================== */
-#job-list-item {
+#jobBoardListPC {
   display: flex;
   flex-direction: column;
   gap: 0px;
 }
 
-.job-row--list {
-  border: 1px solid #ccc;
-  background-color: #fff;
+.job-board__row {
+  border-bottom: 1px solid #ccc;
   padding: 10px;
 }
-
-.job--list-fav {
+.job-board__row .job-board__favorite {
   font-size: 22px;
   color: #ccc;
   z-index: 2;
 }
-
-.job--list-fav:hover {
+.job-board__row .job-board__favorite:hover,
+.job-board__row .job-board__favorite:active {
   color: #facc15;
 }
-
-.job--list-fav.is-active {
+.job-board__row .job-board__favorite.is-active {
   color: #facc15;
+}
+.job-board__row .job-board__dday {
+  display: inline-block;
+  width: 9%;
+}
+.job-board__row .job-board__deadline {
+  background: var(--pastel-red);
+  color: var(--color-danger);
+  padding: 4px 10px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 8px;
+}
+.job-board__row .job-board__title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--bs-gray-700);
+  display: inline-flex;
+  align-items: center;
+  width: 35%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.job-board__row .job-board__meta {
+  display: inline-flex;
+  gap: 5px;
+  width: 28%;
+}
+.job-board__row .job-board__meta .job-board__company {
+  color: var(--color-primary);
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.job-board__row .job-board__salary {
+  color: var(--color-danger);
+  font-size: 15px;
+  font-weight: 600;
+  padding: 5px;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+.job-board__row .job-board__link {
+  display: inline-flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background: var(--color-primary);
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  float: right;
+}
+
+/* 모바일 전체공고 */
+.job-board-mobile__list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0px;
+}
+
+/* 아주 작은 화면에서는 1열 */
+@media (max-width: 360px) {
+  .job-board-mobile__list {
+    grid-template-columns: 1fr;
+  }
+}
+.job-board__card {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+.job-board__card .job-board__status {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.job-board__card .job-board__status .job-board__dday {
+  background: var(--pastel-red);
+  color: var(--color-danger);
+  padding: 4px 8%;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 5px;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.job-board__card .job-board__status .job-board__favorite {
+  font-size: 25px;
+  color: #ccc;
+  z-index: 2;
+}
+.job-board__card .job-board__status .job-board__favorite:hover,
+.job-board__card .job-board__status .job-board__favorite:active {
+  color: #facc15;
+}
+.job-board__card .job-board__status .job-board__favorite.is-active {
+  color: #facc15;
+}
+.job-board__card .job-board__card-head .job-board__company {
+  font-size: 15px;
+  color: var(--color-primary);
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.job-board__card .job-board__card-head .job-board__title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-top: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.job-board__card .job-board__area,
+.job-board__card .job-board__salary {
+  font-size: 14px;
+  background: var(--color-light-gray);
+  color: var(--bs-gray-700);
+  padding: 5px;
+  border-radius: 3px;
+  display: block;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 3px 0;
+}
+.job-board__card .job-board__link {
+  margin-top: 10px;
+  background-color: var(--pastel-blue);
+  color: var(--color-primary);
+  padding: 7px 10px;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: 700;
+}
+
+/* ==================================================
+   채용절차
+================================================== */
+#recruitment-process .recruitment-process__img img {
+  width: 75%;
+}
+
+@media (max-width: 767.98px) {
+  #recruitment-process .recruitment-process__img img {
+    width: 100%;
+  }
+}
+/* ==================================================
+   기업소개
+================================================== */
+#company-intro .company-intro__img {
+  border-radius: 10px;
+}
+#company-intro .company-intro__img img {
+  border-radius: 10px;
+}
+#company-intro .company-intro__desc {
+  font-size: 15px;
+  line-height: 1.8;
 }
 
 /* ==================================================
@@ -1023,29 +1206,6 @@ body {
   /* =========================
      Top Carousel
   ========================= */
-  /* =========================
-   PC Quick Box (Banner Overlap)
-  ========================= */
-  /* ==================================================
-  Company Trust Marquee (FINAL)
-   ================================================== */
-  /* 공통 트랙 */
-  /* 위 → */
-  /* 아래 ← */
-  /* 브랜드 아이템 */
-  /* 애니메이션 */
-  /* =========================
-      Premium Section
-  ========================= */
-  /* =========================
-  Premium Grid
-  ========================= */
-  /* ⭐ 즐겨찾기 버튼 */
-  /* 별 */
-  /* 활성 */
-  /* =========================
-  Placeholder Card
-  ========================= */
 }
 #pages .top-carousel {
   padding-top: 30px;
@@ -1088,6 +1248,11 @@ body {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+#pages {
+  /* =========================
+   PC Quick Box (Banner Overlap)
+  ========================= */
 }
 #pages .quick-box-wrap {
   position: relative;
@@ -1137,6 +1302,11 @@ body {
 #pages .quick-box-wrap .quick-box__item:hover {
   transform: translateY(-4px);
 }
+#pages {
+  /* ==================================================
+  Company Trust Marquee (FINAL)
+   ================================================== */
+}
 #pages .company-trust-bg {
   background-color: var(--color-primary-light);
   padding: 10px 0 30px;
@@ -1155,6 +1325,9 @@ body {
   overflow: hidden;
   width: 100%;
 }
+#pages {
+  /* 공통 트랙 */
+}
 #pages .company-marquee-track {
   display: flex;
   align-items: center;
@@ -1168,13 +1341,22 @@ body {
 #pages .company-marquee-track:hover {
   animation-play-state: paused;
 }
+#pages {
+  /* 위 → */
+}
 #pages .marquee-left {
   animation-name: marqueeLeft;
   animation-duration: 40s;
 }
+#pages {
+  /* 아래 ← */
+}
 #pages .marquee-right {
   animation-name: marqueeRight;
   animation-duration: 45s;
+}
+#pages {
+  /* 브랜드 아이템 */
 }
 #pages .company-marquee-item {
   min-width: 140px;
@@ -1198,6 +1380,9 @@ body {
   font-weight: 600;
   color: #343434;
   white-space: nowrap;
+}
+#pages {
+  /* 애니메이션 */
 }
 @keyframes marqueeLeft {
   from {
@@ -1225,6 +1410,11 @@ body {
   font-size: 2rem;
   margin-bottom: 20px;
 }
+#pages {
+  /* =========================
+      Premium Section
+  ========================= */
+}
 #pages .premium {
   margin-top: 48px;
   overflow: visible;
@@ -1233,6 +1423,11 @@ body {
   font-size: 22px;
   font-weight: 700;
   margin-bottom: 20px;
+}
+#pages {
+  /* =========================
+  Premium Grid
+  ========================= */
 }
 #pages .premium__grid {
   display: grid;
@@ -1293,6 +1488,9 @@ body {
   inset: 0;
   z-index: 1;
 }
+#pages {
+  /* ⭐ 즐겨찾기 버튼 */
+}
 #pages .premium-card__favorite {
   position: absolute;
   top: 8px;
@@ -1308,10 +1506,16 @@ body {
   justify-content: center;
   z-index: 2;
 }
+#pages {
+  /* 별 */
+}
 #pages .star {
   color: #ccc;
   font-size: 25px;
   transition: 0.2s;
+}
+#pages {
+  /* 활성 */
 }
 #pages .premium-card__favorite.is-active .star {
   color: #ffb400;
@@ -1381,6 +1585,11 @@ body {
 #pages .realtime-job__title {
   margin-top: 50px;
 }
+#pages {
+  /* =========================
+  Placeholder Card
+  ========================= */
+}
 #pages .premium-card--placeholder {
   display: flex;
   align-items: center;
@@ -1436,12 +1645,6 @@ body {
   }
 }
 @media (max-width: 767px) {
-  #pages {
-    /* brand card */
-    /* =========================
-       premium card (mobile)
-    ========================= */
-  }
   #pages .top-carousel .carousel {
     height: 200px;
     overflow: hidden;
@@ -1458,6 +1661,9 @@ body {
     -o-object-position: center;
        object-position: center;
     display: block;
+  }
+  #pages {
+    /* brand card */
   }
   #pages .company-trust-bg {
     margin-top: 30px;
@@ -1478,6 +1684,11 @@ body {
   #pages .company-marquee-item span {
     font-size: 15px;
     line-height: 1.2;
+  }
+  #pages {
+    /* =========================
+       premium card (mobile)
+    ========================= */
   }
   #pages .premium .premium__title,
   #pages .premium .realtime-job__title,
