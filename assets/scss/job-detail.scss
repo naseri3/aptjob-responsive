@@ -1,0 +1,317 @@
+#detail.subPage {
+    min-height: 100vh;
+    height: auto;
+    padding-bottom: 50px;
+}
+.job-detail {
+    padding-top: 30px;
+    &__complex {
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--color-primary);
+        background-color: var(--color-primary-light);
+        width: fit-content;
+        padding: 5px 12px;
+        border-radius: 5px;
+    }
+    &__title {
+        font-weight: 700;
+        color: var(--bs-gray-700);
+        font-size: 1.7rem;
+    }
+    .meta-badge {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 0;
+        list-style: none;
+        margin-top: 20px;
+        &__item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 14px;
+            background: #f1f3f6;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #333;
+            white-space: nowrap;
+        }
+        &__label {
+            font-weight: 600;
+            color: #555;
+        }
+
+        &__value {
+            font-weight: 500;
+        }
+
+        &__item--highlight {
+            background-color: var(--pastel-red);
+            color: var(--color-danger);
+            .meta-badge__label {
+                color: var(--color-danger);
+            }
+            .meta-badge__value {
+                font-weight: 600;
+            }
+        }
+    }
+    /* 모집요강 | 아파트 정보 | 근무지 정보 탭 */
+    .job-tabs {
+        &__nav {
+            border-bottom: 2px solid #eee;
+        }
+        &__link {
+            border: none !important;
+            color: #666;
+            font-weight: 500;
+            padding: 12px 20px;
+            &.active {
+                color: #0055db;
+                border-bottom: 3px solid #0055db !important;
+                background: none;
+                font-weight: 600;
+            }
+            &:hover {
+                color: #0055db;
+            }
+        }
+
+        &__content {
+            padding: 30px 0;
+        }
+
+        &__pane {
+            line-height: 1.6;
+        }
+        .nav-link {
+            background-color: transparent;
+        }
+    }
+
+    /* 모집요강 */
+    .job-tabs__pane {
+        .apt-info__title {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        .apt-info__section-title {
+            font-size: 1rem;
+            font-weight: 700;
+            display: flex;
+            justify-content: space-between;
+            padding: 30px 0 10px;
+            .apt-info__notice {
+                color: var(--color-danger);
+            }
+        }
+    }
+    .job-spec {
+        border: 1px solid #ddd;
+        &__row {
+            display: flex;
+            border-bottom: 1px solid #ddd;
+            &:last-child {
+                border-bottom: none;
+            }
+        }
+        &__item {
+            flex: 1;
+            display: flex;
+            border-right: 1px solid #ddd;
+            font-size: 14.5px;
+            &:last-child {
+                border-right: none;
+            }
+        }
+        &__label {
+            width: 150px;
+            font-weight: 600;
+            color: #494949;
+            padding: 10px 15px;
+            background-color: var(--color-primary-light);
+        }
+        &__value {
+            flex: 1;
+            color: #222;
+            padding: 10px 15px;
+            line-height: 1.8;
+            &--divider {
+                border-right: 1px solid #ddd;
+            }
+        }
+    }
+
+}
+
+/* =============================== 
+    지원현황
+=============================== */
+.apply-status {
+    &__title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+    &__layout {
+        align-items: center;
+    }
+    &__text {
+        font-size: 18px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__label {
+        color: #888;
+        margin-right: 6px;
+        font-size: 15px;
+    }
+
+    &__count,
+    &__limit {
+        font-size: 20px;
+        font-weight: 700;
+    }
+
+    &__graph {
+        display: flex;
+        justify-content: center;
+    }
+
+    /* ===== 게이지 ===== */
+    .gauge {
+        position: relative;
+        width: 300px;
+        height: auto;
+        &__svg {
+            width: 100%;
+            height: 100%;
+        }
+        /* 회색 반원 */
+        &__track {
+            fill: none;
+            stroke: #e6e9ef;
+            stroke-width: 16;
+            stroke-linecap: round;
+        }
+        /* 파란 반원 */
+        &__progress {
+            fill: none;
+            stroke: var(--color-primary);
+            stroke-width: 16;
+            stroke-linecap: round;
+            transition: stroke-dashoffset 1.4s ease;
+        }
+        /* 중앙 흰 원 */
+        &__center {
+            position: absolute;
+            top: 75%;
+            left: 50%;
+            width: 100px;
+            height: 100px;
+            transform: translate(-50%, -50%);
+            background: #fff;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        &__title {
+            font-size: 1rem;
+            color: #888;
+        }
+        &__value {
+            font-size: 18px;
+            font-weight: 700;
+        }
+        &__female {
+            fill: none;
+            stroke: #ff4d6d;
+            stroke-width: 16;
+            stroke-linecap: round;
+            transition: stroke-dashoffset 1.4s ease;
+        }
+
+        &__male {
+            fill: none;
+            stroke: #1f3c88;
+            stroke-width: 16;
+            stroke-linecap: round;
+            transition: stroke-dashoffset 1.4s ease;
+            /* 🔥 오른쪽 시작을 위해 좌우 반전 */
+            transform: scaleX(-1);
+            transform-origin: center;
+        }
+    }
+}
+
+/* ===============================
+   Tablet (992px 이하)
+=============================== */
+@media (max-width: 991.98px) {
+    .job-detail__meta {
+        .meta-badge {
+            &__item {
+                font-size: 12px;
+            }
+        }
+    }
+   
+    .job-spec {
+        &__row {
+            flex-direction: column;
+        }
+        &__item {
+            flex-direction: row;
+            border-right: none !important;
+            &:first-child {
+                border-bottom: 1px solid #ddd;
+            }
+        }
+        &__label {
+            width: 130px !important;
+            font-size: 14px;
+        }
+        &__value {
+            font-size: 14px;
+            font-weight: 500;
+        }
+    }
+    .apartment-grid {
+        grid-template-columns: 1fr;
+    }
+    .gauge {
+        width: 250px;
+    }
+}
+
+/* ===============================
+   Mobile (768px 이하)
+=============================== */
+@media (max-width: 767.98px) {
+    .job-tabs__nav {
+        flex-wrap: nowrap;
+    }
+    .job-detail__meta {
+        .meta-badge {
+            &__item {
+                font-size: 11px;
+            }
+        }
+    }
+     .job-tabs__pane {
+        .apt-info__section-title {
+            flex-direction: column;
+            .apt-info__notice {
+                font-size: 0.9rem;
+                margin-top: 10px;
+            }
+        }
+    }
+    .gauge {
+        width: 220px;
+    }
+}
