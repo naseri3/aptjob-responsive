@@ -48,8 +48,8 @@
         }
 
         &__item--highlight {
-            background-color: var(--pastel-red);
-            color: var(--color-danger);
+            background: #f9e6ea;
+            color: #d14b6a;
             .meta-badge__label {
                 color: var(--color-danger);
             }

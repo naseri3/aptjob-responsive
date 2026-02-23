@@ -381,8 +381,8 @@ input:checked + .resume-option__card {
   font-weight: 500;
 }
 .job-detail .meta-badge__item--highlight {
-  background-color: var(--pastel-red);
-  color: var(--color-danger);
+  background: #f9e6ea;
+  color: #d14b6a;
 }
 .job-detail .meta-badge__item--highlight .meta-badge__label {
   color: var(--color-danger);
