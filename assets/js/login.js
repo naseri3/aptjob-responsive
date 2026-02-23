@@ -207,3 +207,16 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 })();
+
+
+/* 로그인 성공 후 복귀 처리 */
+(function () {
+
+  const redirectUrl = sessionStorage.getItem("redirectAfterLogin");
+
+  if (redirectUrl && localStorage.getItem("isLogin") === "true") {
+    sessionStorage.removeItem("redirectAfterLogin");
+    window.location.href = redirectUrl;
+  }
+
+})();

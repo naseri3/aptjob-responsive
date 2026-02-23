@@ -488,25 +488,74 @@
                     </div>
                 </div>
                 <div class="col-3 d-none d-lg-block job-detail__sidebar">
+                    <div class="job-summary-card">
+                        <ul class="job-summary-card__list">
+                            <li class="job-summary-card__row">
+                                <span class="label">직무</span>
+                                <span class="value strong">
+                                    소장
+                                </span>
+                            </li>
+                            <li class="job-summary-card__row">
+                                <span class="label">위탁사</span>
+                                <span class="value">신원티엠씨</span>
+                            </li>
+                            <li class="job-summary-card__row">
+                                <span class="label">분양세대</span>
+                                <span class="value">646세대</span>
+                            </li>
+                            <li class="job-summary-card__row">
+                                <span class="label">단지분류</span>
+                                <span class="value">아파트</span>
+                            </li>
+                            <li class="job-summary-card__row">
+                                <span class="label">동수</span>
+                                <span class="value">12동</span>
+                            </li>
+                            <li class="job-summary-card__row">
+                                <span class="label">마감일</span>
+                                <span class="value deadline">~ 4/7 (화)</span>
+                            </li>
+                        </ul>
+                        <div class="job-summary-card__bottom">
+                            <button class="btn-favorite" id="favoriteBtn">
+                                ★
+                            </button>
+                            <button class="btn-apply">
+                                지원하기
+                            </button>
+                        </div>
 
-
+                    </div>
                 </div>
             </div>
+        </div>
+        <!-- 모바일 지원하기 -->
+        <div class="mobile-apply d-lg-none">
+            <button class="mobile-apply__favorite" id="mobileFavoriteBtn">
+                ★
+            </button>
+            <button class="mobile-apply__btn">
+                지원하기
+            </button>
+        </div>
+
+
+        <div class="modal fade" id="applyModal">
+            ...
         </div>
     </main>
 
 
     <!-- PC footer -->
     <footer id="footer"></footer>
-    <!-- Back to Top -->
-    <div id="backToTopWrap"></div>
     <!-- 모바일 하단 네비 -->
     <div id="bottomNavWrap"></div>
 
 
     <script src="/assets/js/common.js"></script>
-    <script src="/assets/js/scrollIntoView.js"></script>
     <script src="/assets/js/apply-grephe.js"></script>
+    <script src="/assets/js/job-detail.js"></script>
     <script type="module" src="/assets/js/director-recruit.js"></script>
     <script type="module" src="/assets/js/recruit-list.js"></script>
 

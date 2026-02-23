@@ -72,9 +72,7 @@ validList.forEach(item => {
 
   html += `
     <div class="col-12 col-lg-4">
-
-      <a href="/detail/${item.id}" class="job-card">
-
+      <a href="subPage/job-detail.html?id=${item.id}" class="job-card" target="_blank" rel="noopener noreferrer">
         <!-- 헤더 -->
         <div class="job-card__header">
           <span class="job-card__label">

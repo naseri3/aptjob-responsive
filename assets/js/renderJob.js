@@ -110,7 +110,7 @@ function renderJobListPC(list) {
         ${job.area.replace(">", "·")}
       </span>
       <span class="job-row__salary">${job.salary}(세전)</span>
-      <a href="/job/detail.html?id=${job.id}" class="job-row__link">
+      <a href="/subPage/job-detail.html?id=${job.id}" class="job-row__link">
         상세보기 ›
       </a>
     </div>
@@ -134,7 +134,7 @@ function renderJobListMobile(list) {
       <h3 class="job-card__title">${job.title}</h3>
       <p class="job-card__area">${job.area.replace(">", "·")}</p>
       <p class="job-card__salary">월급 ${job.salary.replace("월급 ", "")}(세전)</p>
-      <span class="job-card__btn">상세보기 ›</span>
+      <a href="/subPage/job-detail.html?id=${job.id}" class="job-card__btn">상세보기 ›</a>
     </div>
   `).join("");
 }
