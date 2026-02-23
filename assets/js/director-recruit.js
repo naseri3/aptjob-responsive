@@ -76,7 +76,7 @@ function renderDirectorCards(list) {
       getDDayText(item.deadline);
     const cardHTML = `
       <div class="col-6 col-md-6 col-lg-4">
-        <a href="/job-detail.html?id=${item.id}"
+        <a href="/subpage/job-detail.html?id=${item.id}"
            class="director-card-link text-decoration-none">
           <div class="director-card">
             <!-- 즐겨찾기 -->

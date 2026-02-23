@@ -5,6 +5,7 @@
         loadFooter();
         loadTopButton();
         loadBottomNav();
+        loadApplyModal();
     });
 
 
@@ -27,10 +28,8 @@
                 return res.text();
             })
             .then((html) => {
-
                 // 1️⃣ header 삽입
                 headerEl.innerHTML = html;
-
                 // 2️⃣ 로그인 UI 실행 🔥
                 if (typeof checkLoginUI === "function") {
                     checkLoginUI();
@@ -134,4 +133,17 @@ function setActiveBottomNav() {
     if (page === "mypage") {
         document.querySelector(".bottom-nav__item--mypage")?.classList.add("is-active");
     }
+}
+
+
+function loadApplyModal() {
+    fetch("/assets/components/apply-modal.html", { cache: "no-store" })
+        .then(res => {
+            if (!res.ok) throw new Error("Apply modal load failed");
+            return res.text();
+        })
+        .then(html => {
+            document.body.insertAdjacentHTML("beforeend", html);
+        })
+        .catch(err => console.error(err));
 }

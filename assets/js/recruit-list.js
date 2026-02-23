@@ -112,7 +112,7 @@ function renderJobListPC(list) {
             ${job.area.replace(">", ">")}
       </div>
         <span class="job-board__salary">${job.salary}(세전)</span>
-        <a href="/job/detail.html?id=${job.id}" class="job-board__link">
+        <a href="/subPage/job-detail.html?id=${job.id}" class="job-board__link">
           상세보기 ›
         </a>
     </div>
@@ -127,7 +127,7 @@ function renderJobListMobile(list) {
   if (!container) return;
 
   container.innerHTML = list.map(job => `
-    <div class="job-board__card" data-link="/job/detail.html?id=${job.id}">
+    <div class="job-board__card" data-link="/subPage/job-detail.html?id=${job.id}">
         <div class="job-board__status">
             <span class="job-board__dday">${calcDDay(job.deadline)}</span>
             <span class="job-board__favorite ${job.isFav ? "is-active" : ""}" data-id="${job.id}">★</span>

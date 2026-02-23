@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!intervalId) {
           intervalId = setInterval(() => {
             animateGenderGauge();
-          }, 30000);
+          }, 60000);
         }
       }
     });

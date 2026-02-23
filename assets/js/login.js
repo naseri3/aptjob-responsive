@@ -168,7 +168,15 @@ function testLogin() {
     localStorage.setItem("userName", "관리자");
 
     alert("로그인 성공!");
-    location.href = "/";
+
+    const redirectUrl = sessionStorage.getItem("redirectAfterLogin");
+
+    if (redirectUrl) {
+      sessionStorage.removeItem("redirectAfterLogin");
+      window.location.href = redirectUrl;
+    } else {
+      window.location.href = "/";
+    }
   } else {
     alert("아이디 / 비밀번호 틀림");
   }
@@ -188,11 +196,10 @@ document.addEventListener("DOMContentLoaded", () => {
    소셜 로그인 성공여부
 ====================================================================== */
 (function () {
-  /* query */
+
   const params = new URLSearchParams(window.location.search);
   const code = params.get("code");
 
-  /* hash */
   const hash = window.location.hash;
   const accessToken = new URLSearchParams(hash.substring(1))
     .get("access_token");
@@ -203,20 +210,15 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("userName", "소셜회원");
 
     alert("소셜 로그인 성공!");
-    window.location.href = "/";
-  }
 
-})();
+    const redirectUrl = sessionStorage.getItem("redirectAfterLogin");
 
-
-/* 로그인 성공 후 복귀 처리 */
-(function () {
-
-  const redirectUrl = sessionStorage.getItem("redirectAfterLogin");
-
-  if (redirectUrl && localStorage.getItem("isLogin") === "true") {
-    sessionStorage.removeItem("redirectAfterLogin");
-    window.location.href = redirectUrl;
+    if (redirectUrl) {
+      sessionStorage.removeItem("redirectAfterLogin");
+      window.location.href = redirectUrl;
+    } else {
+      window.location.href = "/";
+    }
   }
 
 })();

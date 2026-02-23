@@ -525,7 +525,11 @@
                                 지원하기
                             </button>
                         </div>
-
+                        <div class="job-summary-card__actions">
+                            <button class="job-summary-card__back-btn" id="backToListBtn">
+                                이전 목록보기
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -538,12 +542,11 @@
             <button class="mobile-apply__btn">
                 지원하기
             </button>
+            <button class="mobile-apply__back-btn" id="mobileBackToListBtn">
+                이전 목록보기
+            </button>
         </div>
 
-
-        <div class="modal fade" id="applyModal">
-            ...
-        </div>
     </main>
 
 
@@ -554,15 +557,26 @@
 
 
     <script src="/assets/js/common.js"></script>
+    <script src="/assets/js/login.js"></script>
     <script src="/assets/js/apply-grephe.js"></script>
     <script src="/assets/js/job-detail.js"></script>
-    <script type="module" src="/assets/js/director-recruit.js"></script>
-    <script type="module" src="/assets/js/recruit-list.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
+    <script type="module" src="/assets/js/director-recruit.js"></script>
+    <script type="module" src="/assets/js/recruit-list.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        fetch("/assets/components/apply-modal.html")
+            .then(res => res.text())
+            .then(html => {
+                document.body.insertAdjacentHTML("beforeend", html);
+            });
+    </script>
+
+    <script src="/assets/js/job-detail.js"></script>
 </body>
 
 </html>

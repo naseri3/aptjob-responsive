@@ -1,111 +1,152 @@
-/* =================================================
-    PC 즐겨찾기
-==================================================== */
+/* ======================================================
+   즐겨찾기
+====================================================== */
+
 const favoriteBtn = document.getElementById("favoriteBtn");
-
-favoriteBtn.addEventListener("click", () => {
+favoriteBtn?.addEventListener("click", () => {
     favoriteBtn.classList.toggle("is-active");
-
-    favoriteBtn.textContent =
-        favoriteBtn.classList.contains("is-active") ? "★" : "★";
 });
 
-
-/* =================================================
-    모바일 즐겨찾기
-==================================================== */
 const mobileFavoriteBtn = document.getElementById("mobileFavoriteBtn");
-
 mobileFavoriteBtn?.addEventListener("click", () => {
     mobileFavoriteBtn.classList.toggle("is-active");
-    mobileFavoriteBtn.textContent =
-        mobileFavoriteBtn.classList.contains("is-active") ? "★" : "★";
 });
 
 
-/* =========================================================
-   지원하기 로직 (로그인 체크 + 리다이렉트 + 모달)
-========================================================= */
+/* ======================================================
+   지원하기 로직 (최종 안정 버전)
+====================================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
 
     const applyBtns = document.querySelectorAll(".btn-apply, .mobile-apply__btn");
-    const applyModalEl = document.getElementById("applyModal");
+    const urlParams = new URLSearchParams(window.location.search);
+    const jobId = urlParams.get("id");
 
-    //   if (!applyModalEl) return;
-    let applyModal = null;
+    /* =========================
+       지원 상태 관리
+    ========================== */
 
-    if (applyModalEl) {
-        applyModal = new bootstrap.Modal(applyModalEl);
+    function getAppliedList() {
+        return JSON.parse(localStorage.getItem("appliedJobs") || "[]");
     }
 
-    //   const applyModal = new bootstrap.Modal(applyModalEl);
+    function isApplied() {
+        if (!jobId) return false;
+        return getAppliedList().includes(jobId);
+    }
 
-    const modalTitle = document.getElementById("applyModalTitle");
-    const modalDesc = document.getElementById("applyModalDesc");
-    const applyConfirmBtn = document.getElementById("applyConfirmBtn");
+    function setApplied() {
+        if (!jobId) return;
+        let list = getAppliedList();
+        if (!list.includes(jobId)) {
+            list.push(jobId);
+            localStorage.setItem("appliedJobs", JSON.stringify(list));
+        }
+    }
 
-    /* ===============================
-       1️⃣ 지원 버튼 클릭
-    =============================== */
+    function updateApplyButtonUI() {
+        if (isApplied()) {
+            applyBtns.forEach(btn => {
+                btn.textContent = "지원완료";
+                btn.disabled = true;
+            });
+        }
+    }
+
+    updateApplyButtonUI();
+
+    /* =========================
+       지원 버튼 클릭
+    ========================== */
 
     applyBtns.forEach(btn => {
-        btn.addEventListener("click", () => {
+        btn.addEventListener("click", (e) => {
+
+            e.preventDefault();
+
+            if (isApplied()) return;
 
             const isLogin = localStorage.getItem("isLogin") === "true";
 
-            // 🔹 로그인 안 된 경우
             if (!isLogin) {
-
-                // 현재 페이지 저장
                 sessionStorage.setItem("redirectAfterLogin", window.location.href);
-
-                // 로그인 후 모달 자동 오픈용
-                sessionStorage.setItem("openApplyModal", "true");
-
-                // 로그인 페이지 이동
                 window.location.href = "/subpage/login.html";
                 return;
             }
 
-            // 🔹 로그인 된 경우 → 바로 모달 오픈
-            openApplyModal();
+            const applyModalEl = document.getElementById("applyModal");
+
+            if (!applyModalEl) {
+                console.warn("applyModal 없음 - 모달 HTML 로딩 확인 필요");
+                return;
+            }
+
+            const applyModal = new bootstrap.Modal(applyModalEl);
+            applyModal.show();
         });
     });
 
+    /* =========================
+       모달 안 지원하기 클릭
+    ========================== */
 
-    /* ===============================
-       2️⃣ 로그인 후 자동 모달 오픈
-    =============================== */
+    document.addEventListener("click", (e) => {
 
-    const shouldOpen = sessionStorage.getItem("openApplyModal");
+        if (!e.target.matches("#applyConfirmBtn")) return;
 
-    if (shouldOpen === "true") {
-        sessionStorage.removeItem("openApplyModal");
-        openApplyModal();
-    }
+        const applyModalEl = document.getElementById("applyModal");
+        const applyDoneModalEl = document.getElementById("applyDoneModal");
 
+        if (!applyModalEl || !applyDoneModalEl) {
+            console.warn("모달 요소 없음");
+            return;
+        }
 
-    /* ===============================
-       3️⃣ 모달 내용 세팅 함수
-    =============================== */
+        const applyModalInstance = bootstrap.Modal.getInstance(applyModalEl);
 
-    function openApplyModal() {
+        if (applyModalInstance) {
+            applyModalInstance.hide();
+        }
 
-        modalTitle.textContent = "지원하기";
-        modalDesc.textContent = "해당 공고에 지원하시겠습니까?";
-        applyConfirmBtn.textContent = "지원하기";
+        setApplied();
+        updateApplyButtonUI();
 
-        applyConfirmBtn.onclick = () => {
-            applyModal.hide();
-
-            // 👉 현재는 UI 단계라 더미 처리
-            setTimeout(() => {
-                alert("지원이 완료되었습니다. (UI 더미)");
-            }, 300);
-        };
-
-        applyModal.show();
-    }
+        const doneModal = new bootstrap.Modal(applyDoneModalEl);
+        doneModal.show();
+    });
 
 });
+
+
+/* ======================================================
+   이전 목록보기
+====================================================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const backBtn = document.getElementById("backToListBtn");
+    const mobileBackBtn = document.getElementById("mobileBackToListBtn");
+
+    function goBack() {
+        if (document.referrer) {
+            history.back();
+        } else {
+            window.location.href = "/index.html";
+        }
+    }
+
+    backBtn?.addEventListener("click", goBack);
+    mobileBackBtn?.addEventListener("click", goBack);
+
+});
+
+
+/* ======================================================
+   🧪 테스트용 초기화 함수
+====================================================== */
+function resetApplied() {
+    localStorage.removeItem("appliedJobs");
+    alert("지원내역 초기화 완료");
+    location.reload();
+}
