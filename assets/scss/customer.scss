@@ -1,0 +1,90 @@
+@use "./base/global";
+
+#customer {
+    .customer-faq {
+        border-radius: 12px;
+        &__title {
+            font-weight: 600;
+            font-size: 1.6rem;
+        }
+        &__accordion {
+            .accordion-item {
+                border: none;
+                border-radius: 10px;
+                margin-bottom: 12px;
+                overflow: hidden;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            }
+            .accordion-button {
+                font-weight: 600;
+                background: #fff;
+                padding: 18px 20px;
+                font-size: 1rem;
+                &:not(.collapsed) {
+                    background-color: #eef3ff;
+                    color: #0B5ED7;
+                    box-shadow: none;
+                }
+                &:focus {
+                    box-shadow: none;
+                }
+            }
+            .accordion-body {
+                font-size: 14px;
+                color: #666;
+                line-height: 1.6;
+            }
+        }
+    }
+}
+
+/* ===========================
+   Customer Contact Card
+=========================== */
+.customer-contact {
+    &__title {
+        font-size: 1.6rem;
+        font-weight: 700;
+        text-align: center;
+    }
+    &__desc {
+        color: #888;
+        font-size: 14px;
+    }
+}
+.customer-card {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 16px;
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.25s ease;
+    box-shadow: 0 8px 10px rgba(0,0,0,0.08);
+    &__text {
+        h4 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #494949;
+        }
+        p {
+            font-size: 14px;
+            color: #777;
+            margin: 0;
+        }
+    }
+
+    &__icon {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: var(--color-primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-size: 22px;
+    }
+}

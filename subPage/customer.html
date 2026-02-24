@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>아파트잡 | 아파트 전문 구인구직 플랫폼</title>
+    <link rel="icon" href="/assets/images/favicon.png" type="image/x-icon">
+    <!-- bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <!-- Font Awesome (권장 CDN) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="/assets/css/index.css">
+    <link rel="stylesheet" href="/assets/css/customer.css">
+</head>
+
+<body data-page="login" data-header="sub">
+    <!-- PC header -->
+    <header id="headerWrap"></header>
+
+    <main id="pages" class="subPage">
+        <section id="customer" class="container py-3">
+
+            <!-- 공지사항 -->
+            <div class="customer-faq py-5">
+                <h3 class="customer-faq__title mb-4 text-center">공지사항</h3>
+                <div class="accordion accordion-flush customer-faq__accordion" id="noticeAccordion">
+                    <!-- 공지 1 -->
+                    <div class="accordion-item customer-faq__item">
+                        <h2 class="accordion-header" id="noticeHeadingOne">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#noticeCollapseOne" aria-expanded="false"
+                                aria-controls="noticeCollapseOne">
+                                아파트잡 서비스 정식 오픈 안내
+                            </button>
+                        </h2>
+                        <div id="noticeCollapseOne" class="accordion-collapse collapse"
+                            aria-labelledby="noticeHeadingOne" data-bs-parent="#noticeAccordion">
+                            <div class="accordion-body">
+                                아파트 전문 구인구직 플랫폼 '아파트잡'이 정식 오픈되었습니다.<br>
+                                보다 안정적인 서비스 제공을 위해 지속적으로 개선해 나가겠습니다.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 공지 2 -->
+                    <div class="accordion-item customer-faq__item">
+                        <h2 class="accordion-header" id="noticeHeadingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#noticeCollapseTwo" aria-expanded="false"
+                                aria-controls="noticeCollapseTwo">
+                                이력서 등록 기능 업데이트 안내
+                            </button>
+                        </h2>
+                        <div id="noticeCollapseTwo" class="accordion-collapse collapse"
+                            aria-labelledby="noticeHeadingTwo" data-bs-parent="#noticeAccordion">
+                            <div class="accordion-body">
+                                이력서 첨부파일 업로드 기능이 개선되었습니다.<br>
+                                PDF 및 이미지 파일 업로드가 가능해졌습니다.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 공지 3 -->
+                    <div class="accordion-item customer-faq__item">
+                        <h2 class="accordion-header" id="noticeHeadingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#noticeCollapseThree" aria-expanded="false"
+                                aria-controls="noticeCollapseThree">
+                                시스템 점검 안내 (3/5)
+                            </button>
+                        </h2>
+                        <div id="noticeCollapseThree" class="accordion-collapse collapse"
+                            aria-labelledby="noticeHeadingThree" data-bs-parent="#noticeAccordion">
+                            <div class="accordion-body">
+                                3월 5일 오전 2시 ~ 오전 5시까지 시스템 점검이 진행됩니다.<br>
+                                해당 시간 동안 일부 서비스 이용이 제한될 수 있습니다.
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- FAQ -->
+            <div class="customer-faq py-5">
+                <h3 class="customer-faq__title mb-4 text-center">자주 묻는 질문</h3>
+                <div class="accordion accordion-flush customer-faq__accordion" id="faqAccordion">
+                    <!-- Item 1 -->
+                    <div class="accordion-item customer-faq__item">
+                        <h2 class="accordion-header" id="faqHeadingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#faqCollapseOne" aria-expanded="true" aria-controls="faqCollapseOne">
+                                회원가입은 어떻게 하나요?
+                            </button>
+                        </h2>
+                        <div id="faqCollapseOne" class="accordion-collapse collapse show"
+                            aria-labelledby="faqHeadingOne" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                상단 로그인 버튼을 클릭한 후 회원가입 메뉴를 통해 가입하실 수 있습니다.<br>
+                                이메일 인증 완료 후 정상적으로 서비스 이용이 가능합니다.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="accordion-item customer-faq__item">
+                        <h2 class="accordion-header" id="faqHeadingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#faqCollapseTwo" aria-expanded="false" aria-controls="faqCollapseTwo">
+                                이력서는 몇 개까지 등록할 수 있나요?
+                            </button>
+                        </h2>
+                        <div id="faqCollapseTwo" class="accordion-collapse collapse" aria-labelledby="faqHeadingTwo"
+                            data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                현재 최대 3개까지 등록 가능합니다.<br>
+                                직무별로 이력서를 분리하여 등록하시는 것을 권장드립니다.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="accordion-item customer-faq__item">
+                        <h2 class="accordion-header" id="faqHeadingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#faqCollapseThree" aria-expanded="false"
+                                aria-controls="faqCollapseThree">
+                                지원 후 상태는 어디에서 확인하나요?
+                            </button>
+                        </h2>
+                        <div id="faqCollapseThree" class="accordion-collapse collapse" aria-labelledby="faqHeadingThree"
+                            data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                마이페이지 > 지원현황 메뉴에서 확인하실 수 있습니다.<br>
+                                기업의 검토 상황에 따라 상태가 변경됩니다.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 4 -->
+                    <div class="accordion-item customer-faq__item">
+                        <h2 class="accordion-header" id="faqHeadingFour">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#faqCollapseFour" aria-expanded="false" aria-controls="faqCollapseFour">
+                                실업급여 수급 중에도 지원이 가능한가요?
+                            </button>
+                        </h2>
+                        <div id="faqCollapseFour" class="accordion-collapse collapse" aria-labelledby="faqHeadingFour"
+                            data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                가능합니다.<br>
+                                다만, 고용보험 관련 조건은 반드시 확인 후 지원해주시기 바랍니다.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 5 -->
+                    <div class="accordion-item customer-faq__item">
+                        <h2 class="accordion-header" id="faqHeadingFive">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#faqCollapseFive" aria-expanded="false" aria-controls="faqCollapseFive">
+                                기업회원은 어떻게 가입하나요?
+                            </button>
+                        </h2>
+                        <div id="faqCollapseFive" class="accordion-collapse collapse" aria-labelledby="faqHeadingFive"
+                            data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                기업회원 가입은 별도의 사업자 인증 절차가 필요합니다.<br>
+                                회원가입 시 ‘기업회원’을 선택하시고 사업자등록번호를 입력해주세요.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="customer-contact container py-5">
+                <h2 class="customer-contact__title mb-4">고객센터</h2>
+                <div class="row g-4">
+                    <!-- 전화 상담 -->
+                    <div class="col-12 col-md-6">
+                        <a href="tel:0212345678" class="customer-card customer-card--link text-decoration-none">
+                            <div class="customer-card__text">
+                                <h4>02-1234-5678</h4>
+                                <p>09:00 ~ 18:00 (토,일,공휴일 휴무)</p>
+                            </div>
+                            <div class="customer-card__icon">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- 상담톡 문의 -->
+                    <div class="col-12 col-md-6">
+                        <a href="/mypage/inquiry-write.html" class="customer-card customer-card--link text-decoration-none">
+                            <div class="customer-card__text">
+                                <h4>1:1 문의</h4>
+                                <p>궁금한 사항을 남겨주시면 빠르게 답변드립니다.</p>
+                            </div>
+                            <div class="customer-card__icon">
+                                <i class="fa-solid fa-comment-dots"></i>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+
+    <!-- PC footer -->
+    <footer id="footer"></footer>
+    <!-- Back to Top -->
+    <div id="backToTopWrap"></div>
+    <!-- 모바일 하단 네비 -->
+    <div id="bottomNavWrap"></div>
+
+
+    <script src="/assets/js/common.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <!-- 커스텀 JS (의존성 순서) -->
+    <script src="/assets/js/login.js"></script>
+    <script src="/assets/js/customer.js"></script>
+
+</html>
