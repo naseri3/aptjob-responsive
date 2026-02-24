@@ -7,7 +7,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>아파트잡 | 아파트 전문 구인구직 플랫폼</title>
-    <link rel="icon" href="/asstes/images/favicon.png" type="image/x-icon">
+    <link rel="icon" href="/assets/images/favicon.png" type="image/x-icon">
     <!-- bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
@@ -20,8 +20,6 @@
     <!-- Custom Styles -->
     <link rel="stylesheet" href="/assets/css/index.css">
     <link rel="stylesheet" href="/assets/css/job-detail.css">
-    <script type="text/javascript"
-        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1aeb3e9a49e983e68615734accc31d91"></script>
 </head>
 
 <body data-page="job-detail" data-header="sub">
@@ -430,7 +428,9 @@
 
                                 <div class="tab-pane fade job-tabs__pane" id="location">
                                     근무지 정보 내용
-                                   <div id="map" style="width:100%; height:350px;"></div>
+                                    <div id="map"
+                                        style="width: 100%; height: 400px; position: relative; overflow: hidden; background: rgb(248, 249, 250);">
+                                    </div>
                                 </div>
 
                             </div>
@@ -565,7 +565,6 @@
     <script src="/assets/js/login.js"></script>
     <script src="/assets/js/apply-grephe.js"></script>
     <script src="/assets/js/job-detail.js"></script>
-    <script src="/assets/js/kakaoMap.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
@@ -574,8 +573,27 @@
     <script type="module" src="/assets/js/recruit-list.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <script type="text/javascript"
-        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1aeb3e9a49e983e68615734accc31d91&libraries=services"></script>
+
+    <!-- 네이버 개인/일반 통합 -->
+    <script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=7i15kk4zl3"></script>
+    <script>
+        var gwanghwamun = new naver.maps.LatLng(37.572950, 126.976921);
+        var map = new naver.maps.Map('map', {
+            center: gwanghwamun,
+            zoom: 16
+        });
+        new naver.maps.Marker({
+            position: gwanghwamun,
+            map: map
+        });
+        const locationTab = document.getElementById('location-tab');
+        locationTab.addEventListener('shown.bs.tab', function () {
+            setTimeout(function () {
+                naver.maps.Event.trigger(map, 'resize');
+                map.setCenter(gwanghwamun);
+            }, 200); // ← 이 200ms가 핵심
+        });
+    </script>
 
     <script>
         fetch("/assets/components/apply-modal.html")
