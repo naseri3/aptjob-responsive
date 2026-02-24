@@ -120,7 +120,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 /* ======================================================
-   이전 목록보기
+   이전 목록보기 (최종 안정 버전)
 ====================================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -128,14 +128,30 @@ document.addEventListener("DOMContentLoaded", () => {
     const backBtn = document.getElementById("backToListBtn");
     const mobileBackBtn = document.getElementById("mobileBackToListBtn");
 
+    const params = new URLSearchParams(window.location.search);
+    const from = params.get("from");
+    const companyId = params.get("companyId");
+
     function goBack() {
-        if (document.referrer) {
-            history.back();
-        } else {
-            window.location.href = "/index.html";
+        switch (from) {
+            case "index":
+                window.location.href = "/index.html";
+                break;
+            case "search":
+                // search에서 필터 유지하려면 query 그대로 넘기기 가능
+                window.location.href = "/subpage/search.html";
+                break;
+            case "company":
+                if (companyId) {
+                    window.location.href = `/subpage/company-detail.html?id=${companyId}`;
+                } else {
+                    window.location.href = "/index.html";
+                }
+                break;
+            default:
+                window.location.href = "/index.html";
         }
     }
-
     backBtn?.addEventListener("click", goBack);
     mobileBackBtn?.addEventListener("click", goBack);
 

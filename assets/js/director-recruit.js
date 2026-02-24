@@ -2,6 +2,14 @@ import { directorList } from "./directorList.js";
 const now = new Date();
 
 /* ===============================
+   현재 회사 ID 추출
+=============================== */
+const urlParams = new URLSearchParams(window.location.search);
+const currentCompanyId = urlParams.get("id");
+
+console.log("현재 회사 ID:", currentCompanyId);
+
+/* ===============================
    컨테이너 선택
 =============================== */
 const container = document.querySelector(
@@ -76,7 +84,7 @@ function renderDirectorCards(list) {
       getDDayText(item.deadline);
     const cardHTML = `
       <div class="col-6 col-md-6 col-lg-4">
-        <a href="/subpage/job-detail.html?id=${item.id}"
+        <a href="/subpage/job-detail.html?id=${item.id}&from=company&companyId=${currentCompanyId}"
            class="director-card-link text-decoration-none">
           <div class="director-card">
             <!-- 즐겨찾기 -->

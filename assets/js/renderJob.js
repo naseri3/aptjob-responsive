@@ -92,6 +92,8 @@ function paginate(list, page, perPage) {
   return list.slice(start, start + perPage);
 }
 
+const currentPage = document.body.dataset.page;
+
 /* =================================================
    Render : PC
 ================================================= */
@@ -110,7 +112,7 @@ function renderJobListPC(list) {
         ${job.area.replace(">", "·")}
       </span>
       <span class="job-row__salary">${job.salary}(세전)</span>
-      <a href="/subPage/job-detail.html?id=${job.id}" class="job-row__link">
+      <a href="/subPage/job-detail.html?id=${job.id}&from=${currentPage}" class="job-row__link">
         상세보기 ›
       </a>
     </div>
@@ -125,7 +127,7 @@ function renderJobListMobile(list) {
   if (!container) return;
 
   container.innerHTML = list.map(job => `
-    <div class="job-card" data-link="/job/detail.html?id=${job.id}">
+    <div class="job-card" data-link="/subPage/job-detail.html?id=${job.id}&from=${currentPage}">
       <span class="job-fav ${job.isFav ? "is-active" : ""}" data-id="${job.id}">★</span>
       <div class="job-card__head">
         <span class="job-card__badge">${calcDDay(job.deadline)}</span>
@@ -134,7 +136,7 @@ function renderJobListMobile(list) {
       <h3 class="job-card__title">${job.title}</h3>
       <p class="job-card__area">${job.area.replace(">", "·")}</p>
       <p class="job-card__salary">월급 ${job.salary.replace("월급 ", "")}(세전)</p>
-      <a href="/subPage/job-detail.html?id=${job.id}" class="job-card__btn">상세보기 ›</a>
+      <a href="/subPage/job-detail.html?id=${job.id}&from=${currentPage}" class="job-card__btn">상세보기 ›</a>
     </div>
   `).join("");
 }

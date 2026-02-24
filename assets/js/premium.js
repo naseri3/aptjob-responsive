@@ -49,7 +49,7 @@ const jobCards = activeList
       <div class="premium-card">
 
         <!-- ⭐ 카드 전체 링크 -->
-        <a href="${item.link}" 
+        <a href="${item.link}&from=index" 
            class="premium-card__link"></a>
 
         <!-- ⭐ 즐겨찾기 -->
