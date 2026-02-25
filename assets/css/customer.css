@@ -18,7 +18,7 @@
   --pastel-light-blue: #f8fbff;
   --pastel-yellow: #fffa9f;
   --pastel-pink: #FDECEF;
-  --pastel-purple: #F1ECFF;
+  --pastel-purple: #f7f5fd;
   --pastel-red: #ffe2f0;
   --btn-secondary: #EAEAEA;
   --btn-outline-color:#c2c2c2;
@@ -39,6 +39,7 @@
   margin-bottom: 12px;
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  border: 1px solid #eee;
 }
 #customer .customer-faq__accordion .accordion-button {
   font-weight: 600;

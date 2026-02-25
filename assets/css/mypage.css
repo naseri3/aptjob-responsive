@@ -1,0 +1,504 @@
+@charset "UTF-8";
+:root {
+  --color-primary: #0D6EFD;
+  --bg-color:#f9fafc;
+  --color-text: #202020;
+  --color-border: #e5e5e5;
+  --navi-color:#494949;
+  --radius-md: 8px;
+  --font-sm: 14px;
+  --font-md: 15px;
+  --search-input:#cbcbcb;
+  --color-primary-hover: #0B5ED7;
+  --color-primary-light: #edf3fb;
+  --color-accent: #20C997; /* success */
+  --color-danger: #DC3545; /* error / deadline */
+  --color-warning: #FFC107; /* notice (optional) */
+  --pastel-blue: #eef4ff;
+  --pastel-mint: #eef4ff;
+  --pastel-light-blue: #f8fbff;
+  --pastel-yellow: #fffa9f;
+  --pastel-pink: #FDECEF;
+  --pastel-purple: #f7f5fd;
+  --pastel-red: #ffe2f0;
+  --btn-secondary: #EAEAEA;
+  --btn-outline-color:#c2c2c2;
+  --btn-light-gray:#ebebeb;
+  --color-light-gray:#f7f7f7;
+}
+
+.mypage-profile {
+  padding: 40px 0;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+/* 프로필 이미지 */
+.profile__image {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 4px solid var(--color-primary-hover);
+  padding: 4px;
+  position: relative;
+  background: white;
+}
+.profile__image img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+/* 카메라 버튼 */
+.profile__camera {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: white;
+  border: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.profile__camera img {
+  width: 20px;
+  height: auto;
+}
+
+/* 이름 + 버튼 */
+.profile__top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.profile__name {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+/* 생년월일 */
+.profile__meta {
+  margin-top: 8px;
+  color: #585858;
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  gap: 8px;
+}
+
+.dot {
+  width: 4px;
+  height: 4px;
+  background: #585858;
+  border-radius: 50%;
+}
+
+/*===============================================
+    마이페이지 메뉴
+===================================================*/
+.mypage {
+  padding: 20px 20px 0;
+  background: var(--bg-color);
+  min-height: 100vh;
+}
+.mypage__grid {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 30px;
+}
+.mypage__card {
+  aspect-ratio: 1/1;
+  background: white;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+.mypage__card img {
+  width: 40px;
+  margin-bottom: 10px;
+}
+.mypage__card span {
+  font-size: 15px;
+  font-weight: 600;
+  color: #333;
+}
+.mypage__card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+/*===============================================
+    마이페이지 통계
+===================================================*/
+.profile__stats {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+/* 카드 */
+.profile__stat {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* label */
+.profile__stat-label {
+  font-size: 1rem;
+  color: #374151;
+  font-weight: 500;
+}
+
+/* value */
+.profile__stat-value {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+/*===============================================
+    공고들 타이틀, 더보기
+===================================================*/
+.mypage-section {
+  margin-top: 80px;
+}
+.mypage-section__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.mypage-section__title {
+  font-weight: 700;
+  color: #374151;
+  font-size: 1.5rem;
+}
+.mypage-section__more {
+  font-size: 1rem;
+  color: var(--color-primary-hover);
+  cursor: pointer;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/*===============================================
+    추천 공고
+===================================================*/
+.recommended-slider {
+  position: relative;
+}
+
+.recommended-slider__viewport {
+  overflow: hidden;
+  width: 100%;
+  padding: 15px 0;
+}
+
+.job-grid--recommended {
+  display: flex;
+  gap: 16px;
+  transition: 0.3s;
+}
+
+.mypage-section--recommended.container {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.recommended-card {
+  width: 200px;
+  background: #fff;
+  flex-shrink: 0;
+  border: 1px solid #eee;
+  border-radius: 16px;
+  padding: 15px;
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.05);
+  line-height: 1.6;
+  transition: all 0.25s ease;
+}
+.recommended-card__badge {
+  font-size: 0.9rem;
+  background-color: var(--pastel-purple);
+  width: -moz-fit-content;
+  width: fit-content;
+  border-radius: 5px;
+  padding: 3px 8px;
+  font-weight: 600;
+  color: purple;
+  margin-bottom: 5px;
+}
+.recommended-card__complexName {
+  color: #445f9a;
+  font-weight: 600;
+  font-size: 0.9rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.recommended-card__title {
+  font-weight: 700;
+  font-size: 1.2rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.recommended-card__meta {
+  font-size: 0.8rem;
+  width: -moz-fit-content;
+  width: fit-content;
+  border-radius: 5px;
+  color: #333;
+  margin-top: 2px;
+}
+.recommended-card__salary {
+  font-size: 0.95rem;
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.recommended-card__btn {
+  text-align: end;
+  background-color: #e9effd;
+  padding: 2px 5px;
+  border-radius: 5px;
+  color: #263349;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+.recommended-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.12);
+}
+
+/* 화살표 */
+.recommended-slider__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid #ddd;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  line-height: 1;
+  padding: 0;
+  font-weight: 500;
+  color: var(--bs-gray-500);
+}
+
+.recommended-slider__arrow--prev {
+  left: -18px;
+}
+
+.recommended-slider__arrow--next {
+  right: -18px;
+}
+
+/*===============================================
+    최근 지원 공고
+===================================================*/
+.applied-slider {
+  position: relative;
+}
+
+.applied-slider__viewport {
+  overflow: hidden;
+  width: 100%;
+  padding: 15px 0;
+}
+
+.job-grid--applied {
+  display: flex;
+  gap: 16px;
+  transition: 0.3s;
+}
+
+.mypage-section--applied.container {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* 카드 */
+.applied-card {
+  width: 200px;
+  background: #fff;
+  flex-shrink: 0;
+  border: 1px solid #eee;
+  border-radius: 16px;
+  padding: 15px;
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.05);
+  line-height: 1.6;
+  transition: all 0.25s ease;
+}
+.applied-card__badge {
+  font-size: 0.9rem;
+  background-color: #e8f5e9;
+  width: -moz-fit-content;
+  width: fit-content;
+  border-radius: 5px;
+  padding: 3px 8px;
+  font-weight: 600;
+  color: #2e7d32;
+  margin-bottom: 5px;
+}
+.applied-card__complexName {
+  color: #445f9a;
+  font-weight: 600;
+  font-size: 0.9rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.applied-card__title {
+  font-weight: 700;
+  font-size: 1.2rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.applied-card__meta {
+  font-size: 0.8rem;
+  width: -moz-fit-content;
+  width: fit-content;
+  border-radius: 5px;
+  color: #333;
+  margin-top: 2px;
+}
+.applied-card__salary {
+  font-size: 0.95rem;
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.applied-card__btn {
+  text-align: end;
+  background-color: #f1f3f5;
+  padding: 2px 5px;
+  border-radius: 5px;
+  color: #263349;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+.applied-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.12);
+}
+
+/* 화살표 */
+.applied-slider__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid #ddd;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  padding: 0;
+  color: var(--bs-gray-500);
+}
+
+.applied-slider__arrow--prev {
+  left: -18px;
+}
+
+.applied-slider__arrow--next {
+  right: -18px;
+}
+
+.recommended-slider__arrow:hover,
+.applied-slider__arrow:hover {
+  background: var(--bs-gray-600);
+  color: #fff;
+}
+
+/* 지원 공고 없을 시 */
+.empty-state {
+  width: 100%;
+  height: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #888;
+  text-align: center;
+  font-weight: 600;
+}
+.empty-state i {
+  font-size: 32px;
+  margin-bottom: 8px;
+  opacity: 0.6;
+}
+.empty-state__btn {
+  margin-top: 0px;
+  padding: 6px 14px;
+  border-radius: 6px;
+  background: var(--color-primary);
+  color: #fff;
+  font-size: 1rem;
+  text-decoration: none;
+}
+.empty-state__btn:hover {
+  background: var(--color-primary-hover);
+}
+
+/* 모바일 */
+@media (max-width: 768px) {
+  .mypage__grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+  }
+  .profile__stats {
+    grid-template-columns: 1fr;
+  }
+  .profile__stat {
+    padding: 20px 12px;
+  }
+  .profile__stat-label {
+    font-size: 0.8rem;
+  }
+  .profile__stat-value {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 992px) {
+  .profile__stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}/*# sourceMappingURL=mypage.css.map */

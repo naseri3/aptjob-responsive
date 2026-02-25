@@ -78,7 +78,6 @@ validList.forEach(item => {
           <span class="job-card__label">
             ${item.complexName}
           </span>
-
           <button
             class="job-card__favorite"
             aria-pressed="false"

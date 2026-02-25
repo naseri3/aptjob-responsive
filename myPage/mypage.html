@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>아파트잡 | 아파트 전문 구인구직 플랫폼</title>
+    <link rel="icon" href="/assets/images/favicon.png" type="image/x-icon">
+    <!-- bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <!-- Font Awesome (권장 CDN) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="/assets/css/index.css">
+    <link rel="stylesheet" href="/assets/css/mypage.css">
+</head>
+
+<body data-page="page" data-header="sub">
+    <!-- PC header -->
+    <header id="headerWrap"></header>
+
+    <main id="pages" class="subPage">
+        <section class="mypage">
+            <!-- 사용자 프로필 -->
+            <div class="mypage-profile container">
+                <div class="profile">
+                    <!-- 프로필 이미지 -->
+                    <div class="profile__image">
+                        <img src="/assets/images/profile-default.png">
+                        <button class="profile__camera">
+                            <img src="/assets/icons/camera-solid.svg">
+                        </button>
+                    </div>
+                    <!-- 프로필 정보 -->
+                    <div class="profile__info">
+                        <div class="profile__top">
+                            <h2 class="profile__name">
+                                홍길동님
+                            </h2>
+                            <div class="profile__meta">
+                                <span>1990.01.01</span>
+                                <span class="dot"></span>
+                                <span>남</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="profile__stats">
+                    <div class="profile__stat">
+                        <span class="profile__stat-label">
+                            이력서 업데이트
+                        </span>
+                        <span class="profile__stat-value">
+                            2026.02.25
+                        </span>
+                    </div>
+                    <div class="profile__stat">
+                        <span class="profile__stat-label">
+                            내 이력서
+                        </span>
+                        <span class="profile__stat-value">
+                            1
+                        </span>
+                    </div>
+                    <div class="profile__stat">
+                        <span class="profile__stat-label">
+                            지원 현황
+                        </span>
+                        <span class="profile__stat-value">
+                            0
+                        </span>
+                    </div>
+                    <div class="profile__stat">
+                        <span class="profile__stat-label">
+                            관심 공고
+                        </span>
+                        <span class="profile__stat-value">
+                            10
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 마이페이지 메뉴 -->
+            <div class="mypage__grid container">
+                <div class="mypage__card">
+                    <img src="/assets/icons/page-edit.svg">
+                    <span>이력서 관리</span>
+                </div>
+                <div class="mypage__card">
+                    <img src="/assets/icons/submit-document.svg">
+                    <span>지원 현황</span>
+                </div>
+                <div class="mypage__card">
+                    <img src="/assets/icons/page-star.svg">
+                    <span>관심 공고</span>
+                </div>
+                <div class="mypage__card">
+                    <img src="/assets/icons/page-search.svg">
+                    <span>최근 본 공고</span>
+                </div>
+                <div class="mypage__card">
+                    <img src="/assets/icons/settings.svg">
+                    <span>계정 설정</span>
+                </div>
+            </div>
+
+            <!-- 추천 공고 -->
+            <div class="mypage-section mypage-section--recommended container">
+                <div class="mypage-section__header">
+                    <h3 class="mypage-section__title">
+                        추천 공고
+                    </h3>
+                    <a href="/mypage/recommended.html" class="mypage-section__more">
+                        더보기 >
+                    </a>
+                </div>
+                <div class="recommended-slider">
+                    <button id="recommendedPrev" class="recommended-slider__arrow recommended-slider__arrow--prev">
+                        <i class="fa-solid fa-chevron-left"></i> </button>
+                    <div class="recommended-slider__viewport">
+                        <div class="job-grid job-grid--recommended" id="recommendedJobGrid">
+                            <!-- JS 공고 -->
+                        </div>
+                    </div>
+                    <button id="recommendedNext" class="recommended-slider__arrow recommended-slider__arrow--next">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 최근 지원 공고 -->
+            <div class="mypage-section mypage-section--applied container">
+                <div class="mypage-section__header">
+                    <h3 class="mypage-section__title">
+                        최근 지원 공고
+                    </h3>
+                    <a href="/mypage/applied.html" class="mypage-section__more mypage-section__more--applied">
+                        더보기 >
+                    </a>
+                </div>
+                <div class="applied-slider">
+                    <button id="appliedPrev" class="applied-slider__arrow applied-slider__arrow--prev">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                    <div class="applied-slider__viewport">
+                        <div class="job-grid job-grid--applied" id="appliedJobGrid">
+                            <!-- JS 공고 -->
+                        </div>
+                    </div>
+                    <button id="appliedNext" class="applied-slider__arrow applied-slider__arrow--next">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <!-- PC footer -->
+    <footer id="footer"></footer>
+    <!-- Back to Top -->
+    <div id="backToTopWrap"></div>
+    <!-- 모바일 하단 네비 -->
+    <div id="bottomNavWrap"></div>
+
+
+    <script src="/assets/js/common.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <!-- 커스텀 JS (의존성 순서) -->
+    <script src="/assets/js/login.js"></script>
+    <script type="module" src="/assets/js/mypage_recommended.js"></script>
+    <script type="module" src="/assets/js/mypage_applied.js"></script>
+
+</html>
