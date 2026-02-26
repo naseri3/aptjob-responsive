@@ -82,6 +82,7 @@
     &__home-btn {
         button {
             font-weight: bold;
+            font-size: 1rem;
         }
     }
     &__banner {
@@ -307,6 +308,12 @@
                 height: 35px;
             }
         }
+        &__home-btn {
+            button {
+                font-weight: bold;
+                font-size: 0.8rem;
+            }
+        }
     }
     .company-hero__content .company-hero__headline {
         font-size: 1.3rem;
@@ -374,5 +381,36 @@
             align-items: center;
             justify-content: center;
         }
+    }
+}
+
+/* 작은 모바일 */
+@media (max-width: 576px) {
+    .company-hero {
+        &__tabs {
+            font-size: 0.9rem;
+        }
+    }
+    .director-card__favorite {
+        top: 5px;
+        right: 5px;
+    }
+    .director-card {
+        &__company {
+            font-size: 0.8rem;
+        }
+        &__title {
+            font-size: 1rem;
+        }
+        &__tag {
+            font-size: 0.7rem;
+        }
+        &__bottom {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            align-items: start;
+        }
+
     }
 }

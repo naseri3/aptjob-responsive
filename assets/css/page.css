@@ -980,6 +980,7 @@
 }
 .company-hero__home-btn button {
   font-weight: bold;
+  font-size: 1rem;
 }
 .company-hero__banner {
   background-color: #011039 !important;
@@ -1211,6 +1212,10 @@
   .company-hero__logo-box img {
     height: 35px;
   }
+  .company-hero__home-btn button {
+    font-weight: bold;
+    font-size: 0.8rem;
+  }
   .company-hero__content .company-hero__headline {
     font-size: 1.3rem;
   }
@@ -1263,5 +1268,30 @@
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+}
+/* 작은 모바일 */
+@media (max-width: 576px) {
+  .company-hero__tabs {
+    font-size: 0.9rem;
+  }
+  .director-card__favorite {
+    top: 5px;
+    right: 5px;
+  }
+  .director-card__company {
+    font-size: 0.8rem;
+  }
+  .director-card__title {
+    font-size: 1rem;
+  }
+  .director-card__tag {
+    font-size: 0.7rem;
+  }
+  .director-card__bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: start;
   }
 }/*# sourceMappingURL=page.css.map */
