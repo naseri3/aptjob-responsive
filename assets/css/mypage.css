@@ -27,6 +27,10 @@
   --color-light-gray:#f7f7f7;
 }
 
+.resume-page {
+  min-height: calc(100vh - 310px);
+}
+
 .mypage-menu {
   position: sticky;
   top: 100px;
@@ -93,8 +97,7 @@
 .resume .fa-regular {
   color: #7a7a7a;
 }
-
-.resume-card {
+.resume .resume-card {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -105,15 +108,15 @@
   margin-bottom: 10px;
   transition: 0.2s;
 }
-.resume-card:hover {
+.resume .resume-card:hover {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
 }
-.resume-card__left {
+.resume .resume-card__left {
   display: flex;
   align-items: center;
   gap: 14px;
 }
-.resume-card__photo {
+.resume .resume-card__photo {
   width: 56px;
   height: 56px;
   border-radius: 50%;
@@ -121,27 +124,46 @@
      object-fit: cover;
   border: 1px solid #ddd;
 }
-.resume-card__info {
+.resume .resume-card__info {
   display: flex;
   flex-direction: column;
 }
-.resume-card__title {
+.resume .resume-card__title {
   font-size: 16px;
   font-weight: 600;
   color: #111827;
 }
-.resume-card__meta {
+.resume .resume-card__meta {
   font-size: 13px;
   color: #6b7280;
   margin-top: 2px;
 }
-.resume-card__actions {
+.resume .resume-card__actions {
   display: flex;
   gap: 6px;
+}
+.resume {
+  /* 이력서 등록하기 버튼 */
+}
+.resume__footer {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+}
+.resume__create-btn {
+  padding: 10px 30px;
+  font-weight: 500;
+  border-radius: 8px;
+  font-weight: 600;
 }
 
 /* 모바일 카드형 */
 @media (max-width: 991px) {
+  .resume__content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
   .resume-card {
     flex-direction: column;
     align-items: flex-start;
@@ -163,6 +185,9 @@
   }
   .resume-card__title {
     font-size: 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   .resume-card__meta {
     font-size: 12px;
@@ -177,6 +202,12 @@
     flex: 1;
     font-size: 13px;
     padding: 8px;
+  }
+  .resume__footer {
+    justify-content: center;
+  }
+  .resume__create-btn {
+    width: 50%;
   }
 }
 /* 작은 모바일 */

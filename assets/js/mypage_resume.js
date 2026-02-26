@@ -2,7 +2,8 @@ const resumeListEl = document.getElementById("resumeList");
 
 const resumeData = [
     { id: 1, title: "시설관리 경력직 이력서", photo: "/assets/images/profile-user.png" },
-    { id: 2, title: "아파트 관리소장 지원 이력서", photo: "/assets/images/profile-default.png" }
+    { id: 2, title: "아파트 관리소장 지원 이력서", photo: "/assets/images/profile-default.png" },
+    // { id: 3, title: "이력서 테스트", photo: "/assets/images/profile-default.png" }
 ];
 
 function renderEmpty() {
