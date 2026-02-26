@@ -197,6 +197,14 @@
     .resume__content {
         grid-template-columns: 1fr;
     }
+    .mypage-menu__list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .resume__create-btn {
+        font-size: 1rem;
+        width: 90%;
+    }
 }
 
 /* ======================

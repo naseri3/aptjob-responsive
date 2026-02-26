@@ -243,9 +243,18 @@
 }
 
 /* 아주 작은 화면에서는 1열 */
-@media (max-width: 360px) {
+@media (max-width: 576px) {
     .job-card-list {
         grid-template-columns: 1fr;
+    }
+    .job-card__area {
+        margin-bottom: 0;
+    }
+    .job-card__meta {
+        flex-wrap: wrap;
+    }
+    .job-card__meta .salary {
+        margin-left: 0;
     }
 }
 
@@ -494,6 +503,8 @@
         grid-template-columns: 1fr;
     }
 }
+
+
 .job-board__card {
     background-color: #fff;
     border: 1px solid #ccc;

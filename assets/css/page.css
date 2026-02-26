@@ -1049,6 +1049,11 @@
 /* ================================
     소장채용 카드
 ================================ */
+.director-card-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
 .director-card {
   position: relative;
   height: 100%;
@@ -1238,6 +1243,9 @@
 }
 /* 모바일 */
 @media (max-width: 768px) {
+  .director-card-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
   .company-hero__content {
     padding: 15px 10px;
   }
@@ -1269,15 +1277,30 @@
     align-items: center;
     justify-content: center;
   }
+  .director-card__bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: start;
+  }
+  .job-board-mobile__list {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 /* 작은 모바일 */
-@media (max-width: 576px) {
+@media (max-width: 400px) {
+  .director-card-list {
+    grid-template-columns: 1fr;
+  }
   .company-hero__tabs {
     font-size: 0.9rem;
   }
   .director-card__favorite {
     top: 5px;
     right: 5px;
+  }
+  .director-card {
+    width: 100%;
   }
   .director-card__company {
     font-size: 0.8rem;
@@ -1290,8 +1313,10 @@
   }
   .director-card__bottom {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 5px;
-    align-items: start;
+  }
+  .job-board-mobile__list {
+    grid-template-columns: 1fr;
   }
 }/*# sourceMappingURL=page.css.map */

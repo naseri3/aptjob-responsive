@@ -83,7 +83,7 @@ function renderDirectorCards(list) {
     const ddayText =
       getDDayText(item.deadline);
     const cardHTML = `
-      <div class="col-6 col-md-6 col-lg-4">
+      <div class="col">
         <a href="/subpage/job-detail.html?id=${item.id}&from=company&companyId=${currentCompanyId}"
            class="director-card-link text-decoration-none">
           <div class="director-card">
@@ -137,7 +137,7 @@ function renderDirectorCards(list) {
   =============================== */
   for (let i = 0; i < emptyCount; i++) {
     const emptyHTML = `
-      <div class="col-6 col-md-6 col-lg-4">
+      <div class="col">
         <div class="director-card director-card--empty">
           <div class="director-card__empty">
             <img class="director-card__empty-img"

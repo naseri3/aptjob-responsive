@@ -1,3 +1,4 @@
+@charset "UTF-8";
 :root {
   --color-primary: #0D6EFD;
   --bg-color:#f9fafc;
@@ -49,7 +50,7 @@
 }
 #customer .customer-faq__accordion .accordion-button:not(.collapsed) {
   background-color: #eef3ff;
-  color: #0B5ED7;
+  color: #0b5ed7;
   box-shadow: none;
 }
 #customer .customer-faq__accordion .accordion-button:focus {
@@ -106,4 +107,30 @@
   justify-content: center;
   color: #fff;
   font-size: 22px;
+}
+
+/* 작은 모바일 */
+@media (max-width: 576px) {
+  .customer-card__icon {
+    width: 50px;
+    height: 50px;
+  }
+  .customer-card__icon i {
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+  .customer-card__text {
+    width: 220px;
+  }
+  .customer-card__text p {
+    font-size: 0.8rem;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+  .accordion-button {
+    font-size: 0.85rem !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }/*# sourceMappingURL=customer.css.map */
