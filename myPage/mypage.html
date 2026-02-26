@@ -33,10 +33,13 @@
                 <div class="profile">
                     <!-- 프로필 이미지 -->
                     <div class="profile__image">
-                        <img src="/assets/images/profile-default.png">
-                        <button class="profile__camera">
+                        <img id="profileImage" src="/assets/images/profile-default.png">
+
+                        <button class="profile__camera" id="cameraBtn" type="button">
                             <img src="/assets/icons/camera-solid.svg">
                         </button>
+                        <!-- 숨겨진 파일 input -->
+                        <input type="file" id="profileInput" accept="image/*" style="display:none;">
                     </div>
                     <!-- 프로필 정보 -->
                     <div class="profile__info">

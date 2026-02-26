@@ -284,7 +284,11 @@
 .recommended-slider__arrow--next {
     right: -18px;
 }
-
+.recommended-slider.is-empty {
+  .recommended-slider__btn {
+    display: none;
+  }
+}
 /*===============================================
     최근 지원 공고
 ===================================================*/
