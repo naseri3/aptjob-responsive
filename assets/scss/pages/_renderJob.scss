@@ -239,7 +239,7 @@
 .job-card-list {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
+    gap: 8px;
 }
 
 /* 아주 작은 화면에서는 1열 */
@@ -287,6 +287,9 @@
     border-radius: 6px;
     margin-bottom: 10px;
     margin-top: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .job-card__area {
