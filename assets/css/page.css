@@ -1303,10 +1303,10 @@
     width: 100%;
   }
   .director-card__company {
-    font-size: 0.8rem;
+    font-size: 1rem;
   }
   .director-card__title {
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
   .director-card__tag {
     font-size: 0.7rem;
