@@ -649,7 +649,7 @@
     flex-wrap: wrap;
   }
   .job-card__meta .salary {
-    margin-left: 0;
+    margin-left: 50px;
   }
 }
 /* =========================
