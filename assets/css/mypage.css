@@ -27,6 +27,217 @@
   --color-light-gray:#f7f7f7;
 }
 
+.mypage-menu {
+  position: sticky;
+  top: 100px;
+}
+.mypage-menu__title {
+  font-weight: 700;
+  color: #374151;
+  font-size: 1.5rem;
+  margin-top: 50px;
+}
+.mypage-menu__list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0;
+  margin: 20px 0 0;
+  list-style: none;
+}
+.mypage-menu__item {
+  position: relative;
+}
+.mypage-menu__link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: 5px;
+  color: #444;
+  text-decoration: none;
+  transition: all 0.2s;
+  cursor: pointer;
+  background-color: #fff;
+  border: 1px solid #eee;
+}
+.mypage-menu__link img {
+  width: 20px;
+  opacity: 0.7;
+}
+.mypage-menu__link:hover {
+  background: white;
+  color: var(--color-primary);
+  font-weight: 600;
+}
+.mypage-menu__link:hover img {
+  opacity: 1;
+  filter: brightness(0) saturate(100%) invert(32%) sepia(98%) saturate(2123%) hue-rotate(206deg) brightness(101%) contrast(101%);
+}
+.mypage-menu__link.is-active {
+  background: white;
+  color: var(--color-primary);
+  font-weight: 600;
+}
+.mypage-menu__link.is-active img {
+  opacity: 1;
+  filter: brightness(0) saturate(100%) invert(32%) sepia(98%) saturate(2123%) hue-rotate(206deg) brightness(101%) contrast(101%);
+}
+
+.resume__title {
+  font-weight: 700;
+  color: #374151;
+  font-size: 1.5rem;
+  margin-top: 50px;
+}
+.resume .fa-regular {
+  color: #7a7a7a;
+}
+
+.resume-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background: #fff;
+  margin-bottom: 10px;
+  transition: 0.2s;
+}
+.resume-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+.resume-card__left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.resume-card__photo {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border: 1px solid #ddd;
+}
+.resume-card__info {
+  display: flex;
+  flex-direction: column;
+}
+.resume-card__title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #111827;
+}
+.resume-card__meta {
+  font-size: 13px;
+  color: #6b7280;
+  margin-top: 2px;
+}
+.resume-card__actions {
+  display: flex;
+  gap: 6px;
+}
+
+/* 모바일 카드형 */
+@media (max-width: 991px) {
+  .resume-card {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px;
+  }
+  .resume-card__left {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+  }
+  .resume-card__photo {
+    width: 48px;
+    height: 48px;
+  }
+  .resume-card__info {
+    flex: 1;
+  }
+  .resume-card__title {
+    font-size: 15px;
+  }
+  .resume-card__meta {
+    font-size: 12px;
+  }
+  .resume-card__actions {
+    width: 100%;
+    margin-top: 12px;
+    display: flex;
+    gap: 6px;
+  }
+  .resume-card__actions .btn {
+    flex: 1;
+    font-size: 13px;
+    padding: 8px;
+  }
+}
+/* 작은 모바일 */
+@media (max-width: 576px) {
+  .resume__content {
+    grid-template-columns: 1fr;
+  }
+}
+/* ======================
+   모바일
+====================== */
+@media (max-width: 991px) {
+  .mypage-menu__list {
+    flex-direction: row;
+    justify-content: center;
+    overflow: visible;
+    gap: 5px;
+    padding-bottom: 8px;
+  }
+  .mypage-menu__item {
+    flex-shrink: 0;
+    flex: 1;
+  }
+  .mypage-menu__link {
+    flex-direction: column;
+    justify-content: center;
+    min-width: 80px;
+    font-size: 12.5px;
+    letter-spacing: -1px;
+    padding: 10px;
+  }
+  .mypage-menu__link img {
+    width: 22px;
+  }
+  .mypage-menu {
+    /* 모바일 submenu */
+  }
+  .mypage-menu__submenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+    min-width: 140px;
+  }
+  .resume .resume-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .resume .resume-card__actions {
+    width: 100%;
+    display: flex;
+    gap: 6px;
+  }
+  .resume .resume-card__actions .btn {
+    flex: 1;
+  }
+}
 .mypage-profile {
   padding: 40px 0;
 }
@@ -323,6 +534,10 @@
 
 .recommended-slider__arrow--next {
   right: -18px;
+}
+
+.recommended-slider.is-empty .recommended-slider__btn {
+  display: none;
 }
 
 /*===============================================
