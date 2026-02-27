@@ -292,7 +292,7 @@ function setApplied(jobId) {
   const list = getAppliedList();
   if (!list.includes(id)) {
     list.push(id);
-    localStorage.setItem("appliedJobs", JSON.stringify(list));
+    localStorage.setItem("favorites", JSON.stringify(favoritesList));
   }
 }
 
