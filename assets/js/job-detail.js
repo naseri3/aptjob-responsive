@@ -12,6 +12,14 @@ mobileFavoriteBtn?.addEventListener("click", () => {
     mobileFavoriteBtn.classList.toggle("is-active");
 });
 
+favoriteBtn?.addEventListener("click", () => {
+    favoriteBtn.classList.toggle("is-active");
+
+    favoriteBtn.textContent =
+        favoriteBtn.classList.contains("is-active")
+        ? "★"
+        : "★";
+});
 
 /* ======================================================
    지원하기 로직 (최종 안정 버전)
