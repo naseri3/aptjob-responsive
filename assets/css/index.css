@@ -897,7 +897,7 @@
     grid-template-columns: 1fr;
   }
   .job-card__meta .badge:last-child {
-    margin-right: 80px;
+    margin-right: 120px;
   }
 }
 .job-board__card {
