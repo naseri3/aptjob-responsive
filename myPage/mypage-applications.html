@@ -74,22 +74,32 @@
                     </nav>
                 </aside>
 
-                <!-- 우측: 이력서 관리 -->
+                <!-- 우측: 지원 현황, 지원 취소 -->
                 <section class="col-12 col-lg-9">
-                    <div class="resume">
-                        <div class="resume__header d-flex justify-content-between align-items-center mb-3">
-                            <h2 class="resume__title mb-0">이력서 관리</h2>
+                    <!-- 지원 현황 -->
+                    <div class="applications">
+                        <div class="applications__header d-flex justify-content-between align-items-center mb-3">
+                            <h2 class="applications__title mb-0">
+                                지원 현황
+                            </h2>
                         </div>
-                        
-                        <div class="resume__content" id="resumeList">
+                        <div class="applications__content" id="appliedList">
                             <!-- JS로 empty 또는 list 표시 -->
                         </div>
+                        <div class="pagination-wrap" id="appliedPagination"></div>
+                    </div>
 
-                        <div class="resume__footer">
-                            <a href="/subPage/resume-create.html" class="resume__create-btn btn btn-primary">
-                                이력서 등록하기
-                            </a>
+                    <!-- 지원 취소 -->
+                    <div class="applications applications--cancelled">
+                        <div class="applications__header d-flex justify-content-between align-items-center mb-3">
+                            <h2 class="applications__title mb-0">
+                                지원 취소
+                            </h2>
                         </div>
+                        <div class="applications__content" id="cancelledList">
+                            <!-- JS로 empty 또는 list 표시 -->
+                        </div>
+                        <div class="pagination-wrap" id="cancelledPagination"></div>
                     </div>
                 </section>
 
@@ -114,6 +124,6 @@
     <!-- 커스텀 JS (의존성 순서) -->
     <script src="/assets/js/login.js"></script>
     <script src="/assets/js/mypage_menu.js"></script>
-    <script src="/assets/js/mypage_resume.js"></script>
+    <script src="/assets/js/mypage_applications.js"></script>
 
 </html>
