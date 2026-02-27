@@ -253,8 +253,8 @@
     .job-card__meta {
         flex-wrap: wrap;
     }
-    .job-card__meta .salary {
-        margin-left: 50px;
+    .job-card__meta .badge:last-child {
+        margin-right: 30px;
     }
 }
 
