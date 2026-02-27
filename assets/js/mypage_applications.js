@@ -1,14 +1,20 @@
 const PAGE_SIZE = 5;
 
 let appliedList = [
-    { id: 501, title: "서울_경리(회계)", date: "2026.02.26" },
-    { id: 502, title: "서울_서무직", date: "2026.02.26" },
-    { id: 503, title: "부산_시설관리", date: "2026.02.25" },
-    { id: 504, title: "인천_경비", date: "2026.02.24" },
-    { id: 505, title: "대전_관리소장", date: "2026.02.23" },
-    { id: 506, title: "광주_전기기사", date: "2026.02.22" },
-    { id: 507, title: "대구_설비", date: "2026.02.21" },
-    { id: 508, title: "울산_시설", date: "2026.02.20" }
+    { id: 501, title: "경리(회계) 경력직", complexName: "래미안 서초 에스티지", date: "2026.02.26" },
+    { id: 502, title: "서무직 경력직", complexName: "힐스테이트 송파", date: "2026.02.26" },
+    { id: 503, title: "시설관리 기사", complexName: "자이 마포 리버뷰", date: "2026.02.25" },
+    { id: 504, title: "경비원", complexName: "푸르지오 인천 센트럴", date: "2026.02.24" },
+    { id: 505, title: "관리소장", complexName: "더샵 대전 센트럴파크", date: "2026.02.23" },
+    { id: 506, title: "전기기사", complexName: "아이파크 광주 스카이", date: "2026.02.22" },
+    { id: 507, title: "설비 기사", complexName: "롯데캐슬 대구 시그니처", date: "2026.02.21" },
+    { id: 508, title: "시설관리", complexName: "e편한세상 울산 에코", date: "2026.02.20" },
+    {
+        id: 509,
+        title: "아파트 시설관리 기사 모집 (전기 선임 가능자 우대 / 경력 3년 이상 / 주간근무)",
+        complexName: "래미안 강남 프레스티지",
+        date: "2026.02.27"
+    }
 ];
 
 let cancelledList = [];
@@ -46,6 +52,7 @@ function createAppliedCard(item) {
     return `<div class="application-card">
     <div class="application-card__left">
       <div class="application-card__info">
+        <div class="application-card__complexName">${item.complexName}</div>
         <div class="application-card__title-wrap">
           <span class="application-card__title">${item.title}</span>
           <span class="application-card__status application-card__status--applied">지원완료</span>
@@ -64,6 +71,7 @@ function createCancelledCard(item) {
     return `<div class="application-card application-card--cancelled">
     <div class="application-card__left">
       <div class="application-card__info">
+        <div class="application-card__complexName">${item.complexName}</div>
         <div class="application-card__title-wrap">
           <span class="application-card__title">${item.title}</span>
           <span class="application-card__status application-card__status--cancelled">지원취소</span>

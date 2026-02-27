@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>아파트잡 | 아파트 전문 구인구직 플랫폼</title>
+    <link rel="icon" href="/assets/images/favicon.png" type="image/x-icon">
+    <!-- bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <!-- Font Awesome (권장 CDN) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="/assets/css/index.css">
+    <link rel="stylesheet" href="/assets/css/mypage.css">
+</head>
+
+<body data-page="resume" data-header="sub">
+    <!-- PC header -->
+    <header id="headerWrap"></header>
+
+    <main id="pages" class="subPage resume-page">
+        <div class="container">
+            <div class="row">
+                <!-- 좌측: 사이트 메뉴 -->
+                <aside class="col-12 col-lg-3">
+                    <nav class="mypage-menu">
+                        <h3 class="mypage-menu__title">마이페이지</h3>
+                        <ul class="mypage-menu__list">
+                            <li class="mypage-menu__item d-none d-lg-block">
+                                <a href="/myPage/mypage.html" class="mypage-menu__link">
+                                    <img src="/assets/icons/home-alt.svg">
+                                    <span>마이페이지 홈</span>
+                                </a>
+                            </li>
+                            <li class="mypage-menu__item">
+                                <a href="/myPage/mypage-resume.html" class="mypage-menu__link">
+                                    <img src="/assets/icons/page-edit.svg">
+                                    <span>이력서 관리</span>
+                                </a>
+                            </li>
+                            <li class="mypage-menu__item">
+                                <a href="/myPage/mypage-applications.html" class="mypage-menu__link">
+                                    <img src="/assets/icons/submit-document.svg">
+                                    <span>지원 현황</span>
+                                </a>
+                            </li>
+                            <li class="mypage-menu__item">
+                                <a href="/myPage/mypage-favorites.html" class="mypage-menu__link">
+                                    <img src="/assets/icons/page-star.svg">
+                                    <span>관심 공고</span>
+                                </a>
+                            </li>
+                            <li class="mypage-menu__item">
+                                <a href="/myPage/mypage-recent.html" class="mypage-menu__link">
+                                    <img src="/assets/icons/page-search.svg">
+                                    <span>최근 본 공고</span>
+                                </a>
+                            </li>
+                            <li class="mypage-menu__item">
+                                <a href="/myPage/mypage-settings.html" class="mypage-menu__link">
+                                    <img src="/assets/icons/settings.svg">
+                                    <span>계정 설정</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </aside>
+
+                <!-- 우측: 관심 공고 -->
+                <section class="col-12 col-lg-9">
+                    <div class="favorites">
+                        <div class="favorites__header d-flex justify-content-between align-items-center mb-3">
+                            <h2 class="favorites__title mb-0">
+                                관심 공고
+                            </h2>
+                        </div>
+                        <div class="favorites__content" id="favoritesList">
+                            <!-- JS로 empty 또는 list 표시 -->
+                        </div>
+                        <div class="pagination-wrap" id="favoritesPagination"></div>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </main>
+
+
+    <!-- PC footer -->
+    <footer id="footer"></footer>
+    <!-- Back to Top -->
+    <div id="backToTopWrap"></div>
+    <!-- 모바일 하단 네비 -->
+    <div id="bottomNavWrap"></div>
+
+
+    <script src="/assets/js/common.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+
+    <!-- 커스텀 JS (의존성 순서) -->
+    <script src="/assets/js/login.js"></script>
+    <script src="/assets/js/mypage_menu.js"></script>
+    <script src="/assets/js/mypage_favorites.js"></script>
+
+</html>
