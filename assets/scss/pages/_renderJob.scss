@@ -245,7 +245,7 @@
 /* 아주 작은 화면에서는 1열 */
 @media (max-width: 576px) {
     .job-card-list {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
     }
     .job-card__area {
         margin-bottom: 0;
