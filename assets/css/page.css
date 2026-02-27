@@ -1279,7 +1279,6 @@
   }
   .director-card__bottom {
     display: flex;
-    flex-direction: column;
     gap: 5px;
     align-items: start;
   }
@@ -1288,7 +1287,7 @@
   }
 }
 /* 작은 모바일 */
-@media (max-width: 400px) {
+@media (max-width: 450px) {
   .director-card-list {
     grid-template-columns: 1fr;
   }
@@ -1302,21 +1301,10 @@
   .director-card {
     width: 100%;
   }
-  .director-card__company {
-    font-size: 1rem;
+  .job-board__company {
+    font-size: 0.85rem !important;
   }
-  .director-card__title {
-    font-size: 1.2rem;
-  }
-  .director-card__tag {
-    font-size: 0.7rem;
-  }
-  .director-card__bottom {
-    display: flex;
-    flex-direction: row;
-    gap: 5px;
-  }
-  .job-board-mobile__list {
-    grid-template-columns: 1fr;
+  .job-board__title {
+    font-size: 1rem !important;
   }
 }/*# sourceMappingURL=page.css.map */
