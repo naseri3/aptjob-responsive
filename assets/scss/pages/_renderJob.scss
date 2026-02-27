@@ -250,9 +250,6 @@
     .job-card__area {
         margin-bottom: 0;
     }
-    .job-card__meta {
-        flex-wrap: wrap;
-    }
 }
 
 /* =========================
@@ -495,12 +492,13 @@
 }
 
 /* 아주 작은 화면에서는 1열 */
-@media (max-width: 360px) {
+@media (max-width: 450px) {
     .job-board-mobile__list {
         grid-template-columns: 1fr;
     }
-    .job-card__meta .badge:last-child {
-        margin-right: 120px;
+    .job-card__meta .salary {
+        width: stretch;
+        text-align: end;
     }
 }
 

@@ -94,9 +94,11 @@ validList.forEach(item => {
 
         <!-- 메타 -->
         <div class="job-card__meta">
-          <span class="badge">${item.position}</span>
-          <span class="badge">${item.area}</span>
-          <span class="salary">${item.salary}</span>
+          <div class="job-card__badges">
+            <span class="badge">${item.position}</span>
+            <span class="badge">${item.area}</span>
+          </div>
+          <div class="salary">${item.salary}</div>
         </div>
 
         <!-- 푸터 -->
