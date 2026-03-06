@@ -74,54 +74,22 @@
                     </nav>
                 </aside>
 
-                <!-- 우측: 지원 현황, 지원 취소 -->
+                <!-- 우측: 관심 공고 -->
                 <section class="col-12 col-lg-9">
-                    <!-- 지원 현황 -->
-                    <div class="applications">
-                        <div class="applications__header d-flex justify-content-between align-items-center mb-3">
-                            <h2 class="applications__title mb-0">
-                                지원 현황
+                    <div class="recent-jobs">
+                        <div class="recent-jobs__header mb-3">
+                            <h2 class="recent-jobs__title mb-0" id="recentJobsTitle">
+                                최근 본 공고 (0)
                             </h2>
+                            <button class="recent-jobs__clear-btn btn btn-outline-danger" id="clearRecentJobs">
+                                전체 삭제
+                            </button>
                         </div>
-                        <div class="applications-filter">
-                            <!-- 기간 필터 -->
-                            <div class="btn-group applications-filter__months" role="group">
-                                <button class="btn btn-outline-secondary active" data-filter="all">전체</button>
-                                <button class="btn btn-outline-secondary" data-filter="1">1개월</button>
-                                <button class="btn btn-outline-secondary" data-filter="2">2개월</button>
-                                <button class="btn btn-outline-secondary" data-filter="3">3개월</button>
-                            </div>
-
-                            <!-- 날짜 직접 선택 -->
-                            <div class="applications-filter__date">
-                                <input type="date" class="form-control form-control-sm" id="startDate">
-                                <span>~</span>
-                                <input type="date" class="form-control form-control-sm" id="endDate">
-
-                                <button class="btn btn-primary btn-sm" id="dateFilterBtn">
-                                    검색
-                                </button>
-                            </div>
-                        </div>
-                        <div class="applications__content" id="appliedList">
-                            <!-- JS로 empty 또는 list 표시 -->
-                        </div>
-                        <div class="pagination-wrap" id="appliedPagination"></div>
                     </div>
 
-                    <!-- 지원 취소 -->
-                    <div class="applications applications--cancelled">
-                        <div class="applications__header d-flex justify-content-between align-items-center mb-3">
-                            <h2 class="applications__title mb-0">
-                                지원 취소
-                            </h2>
-                        </div>
-                        <!-- 지원 취소 필터링 -->
-                        <div class="applications__content" id="cancelledList">
-                            <!-- JS로 empty 또는 list 표시 -->
-                        </div>
-                        <div class="pagination-wrap" id="cancelledPagination"></div>
-                    </div>
+                    <!-- JS로 empty 또는 list 표시 -->
+                    <div class="recent-jobs__content" id="recentJobsList"></div>
+                    <div class="pagination-wrap" id="recentJobsPagination"></div>
                 </section>
 
             </div>
@@ -145,7 +113,7 @@
     <!-- 커스텀 JS (의존성 순서) -->
     <script src="/assets/js/login.js"></script>
     <script src="/assets/js/mypage_menu.js"></script>
-    <script src="/assets/js/mypage_applications.js"></script>
+    <script src="/assets/js/mypage_recent.js"></script>
     <script src="/assets/js/mypage_filtering.js"></script>
 
 </html>

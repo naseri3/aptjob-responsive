@@ -1,15 +1,21 @@
 const PAGE_SIZE = 6;
 
 let favoritesList = [
-    { id: 801, complexName: "래미안 강남 프레스티지", title: "아파트 시설관리 기사 모집 (전기 선임 가능자 우대 / 경력 3년 이상)", area: "서울 강남구", experience: "경력 3년 이상", salary: "월급 320만원", deadline: "2026-03-20" },
-    { id: 802, complexName: "힐스테이트 송도 더스카이", title: "관리소장 채용 (주택관리사 필수)", area: "인천 연수구", experience: "경력 8년 이상", salary: "월급 500만원", deadline: "2026-03-05" },
-    { id: 803, complexName: "자이 마포 리버뷰", title: "시설관리 기사 모집", area: "서울 마포구", experience: "신입", salary: "월급 280만원", deadline: "채용시까지" },
-    { id: 804, complexName: "푸르지오 센트럴", title: "경리 담당자 채용", area: "경기 성남시", experience: "경력무관", salary: "월급 380만원", deadline: "2026-02-20" },
-    { id: 805, complexName: "롯데캐슬 시그니처", title: "설비 기사 모집", area: "대구 수성구", experience: "경력무관", salary: "월급 300만원", deadline: "2026-03-15" },
-    { id: 806, complexName: "더샵 센트럴파크", title: "관리소장 채용", area: "대전 서구", experience: "경력 8년 이상", salary: "월급 520만원", deadline: "2026-02-23" },
-    { id: 807, complexName: "e편한세상 광교 에듀포레", title: "아파트 전기기사 모집 (전기산업기사 이상 / 선임 가능자)", area: "경기 수원시", experience: "신입", salary: "월급 340만원", deadline: "2026-03-28" },
-    { id: 808, complexName: "아이파크 삼성", title: "공동주택 시설관리 주임 채용 (기계설비 유지관리)", area: "서울 강남구", experience: "경력무관", salary: "월급 310만원", deadline: "채용시까지" },
-    { id: 809, complexName: "한화 포레나 인천연수", title: "아파트 경리 및 회계 담당자 모집", area: "인천 연수구", experience: "경력 3년 이상", salary: "월급 360만원", deadline: "2026-02-10" }
+    { id: 801, complexName: "래미안 강남 프레스티지", title: "아파트 시설관리 기사 모집 (전기 선임 가능자 우대 / 경력 3년 이상)", area: "서울 강남구", experience: "경력 3년 이상", salary: "월급 320만원", deadline: "2026-03-20", savedAt: "2026-03-06" },
+    { id: 802, complexName: "힐스테이트 송도 더스카이", title: "관리소장 채용 (주택관리사 필수)", area: "인천 연수구", experience: "경력 8년 이상", salary: "월급 500만원", deadline: "2026-03-05", savedAt: "2026-03-05" },
+    { id: 803, complexName: "자이 마포 리버뷰", title: "시설관리 기사 모집", area: "서울 마포구", experience: "신입", salary: "월급 280만원", deadline: "채용시까지", savedAt: "2026-03-04" },
+    { id: 804, complexName: "푸르지오 센트럴", title: "경리 담당자 채용", area: "경기 성남시", experience: "경력무관", salary: "월급 380만원", deadline: "2026-02-20", savedAt: "2026-03-03" },
+    { id: 805, complexName: "롯데캐슬 시그니처", title: "설비 기사 모집", area: "대구 수성구", experience: "경력무관", salary: "월급 300만원", deadline: "2026-03-15", savedAt: "2026-03-02" },
+    { id: 806, complexName: "더샵 센트럴파크", title: "관리소장 채용", area: "대전 서구", experience: "경력 8년 이상", salary: "월급 520만원", deadline: "2026-02-23", savedAt: "2026-03-01" },
+    { id: 807, complexName: "e편한세상 광교 에듀포레", title: "아파트 전기기사 모집 (전기산업기사 이상 / 선임 가능자)", area: "경기 수원시", experience: "신입", salary: "월급 340만원", deadline: "2026-03-28", savedAt: "2026-02-28" },
+    { id: 808, complexName: "아이파크 삼성", title: "공동주택 시설관리 주임 채용 (기계설비 유지관리)", area: "서울 강남구", experience: "경력무관", salary: "월급 310만원", deadline: "채용시까지", savedAt: "2026-02-27" },
+    { id: 809, complexName: "한화 포레나 인천연수", title: "아파트 경리 및 회계 담당자 모집", area: "인천 연수구", experience: "경력 3년 이상", salary: "월급 360만원", deadline: "2026-02-10", savedAt: "2026-02-26" },
+    { id: 810, complexName: "래미안 서초 에스티지", title: "시설관리 팀장 모집", area: "서울 서초구", experience: "경력 5년 이상", salary: "월급 420만원", deadline: "2026-03-10", savedAt: "2026-02-25" },
+    { id: 811, complexName: "힐스테이트 광교", title: "아파트 경비원 모집", area: "경기 수원시", experience: "경력무관", salary: "월급 260만원", deadline: "2026-02-18", savedAt: "2026-02-24" },
+    { id: 812, complexName: "롯데캐슬 부산 센텀", title: "전기기사 채용", area: "부산 해운대구", experience: "경력 2년 이상", salary: "월급 330만원", deadline: "2026-03-25", savedAt: "2026-02-23" },
+    { id: 813, complexName: "더샵 세종 리버파크", title: "시설관리 기사 모집", area: "세종시", experience: "경력무관", salary: "월급 295만원", deadline: "2026-02-28", savedAt: "2026-02-22" },
+    { id: 814, complexName: "푸르지오 평택 센트럴", title: "관리사무소 직원 채용", area: "경기 평택시", experience: "경력무관", salary: "월급 310만원", deadline: "2026-03-18", savedAt: "2026-02-21" },
+    { id: 815, complexName: "자이 대구 센트럴", title: "설비 유지보수 기사 채용", area: "대구 중구", experience: "경력 1년 이상", salary: "월급 305만원", deadline: "2026-02-15", savedAt: "2026-02-20" }
 ];
 
 const state = { page: 1 };
@@ -210,55 +216,55 @@ function renderPagination(data, container, currentPage, onPageChange) {
    관심공고 - 지원하기 모달 (job-detail 재사용)
 ====================================================== */
 document.addEventListener("DOMContentLoaded", async () => {
-  await ensureApplyModalsLoaded();
+    await ensureApplyModalsLoaded();
 
-  document.addEventListener("click", (e) => {
-    const applyBtn = e.target.closest(".favorite-card__apply-btn");
-    if (!applyBtn) return;
+    document.addEventListener("click", (e) => {
+        const applyBtn = e.target.closest(".favorite-card__apply-btn");
+        if (!applyBtn) return;
 
-    e.preventDefault();
+        e.preventDefault();
 
-    const card = applyBtn.closest(".favorite-card");
-    const jobId = applyBtn.dataset.id || card?.querySelector(".favorite-btn")?.dataset.id;
+        const card = applyBtn.closest(".favorite-card");
+        const jobId = applyBtn.dataset.id || card?.querySelector(".favorite-btn")?.dataset.id;
 
-    if (!jobId) return;
+        if (!jobId) return;
 
-    if (isApplied(jobId)) return;
+        if (isApplied(jobId)) return;
 
-    const isLogin = localStorage.getItem("isLogin") === "true";
-    if (!isLogin) {
-      sessionStorage.setItem("redirectAfterLogin", window.location.href);
-      window.location.href = "/subpage/login.html";
-      return;
-    }
+        const isLogin = localStorage.getItem("isLogin") === "true";
+        if (!isLogin) {
+            sessionStorage.setItem("redirectAfterLogin", window.location.href);
+            window.location.href = "/subpage/login.html";
+            return;
+        }
 
-    const applyModalEl = document.getElementById("applyModal");
-    if (!applyModalEl) return;
+        const applyModalEl = document.getElementById("applyModal");
+        if (!applyModalEl) return;
 
-    applyModalEl.dataset.jobId = jobId; // ✅ 어떤 공고를 지원하는지 저장
-    new bootstrap.Modal(applyModalEl).show();
-  });
+        applyModalEl.dataset.jobId = jobId; // ✅ 어떤 공고를 지원하는지 저장
+        new bootstrap.Modal(applyModalEl).show();
+    });
 
-  document.addEventListener("click", (e) => {
-    if (!e.target.matches("#applyConfirmBtn")) return;
+    document.addEventListener("click", (e) => {
+        if (!e.target.matches("#applyConfirmBtn")) return;
 
-    const applyModalEl = document.getElementById("applyModal");
-    const doneModalEl = document.getElementById("applyDoneModal");
-    if (!applyModalEl || !doneModalEl) return;
+        const applyModalEl = document.getElementById("applyModal");
+        const doneModalEl = document.getElementById("applyDoneModal");
+        if (!applyModalEl || !doneModalEl) return;
 
-    const jobId = applyModalEl.dataset.jobId;
-    if (!jobId) return;
+        const jobId = applyModalEl.dataset.jobId;
+        if (!jobId) return;
 
-    bootstrap.Modal.getInstance(applyModalEl)?.hide();
+        bootstrap.Modal.getInstance(applyModalEl)?.hide();
 
-    setApplied(jobId);
-    updateAppliedUIInFavorites(jobId);
+        setApplied(jobId);
+        updateAppliedUIInFavorites(jobId);
 
-    new bootstrap.Modal(doneModalEl).show();
-  });
+        new bootstrap.Modal(doneModalEl).show();
+    });
 
-  // ✅ 페이지 로드 시 이미 지원한 공고는 “지원완료” 처리
-  updateAppliedUIInFavorites();
+    // ✅ 페이지 로드 시 이미 지원한 공고는 “지원완료” 처리
+    updateAppliedUIInFavorites();
 });
 
 
@@ -266,15 +272,15 @@ document.addEventListener("DOMContentLoaded", async () => {
    모달 HTML 로드(중복 방지)
 ========================= */
 async function ensureApplyModalsLoaded() {
-  if (document.getElementById("applyModal") && document.getElementById("applyDoneModal")) return;
+    if (document.getElementById("applyModal") && document.getElementById("applyDoneModal")) return;
 
-  try {
-    const res = await fetch("/assets/components/apply-modal.html");
-    const html = await res.text();
-    document.body.insertAdjacentHTML("beforeend", html);
-  } catch (err) {
-    console.warn("apply-modal 로드 실패", err);
-  }
+    try {
+        const res = await fetch("/assets/components/apply-modal.html");
+        const html = await res.text();
+        document.body.insertAdjacentHTML("beforeend", html);
+    } catch (err) {
+        console.warn("apply-modal 로드 실패", err);
+    }
 }
 
 
@@ -282,18 +288,18 @@ async function ensureApplyModalsLoaded() {
    지원 상태(localStorage)
 ========================= */
 function getAppliedList() {
-  return JSON.parse(localStorage.getItem("appliedJobs") || "[]");
+    return JSON.parse(localStorage.getItem("appliedJobs") || "[]");
 }
 function isApplied(jobId) {
-  return getAppliedList().includes(String(jobId));
+    return getAppliedList().includes(String(jobId));
 }
 function setApplied(jobId) {
-  const id = String(jobId);
-  const list = getAppliedList();
-  if (!list.includes(id)) {
-    list.push(id);
-    localStorage.setItem("favorites", JSON.stringify(favoritesList));
-  }
+    const id = String(jobId);
+    const list = getAppliedList();
+    if (!list.includes(id)) {
+        list.push(id);
+        localStorage.setItem("favorites", JSON.stringify(favoritesList));
+    }
 }
 
 
@@ -301,15 +307,15 @@ function setApplied(jobId) {
    UI 반영 (지원완료 처리)
 ========================= */
 function updateAppliedUIInFavorites(targetJobId) {
-  const appliedSet = new Set(getAppliedList());
-  document.querySelectorAll(".favorite-card__apply-btn").forEach((btn) => {
-    const id = String(btn.dataset.id);
-    if (targetJobId && id !== String(targetJobId)) return;
+    const appliedSet = new Set(getAppliedList());
+    document.querySelectorAll(".favorite-card__apply-btn").forEach((btn) => {
+        const id = String(btn.dataset.id);
+        if (targetJobId && id !== String(targetJobId)) return;
 
-    if (appliedSet.has(id)) {
-      btn.textContent = "지원완료";
-      btn.disabled = true;
-      btn.classList.add("is-applied");
-    }
-  });
+        if (appliedSet.has(id)) {
+            btn.textContent = "지원완료";
+            btn.disabled = true;
+            btn.classList.add("is-applied");
+        }
+    });
 }

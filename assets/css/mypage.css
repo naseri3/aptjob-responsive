@@ -1346,6 +1346,142 @@ input:checked + .resume-option__card {
   border-radius: 8px;
 }
 
+/*===========================================================
+    최근 본 공고 페이지
+=============================================================*/
+.recent-jobs__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 50px;
+}
+.recent-jobs__title {
+  font-weight: 700;
+  color: #374151;
+  font-size: 1.5rem;
+  margin: 0;
+}
+.recent-jobs__clear-btn {
+  display: flex;
+  align-items: center;
+}
+
+.recent-jobs__content {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.recent-jobs__content.is-empty {
+  grid-template-columns: 1fr;
+  justify-items: center;
+  align-items: center;
+  min-height: 250px;
+}
+
+/* 카드 */
+.recent-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 16px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.2s ease;
+}
+.recent-card:hover {
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+.recent-card {
+  /* 상단 영역 */
+}
+.recent-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+.recent-card__complexName {
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+.recent-card {
+  /* 즐겨찾기 버튼 */
+}
+.recent-card__favorite {
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 8px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  color: #d1d5db;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.recent-card__favorite:hover {
+  color: #f59e0b;
+}
+.recent-card__favorite:active {
+  transform: scale(0.9);
+}
+.recent-card__favorite.is-active {
+  color: #f59e0b;
+}
+.recent-card__title {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #111827;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.recent-card__meta {
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin-top: 4px;
+}
+.recent-card__salary {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #2563eb;
+  margin-top: 6px;
+}
+.recent-card__bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+}
+.recent-card__deadline {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #ef4444;
+}
+.recent-card__btn {
+  font-size: 0.8rem;
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  text-decoration: none;
+  color: #374151;
+  transition: all 0.15s ease;
+}
+.recent-card__btn:hover {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #fff;
+}
+.recent-card__viewed {
+  font-size: 0.8rem;
+  color: #9ca3af;
+  margin-top: 8px;
+}
+
 /* 모바일 */
 @media (max-width: 768px) {
   .profile__name {
@@ -1414,6 +1550,9 @@ input:checked + .resume-option__card {
   .favorites-filter .form-control {
     flex: 1;
   }
+  .recent-jobs__content {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 @media (max-width: 992px) {
   .profile__stats {
@@ -1430,6 +1569,9 @@ input:checked + .resume-option__card {
   }
   #favoritesList .favorite-card__title {
     font-size: 1rem;
+  }
+  .recent-jobs__content {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 /* 작은 모바일 */
@@ -1470,5 +1612,8 @@ input:checked + .resume-option__card {
   }
   .application-card__title {
     width: 60vw !important;
+  }
+  .recent-jobs__content {
+    grid-template-columns: 1fr;
   }
 }/*# sourceMappingURL=mypage.css.map */

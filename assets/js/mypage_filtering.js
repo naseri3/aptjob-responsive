@@ -1,119 +1,176 @@
+const now = new Date();
+
 /*====================================================
-  지원현황 필터 + 페이지네이션 유지 (완성본)
+  공통 유틸
 =====================================================*/
-
-// ✅ 현재 화면에 적용 중인 데이터(필터 결과가 저장되는 곳)
-let currentApplied = Array.isArray(appliedList) ? [...appliedList] : [];
-
-// ✅ applied 영역 렌더 함수(항상 currentApplied 기준으로만 렌더)
-function renderApplied(page = 1) {
-    state.appliedPage = page;
-
-    renderSection(
-        currentApplied,
-        "appliedList",
-        "appliedPagination",
-        state.appliedPage,
-        (p) => renderApplied(p),
-        "applied"
-    );
-
-    if (typeof bindCancelButtons === "function") {
-        bindCancelButtons();
-    }
+function parseDate(value) {
+    if (!value) return null;
+    const date = new Date(value);
+    return Number.isNaN(date.getTime()) ? null : date;
 }
 
-// ✅ 최초 1회: 혹시 filtering.js가 늦게 로드되면, 렌더를 한번 보장
-renderApplied(1);
+function isClosed(deadline) {
+    if (deadline === "채용시까지") return false;
+    const d = parseDate(deadline);
+    return d && d < now;
+}
 
-/* -----------------------------
-   1) 기간 필터 버튼
-------------------------------*/
-const filterBtns = document.querySelectorAll("[data-filter]");
+function isOpen(deadline) {
+    if (deadline === "채용시까지") return true;
+    const d = parseDate(deadline);
+    return d && d >= now;
+}
 
-filterBtns.forEach((btn) => {
-    btn.addEventListener("click", () => {
-        const type = btn.dataset.filter;
+/*====================================================
+  지원현황 필터
+=====================================================*/
 
-        // active 처리
-        filterBtns.forEach((b) => b.classList.remove("active"));
-        btn.classList.add("active");
+if (typeof appliedList !== "undefined" && typeof renderSection === "function") {
+    const appliedState = {
+        source: [...appliedList],
+        filtered: [...appliedList],
+        page: 1
+    };
 
-        // ✅ 전체
-        if (type === "all") {
-            currentApplied = [...appliedList];
-            return renderApplied(1);
+    function applyAppliedFilter(type, startDate, endDate) {
+        if (type === "range") {
+            appliedState.filtered = appliedState.source.filter(item => {
+                const d = parseDate(String(item.date).replace(/\./g, "-"));
+                return d >= startDate && d <= endDate;
+            });
+            return;
         }
-
-        // ✅ 1/2/3개월
-        const months = Number(type);
-        if (!Number.isFinite(months)) return;
-
-        const now = new Date();
-        currentApplied = appliedList.filter((item) => {
-            // "2026.02.26" -> "2026-02-26"
-            const appliedDate = new Date(String(item.date).replace(/\./g, "-"));
-            const diffDays =
-                (now - appliedDate) / (1000 * 60 * 60 * 24);
-            return diffDays <= months * 30;
-        });
-        renderApplied(1);
-    });
-});
-
-/* -----------------------------
-   2) 날짜 직접 필터
-------------------------------*/
-const dateBtn = document.getElementById("dateFilterBtn");
-
-if (dateBtn) {
-    dateBtn.addEventListener("click", () => {
-        const startEl = document.getElementById("startDate");
-        const endEl = document.getElementById("endDate");
-
-        if (!startEl?.value || !endEl?.value) {
-            // 입력 안 했으면 아무것도 안 바꾸게(또는 alert)
+        if (type === "all") {
+            appliedState.filtered = [...appliedState.source];
             return;
         }
 
-        const start = new Date(startEl.value);
-        const end = new Date(endEl.value);
-        end.setHours(23, 59, 59, 999); // ✅ end 날짜 포함되게
-
-        currentApplied = appliedList.filter((item) => {
-            const appliedDate = new Date(String(item.date).replace(/\./g, "-"));
-            return appliedDate >= start && appliedDate <= end;
+        const months = Number(type);
+        appliedState.filtered = appliedState.source.filter(item => {
+            const d = parseDate(String(item.date).replace(/\./g, "-"));
+            const diffDays = (now - d) / (1000 * 60 * 60 * 24);
+            return diffDays <= months * 30;
         });
+    }
 
-        // 버튼 active 풀기(선택 UX)
-        filterBtns.forEach((b) => b.classList.remove("active"));
+    function renderApplied(page = 1) {
+        appliedState.page = page;
+        renderSection(
+            appliedState.filtered,
+            "appliedList",
+            "appliedPagination",
+            appliedState.page,
+            p => renderApplied(p),
+            "applied"
+        );
+        if (typeof bindCancelButtons === "function") {
+            bindCancelButtons();
+        }
+    }
+    renderApplied(1);
 
-        renderApplied(1);
+    const filterBtns = document.querySelectorAll("[data-filter]");
+    filterBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+            const type = btn.dataset.filter;
+            filterBtns.forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+            applyAppliedFilter(type);
+            renderApplied(1);
+        });
     });
+
+    const dateBtn = document.getElementById("dateFilterBtn");
+    if (dateBtn) {
+        dateBtn.addEventListener("click", () => {
+            const startEl = document.getElementById("startDate");
+            const endEl = document.getElementById("endDate");
+
+            if (!startEl?.value || !endEl?.value) return;
+
+            const start = new Date(startEl.value);
+            const end = new Date(endEl.value);
+            end.setHours(23, 59, 59, 999);
+
+            applyAppliedFilter("range", start, end);
+            filterBtns.forEach(b => b.classList.remove("active"));
+            renderApplied(1);
+        });
+    }
 }
 
+
 /*====================================================
-    관심공고 정렬
+  관심공고 정렬
 =====================================================*/
-const sortBtns = document.querySelectorAll("[data-sort]");
-sortBtns.forEach(btn => {
-    btn.addEventListener("click", () => {
-        const type = btn.dataset.sort;
-        if (type === "latest") {
-            favoritesList.sort((a, b) =>
-                new Date(b.deadline) - new Date(a.deadline)
-            );
+if (typeof favoritesList !== "undefined" && typeof renderSection === "function") {
+    const favoritesState = {
+        source: [...favoritesList],
+        sorted: [...favoritesList],
+        sort: "latest",
+        page: 1
+    };
+
+    function applyFavoriteSort() {
+        let result = [...favoritesState.source];
+        switch (favoritesState.sort) {
+            case "latest":
+                result.sort((a, b) => {
+                    const aDate = parseDate(a.savedAt);
+                    const bDate = parseDate(b.savedAt);
+                    return (bDate || 0) - (aDate || 0);
+
+                });
+                break;
+
+            case "deadlineSoon":
+                result = result
+                    .filter(item => isOpen(item.deadline))
+                    .sort((a, b) =>
+                        parseDate(a.deadline) - parseDate(b.deadline)
+                    );
+                break;
+
+            case "deadlineLate":
+                result = result
+                    .filter(item => isClosed(item.deadline))
+                    .sort((a, b) =>
+                        parseDate(b.deadline) - parseDate(a.deadline)
+                    );
+                break;
+
         }
-        if (type === "deadlineSoon") {
-            favoritesList.sort((a, b) =>
-                new Date(a.deadline) - new Date(b.deadline)
-            );
+        favoritesState.sorted = result;
+    }
+
+    function renderFavorites(page = 1) {
+        favoritesState.page = page;
+        renderSection(
+            favoritesState.sorted,
+            "favoritesList",
+            "favoritesPagination",
+            favoritesState.page,
+            p => renderFavorites(p)
+        );
+        if (typeof bindFavoriteButtons === "function") {
+            bindFavoriteButtons();
         }
-        if (type === "deadlineLate") {
-            favoritesList.sort((a, b) =>
-                new Date(b.deadline) - new Date(a.deadline)
-            );
+        if (typeof updateAppliedUIInFavorites === "function") {
+            updateAppliedUIInFavorites();
         }
-        init(); // 리스트 다시 렌더
+    }
+
+    const sortBtns = document.querySelectorAll("[data-sort]");
+    sortBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+            const type = btn.dataset.sort;
+            sortBtns.forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+            favoritesState.sort = type;
+            applyFavoriteSort();
+            renderFavorites(1);
+        });
     });
-});
+    applyFavoriteSort();
+    renderFavorites(1);
+}

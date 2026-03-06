@@ -668,7 +668,6 @@
 /*===========================================================
     지원현황 필터
 =============================================================*/
-
 .applications-filter,
 .favorites-filter {
     display: flex;
@@ -677,7 +676,6 @@
     padding: 10px 0 20px;
     /* PC에서는 한 줄 */
     flex-wrap: nowrap;
-
     /* 버튼 그룹 */
     .btn-group {
         gap: 10px;
@@ -692,7 +690,7 @@
                 border-color: var(--bs-gray-600);
             }
             &.active {
-               background: var(--bs-gray-600);
+                background: var(--bs-gray-600);
                 color: #fff;
                 border-color: var(--bs-gray-600);
             }
@@ -720,6 +718,142 @@
         font-size: 0.85rem;
         padding: 6px 14px;
         border-radius: 8px;
+    }
+}
+
+/*===========================================================
+    최근 본 공고 페이지
+=============================================================*/
+.recent-jobs {
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 50px;
+    }
+    &__title {
+        font-weight: 700;
+        color: #374151;
+        font-size: 1.5rem;
+        margin: 0;
+    }
+    &__clear-btn {
+        display: flex;
+        align-items: center;
+    }
+}
+.recent-jobs__content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+
+    &.is-empty {
+        grid-template-columns: 1fr;
+        justify-items: center; 
+        align-items: center;
+        min-height: 250px;
+    }
+}
+
+/* 카드 */
+.recent-card {
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 16px;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.2s ease;
+    &:hover {
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+        transform: translateY(-2px);
+    }
+
+    /* 상단 영역 */
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 4px;
+    }
+    &__complexName {
+        font-size: 0.9rem;
+        color: #6b7280;
+    }
+    /* 즐겨찾기 버튼 */
+    &__favorite {
+        width: 30px;
+        height: 30px;
+        border: none;
+        border-radius: 8px;
+        background: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+        color: #d1d5db;
+        cursor: pointer;
+        transition: all 0.15s ease;
+        &:hover {
+            color: #f59e0b;
+        }
+        &:active {
+            transform: scale(0.9);
+        }
+        &.is-active {
+            color: #f59e0b;
+        }
+    }
+    &__title {
+        font-weight: 600;
+        font-size: 1rem;
+        color: #111827;
+
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    &__meta {
+        font-size: 0.85rem;
+        color: #6b7280;
+        margin-top: 4px;
+    }
+    &__salary {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: #2563eb;
+        margin-top: 6px;
+    }
+    &__bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 12px;
+    }
+    &__deadline {
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: #ef4444;
+    }
+    &__btn {
+        font-size: 0.8rem;
+        padding: 4px 10px;
+        border-radius: 6px;
+        border: 1px solid #d1d5db;
+        text-decoration: none;
+        color: #374151;
+        transition: all 0.15s ease;
+        &:hover {
+            background: var(--color-primary);
+            border-color: var(--color-primary);
+            color: #fff;
+        }
+    }
+    &__viewed {
+        font-size: 0.8rem;
+        color: #9ca3af;
+        margin-top: 8px;
     }
 }
 
@@ -786,6 +920,9 @@
             flex: 1;
         }
     }
+    .recent-jobs__content {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media (max-width: 992px) {
@@ -803,6 +940,9 @@
     }
     #favoritesList .favorite-card__title {
         font-size: 1rem;
+    }
+    .recent-jobs__content {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
@@ -844,5 +984,8 @@
         &__title {
             width: 60vw !important;
         }
+    }
+    .recent-jobs__content {
+        grid-template-columns: 1fr;
     }
 }
