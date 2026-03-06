@@ -665,6 +665,63 @@
     }
 }
 
+/*===========================================================
+    지원현황 필터
+=============================================================*/
+
+.applications-filter,
+.favorites-filter {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 0 20px;
+    /* PC에서는 한 줄 */
+    flex-wrap: nowrap;
+
+    /* 버튼 그룹 */
+    .btn-group {
+        gap: 10px;
+        .btn {
+            font-size: 0.9rem;
+            padding: 6px 14px;
+            border-radius: 5px !important;
+            transition: all 0.2s ease;
+            &:hover {
+                background: var(--bs-gray-600);
+                color: #fff;
+                border-color: var(--bs-gray-600);
+            }
+            &.active {
+               background: var(--bs-gray-600);
+                color: #fff;
+                border-color: var(--bs-gray-600);
+            }
+        }
+    }
+    /* 날짜 필터 */
+    &__date {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+    /* 날짜 input */
+    .form-control {
+        width: 130px;
+        height: 34px;
+        font-size: 0.85rem;
+        border-radius: 8px;
+        &:focus {
+            box-shadow: none;
+            border-color: var(--color-primary);
+        }
+    }
+    /* 검색 버튼 */
+    .btn-primary {
+        font-size: 0.85rem;
+        padding: 6px 14px;
+        border-radius: 8px;
+    }
+}
 
 /* 모바일 */
 @media (max-width: 768px) {
@@ -709,6 +766,26 @@
     #favoritesList .favorite-card__title {
         font-size: 1rem;
     }
+    .applications-filter,
+    .favorites-filter {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        /* 기간 버튼 1줄 */
+        .btn-group {
+            width: 100%;
+            .btn {
+                flex: 1;
+            }
+        }
+        /* 날짜 필터 2번째 줄 */
+        &__date {
+            width: 100%;
+        }
+        .form-control {
+            flex: 1;
+        }
+    }
 }
 
 @media (max-width: 992px) {
@@ -721,7 +798,7 @@
     #favoritesList {
         grid-template-columns: repeat(2, 1fr);
     }
-     #favoritesList .favorite-card__company {
+    #favoritesList .favorite-card__company {
         font-size: 0.9rem;
     }
     #favoritesList .favorite-card__title {

@@ -1273,6 +1273,79 @@ input:checked + .resume-option__card {
   color: #f59e0b;
 }
 
+/*===========================================================
+    지원현황 필터
+=============================================================*/
+.applications-filter,
+.favorites-filter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0 20px;
+  /* PC에서는 한 줄 */
+  flex-wrap: nowrap;
+  /* 버튼 그룹 */
+}
+.applications-filter .btn-group,
+.favorites-filter .btn-group {
+  gap: 10px;
+}
+.applications-filter .btn-group .btn,
+.favorites-filter .btn-group .btn {
+  font-size: 0.9rem;
+  padding: 6px 14px;
+  border-radius: 5px !important;
+  transition: all 0.2s ease;
+}
+.applications-filter .btn-group .btn:hover,
+.favorites-filter .btn-group .btn:hover {
+  background: var(--bs-gray-600);
+  color: #fff;
+  border-color: var(--bs-gray-600);
+}
+.applications-filter .btn-group .btn.active,
+.favorites-filter .btn-group .btn.active {
+  background: var(--bs-gray-600);
+  color: #fff;
+  border-color: var(--bs-gray-600);
+}
+.applications-filter,
+.favorites-filter {
+  /* 날짜 필터 */
+}
+.applications-filter__date,
+.favorites-filter__date {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.applications-filter,
+.favorites-filter {
+  /* 날짜 input */
+}
+.applications-filter .form-control,
+.favorites-filter .form-control {
+  width: 130px;
+  height: 34px;
+  font-size: 0.85rem;
+  border-radius: 8px;
+}
+.applications-filter .form-control:focus,
+.favorites-filter .form-control:focus {
+  box-shadow: none;
+  border-color: var(--color-primary);
+}
+.applications-filter,
+.favorites-filter {
+  /* 검색 버튼 */
+}
+.applications-filter .btn-primary,
+.favorites-filter .btn-primary {
+  font-size: 0.85rem;
+  padding: 6px 14px;
+  border-radius: 8px;
+}
+
 /* 모바일 */
 @media (max-width: 768px) {
   .profile__name {
@@ -1313,6 +1386,33 @@ input:checked + .resume-option__card {
   }
   #favoritesList .favorite-card__title {
     font-size: 1rem;
+  }
+  .applications-filter,
+  .favorites-filter {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    /* 기간 버튼 1줄 */
+  }
+  .applications-filter .btn-group,
+  .favorites-filter .btn-group {
+    width: 100%;
+  }
+  .applications-filter .btn-group .btn,
+  .favorites-filter .btn-group .btn {
+    flex: 1;
+  }
+  .applications-filter,
+  .favorites-filter {
+    /* 날짜 필터 2번째 줄 */
+  }
+  .applications-filter__date,
+  .favorites-filter__date {
+    width: 100%;
+  }
+  .applications-filter .form-control,
+  .favorites-filter .form-control {
+    flex: 1;
   }
 }
 @media (max-width: 992px) {

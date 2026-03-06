@@ -83,6 +83,26 @@
                                 지원 현황
                             </h2>
                         </div>
+                        <div class="applications-filter">
+                            <!-- 기간 필터 -->
+                            <div class="btn-group applications-filter__months" role="group">
+                                <button class="btn btn-outline-secondary" data-filter="all">전체</button>
+                                <button class="btn btn-outline-secondary" data-filter="1">1개월</button>
+                                <button class="btn btn-outline-secondary" data-filter="2">2개월</button>
+                                <button class="btn btn-outline-secondary" data-filter="3">3개월</button>
+                            </div>
+
+                            <!-- 날짜 직접 선택 -->
+                            <div class="applications-filter__date">
+                                <input type="date" class="form-control form-control-sm" id="startDate">
+                                <span>~</span>
+                                <input type="date" class="form-control form-control-sm" id="endDate">
+
+                                <button class="btn btn-primary btn-sm" id="dateFilterBtn">
+                                    검색
+                                </button>
+                            </div>
+                        </div>
                         <div class="applications__content" id="appliedList">
                             <!-- JS로 empty 또는 list 표시 -->
                         </div>
@@ -96,6 +116,7 @@
                                 지원 취소
                             </h2>
                         </div>
+                        <!-- 지원 취소 필터링 -->
                         <div class="applications__content" id="cancelledList">
                             <!-- JS로 empty 또는 list 표시 -->
                         </div>
@@ -125,5 +146,6 @@
     <script src="/assets/js/login.js"></script>
     <script src="/assets/js/mypage_menu.js"></script>
     <script src="/assets/js/mypage_applications.js"></script>
+    <script src="/assets/js/mypage_filtering.js"></script>
 
 </html>
