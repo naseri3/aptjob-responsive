@@ -87,7 +87,7 @@ function createCard(job) {
                 </a>
             </div>
             <div class="recent-card__viewed">
-                ${getViewedTime(job.viewedAt)} 조회
+               ${getViewedTime(job.viewedAt)} 조회
             </div>
         </div>
     `;
@@ -139,7 +139,7 @@ function renderPagination(data, page) {
     container.innerHTML = Array.from({ length: total }, (_, i) => {
         return `
             <button class="pagination-btn ${i + 1 === page ? "is-active" : ""}" data-page="${i + 1}">
-            ${i + 1}
+                ${i + 1}
             </button>
         `;
     }).join("");
@@ -153,7 +153,6 @@ function renderPagination(data, page) {
 
 /* 초기 실행 */
 function init() {
-
     const filtered = recentJobs
         .filter(job => !isClosed(job.deadline))
         .sort((a, b) => new Date(b.viewedAt) - new Date(a.viewedAt));
