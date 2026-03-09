@@ -571,11 +571,43 @@
     관심 공고
 =============================================================*/
 .favorites {
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 50px;
+    }
     &__title {
         font-weight: 600;
         color: #374151;
         font-size: 1.3rem;
-        margin-top: 50px;
+    }
+}
+/* ===============================
+   관심 공고 필터
+================================ */
+.favorites-filter {
+    &__select {
+        width: 160px;
+        height: 36px;
+        padding: 0 10px;
+        font-size: 0.9rem;
+        border: 1px solid #e5e7eb;
+        border-radius: 8px;
+        background: #fff;
+        color: #374151;
+        cursor: pointer;
+        transition:
+            border 0.2s ease,
+            box-shadow 0.2s ease;
+        &:hover {
+            border-color: #d1d5db;
+        }
+        &:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 2px rgba(0, 85, 219, 0.1);
+        }
     }
 }
 
@@ -734,7 +766,7 @@
     &__title {
         font-weight: 700;
         color: #374151;
-        font-size: 1.5rem;
+        font-size: 1.3rem;
         margin: 0;
     }
     &__clear-btn {
@@ -749,7 +781,7 @@
 
     &.is-empty {
         grid-template-columns: 1fr;
-        justify-items: center; 
+        justify-items: center;
         align-items: center;
         min-height: 250px;
     }

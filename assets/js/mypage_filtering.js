@@ -111,6 +111,15 @@ if (typeof favoritesList !== "undefined" && typeof renderSection === "function")
         page: 1
     };
 
+    function getDeadlineValue(deadline) {
+        // 채용시까지 → 항상 마지막
+        if (deadline === "채용시까지") return Number.MAX_SAFE_INTEGER;
+        const date = parseDate(deadline);
+        // 날짜 parsing 실패 시 뒤로
+        if (!date) return Number.MAX_SAFE_INTEGER;
+        return date;
+    }
+
     function applyFavoriteSort() {
         let result = [...favoritesState.source];
         switch (favoritesState.sort) {
@@ -119,16 +128,15 @@ if (typeof favoritesList !== "undefined" && typeof renderSection === "function")
                     const aDate = parseDate(a.savedAt);
                     const bDate = parseDate(b.savedAt);
                     return (bDate || 0) - (aDate || 0);
-
                 });
                 break;
 
             case "deadlineSoon":
                 result = result
                     .filter(item => isOpen(item.deadline))
-                    .sort((a, b) =>
-                        parseDate(a.deadline) - parseDate(b.deadline)
-                    );
+                    .sort((a, b) => {
+                        return getDeadlineValue(a.deadline) - getDeadlineValue(b.deadline);
+                    });
                 break;
 
             case "deadlineLate":
@@ -160,17 +168,16 @@ if (typeof favoritesList !== "undefined" && typeof renderSection === "function")
         }
     }
 
-    const sortBtns = document.querySelectorAll("[data-sort]");
-    sortBtns.forEach(btn => {
-        btn.addEventListener("click", () => {
-            const type = btn.dataset.sort;
-            sortBtns.forEach(b => b.classList.remove("active"));
-            btn.classList.add("active");
-            favoritesState.sort = type;
+    const favoritesSort = document.getElementById("favoritesSort");
+
+    if (favoritesSort) {
+        favoritesSort.addEventListener("change", function () {
+
+            favoritesState.sort = this.value;
+
             applyFavoriteSort();
             renderFavorites(1);
+
         });
-    });
-    applyFavoriteSort();
-    renderFavorites(1);
+    }
 }

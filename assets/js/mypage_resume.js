@@ -4,8 +4,8 @@ const resumeListEl = document.getElementById("resumeList");
    더미 데이터
 =============================== */
 let resumeData = [
-    { id: 1, title: "시설관리 경력직 이력서", photo: "/assets/images/profile-user.png", updatedAt: "2026.02.26", isMain: true},
-    { id: 2, title: "아파트 관리소장 지원 이력서", photo: "/assets/images/profile-default.png", updatedAt: "2026.02.24", isMain: false},
+    { id: 1, title: "시설관리 경력직 이력서", photo: "/assets/images/profile-user.png", updatedAt: "2026.02.26", isMain: true, represent: true },
+    { id: 2, title: "아파트 관리소장 지원 이력서", photo: "/assets/images/profile-default.png", updatedAt: "2026.02.24", isMain: false, represent: false },
     // { id: 3, title: "이력서 테스트", photo: "/assets/images/profile-default.png", updatedAt: "2026.03.01", isMain: false}
 ];
 
@@ -41,10 +41,10 @@ function renderResumeList(list) {
                 </div>
             </div>
             <div class="resume-card__actions">
-                <a href="/subPage/resume-view.html?id=${item.id}" class="btn btn-sm btn-outline-secondary">
+                <a href="/myPage/resume-view.html?id=${item.id}" class="btn btn-sm btn-outline-secondary">
                    보기
                 </a>
-                <a href="/subPage/resume-edit.html?id=${item.id}" class="btn btn-sm btn-outline-primary">
+                <a href="/myPage/resume-form.html?id=${item.id}" class="btn btn-sm btn-outline-primary">
                    수정
                 </a>
                 <button class="btn btn-sm btn-outline-danger resume-delete-btn" data-id="${item.id}">
@@ -72,6 +72,29 @@ function renderResumeList(list) {
     });
 }
 
+/* ===============================
+   이력서 정렬
+=============================== */
+const sortSelect = document.getElementById("resumeSort");
+
+sortSelect.addEventListener("change", function () {
+    const type = this.value;
+    if (type === "latest") {
+        resumeData.sort((a, b) => {
+            return new Date(b.updatedAt.replace(/\./g, "-")) - new Date(a.updatedAt.replace(/\./g, "-"));
+        });
+    }
+    if (type === "oldest") {
+        resumeData.sort((a, b) => {
+            return new Date(a.updatedAt.replace(/\./g, "-")) - new Date(b.updatedAt.replace(/\./g, "-"));
+        });
+    }
+    if (type === "represent") {
+        resumeData.sort((a, b) => b.isMain - a.isMain);
+    }
+    render();
+});
+
 
 /* ===============================
    전체 렌더 함수
@@ -84,6 +107,11 @@ function render() {
     }
 }
 
+
+function parseDate(dateStr) {
+  return new Date(dateStr.replace(/\./g, "-"));
+}
+resumeData.sort((a,b)=> parseDate(b.updatedAt) - parseDate(a.updatedAt));
 
 /* ===============================
    최초 실행

@@ -77,24 +77,15 @@
                 <!-- 우측: 관심 공고 -->
                 <section class="col-12 col-lg-9">
                     <div class="favorites">
-                        <div class="favorites__header d-flex justify-content-between align-items-center mb-3">
-                            <h2 class="favorites__title mb-0">
-                                관심 공고
-                            </h2>
-                        </div>
-                    </div>
-                    <!-- 관심공고 필터링 -->
-                    <div class="favorites-filter">
-                        <div class="btn-group" role="group">
-                            <button class="btn btn-outline-secondary" data-sort="latest">
-                                최신순
-                            </button>
-                            <button class="btn btn-outline-secondary" data-sort="deadlineSoon">
-                                마감임박순
-                            </button>
-                            <button class="btn btn-outline-secondary" data-sort="deadlineLate">
-                                마감순
-                            </button>
+                        <div class="favorites__header mb-3">
+                            <h2 class="favorites__title mb-0">관심 공고</h2>
+                            <div class="favorites-filter">
+                                <select id="favoritesSort" class="form-select form-select-sm">
+                                    <option value="latest">최신순</option>
+                                    <option value="deadlineSoon">마감임박순</option>
+                                    <option value="deadlineLate">마감순</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
                     <!-- JS로 empty 또는 list 표시 -->

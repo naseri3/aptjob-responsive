@@ -77,16 +77,23 @@
                 <!-- 우측: 이력서 관리 -->
                 <section class="col-12 col-lg-9">
                     <div class="resume">
-                        <div class="resume__header d-flex justify-content-between align-items-center mb-3">
+                        <div class="resume__header mb-3">
                             <h2 class="resume__title mb-0">이력서 관리</h2>
+                            <div class="resume-filter">
+                                <select id="resumeSort" class="form-select form-select-sm">
+                                    <option value="latest">최신 수정순</option>
+                                    <option value="oldest">오래된 순</option>
+                                    <option value="represent">대표 이력서</option>
+                                </select>
+                            </div>
                         </div>
-                        
+
                         <div class="resume__content" id="resumeList">
                             <!-- JS로 empty 또는 list 표시 -->
                         </div>
 
                         <div class="resume__footer">
-                            <a href="/subPage/resume-create.html" class="resume__create-btn btn btn-primary">
+                            <a href="/myPage/resume-form.html" class="resume__create-btn btn btn-primary">
                                 이력서 등록하기
                             </a>
                         </div>

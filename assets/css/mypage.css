@@ -88,12 +88,19 @@
   filter: brightness(0) saturate(100%) invert(32%) sepia(98%) saturate(2123%) hue-rotate(206deg) brightness(101%) contrast(101%);
 }
 
-.resume__title {
-  font-weight: 600;
-  color: #374151;
-  font-size: 1.3rem;
+.resume__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-top: 50px;
 }
+.resume__header .resume__title {
+  font-weight: 700;
+  color: #374151;
+  font-size: 1.3rem;
+  margin: 0;
+}
+
 .resume .fa-regular {
   color: #7a7a7a;
 }
@@ -163,6 +170,30 @@
   color: var(--color-primary);
   border-radius: 20px;
   padding: 3px 10px;
+}
+
+/* ===============================
+   이력서 필터
+================================ */
+.resume-filter__select {
+  width: 160px;
+  height: 36px;
+  padding: 0 10px;
+  font-size: 0.9rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: #fff;
+  color: #374151;
+  cursor: pointer;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+.resume-filter__select:hover {
+  border-color: #d1d5db;
+}
+.resume-filter__select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(0, 85, 219, 0.1);
 }
 
 /* 모바일 카드형 */
@@ -1192,11 +1223,40 @@ input:checked + .resume-option__card {
 /*===========================================================
     관심 공고
 =============================================================*/
+.favorites__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 50px;
+}
 .favorites__title {
   font-weight: 600;
   color: #374151;
   font-size: 1.3rem;
-  margin-top: 50px;
+}
+
+/* ===============================
+   관심 공고 필터
+================================ */
+.favorites-filter__select {
+  width: 160px;
+  height: 36px;
+  padding: 0 10px;
+  font-size: 0.9rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: #fff;
+  color: #374151;
+  cursor: pointer;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+.favorites-filter__select:hover {
+  border-color: #d1d5db;
+}
+.favorites-filter__select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(0, 85, 219, 0.1);
 }
 
 #favoritesList {
@@ -1366,7 +1426,7 @@ input:checked + .resume-option__card {
 .recent-jobs__title {
   font-weight: 700;
   color: #374151;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   margin: 0;
 }
 .recent-jobs__clear-btn {
