@@ -1,45 +1,91 @@
 const resumeListEl = document.getElementById("resumeList");
 
-const resumeData = [
-    { id: 1, title: "시설관리 경력직 이력서", photo: "/assets/images/profile-user.png" },
-    { id: 2, title: "아파트 관리소장 지원 이력서", photo: "/assets/images/profile-default.png" },
-    // { id: 3, title: "이력서 테스트", photo: "/assets/images/profile-default.png" }
+/* ===============================
+   더미 데이터
+=============================== */
+let resumeData = [
+    { id: 1, title: "시설관리 경력직 이력서", photo: "/assets/images/profile-user.png", updatedAt: "2026.02.26", isMain: true},
+    { id: 2, title: "아파트 관리소장 지원 이력서", photo: "/assets/images/profile-default.png", updatedAt: "2026.02.24", isMain: false},
+    // { id: 3, title: "이력서 테스트", photo: "/assets/images/profile-default.png", updatedAt: "2026.03.01", isMain: false}
 ];
 
+
+/* ===============================
+   빈 상태 UI
+=============================== */
 function renderEmpty() {
     resumeListEl.innerHTML = `
         <div class="resume-empty text-center py-5">
             <i class="fa-regular fa-file-lines mb-3" style="font-size:40px;"></i>
             <p class="mb-3">등록된 이력서가 없습니다.</p>
-            <a href="/subPage/resume-create.html" class="btn btn-outline-primary">이력서 등록하기</a>
-        </div>`;
+        </div>
+    `;
 }
 
+
+/* ===============================
+   이력서 목록 UI
+=============================== */
 function renderResumeList(list) {
     resumeListEl.innerHTML = list.map(item => `
         <div class="resume-card">
             <div class="resume-card__left">
                 <img src="${item.photo}" class="resume-card__photo">
                 <div class="resume-card__info">
-                    <div class="resume-card__title">${item.title}</div>
-                    <div class="resume-card__meta">최근 수정일 2026.02.26</div>
+                    <div class="resume-card__title">
+                        ${item.title}  ${item.isMain ? '<span class="resume-main-badge">대표</span>' : ''}
+                    </div>
+                    <div class="resume-card__meta">
+                        최근 수정일 ${item.updatedAt}
+                    </div>
                 </div>
-                </div>
-                <div class="resume-card__actions">
-                    <a href="/subPage/resume-view.html?id=${item.id}" class="btn btn-sm btn-outline-secondary">보기</a>
-                    <a href="/subPage/resume-edit.html?id=${item.id}" class="btn btn-sm btn-outline-primary">수정</a>
-                <button class="btn btn-sm btn-outline-danger resume-delete-btn" data-id="${item.id}">삭제</button>
+            </div>
+            <div class="resume-card__actions">
+                <a href="/subPage/resume-view.html?id=${item.id}" class="btn btn-sm btn-outline-secondary">
+                   보기
+                </a>
+                <a href="/subPage/resume-edit.html?id=${item.id}" class="btn btn-sm btn-outline-primary">
+                   수정
+                </a>
+                <button class="btn btn-sm btn-outline-danger resume-delete-btn" data-id="${item.id}">
+                    삭제
+                </button>
             </div>
         </div>
-`).join("");
+    `).join("");
 
+
+    /* ===============================
+       삭제 이벤트
+    =============================== */
     document.querySelectorAll(".resume-delete-btn").forEach(btn => {
         btn.addEventListener("click", () => {
             const id = Number(btn.dataset.id);
-            const newList = resumeData.filter(item => item.id !== id);
-            if (newList.length === 0) { renderEmpty(); } else { renderResumeList(newList); }
+            // 삭제 확인
+            const isConfirm = confirm("이력서를 삭제하시겠습니까?");
+            if (!isConfirm) return;
+            /* 데이터 삭제 */
+            resumeData = resumeData.filter(item => item.id !== id);
+            /* 다시 렌더 */
+            render();
         });
     });
 }
 
-if (resumeData.length === 0) { renderEmpty(); } else { renderResumeList(resumeData); }
+
+/* ===============================
+   전체 렌더 함수
+=============================== */
+function render() {
+    if (resumeData.length === 0) {
+        renderEmpty();
+    } else {
+        renderResumeList(resumeData);
+    }
+}
+
+
+/* ===============================
+   최초 실행
+=============================== */
+render();

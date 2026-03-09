@@ -84,27 +84,116 @@
   display: flex;
 }
 .site-navbar .site-navbar__top {
-  /* 로그인 */
+  /* ===============================
+      로그인 버튼
+  =============================== */
 }
 .site-navbar .site-navbar__top .site-user {
-  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 .site-navbar .site-navbar__top .site-user__btn {
   display: flex;
   align-items: center;
+  text-decoration: none;
+}
+.site-navbar .site-navbar__top .site-user__btn #loginBtn {
+  display: flex;
+  align-items: center;
   gap: 6px;
   padding: 6px 12px;
-  border-radius: 20px;
-  border: 1px solid transparent;
-  background-color: #fff;
-  font-size: 16px;
-  font-weight: 700;
-  color: #6e6e6e;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  background: #fff;
+  color: #6b7280;
+  transition: all 0.2s ease;
+}
+.site-navbar .site-navbar__top .site-user__btn #loginBtn i {
+  font-size: 14px;
+  color: #6b7280;
+}
+.site-navbar .site-navbar__top .site-user__btn #loginBtn:hover {
+  background: #f3f4f6;
+  border-color: #d1d5db;
+  color: #111827;
+}
+.site-navbar .site-navbar__top .site-user__btn #loginBtn:active {
+  transform: translateY(1px);
+}
+.site-navbar .site-navbar__top {
+  /* ===============================
+      로그인 상태 (프로필)
+  =============================== */
+}
+.site-navbar .site-navbar__top .user-profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.site-navbar .site-navbar__top .user-profile__img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border: 1px solid #e5e7eb;
+}
+.site-navbar .site-navbar__top .user-profile__name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+  white-space: nowrap;
+}
+.site-navbar .site-navbar__top .user-profile #logoutBtn {
+  padding: 4px 10px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #e5e7eb;
+  background: #fff;
+  color: #6b7280;
+  transition: all 0.2s ease;
+}
+.site-navbar .site-navbar__top .user-profile #logoutBtn:hover {
+  background: #f3f4f6;
+  color: #111827;
+  border-color: #d1d5db;
+}
+.site-navbar .site-navbar__top .user-profile #logoutBtn:active {
+  transform: translateY(1px);
+}
+.site-navbar {
+  /* ===============================
+      알림
+  =============================== */
+}
+.site-navbar .site-alarm {
+  margin-right: 14px;
+}
+.site-navbar .site-alarm .alarm-btn {
+  position: relative;
+  border: none;
+  background: transparent;
+  font-size: 18px;
+  color: #6b7280;
   cursor: pointer;
 }
-.site-navbar .site-navbar__top .site-user__btn i {
-  font-size: 20px;
-  color: #6e6e6e;
+.site-navbar .site-alarm .alarm-badge {
+  position: absolute;
+  top: -4px;
+  right: -6px;
+  width: 16px;
+  height: 16px;
+  font-size: 10px;
+  font-weight: 600;
+  border-radius: 50%;
+  background: orange;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .site-navbar {
   /* ==========================
@@ -186,6 +275,53 @@
 .site-navbar .site-search--mobile .site-search__input:focus {
   outline: none;
   box-shadow: 0 0 0 2px rgba(13, 110, 253, 0.15);
+}
+
+.popover-body {
+  padding: 10px;
+}
+
+.alarm-list {
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.alarm-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 3px 5px;
+  font-size: 0.8rem;
+  border-bottom: 1px solid #eee;
+}
+.alarm-item .fa-bell {
+  color: #f59e0b;
+}
+.alarm-item span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.alarm-new-badge {
+  margin-left: auto;
+  font-size: 11px;
+  color: #ef4444;
+  font-weight: 600;
+}
+
+.alarm-footer {
+  text-align: center;
+  padding-top: 12px;
+}
+
+.alarm-footer a {
+  font-size: 0.85rem;
+  background-color: var(--color-primary);
+  padding: 5px;
+  color: #fff;
+  border-radius: 3px;
+  text-decoration: none;
 }
 
 /* ==================================================
@@ -390,6 +526,13 @@
   }
   .site-user .site-user__btn i {
     font-size: 24px !important;
+  }
+  .user-profile__img {
+    width: 45px !important;
+    height: 45px !important;
+  }
+  .user-profile__name {
+    display: none;
   }
 }
 /* ====================================================
@@ -1158,7 +1301,7 @@
 }
 .google_login__title {
   font-weight: bold;
-  color: #B1B1B1;
+  color: #b1b1b1;
   padding: 0;
   margin: 0;
 }

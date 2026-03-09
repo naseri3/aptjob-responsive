@@ -50,7 +50,7 @@
 /* active */
 .nav-tabs .nav-link.active {
     color: var(--color-primary);
-    background-color:var(--bg-color);
+    background-color: var(--bg-color);
 
     border: 1px solid #dee2e6;
     border-bottom: 1px solid var(--bg-color);
@@ -122,6 +122,7 @@
         font-size: 0.8rem;
     }
 }
+
 /* =========================
    Google
 ========================= */
@@ -138,7 +139,7 @@
 
     &__title {
         font-weight: bold;
-        color: #B1B1B1;
+        color: #b1b1b1;
         padding: 0;
         margin: 0;
     }

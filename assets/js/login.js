@@ -3,222 +3,293 @@
 ====================================================================== */
 
 const LOGIN_REDIRECT_URI =
-  "https://portfolio-aptjob.netlify.app/subpage/login.html";
+    "https://portfolio-aptjob.netlify.app/subpage/login.html";
+
 
 /* ======================================================================
    1️⃣ 구글 로그인
 ====================================================================== */
-
 const GOOGLE_CLIENT_ID =
-  "24355175704-aviumsce0orbnutandgjjsruphqca8g5.apps.googleusercontent.com";
+    "24355175704-aviumsce0orbnutandgjjsruphqca8g5.apps.googleusercontent.com";
 
 const GOOGLE_AUTH_URL =
-  "https://accounts.google.com/o/oauth2/v2/auth" +
-  "?client_id=" + GOOGLE_CLIENT_ID +
-  "&redirect_uri=" + encodeURIComponent(LOGIN_REDIRECT_URI) +
-  "&response_type=code" +
-  "&scope=openid email profile";
+    "https://accounts.google.com/o/oauth2/v2/auth" +
+    "?client_id=" + GOOGLE_CLIENT_ID +
+    "&redirect_uri=" + encodeURIComponent(LOGIN_REDIRECT_URI) +
+    "&response_type=code" +
+    "&scope=openid email profile";
 
 const googleBtn = document.querySelector(".google_login");
 
 if (googleBtn) {
-  googleBtn.addEventListener("click", () => {
-    window.location.href = GOOGLE_AUTH_URL;
-  });
+    googleBtn.addEventListener("click", () => {
+        window.location.href = GOOGLE_AUTH_URL;
+    });
 }
+
 
 /* ======================================================================
    2️⃣ 네이버 로그인
 ====================================================================== */
 
 document.addEventListener("DOMContentLoaded", function () {
-  if (typeof naver_id_login !== "undefined") {
-    var naverLogin = new naver_id_login(
-      "hLO6jennO8FmeKMz2ntZ",
-      LOGIN_REDIRECT_URI
-    );
+    if (typeof naver_id_login !== "undefined") {
+        var naverLogin = new naver_id_login(
+            "hLO6jennO8FmeKMz2ntZ",
+            LOGIN_REDIRECT_URI
+        );
 
-    var state = naverLogin.getUniqState();
+        var state = naverLogin.getUniqState();
 
-    naverLogin.setButton("white", 2, 40);
-    naverLogin.setDomain("https://portfolio-aptjob.netlify.app");
-    naverLogin.setState(state);
-    naverLogin.init_naver_id_login();
-  }
+        naverLogin.setButton("white", 2, 40);
+        naverLogin.setDomain("https://portfolio-aptjob.netlify.app");
+        naverLogin.setState(state);
+        naverLogin.init_naver_id_login();
+    }
 });
 
-
-/* ======================================================================
-   네이버 Access Token 처리
-====================================================================== */
-/*
-(function () {
-  const hash = window.location.hash;
-
-  if (hash.includes("access_token")) {
-    const token = new URLSearchParams(hash.substring(1))
-      .get("access_token");
-
-    console.log("네이버 토큰:", token);
-
-    // 포폴용 로그인 처리
-    localStorage.setItem("isLogin", "true");
-    localStorage.setItem("userName", "네이버회원");
-
-    alert("네이버 로그인 성공!");
-
-    // hash 제거
-    window.location.href = "/";
-  }
-})();
-*/
 
 /* ======================================================================
    3️⃣ 카카오 로그인
 ====================================================================== */
 
 function loginWithKakao() {
-  Kakao.Auth.authorize({
-    redirectUri: LOGIN_REDIRECT_URI,
-  });
+    Kakao.Auth.authorize({
+        redirectUri: LOGIN_REDIRECT_URI,
+    });
 }
 
+
 /* ======================================================================
-   4️⃣ 소셜 로그인 Redirect 처리
-   (인가코드 수신 → 로그인 처리)
+   4️⃣ 소셜 로그인 성공 처리
 ====================================================================== */
-/*
 (function () {
-  const params = new URLSearchParams(window.location.search);
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get("code");
 
-  const code = params.get("code");
-  const kakaoCode = params.get("code"); // 카카오도 동일 파라미터 사용
+    const hash = window.location.hash;
+    const accessToken = new URLSearchParams(hash.substring(1))
+        .get("access_token");
 
-  if (code || kakaoCode) {
-    console.log("인가코드 수신:", code);
+    if (code || accessToken) {
+        localStorage.setItem("isLogin", "true");
+        localStorage.setItem("userName", "소셜회원");
+        localStorage.setItem("userPhoto", "/assets/images/profile-user.png");
 
-    // 👉 포폴용 로그인 처리
-    localStorage.setItem("isLogin", "true");
-    localStorage.setItem("userName", "소셜회원");
-    // 메인으로 이동
-    window.location.href = "/";
-  }
+        alert("소셜 로그인 성공!");
+
+        const redirectUrl = sessionStorage.getItem("redirectAfterLogin");
+
+        if (redirectUrl) {
+            sessionStorage.removeItem("redirectAfterLogin");
+            window.location.href = redirectUrl;
+        } else {
+            window.location.href = "/";
+        }
+    }
 })();
-*/
+
+
 /* ======================================================================
-   5️⃣ 로그인 상태 UI 제어
+   5️⃣ 로그인 상태 UI
 ====================================================================== */
 
 function checkLoginUI() {
-  const isLogin = localStorage.getItem("isLogin") === "true";
 
-  const btn = document.getElementById("authBtn");
-  const icon = document.getElementById("authIcon");
-  const text = document.getElementById("authText");
+    const isLogin = localStorage.getItem("isLogin") === "true";
+    const area = document.getElementById("authArea");
 
-  if (!btn || !icon || !text) return;
+    if (!area) return;
 
-  if (isLogin) {
-    btn.href = "#";
-    icon.classList.replace("fa-right-from-bracket", "fa-user");
-    text.textContent = "로그아웃";
-  } else {
-    btn.href = "/subpage/login.html";
-    icon.classList.replace("fa-right-from-bracket", "fa-user");
-    text.textContent = "로그인";
-  }
+    if (isLogin) {
+        const name = localStorage.getItem("userName") || "회원";
+        const photo = localStorage.getItem("userPhoto") || "/assets/images/profile-user.png";
+
+        area.innerHTML = `
+            <div class="user-profile">
+                <img src="${photo}" class="user-profile__img">
+                <span class="user-profile__name">${name}님</span>
+                <button id="logoutBtn" class="btn btn-sm btn-outline-secondary">로그아웃</button>
+            </div>
+        `;
+
+    } else {
+        area.innerHTML = `
+            <a href="/subPage/login.html" class="site-user__btn text-decoration-none">
+                <button id="loginBtn" class="btn btn-sm btn-outline-secondary">
+                <i class="fa-regular fa-user"></i> 로그인
+                </button>
+            </a>
+        `;
+    }
 }
+
 
 /* ======================================================================
    6️⃣ 로그아웃
 ====================================================================== */
+document.addEventListener("click", function (e) {
+    if (e.target.id === "logoutBtn") {
+        localStorage.removeItem("isLogin");
+        localStorage.removeItem("userName");
+        localStorage.removeItem("userPhoto");
 
-document.addEventListener("click", (e) => {
-  const btn = e.target.closest("#authBtn");
-  if (!btn) return;
+        alert("로그아웃 되었습니다.");
 
-  const isLogin = localStorage.getItem("isLogin") === "true";
-
-  if (!isLogin) return;
-
-  e.preventDefault();
-
-  localStorage.removeItem("isLogin");
-  localStorage.removeItem("userName");
-
-  alert("로그아웃 되었습니다.");
-  location.reload();
+        location.reload();
+    }
 });
 
+
 /* ======================================================================
-   7️⃣ 테스트 로그인 (일반 로그인)
+   알림 데이터
 ====================================================================== */
+const ALARM_STORAGE_KEY = "aptjob_alarms";
 
-function testLogin() {
-  const idEl = document.getElementById("testId");
-  const pwEl = document.getElementById("testPw");
-
-  if (!idEl || !pwEl) return;
-
-  const id = idEl.value;
-  const pw = pwEl.value;
-
-  if (id === "admin" && pw === "1234") {
-    localStorage.setItem("isLogin", "true");
-    localStorage.setItem("userName", "관리자");
-
-    alert("로그인 성공!");
-
-    const redirectUrl = sessionStorage.getItem("redirectAfterLogin");
-
-    if (redirectUrl) {
-      sessionStorage.removeItem("redirectAfterLogin");
-      window.location.href = redirectUrl;
-    } else {
-      window.location.href = "/";
+function getAlarms() {
+    const data = localStorage.getItem(ALARM_STORAGE_KEY);
+    if (data) {
+        const parsed = JSON.parse(data);
+        // 데이터 구조 보정
+        return parsed.map(a => ({
+            id: a.id,
+            style: a.style || "fa-regular",
+            icon: a.icon || "fa-bell",
+            text: a.text,
+            read: a.read || false
+        }));
     }
-  } else {
-    alert("아이디 / 비밀번호 틀림");
-  }
+    const defaultAlarms = [
+        { id: 1, style: "fa-regular", icon: "fa-bell", text: "지원 결과가 업데이트되었습니다", read: false },
+        { id: 2, style: "fa-solid", icon: "fa-bullhorn", text: "새 공고가 등록되었습니다", read: false },
+        { id: 3, style: "fa-regular", icon: "fa-clock", text: "마감 임박 공고가 있습니다", read: false }
+    ];
+
+    localStorage.setItem(ALARM_STORAGE_KEY, JSON.stringify(defaultAlarms));
+
+    return defaultAlarms;
+}
+
+function saveAlarms(list) {
+    localStorage.setItem(ALARM_STORAGE_KEY, JSON.stringify(list));
+}
+
+function unreadCount() {
+    return getAlarms().filter(a => !a.read).length;
+}
+
+
+/* ======================================================================
+   알람
+====================================================================== */
+function renderAlarmUI() {
+    const area = document.getElementById("alarmArea");
+    if (!area) return;
+
+    const isLogin = localStorage.getItem("isLogin") === "true";
+
+    // 로그인 안했을 때
+    if (!isLogin) {
+        area.innerHTML = `
+      <button class="alarm-btn">
+        <i class="fa-regular fa-bell"></i>
+      </button>
+    `;
+        return;
+    }
+
+    const alarms = getAlarms();
+    const alarmItems = alarms.map(a => {
+        return `
+    <div class="alarm-item ${a.read ? "" : "alarm-new"}" data-id="${a.id}">
+      <i class="${a.style} ${a.icon} alarm-icon"></i>
+      <span>${a.text}</span>
+      ${!a.read ? `<span class="alarm-new-badge">NEW</span>` : ""}
+    </div>
+  `;
+    }).join("");
+
+    const alarmContent = `
+    <div class="alarm-list">
+      ${alarmItems}
+      <div class="alarm-footer">
+        <a href="/mypage/alarms.html">전체 알림 보기</a>
+      </div>
+    </div>
+  `;
+
+    const count = unreadCount();
+
+    area.innerHTML = `
+    <button class="alarm-btn">
+      <i class="fa-regular fa-bell"></i>
+      ${count > 0 ? `<span class="alarm-badge">${count}</span>` : ""}
+    </button>
+  `;
+
+    const btn = area.querySelector(".alarm-btn");
+
+    const pop = new bootstrap.Popover(btn, {
+        html: true,
+        placement: "bottom",
+        trigger: "click",
+        content: alarmContent
+    });
+
+    // 클릭하면 읽음 처리
+    setTimeout(() => {
+        document.querySelectorAll(".alarm-item").forEach(item => {
+            item.addEventListener("click", () => {
+                const id = Number(item.dataset.id);
+                const list = getAlarms();
+                const target = list.find(a => a.id === id);
+                if (target) target.read = true;
+                saveAlarms(list);
+                renderAlarmUI();
+            });
+        });
+    }, 200);
 }
 
 /* ======================================================================
-   8️⃣ 헤더 로드 후 로그인 UI 실행
+   7️⃣ 테스트 로그인
 ====================================================================== */
+function testLogin() {
+    const idEl = document.getElementById("testId");
+    const pwEl = document.getElementById("testPw");
 
-document.addEventListener("DOMContentLoaded", () => {
-  checkLoginUI();
-});
+    if (!idEl || !pwEl) return;
 
+    const id = idEl.value;
+    const pw = pwEl.value;
+
+    if (id === "admin" && pw === "1234") {
+
+        localStorage.setItem("isLogin", "true");
+        localStorage.setItem("userName", "홍길동");
+        localStorage.setItem("userPhoto", "/assets/images/profile-user.png");
+
+        alert("로그인 성공!");
+        const redirectUrl = sessionStorage.getItem("redirectAfterLogin");
+        if (redirectUrl) {
+            sessionStorage.removeItem("redirectAfterLogin");
+            window.location.href = redirectUrl;
+        } else {
+            window.location.href = "/";
+
+        }
+    } else {
+        alert("아이디 / 비밀번호 틀림");
+    }
+}
 
 
 /* ======================================================================
-   소셜 로그인 성공여부
+   8️⃣ 헤더 로드 후 실행
 ====================================================================== */
-(function () {
-
-  const params = new URLSearchParams(window.location.search);
-  const code = params.get("code");
-
-  const hash = window.location.hash;
-  const accessToken = new URLSearchParams(hash.substring(1))
-    .get("access_token");
-
-  if (code || accessToken) {
-
-    localStorage.setItem("isLogin", "true");
-    localStorage.setItem("userName", "소셜회원");
-
-    alert("소셜 로그인 성공!");
-
-    const redirectUrl = sessionStorage.getItem("redirectAfterLogin");
-
-    if (redirectUrl) {
-      sessionStorage.removeItem("redirectAfterLogin");
-      window.location.href = redirectUrl;
-    } else {
-      window.location.href = "/";
-    }
-  }
-
-})();
+document.addEventListener("DOMContentLoaded", () => {
+    setTimeout(() => {
+        checkLoginUI();
+        renderAlarmUI();
+    }, 300);
+});

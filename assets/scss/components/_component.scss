@@ -62,31 +62,114 @@
             }
         }
 
-        /* 로그인 */
+        /* ===============================
+            로그인 버튼
+        =============================== */
         .site-user {
-            margin-left: auto;
-
+            display: flex;
+            align-items: center;
+            gap: 5px;
             &__btn {
                 display: flex;
                 align-items: center;
-                gap: 6px;
-                padding: 6px 12px;
-                border-radius: 20px;
-                border: 1px solid transparent;
-                background-color: #fff;
-                font-size: 16px;
-                font-weight: 700;
-                color: #6e6e6e;
-                cursor: pointer;
+                text-decoration: none;
+                #loginBtn {
+                    display: flex;
+                    align-items: center;
+                    gap: 6px;
+                    padding: 6px 12px;
+                    font-size: 14px;
+                    font-weight: 500;
+                    border-radius: 8px;
+                    border: 1px solid #e5e7eb;
+                    background: #fff;
+                    color: #6b7280;
+                    transition: all 0.2s ease;
+                    i {
+                        font-size: 14px;
+                        color: #6b7280;
+                    }
+                    &:hover {
+                        background: #f3f4f6;
+                        border-color: #d1d5db;
+                        color: #111827;
+                    }
+                    &:active {
+                        transform: translateY(1px);
+                    }
+                }
+            }
+        }
 
-                i {
-                    font-size: 20px;
-                    color: #6e6e6e;
+        /* ===============================
+            로그인 상태 (프로필)
+        =============================== */
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            &__img {
+                width: 35px;
+                height: 35px;
+                border-radius: 50%;
+                object-fit: cover;
+                border: 1px solid #e5e7eb;
+            }
+            &__name {
+                font-size: 14px;
+                font-weight: 500;
+                color: #374151;
+                white-space: nowrap;
+            }
+            #logoutBtn {
+                padding: 4px 10px;
+                font-size: 14px;
+                border-radius: 6px;
+                border: 1px solid #e5e7eb;
+                background: #fff;
+                color: #6b7280;
+                transition: all 0.2s ease;
+                &:hover {
+                    background: #f3f4f6;
+                    color: #111827;
+                    border-color: #d1d5db;
+                }
+                &:active {
+                    transform: translateY(1px);
                 }
             }
         }
     }
 
+    /* ===============================
+        알림
+    =============================== */
+    .site-alarm {
+        margin-right: 14px;
+        .alarm-btn {
+            position: relative;
+            border: none;
+            background: transparent;
+            font-size: 18px;
+            color: #6b7280;
+            cursor: pointer;
+        }
+        .alarm-badge {
+            position: absolute;
+            top: -4px;
+            right: -6px;
+            width: 16px;
+            height: 16px;
+            font-size: 10px;
+            font-weight: 600;
+            border-radius: 50%;
+            background: orange;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
     /* ==========================
      2단 : PC 전용 네비
   =========================== */
@@ -172,6 +255,49 @@
             }
         }
     }
+}
+.popover-body {
+    padding: 10px;
+}
+.alarm-list {
+    width: fit-content;
+}
+.alarm-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 3px 5px;
+    font-size: 0.8rem;
+    border-bottom: 1px solid #eee;
+    .fa-bell {
+        color: #f59e0b;
+    }
+    span {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}
+
+.alarm-new-badge {
+    margin-left: auto;
+    font-size: 11px;
+    color: #ef4444;
+    font-weight: 600;
+}
+
+.alarm-footer {
+    text-align: center;
+    padding-top: 12px;
+}
+
+.alarm-footer a {
+    font-size: 0.85rem;
+    background-color: var(--color-primary);
+    padding: 5px;
+    color: #fff;
+    border-radius: 3px;
+    text-decoration: none;
 }
 
 /* ==================================================
@@ -383,5 +509,12 @@
                 font-size: 24px !important;
             }
         }
+    }
+    .user-profile__img {
+        width: 45px !important;
+        height: 45px !important;
+    }
+    .user-profile__name {
+        display: none;
     }
 }

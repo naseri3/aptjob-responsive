@@ -136,6 +136,14 @@
         border-radius: 8px;
         font-weight: 600;
     }
+    .resume-main-badge {
+        font-size: 0.9rem;
+        font-weight: 600;
+        background-color: var(--color-primary-light);
+        color: var(--color-primary);
+        border-radius: 20px;
+        padding: 3px 10px;
+    }
 }
 
 /* 모바일 카드형 */
