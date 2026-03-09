@@ -26,3 +26,24 @@ menuLinks.forEach(link => {
         link.classList.add("is-active");
     }
 });
+
+
+
+function loadStats() {
+  const resume = localStorage.getItem("resumeCount") || 0;
+  const apply = localStorage.getItem("applyCount") || 0;
+  const favorite = localStorage.getItem("favoriteCount") || 0;
+  const recent = localStorage.getItem("recentCount") || 0;
+
+  const statResume = document.getElementById("statResume");
+  const statApply = document.getElementById("statApply");
+  const statFavorite = document.getElementById("statFavorite");
+  const statRecent = document.getElementById("statRecent");
+
+  if (statResume) statResume.textContent = resume;
+  if (statApply) statApply.textContent = apply;
+  if (statFavorite) statFavorite.textContent = favorite;
+  if (statRecent) statRecent.textContent = recent;
+}
+
+loadStats();

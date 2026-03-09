@@ -611,6 +611,21 @@
     }
 }
 
+.menu-text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.status-item {
+    font-size: 12px;
+    background: #eef2ff;
+    color: #4f46e5;
+    border-radius: 20px;
+    padding: 2px 8px;
+    font-weight: 600;
+}
+
 #favoritesList {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -955,6 +970,13 @@
     .recent-jobs__content {
         grid-template-columns: repeat(2, 1fr);
     }
+    .menu-text {
+        display: inline-flex;
+        width: auto;
+    }
+    .status-item {
+        margin-left: 6px;
+    }
 }
 
 @media (max-width: 992px) {
@@ -975,6 +997,14 @@
     }
     .recent-jobs__content {
         grid-template-columns: repeat(2, 1fr);
+    }
+    .menu-text {
+        display: inline-flex;
+        width: auto;
+    }
+
+    .status-item {
+        margin-left: 6px;
     }
 }
 

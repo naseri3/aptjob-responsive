@@ -10,6 +10,16 @@ let resumeData = [
 ];
 
 
+function updateResumeCount(count) {
+
+    const title = document.getElementById("resumeTitle");
+
+    if (!title) return;
+
+    title.textContent = `이력서 관리 (${count})`;
+}
+
+
 /* ===============================
    빈 상태 UI
 =============================== */
@@ -100,13 +110,15 @@ sortSelect.addEventListener("change", function () {
    전체 렌더 함수
 =============================== */
 function render() {
+    updateResumeCount(resumeData.length);
+    localStorage.setItem("resumeCount", resumeData.length);
+
     if (resumeData.length === 0) {
         renderEmpty();
     } else {
         renderResumeList(resumeData);
     }
 }
-
 
 function parseDate(dateStr) {
   return new Date(dateStr.replace(/\./g, "-"));

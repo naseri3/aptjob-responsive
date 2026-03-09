@@ -37,37 +37,37 @@
                             <li class="mypage-menu__item d-none d-lg-block">
                                 <a href="/myPage/mypage.html" class="mypage-menu__link">
                                     <img src="/assets/icons/home-alt.svg">
-                                    <span>마이페이지 홈</span>
+                                    <span class="menu-text">마이페이지 홈</span>
                                 </a>
                             </li>
                             <li class="mypage-menu__item">
                                 <a href="/myPage/mypage-resume.html" class="mypage-menu__link">
                                     <img src="/assets/icons/page-edit.svg">
-                                    <span>이력서 관리</span>
+                                    <span class="menu-text">이력서 관리 <strong id="statResume" class="status-item">0</strong></span>
                                 </a>
                             </li>
                             <li class="mypage-menu__item">
                                 <a href="/myPage/mypage-applications.html" class="mypage-menu__link">
                                     <img src="/assets/icons/submit-document.svg">
-                                    <span>지원 현황</span>
+                                    <span class="menu-text">지원 현황 <strong id="statApply" class="status-item">0</strong></span>
                                 </a>
                             </li>
                             <li class="mypage-menu__item">
                                 <a href="/myPage/mypage-favorites.html" class="mypage-menu__link">
                                     <img src="/assets/icons/page-star.svg">
-                                    <span>관심 공고</span>
+                                    <span class="menu-text">관심 공고 <strong id="statFavorite" class="status-item">0</strong></span>
                                 </a>
                             </li>
                             <li class="mypage-menu__item">
                                 <a href="/myPage/mypage-recent.html" class="mypage-menu__link">
                                     <img src="/assets/icons/page-search.svg">
-                                    <span>최근 본 공고</span>
+                                    <span class="menu-text">최근 본 공고 <strong id="statRecent" class="status-item">0</strong></span>
                                 </a>
                             </li>
                             <li class="mypage-menu__item">
                                 <a href="/myPage/mypage-settings.html" class="mypage-menu__link">
                                     <img src="/assets/icons/settings.svg">
-                                    <span>계정 설정</span>
+                                    <span class="menu-text">계정 설정</span>
                                 </a>
                             </li>
                         </ul>
@@ -78,7 +78,7 @@
                 <section class="col-12 col-lg-9">
                     <div class="resume">
                         <div class="resume__header mb-3">
-                            <h2 class="resume__title mb-0">이력서 관리</h2>
+                            <h2 class="resume__title mb-0"  id="resumeTitle">이력서 관리 (0)</h2>
                             <div class="resume-filter">
                                 <select id="resumeSort" class="form-select form-select-sm">
                                     <option value="latest">최신 수정순</option>
@@ -121,6 +121,7 @@
     <!-- 커스텀 JS (의존성 순서) -->
     <script src="/assets/js/login.js"></script>
     <script src="/assets/js/mypage_menu.js"></script>
+    <script src="/assets/js/mypage-stats.js"></script>
     <script src="/assets/js/mypage_resume.js"></script>
 
 </html>

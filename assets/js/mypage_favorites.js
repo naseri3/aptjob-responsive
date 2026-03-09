@@ -23,6 +23,13 @@ const state = { page: 1 };
 init();
 
 
+function updateFavoritesCount() {
+    const title = document.getElementById("favoritesTitle");
+    if (!title) return;
+    title.textContent = `관심 공고 (${favoritesList.length})`;
+}
+
+
 /* ======================
    D-day 계산
 ====================== */
@@ -53,6 +60,9 @@ function isClosed(deadline) {
    초기 실행
 ====================== */
 function init() {
+    updateFavoritesCount();
+    localStorage.setItem("favoriteCount", favoritesList.length);
+
     renderSection(
         favoritesList,
         "favoritesList",
@@ -63,9 +73,9 @@ function init() {
             init();
         }
     );
+
     bindFavoriteButtons();
 }
-
 
 /* ======================
    섹션 렌더

@@ -37,10 +37,34 @@ const state = { appliedPage: 1, cancelledPage: 1 };
 init();
 
 function init() {
-    renderSection(appliedList, "appliedList", "appliedPagination", state.appliedPage, p => { state.appliedPage = p; init(); }, "applied");
-    renderSection(cancelledList, "cancelledList", "cancelledPagination", state.cancelledPage, p => { state.cancelledPage = p; init(); }, "cancelled");
+    updateApplicationCounts();
+
+    localStorage.setItem("applyCount", appliedList.length);
+
+    renderSection(appliedList, "appliedList", "appliedPagination", state.appliedPage, p => {
+        state.appliedPage = p;
+        init();
+    }, "applied");
+
+    renderSection(cancelledList, "cancelledList", "cancelledPagination", state.cancelledPage, p => {
+        state.cancelledPage = p;
+        init();
+    }, "cancelled");
+
     bindCancelButtons();
 }
+
+function updateApplicationCounts() {
+    const appliedTitle = document.getElementById("applicationsTitle");
+    const cancelledTitle = document.getElementById("cancelledTitle");
+    if (appliedTitle) {
+        appliedTitle.textContent = `지원 현황 (${appliedList.length})`;
+    }
+    if (cancelledTitle) {
+        cancelledTitle.textContent = `지원 취소 (${cancelledList.length})`;
+    }
+}
+
 
 function renderSection(data, listId, paginationId, page, onPageChange, type) {
     const listEl = document.getElementById(listId), paginationEl = document.getElementById(paginationId);

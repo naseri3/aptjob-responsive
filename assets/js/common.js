@@ -147,3 +147,16 @@ function loadApplyModal() {
         })
         .catch(err => console.error(err));
 }
+
+document.addEventListener("click", function (e) {
+    const btn = e.target.closest("#mypageBtn");
+    if (!btn) return;
+    e.preventDefault();
+    const isLogin = localStorage.getItem("isLogin");
+
+    if (isLogin === "true") {
+        window.location.href = "/myPage/mypage.html";
+    } else {
+        window.location.href = "/subPage/login.html";
+    }
+});

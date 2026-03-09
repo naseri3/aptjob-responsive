@@ -157,11 +157,13 @@ function init() {
         .filter(job => !isClosed(job.deadline))
         .sort((a, b) => new Date(b.viewedAt) - new Date(a.viewedAt));
 
-    // ⭐ 카운트 업데이트
     updateRecentCount(filtered.length);
+    localStorage.setItem("recentCount", filtered.length);
+
     renderList(filtered, state.page);
     renderPagination(filtered, state.page);
 }
+
 init();
 
 /* 전체 삭제 버튼 */
