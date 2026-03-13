@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>아파트잡 | 아파트 전문 구인구직 플랫폼</title>
+    <link rel="icon" href="/assets/images/favicon.png" type="image/x-icon">
+    <!-- bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <!-- Font Awesome (권장 CDN) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="/assets/css/index.css">
+    <link rel="stylesheet" href="/assets/scss/css/resume.css">
+</head>
+
+<body data-page="resume-form" data-header="sub">
+    <!-- PC header -->
+    <header id="headerWrap"></header>
+
+    <main id="pages" class="subPage resume-form">
+        <section class="resume-page">
+            <div class="container resume-container">
+                <header class="resume-header">
+                    <h1 class="resume-header__title">이력서 작성</h1>
+                    <div class="resume-title">
+                        <input type="text" id="resumeTitle" class="form-control resume-title__input"
+                            placeholder="이력서 제목을 입력하세요">
+                        <button id="resumeTitleSaveBtn" class="resume-title__btn">
+                            <i class="fa-solid fa-floppy-disk"></i>
+                        </button>
+                    </div>
+                    <p class="resume-header__desc">
+                        기본정보, 학력, 경력, 자기소개를 입력해 이력서를 작성해보세요.
+                    </p>
+                </header>
+                <section class="container">
+                    <div class="row align-items-start">
+                        <section class="resume-card col-12 col-md-9">
+                            <!-- 기본 정보 -->
+                            <div class="resume-section" id="resume-basic">
+                                <div class="resume-section__top">
+                                    <div>
+                                        <h2 class="resume-section__title">기본 정보
+                                            <button id="resumeBasicEdit" class="resume-section__edit">
+                                                <i class="fa-solid fa-pen"></i>
+                                            </button>
+                                        </h2>
+                                        <p class="resume-section__desc">지원자 기본 인적사항을 입력해주세요.</p>
+                                    </div>
+                                    <span class="resume-badge">필수 항목 포함</span>
+                                </div>
+
+                                <div class="resume-profile">
+                                    <div class="resume-profile__preview">
+                                        <img id="profilePreview" src="/assets/images/profile-default.png"
+                                            alt="프로필 미리보기" />
+                                    </div>
+
+                                    <div class="resume-profile__info">
+                                        <div class="resume-profile__title">프로필 사진</div>
+                                        <div class="resume-profile__text">
+                                            JPG, PNG 파일 업로드 가능. 정사각형 이미지를 권장합니다.
+                                        </div>
+                                        <input type="file" class="form-control" id="profileImage" accept="image/*" />
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-12 col-md-6 resume-form__field">
+                                        <label class="resume-form__label" for="userName">
+                                            <span class="resume-required">*</span>이름
+                                        </label>
+                                        <input type="text" id="userName" class="form-control resume-form__input"
+                                            value="홍길동" />
+                                    </div>
+
+                                    <div class="col-12 col-md-6 resume-form__field">
+                                        <label class="resume-form__label" for="birthDate">
+                                            <span class="resume-required">*</span>생년월일
+                                        </label>
+                                        <input type="date" id="birthDate" class="form-control resume-form__input"
+                                            value="1991-01-01" />
+                                    </div>
+
+                                    <div class="col-12 col-md-6 resume-form__field">
+                                        <label class="resume-form__label" for="phone">
+                                            <span class="resume-required">*</span>연락처
+                                        </label>
+                                        <input type="text" id="phone" class="form-control resume-form__input"
+                                            value="010-1234-5678" />
+                                    </div>
+
+                                    <div class="col-12 col-md-6 resume-form__field">
+                                        <label class="resume-form__label" for="email">
+                                            <span class="resume-required">*</span>이메일
+                                        </label>
+                                        <input type="email" id="email" class="form-control resume-form__input"
+                                            placeholder="example@email.com" />
+                                    </div>
+
+                                    <div class="col-12 resume-form__field">
+                                        <label class="resume-form__label">
+                                            <span class="resume-required">*</span>주소
+                                        </label>
+                                        <div class="row g-2">
+                                            <!-- 우편번호 -->
+                                            <div class="col-6 col-md-3 col-lg-3">
+                                                <input type="text" id="postcode" class="form-control resume-form__input"
+                                                    placeholder="우편번호" readonly>
+                                            </div>
+                                            <!-- 우편번호 검색 -->
+                                            <div class="col-6 col-md-3 col-lg-2">
+                                                <button type="button"
+                                                    class="btn btn-outline-secondary w-100 resume-btn-postcode">
+                                                    우편번호 검색
+                                                </button>
+                                            </div>
+                                            <!-- 기본주소 -->
+                                            <div class="col-12 col-md-6 col-lg-7">
+                                                <input type="text" id="address" class="form-control resume-form__input"
+                                                    placeholder="기본주소" readonly>
+                                            </div>
+                                            <!-- 상세주소 -->
+                                            <div class="col-12">
+                                                <input type="text" id="detailAddress"
+                                                    class="form-control resume-form__input" placeholder="상세주소 입력">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 학력 -->
+                            <div class="resume-section" id="resume-education">
+                                <div class="resume-section__top">
+                                    <div>
+                                        <h2 class="resume-section__title">학력
+                                            <button class="resume-edit-btn">
+                                                <i class="fa-solid fa-floppy-disk"></i>
+                                            </button>
+                                        </h2>
+                                        <p class="resume-section__desc">학력을 입력해보세요.</p>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-end mb-3 gap-2">
+                                    <div class="form-check resume-middle-check">
+                                        <input class="form-check-input" type="checkbox" id="middleSchoolCheck">
+                                        <label class="form-check-label" for="middleSchoolCheck">
+                                            중학교 졸업 이하
+                                        </label>
+                                    </div>
+                                    <button type="button" class="btn btn-outline-primary btn-sm resume-add-btn"
+                                        id="addEducationBtn">
+                                        + 학력 추가
+                                    </button>
+                                </div>
+
+                                <div id="educationList">
+                                    <div class="resume-group education-item">
+                                        <div class="resume-group__header">
+                                            <h3 class="resume-group__title">학력 1</h3>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12 col-md-6 col-lg-3 resume-form__field">
+                                                <label class="resume-form__label">
+                                                    <span class="resume-required">*</span>학교 구분
+                                                </label>
+                                                <select class="form-select resume-form__select">
+                                                    <option>고등학교</option>
+                                                    <option>전문대학(2~3년제)</option>
+                                                    <option>대학교(4년제)</option>
+                                                    <option>대학원</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="col-12 col-md-6 col-lg-4 resume-form__field">
+                                                <label class="resume-form__label">
+                                                    <span class="resume-required">*</span>학교명
+                                                </label>
+                                                <input type="text" class="form-control resume-form__input"
+                                                    placeholder="학교명을 입력해주세요" />
+                                            </div>
+
+                                            <div class="col-12 col-md-6 col-lg-3 resume-form__field">
+                                                <label class="resume-form__label graduation-label">
+                                                    <span class="resume-required">*</span>졸업년월
+                                                </label>
+                                                <input type="month" class="form-control resume-form__input" />
+                                            </div>
+
+                                            <div class="col-12 col-md-6 col-lg-2 resume-form__field">
+                                                <label class="resume-form__label">
+                                                    <span class="resume-required">*</span>졸업여부
+                                                </label>
+                                                <select class="form-select resume-form__select">
+                                                    <option value="">선택</option>
+                                                    <option>졸업</option>
+                                                    <option>졸업예정</option>
+                                                    <option>중퇴</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-12 resume-form__field">
+                                                <div class="resume-inline-check">
+                                                    <input class="form-check-input" type="checkbox" id="gedCheck1" />
+                                                    <label class="form-check-label" for="gedCheck1">
+                                                        대입검정고시
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 경력 -->
+                            <div class="resume-section" id="resume-career">
+                                <div class="resume-section__top">
+                                    <div>
+                                        <h2 class="resume-section__title">경력
+                                            <button class="resume-edit-btn">
+                                                <i class="fa-solid fa-floppy-disk"></i>
+                                            </button>
+                                        </h2>
+                                        <p class="resume-section__desc">최근 경력부터 입력하면 관리하기 편해요.</p>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-end mb-3 gap-2">
+                                    <button type="button" class="btn btn-outline-danger btn-sm resume-btn-import-career"
+                                        id="importCareerBtn">
+                                        <img src="/assets/images/h-well.png" class="resume-btn-import-career__icon"> 경력
+                                        불러오기
+                                    </button>
+                                    <button type="button" class="btn btn-outline-primary btn-sm resume-add-btn"
+                                        id="addCareerBtn">
+                                        + 경력 추가
+                                    </button>
+                                </div>
+                                <div id="careerList">
+                                    <div class="resume-group career-item">
+                                        <div class="resume-group__header">
+                                            <h3 class="resume-group__title">경력 1</h3>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-12 col-md-6 col-lg-4 resume-form__field">
+                                                <label class="resume-form__label">
+                                                    <span class="resume-required">*</span>회사명
+                                                </label>
+                                                <input type="text" class="form-control resume-form__input"
+                                                    placeholder="회사명을 입력해주세요" />
+                                            </div>
+
+                                            <div class="col-12 col-md-6 col-lg-4 resume-form__field">
+                                                <label class="resume-form__label">
+                                                    <span class="resume-required">*</span>직무 / 부서
+                                                </label>
+                                                <input type="text" class="form-control resume-form__input"
+                                                    placeholder="예: 프론트엔드 / 개발팀" />
+                                            </div>
+
+                                            <div class="col-12 col-md-6 col-lg-4 resume-form__field">
+                                                <label class="resume-form__label">
+                                                    담당 업무
+                                                </label>
+                                                <input type="text" class="form-control resume-form__input"
+                                                    placeholder="예: 웹 퍼블리싱, UI 개발" />
+                                            </div>
+
+                                            <div class="col-12 col-md-6 col-lg-3 resume-form__field">
+                                                <label class="resume-form__label">
+                                                    <span class="resume-required">*</span>입사년월
+                                                </label>
+                                                <input type="month" class="form-control resume-form__input" />
+                                            </div>
+
+                                            <div class="col-12 col-md-6 col-lg-3 resume-form__field">
+                                                <label class="resume-form__label">
+                                                    퇴사년월
+                                                </label>
+                                                <input type="month"
+                                                    class="form-control resume-form__input career-end-date" />
+                                            </div>
+
+                                            <div class="col-12 col-md-6 col-lg-3 resume-form__field">
+                                                <label class="resume-form__label">재직여부</label>
+                                                <div class="resume-inline-check">
+                                                    <input class="form-check-input current-work-check" type="checkbox"
+                                                        id="currentWork1" />
+                                                    <label class="form-check-label" for="currentWork1">
+                                                        현재 재직중
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-12 col-lg-3 resume-form__field">
+                                                <label class="resume-form__label">고용형태</label>
+                                                <select class="form-select resume-form__select">
+                                                    <option value="">선택</option>
+                                                    <option>정규직</option>
+                                                    <option>계약직</option>
+                                                    <option>인턴</option>
+                                                    <option>프리랜서</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 교육 이수 -->
+                            <div class="resume-section" id="resume-training">
+                                <div class="resume-section__top">
+                                    <div>
+                                        <h2 class="resume-section__title">교육 이수
+                                            <button class="resume-edit-btn">
+                                                <i class="fa-solid fa-floppy-disk"></i>
+                                            </button>
+                                        </h2>
+                                        <p class="resume-section__desc">직무 관련 교육을 입력해주세요.</p>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex justify-content-end mb-3">
+                                    <button type="button" class="btn btn-outline-primary btn-sm resume-add-btn"
+                                        id="addTrainingBtn">
+                                        + 교육 추가
+                                    </button>
+                                </div>
+
+                                <div id="trainingList">
+                                    <div class="resume-group training-item">
+                                        <div class="resume-group__header">
+                                            <h3 class="resume-group__title">교육 1</h3>
+                                        </div>
+
+                                        <div class="row">
+
+                                            <div class="col-12 col-md-4 resume-form__field">
+                                                <label class="resume-form__label">교육명</label>
+                                                <input type="text" class="form-control resume-form__input"
+                                                    placeholder="교육명을 입력하세요">
+                                            </div>
+
+                                            <div class="col-12 col-md-4 resume-form__field">
+                                                <label class="resume-form__label">교육기관</label>
+                                                <input type="text" class="form-control resume-form__input"
+                                                    placeholder="교육기관">
+                                            </div>
+
+                                            <div class="col-12 col-md-4 resume-form__field">
+                                                <label class="resume-form__label">수료년도</label>
+                                                <input type="month" class="form-control resume-form__input">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 자격증 -->
+                            <div class="resume-section" id="resume-license">
+                                <div class="resume-section__top">
+                                    <div>
+                                        <h2 class="resume-section__title">자격증
+                                            <button class="resume-edit-btn">
+                                                <i class="fa-solid fa-floppy-disk"></i>
+                                            </button>
+                                        </h2>
+                                        <p class="resume-section__desc">보유 자격증을 입력해주세요.</p>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex justify-content-end mb-3">
+                                    <button type="button" class="btn btn-outline-primary btn-sm resume-add-btn"
+                                        id="addLicenseBtn">
+                                        + 자격증 추가
+                                    </button>
+                                </div>
+
+                                <div id="licenseList">
+                                    <div class="resume-group license-item">
+                                        <div class="resume-group__header">
+                                            <h3 class="resume-group__title">자격증 1</h3>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-12 col-md-4 resume-form__field">
+                                                <label class="resume-form__label">자격증명</label>
+                                                <input type="text" class="form-control resume-form__input">
+                                            </div>
+
+                                            <div class="col-12 col-md-4 resume-form__field">
+                                                <label class="resume-form__label">발급기관</label>
+                                                <input type="text" class="form-control resume-form__input">
+                                            </div>
+
+                                            <div class="col-12 col-md-4 resume-form__field">
+                                                <label class="resume-form__label">취득년월</label>
+                                                <input type="month" class="form-control resume-form__input">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 취업 우대 및 병역 -->
+                            <div class="resume-section" id="resume-military">
+
+                                <div class="resume-section__top">
+                                    <div>
+                                        <h2 class="resume-section__title">
+                                            취업 우대 및 병역
+                                            <button class="resume-edit-btn">
+                                                <i class="fa-solid fa-floppy-disk"></i>
+                                            </button>
+                                        </h2>
+                                        <p class="resume-section__desc">
+                                            취업 우대사항 및 병역 여부를 입력해주세요.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="resume-preference">
+
+                                        <div class="resume-preference__checks">
+
+                                            <label class="resume-inline-check">
+                                                <input type="checkbox" id="benefitVeteran">
+                                                <span>보훈대상</span>
+                                            </label>
+
+                                            <label class="resume-inline-check">
+                                                <input type="checkbox" id="benefitProtected">
+                                                <span>취업보호대상</span>
+                                            </label>
+
+                                            <label class="resume-inline-check">
+                                                <input type="checkbox" id="benefitSupport">
+                                                <span>고용지원금대상</span>
+                                            </label>
+
+                                            <label class="resume-inline-check">
+                                                <input type="checkbox" id="benefitDisabled">
+                                                <span>장애</span>
+                                            </label>
+
+                                            <label class="resume-inline-check">
+                                                <input type="checkbox" id="militaryCheck">
+                                                <span>병역</span>
+                                            </label>
+
+                                        </div>
+
+                                        <!-- 장애 -->
+                                        <div class="resume-preference__disability" id="disabilityGradeWrap">
+                                            <select class="form-select resume-form__select">
+                                                <option value="">장애등급 선택</option>
+                                                <option>1급</option>
+                                                <option>2급</option>
+                                                <option>3급</option>
+                                                <option>4급</option>
+                                                <option>5급</option>
+                                                <option>6급</option>
+                                            </select>
+                                        </div>
+
+                                        <!-- 병역 -->
+                                        <div class="resume-preference__military" id="militaryWrap">
+                                            <!-- 군필 여부 -->
+                                            <div class="military-status">
+                                                <label class="resume-form__label">군필 여부</label>
+                                                <select id="militaryStatus" class="form-select resume-form__select">
+                                                    <option value="">선택</option>
+                                                    <option value="done">군필</option>
+                                                    <option value="not">미필</option>
+                                                    <option value="exempt">면제</option>
+                                                    <option value="none">해당사항 없음</option>
+                                                </select>
+                                            </div>
+                                            <!-- 군복무 기간 -->
+                                            <div class="military-period" id="militaryPeriod">
+                                                <div>
+                                                    <label class="resume-form__label">입대년월</label>
+                                                    <input type="month" class="form-control resume-form__input">
+                                                </div>
+                                                <div>
+                                                    <label class="resume-form__label">제대년월</label>
+                                                    <input type="month" class="form-control resume-form__input">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 자기소개 -->
+                            <div class="resume-section" id="resume-intro">
+                                <div class="resume-section__top">
+                                    <div>
+                                        <h2 class="resume-section__title">자기소개
+                                            <button class="resume-edit-btn">
+                                                <i class="fa-solid fa-floppy-disk"></i>
+                                            </button>
+                                        </h2>
+                                        <p class="resume-section__desc">본인의 강점과 경험을 자유롭게 작성해주세요.</p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-12 resume-form__field">
+                                        <textarea id="intro" class="form-control resume-form__textarea"
+                                            placeholder="성장 과정, 업무 강점, 프로젝트 경험 등을 작성해주세요."></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 버튼 -->
+                            <div class="resume-actions">
+                                <button type="button" id="cancelResumeBtn" class="btn btn-outline-danger">
+                                    취소
+                                </button>
+                                <button type="button" class="btn btn-outline-secondary">
+                                    임시 저장
+                                </button>
+                                <button type="button" class="btn btn-primary">
+                                    이력서 저장
+                                </button>
+                            </div>
+                        </section>
+                        <aside class="resume-menu col-lg-3 d-none d-lg-block">
+                            <div class="resume-menu__card">
+                                <div class="resume-menu__title">
+                                    이력서 작성
+                                </div>
+                                <nav class="resume-menu__nav">
+                                    <a href="#resume-basic" class="resume-menu__item active">
+                                        <i data-lucide="user"></i>
+                                        <span>기본 정보</span>
+                                    </a>
+                                    <a href="#resume-education" class="resume-menu__item">
+                                        <i data-lucide="graduation-cap"></i>
+                                        <span>학력</span>
+                                    </a>
+                                    <a href="#resume-career" class="resume-menu__item">
+                                        <i data-lucide="briefcase"></i>
+                                        <span>경력</span>
+                                    </a>
+                                    <a href="#resume-training" class="resume-menu__item">
+                                        <i data-lucide="book-open"></i>
+                                        <span>교육 이수</span>
+                                    </a>
+                                    <a href="#resume-license" class="resume-menu__item">
+                                        <i data-lucide="award"></i>
+                                        <span>자격증</span>
+                                    </a>
+                                    <a href="#resume-military" class="resume-menu__item">
+                                        <i data-lucide="shield"></i>
+                                        <span>취업 우대 및 병역</span>
+                                    </a>
+                                    <a href="#resume-intro" class="resume-menu__item">
+                                        <i data-lucide="file-text"></i>
+                                        <span>자기소개서</span>
+                                    </a>
+                                </nav>
+                            </div>
+                        </aside>
+                    </div>
+                </section>
+            </div>
+        </section>
+    </main>
+
+
+    <!-- PC footer -->
+    <footer id="footer"></footer>
+    <!-- Back to Top -->
+    <div id="backToTopWrap"></div>
+    <!-- 모바일 하단 네비 -->
+    <div id="bottomNavWrap"></div>
+
+
+    <script src="/assets/js/common.js"></script>
+    <script src="/assets/js/resume/resume.js"></script>
+    <script src="/assets/js/resume/resume-form.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+
+    <script src="/assets/js/login.js"></script>
+</body>
+
+</html>

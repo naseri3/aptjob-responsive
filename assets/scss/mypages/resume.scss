@@ -1,0 +1,486 @@
+@use "../base/global";
+
+.subPage {
+    overflow: hidden;
+}
+
+.resume-title {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 10px;
+    &__input {
+        width: 90%;
+        font-size: 1.05rem;
+        font-weight: 600;
+    }
+    ::placeholder {
+        font-size: 1.05rem;
+    }
+    &__btn {
+        border: none;
+        background: transparent;
+        font-size: 20px;
+        cursor: pointer;
+    }
+    .fa-solid {
+        color: #888;
+        &:hover {
+            color: var(--color-primary);
+        }
+    }
+}
+
+.resume {
+    &-page {
+        padding: 32px 0 20px;
+    }
+    &-container {
+        max-width: 1200px;
+    }
+    &-header {
+        margin-bottom: 24px;
+        &__title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #374151;
+            margin-bottom: 8px;
+            margin-top: 50px;
+        }
+        &__desc {
+            color: var(--resume-subtext);
+            margin-bottom: 0;
+            font-size: 1rem;
+        }
+    }
+    &-card {
+        background: var(--resume-card);
+        border: 1px solid var(--resume-border);
+        border-radius: 20px;
+        padding: 24px;
+        box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
+    }
+    &-section {
+        & + & {
+            margin-top: 32px;
+            padding-top: 32px;
+            border-top: 1px solid var(--resume-border);
+        }
+        &__top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        &__title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin: 0;
+        }
+        &__desc {
+            color: var(--resume-subtext);
+            font-size: 0.95rem;
+            margin: 0;
+        }
+        &__edit {
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            font-size: 18px;
+            color: #888;
+            &:hover {
+                color: var(--color-primary);
+            }
+        }
+    }
+
+    &-form {
+        &__field {
+            margin-bottom: 16px;
+        }
+        &__label {
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+            display: inline-block;
+        }
+        &__input,
+        &__select {
+            border-radius: 5px;
+            min-height: 42px;
+            border-color: #dfe3e8;
+            box-shadow: none !important;
+        }
+        &__textarea {
+            min-height: 500px !important;
+            resize: vertical;
+            padding-top: 12px;
+        }
+        &__hint {
+            font-size: 0.82rem;
+            color: var(--resume-subtext);
+            margin-top: 6px;
+        }
+    }
+
+    &-required {
+        color: var(--resume-danger);
+        margin-right: 4px;
+    }
+
+    &-profile {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        flex-wrap: wrap;
+        padding: 16px;
+        background: #fcfcfd;
+        border: 1px dashed #d9dee5;
+        border-radius: 16px;
+        margin-bottom: 20px;
+        &__preview {
+            width: 96px;
+            height: 96px;
+            border-radius: 20px;
+            overflow: hidden;
+            background: #e9ecef;
+            flex-shrink: 0;
+            border: 1px solid #d9dee5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+        &__info {
+            flex: 1;
+            min-width: 220px;
+        }
+
+        &__title {
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        &__text {
+            color: var(--resume-subtext);
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+        }
+    }
+
+    &-group {
+        background: var(--bg-color);
+        border: 1px solid var(--resume-border);
+        border-radius: 18px;
+        padding: 20px;
+        position: relative;
+        & + & {
+            margin-top: 16px;
+        }
+        &__header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+        &__title {
+            font-size: 1rem;
+            font-weight: 700;
+            margin: 0;
+        }
+    }
+
+    &-remove-btn {
+        width: 36px;
+        height: 36px;
+        border-radius: 10px;
+        border: 1px solid #f1c2c7;
+        background: #fff5f6;
+        color: var(--resume-danger);
+        font-size: 16px;
+        line-height: 1;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: 0.2s ease;
+        &:hover {
+            background: #ffe9ec;
+        }
+    }
+    &-btn-postcode {
+        height: 48px;
+        font-weight: 500;
+    }
+
+    &-add-btn {
+        min-height: 40px;
+        border-radius: 5px;
+        font-weight: 600;
+    }
+    &-btn-import-career:hover {
+        background-color: transparent;
+        color: var(--bs-danger);
+    }
+
+    &-btn-import-career__icon {
+        width: 20px;
+    }
+
+    &-inline-check {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        min-height: 30px;
+        .form-check-input {
+            transform: scale(1.4);
+            margin-top: 0;
+            cursor: pointer;
+        }
+        .form-check-label {
+            cursor: pointer;
+            font-size: 0.95rem;
+            color: var(--resume-text);
+        }
+    }
+
+    &-actions {
+        margin-top: 32px;
+        display: flex;
+        justify-content: flex-end;
+        gap: 12px;
+        flex-wrap: wrap;
+        .btn {
+            min-width: 140px;
+            min-height: 48px;
+            border-radius: 12px;
+            font-weight: 600;
+        }
+    }
+
+    &-badge {
+        display: inline-flex;
+        align-items: center;
+        padding: 6px 12px;
+        border-radius: 999px;
+        background: var(--resume-primary-soft);
+        color: var(--resume-primary);
+        font-size: 0.82rem;
+        font-weight: 700;
+    }
+}
+
+.resume-edit-btn {
+    border: none;
+    background: transparent;
+    font-size: 18px;
+    cursor: pointer;
+    color: #888;
+    &:hover {
+        color: var(--color-primary);
+    }
+}
+
+/* ====================================================
+   중학교 이하 체크
+==================================================== */
+.resume-middle-check {
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    .form-check-input {
+        transform: scale(1.4);
+        cursor: pointer;
+    }
+    .form-check-label {
+        cursor: pointer;
+        user-select: none;
+    }
+}
+/* ====================================================
+   숨김 처리
+==================================================== */
+.resume-hidden {
+    display: none;
+}
+
+.resume-menu {
+    align-self: flex-start;
+    &__card {
+        position: fixed;
+        top: 350px;
+        width: 220px;
+        min-width: 220px;
+
+        background: #fff;
+        border-radius: 14px;
+        padding: 16px;
+        border: 1px solid #eee;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+    }
+    &__title {
+        font-size: 15px;
+        font-weight: 700;
+        margin-bottom: 12px;
+        color: #222;
+    }
+    &__nav {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+    }
+    &__item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        padding: 10px 12px;
+        border-radius: 8px;
+
+        font-size: 14px;
+        color: #555;
+        text-decoration: none;
+        transition: all 0.2s ease;
+        i {
+            width: 18px;
+            height: 18px;
+            color: #888;
+        }
+        &:hover {
+            background: #eef5ff;
+            color: #0055db;
+            font-weight: 600;
+            i {
+                color: #0055db;
+            }
+        }
+        &.active {
+            background: #eef5ff;
+            color: #0055db;
+            font-weight: 600;
+            i {
+                color: #0055db;
+            }
+        }
+    }
+}
+
+/* ====================================================
+   취업 우대 / 병역
+==================================================== */
+.resume-preference {
+    margin-top: 8px;
+    &__checks {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px 24px;
+    }
+    .resume-inline-check {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        cursor: pointer;
+        input {
+            cursor: pointer;
+        }
+    }
+    /* 장애 */
+    &__disability {
+        display: none;
+        margin-top: 12px;
+        max-width: 200px;
+    }
+
+    /* 병역 */
+    &__military {
+        display: none;
+        margin-top: 12px;
+    }
+    .military-status {
+        max-width: 200px;
+    }
+    .military-period {
+        display: none;
+        margin-top: 12px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+}
+
+/* ================================
+   모바일
+================================ */
+@media (max-width: 768px) {
+    .resume-preference {
+        &__checks {
+            display: grid;
+            grid-template-columns: repeat(3, auto);
+            gap: 10px 16px;
+        }
+        &__military {
+            grid-template-columns: 1fr;
+        }
+    }
+}
+
+/* 반응형 */
+@media (max-width: 991px) {
+    .resume {
+        &-card {
+            padding: 20px;
+        }
+        &-section {
+            & + & {
+                margin-top: 28px;
+                padding-top: 28px;
+            }
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .resume {
+        &-page {
+            padding: 20px 0;
+        }
+        &-header {
+            &__title {
+                font-size: 1.5rem;
+            }
+            &__desc {
+                font-size: 0.9rem;
+            }
+        }
+        &-card {
+            border-radius: 16px;
+            padding: 16px;
+        }
+        &-group {
+            padding: 16px;
+            border-radius: 16px;
+        }
+
+        &-actions {
+            flex-direction: column;
+
+            .btn {
+                width: 100%;
+            }
+        }
+    }
+    .form-control {
+        height: auto !important;
+    }
+    .resume-form__textarea {
+        min-height: 400px !important;
+    }
+}
