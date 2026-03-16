@@ -1,0 +1,92 @@
+{
+  "resumeId": 1,
+  "title": "아파트 시설관리 지원 이력서",
+
+  "basic": {
+    "name": "홍길동",
+    "birthDate": "1990-01-01",
+    "phone": "010-1234-5678",
+    "email": "gd.hong@test.com",
+    "postcode": "06236",
+    "address": "서울 강남구 역삼동",
+    "detailAddress": "래미안아파트 101동 1203호",
+    "profileImage": "/assets/images/profile-user.png"
+  },
+
+  "education": [
+    {
+      "schoolType": "전문대학(2~3년제)",
+      "schoolName": "서울기술전문대학교",
+      "graduationDate": "2010-02",
+      "status": "졸업",
+      "isGed": false
+    }
+  ],
+
+  "career": [
+    {
+      "company": "강남센트럴아파트",
+      "department": "시설관리팀",
+      "position": "시설관리 주임",
+      "task": "아파트 설비 점검, 승강기 및 전기시설 관리, 입주민 민원 대응",
+      "startDate": "2024-01",
+      "endDate": "",
+      "isCurrent": true,
+      "employmentType": "정규직"
+    },
+    {
+      "company": "한빛아파트 관리사무소",
+      "department": "시설관리팀",
+      "position": "시설관리 기사",
+      "task": "아파트 공용시설 점검 및 유지보수, 전기·기계 설비 관리",
+      "startDate": "2018-03",
+      "endDate": "2023-12",
+      "isCurrent": false,
+      "employmentType": "정규직"
+    }
+  ],
+
+  "training": [
+    {
+      "name": "공동주택 시설관리 실무 과정",
+      "organization": "한국주택관리협회",
+      "date": "2022-09"
+    },
+    {
+      "name": "전기안전관리자 교육",
+      "organization": "대한전기협회",
+      "date": "2021-06"
+    }
+  ],
+
+  "license": [
+    {
+      "name": "전기기능사",
+      "organization": "한국산업인력공단",
+      "date": "2016-05"
+    },
+    {
+      "name": "소방안전관리자 2급",
+      "organization": "한국소방안전원",
+      "date": "2019-04"
+    }
+  ],
+
+  "preferences": {
+    "veteran": false,
+    "protected": false,
+    "support": false,
+    "disabled": false,
+    "disabilityGrade": null,
+
+    "military": {
+      "status": "done",
+      "startDate": "2008-03",
+      "endDate": "2010-03"
+    }
+  },
+
+  "intro": "공동주택 시설관리 분야에서 6년 이상의 경력을 보유하고 있으며, 전기 및 기계 설비 유지보수와 안전관리 업무를 수행해왔습니다. 입주민 안전과 시설 안정 운영을 최우선으로 생각하며 책임감 있게 업무에 임하고 있습니다.",
+
+  "createdAt": "2026-03-16"
+}

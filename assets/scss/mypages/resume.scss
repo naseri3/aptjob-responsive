@@ -238,11 +238,6 @@
         align-items: center;
         gap: 8px;
         min-height: 30px;
-        .form-check-input {
-            transform: scale(1.4);
-            margin-top: 0;
-            cursor: pointer;
-        }
         .form-check-label {
             cursor: pointer;
             font-size: 0.95rem;
@@ -276,6 +271,16 @@
     }
 }
 
+.form-check-label {
+    cursor: pointer;
+    user-select: none;
+}
+.form-check-input {
+    transform: scale(1.3);
+    margin-top: 0;
+    cursor: pointer;
+}
+
 .resume-edit-btn {
     border: none;
     background: transparent;
@@ -300,10 +305,6 @@
         transform: scale(1.4);
         cursor: pointer;
     }
-    .form-check-label {
-        cursor: pointer;
-        user-select: none;
-    }
 }
 /* ====================================================
    숨김 처리
@@ -324,7 +325,7 @@
         border-radius: 14px;
         padding: 16px;
         border: 1px solid #eee;
-        box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
     }
     &__title {
         font-size: 15px;
@@ -335,7 +336,6 @@
     &__nav {
         display: flex;
         flex-direction: column;
-        gap: 6px;
     }
     &__item {
         display: flex;
@@ -391,6 +391,10 @@
         input {
             cursor: pointer;
         }
+    }
+    .resume-form__checkbox {
+        width: 16px;
+        height: 16px;
     }
     /* 장애 */
     &__disability {

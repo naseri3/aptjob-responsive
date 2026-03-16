@@ -1,0 +1,51 @@
+/* ================================
+   PRINT
+================================ */
+/* 인쇄 화면에서만 숨김 */
+@media print {
+    #headerWrap,
+    #footer {
+        display: none;
+    }
+    body {
+        width: 210mm !important;
+    }
+    #pages {
+        background: #fff;
+    }
+    /* 🔥 container width 강제 */
+    .resume-container {
+        max-width: 100% !important;
+        width: 100% !important;
+    }
+    .resume-view-page {
+        padding: 10px;
+    }
+    /* 기본정보 가로 정렬 */
+    .resume-basic {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        gap: 30px;
+        align-items: flex-start;
+        flex-direction: row !important;
+    }
+    .resume-basic__profile {
+        flex: 0 0 140px;
+    }
+    .resume-basic__profile img {
+        width: 200px;
+        height: 200px;
+    }
+    .resume-basic__info {
+        flex: 1;
+    }
+    .resume-view-actions {
+        display: none !important;
+    }
+    .resume-view-section {
+        margin-top: 50px;
+    }
+    .resume-edit-btn {
+        display: none;
+    }
+}

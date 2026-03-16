@@ -1,6 +1,6 @@
-@use "./base/global";
-@use "./mypages/resume";
-@use "./components/apply-modal";
+@use "./base/_global.scss";
+@use "./mypages/_resume.scss";
+@use "./components/_apply-modal.scss";
 
 .mypage-profile {
     padding: 40px 0;

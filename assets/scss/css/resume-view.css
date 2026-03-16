@@ -1,0 +1,289 @@
+@charset "UTF-8";
+/* ================================
+   PRINT
+================================ */
+/* 인쇄 화면에서만 숨김 */
+@media print {
+  #headerWrap,
+  #footer {
+    display: none;
+  }
+  body {
+    width: 210mm !important;
+  }
+  #pages {
+    background: #fff;
+  }
+  /* 🔥 container width 강제 */
+  .resume-container {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+  .resume-view-page {
+    padding: 10px;
+  }
+  /* 기본정보 가로 정렬 */
+  .resume-basic {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    gap: 30px;
+    align-items: flex-start;
+    flex-direction: row !important;
+  }
+  .resume-basic__profile {
+    flex: 0 0 140px;
+  }
+  .resume-basic__profile img {
+    width: 200px;
+    height: 200px;
+  }
+  .resume-basic__info {
+    flex: 1;
+  }
+  .resume-view-actions {
+    display: none !important;
+  }
+  .resume-view-section {
+    margin-top: 50px;
+  }
+  .resume-edit-btn {
+    display: none;
+  }
+}
+/* ========================================
+   VIEW PAGE
+======================================== */
+.resume-view-page {
+  background: #f7f7f9;
+  padding: 30px 0 60px;
+}
+
+.resume-container {
+  max-width: 900px;
+}
+
+/* ========================================
+   HEADER
+======================================== */
+.resume-view-header {
+  margin-bottom: 30px;
+}
+
+.resume-view-header h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #374151;
+  margin-bottom: 8px;
+  margin-top: 50px;
+}
+
+.resume-view-header__date {
+  font-size: 14px;
+  color: #777;
+}
+
+/* ========================================
+   SECTION CARD
+======================================== */
+.resume-view-section {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 22px;
+  margin-bottom: 20px;
+}
+
+.resume-view-section__title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+/* ========================================
+   BASIC PROFILE
+======================================= */
+.resume-basic {
+  display: flex;
+  gap: 20px;
+}
+
+.resume-basic__profile img {
+  width: 200px;
+  height: 200px;
+  border-radius: 10%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border: 1px solid #e5e7eb;
+}
+
+.resume-basic__info {
+  flex: 1;
+}
+
+/* ========================================
+   INFO ROW
+======================================== */
+.resume-info-row {
+  display: flex;
+  padding: 8px 0;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 1rem;
+}
+
+.resume-info-row:last-child {
+  border-bottom: none;
+}
+
+.resume-info-row .label {
+  width: 110px;
+  font-weight: 600;
+  color: #555;
+}
+
+.resume-info-row span:last-child {
+  flex: 1;
+  color: #111;
+}
+
+/* ========================================
+   LIST CARD
+======================================== */
+#educationList,
+#careerList,
+#trainingList,
+#licenseList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ========================================
+   ITEM
+======================================== */
+.resume-view-item {
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  padding: 16px;
+  background: #fafafa;
+}
+
+.resume-view-item strong {
+  display: block;
+  font-size: 15px;
+  margin-bottom: 4px;
+}
+
+.resume-view-item div {
+  font-size: 14px;
+  color: #444;
+}
+
+.resume-view-item p {
+  margin-top: 8px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* ========================================
+   BADGE
+======================================== */
+.resume-preference-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.resume-preference-badges span {
+  padding: 6px 12px;
+  background: #eef4ff;
+  border-radius: 8px;
+  font-size: 13px;
+  color: #2f6bff;
+}
+
+.resume-military-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 14px;
+  background: #fafafa;
+}
+
+.resume-military-card__title {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.resume-military-card__date {
+  font-size: 14px;
+  color: #555;
+}
+
+/* ========================================
+   INTRO
+======================================== */
+.resume-intro {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #333;
+  white-space: pre-line;
+}
+
+/* ========================================
+   BOTTOM BUTTON
+======================================== */
+.resume-view-actions {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.resume-view-actions .btn {
+  min-width: 200px;
+  padding: 10px 0;
+}
+
+/* ========================================
+   MOBILE
+======================================== */
+@media (max-width: 768px) {
+  .resume-basic {
+    flex-direction: column;
+  }
+  .resume-basic__profile img {
+    width: 120px;
+    height: 120px;
+  }
+  .resume-info-row {
+    flex-direction: row;
+    font-size: 0.9rem;
+  }
+  .resume-info-row .label {
+    width: 80px;
+  }
+  .resume-view-actions {
+    position: fixed;
+    bottom: 83px;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    padding: 20px 12px;
+    border-top: 1px solid #e5e7eb;
+    display: flex;
+    gap: 8px;
+    z-index: 999;
+  }
+  .resume-view-actions .btn {
+    flex: 1;
+    min-width: 0;
+    font-size: 14px;
+  }
+  .resume-view-page {
+    padding-bottom: 120px;
+  }
+  .resume-view-btn-print {
+    display: none;
+  }
+}/*# sourceMappingURL=resume-view.css.map */
