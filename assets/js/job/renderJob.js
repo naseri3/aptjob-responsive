@@ -1,5 +1,4 @@
-import { jobList } from "./jobList.js";
-
+import { jobList } from "/assets/js/job_data/jobList.js";
 /* =================================================
    상태
 ================================================= */

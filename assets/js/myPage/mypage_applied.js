@@ -1,4 +1,4 @@
-import { appliedList } from "./appliedList.js";
+import { appliedList } from "/assets/js/job_data/appliedList.js";
 
 /* ===============================
    DOM

@@ -1,4 +1,4 @@
-import { directorList } from "./directorList.js";
+import { directorList } from "/assets/js/job_data/directorList.js";
 const now = new Date();
 
 /* ===============================

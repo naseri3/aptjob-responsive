@@ -1,4 +1,4 @@
-import { recommendedList } from "./recommendedList.js";
+import { recommendedList } from "/assets/js/job_data/recommendedList.js";
 
 /* =========================================================
    DOM

@@ -1,4 +1,4 @@
-import { jobList } from "./jobList.js";
+import { jobList } from "/assets/js/job_data/jobList.js";
 
 /* ===============================
    현재 회사 ID 추출

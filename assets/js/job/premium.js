@@ -1,4 +1,4 @@
-import { premiumList } from "./premiumList.js";
+import { premiumList } from "/assets/js/job_data/premiumList.js";
 
 const grid = document.querySelector(".premium__grid");
 const MAX_COUNT = 8;
