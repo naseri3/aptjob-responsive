@@ -9,7 +9,7 @@ export const premiumList = [
     experience: "경력 2년 이상",
     education: "고졸 이상",
     salary: "월급 3,520,000원 (세전)",
-    period: "01.14 ~ 03.31",
+    period: "01.14 ~ 06.30",
     link: "/subPage/job-detail.html?id=${job.id}"
   },
   {
@@ -21,7 +21,7 @@ export const premiumList = [
     experience: "경력 2년 이상",
     education: "고졸 이상",
     salary: "월급 3,825,000원 (세전)",
-    period: "01.13 ~ 03.31",
+    period: "01.13 ~ 06.30",
     link: "/subPage/job-detail.html?id=${job.id}"
   },
   {
@@ -33,7 +33,7 @@ export const premiumList = [
     experience: "경력 1년 이상",
     education: "제한없음",
     salary: "월급 3,090,000원 (세전)",
-    period: "01.14 ~ 03.31",
+    period: "01.14 ~ 06.30",
     link: "/subPage/job-detail.html?id=${job.id}"
   },
   {
@@ -45,7 +45,7 @@ export const premiumList = [
     experience: "경력 2년 이상",
     education: "고졸 이상",
     salary: "월급 4,340,000원 (세전)",
-    period: "01.14 ~ 03.31",
+    period: "01.14 ~ 06.30",
     link: "/subPage/job-detail.html?id=${job.id}"
   },
   {
@@ -57,7 +57,7 @@ export const premiumList = [
     experience: "경력 2년 이상",
     education: "고졸 이상",
     salary: "월급 3,340,000원 (세전)",
-    period: "01.14 ~ 03.15",
+    period: "01.14 ~ 06.30",
     link: "/subPage/job-detail.html?id=${job.id}"
   },
   {
@@ -69,7 +69,7 @@ export const premiumList = [
     experience: "제한없음",
     education: "제한없음",
     salary: "월급 3,600,000원 (세전)",
-    period: "01.14 ~ 03.10",
+    period: "01.14 ~ 06.30",
     link: "/subPage/job-detail.html?id=${job.id}"
   },
   {
@@ -81,7 +81,7 @@ export const premiumList = [
     experience: "경력 2년 이상",
     education: "대졸(2년제)",
     salary: "월급 4,120,000원 (세전)",
-    period: "01.14 ~ 02.28",
+    period: "01.14 ~ 06.30",
    link: "/subPage/job-detail.html?id=${job.id}"
   },
   {
