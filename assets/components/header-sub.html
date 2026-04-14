@@ -18,8 +18,16 @@
                 <div class="site-user ms-auto">
                     <!-- 알림 -->
                     <div id="alarmArea" class="site-alarm"></div>
+                    <!-- 모바일 햄버거 -->
+                    <button class="mobile-menu-btn d-lg-none">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+
                     <div id="authArea"></div>
                 </div>
+            </div>
+            <div class="w-100 d-none d-lg-flex justify-content-end site-navbar__mypage-row">
+                <div id="mypageDropdownArea"></div>
             </div>
             <!-- 2단 : 지역직무검색 / 위탁사검색 / 고객센터 / 마이페이지 -->
             <div class="w-100 d-none d-lg-flex align-items-center py-1 site-navbar__bottom">
@@ -27,6 +35,11 @@
                     <li>
                         <a href="/subpage/search.html" class="text-decoration-none text-dark">
                             지역/직무검색
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/subpage/jobMap.html" class="text-decoration-none text-dark">
+                            아파트맵
                         </a>
                     </li>
                     <li>
@@ -53,6 +66,66 @@
                     <input type="search" class="form-control site-search__input" placeholder="직무, 지역, 아파트명으로 검색해보세요.">
                 </div>
             </div>
+        </div>
+
+        <!-- 모바일 메뉴 -->
+        <div id="mobileMenu" class="mobile-menu">
+            <!-- 메뉴 헤더 -->
+            <div class="mobile-menu__header">
+                <span class="mobile-menu__title">메뉴</span>
+                <button class="mobile-menu__close">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- 로그인 영역 -->
+            <div class="mobile-menu__user" id="mobileUserArea">
+                <img src="/assets/images/profile-default.png" class="mobile-menu__profile">
+                <span class="mobile-menu__name">로그인이 필요합니다</span>
+            </div>
+
+            <!-- 메뉴 리스트 -->
+            <ul class="mobile-menu__list">
+                <li class="mobile-menu__item">
+                    <a href="/subPage/search.html">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        지역 / 직무 검색
+                    </a>
+                </li>
+                <li class="mobile-menu__item">
+                    <a href="/subPage/search.html">
+                        <i class="fa-solid fa-map-marker"></i>
+                        아파트맵
+                    </a>
+                </li>
+                <li class="mobile-menu__item">
+                    <a href="/subPage/company-list.html">
+                        <i class="fa-solid fa-building"></i>
+                        위탁사
+                    </a>
+                </li>
+                <li class="mobile-menu__item">
+                    <a href="/subPage/customer.html">
+                        <i class="fa-solid fa-headset"></i>
+                        고객센터
+                    </a>
+                </li>
+                <li class="mobile-menu__item mobile-menu__mypage">
+                    <div class="mobile-menu__mypage-toggle">
+                        <i class="fa-solid fa-user"></i>
+                        마이페이지
+                        <i class="fa-solid fa-chevron-down mobile-menu__arrow"></i>
+                    </div>
+
+                    <ul class="mobile-menu__submenu">
+                        <li><a href="/mypage/mypage.html">마이페이지 홈</a></li>
+                        <li><a href="/mypage/mypage-resume.html">이력서 관리</a></li>
+                        <li><a href="/mypage/mypage-applications.html">지원 현황</a></li>
+                        <li><a href="/mypage/mypage-favorites.html">관심 공고</a></li>
+                        <li><a href="/mypage/mypage-recent.html">최근 본 공고</a></li>
+                    </ul>
+                </li>
+            </ul>
         </div>
     </nav>
 </div>

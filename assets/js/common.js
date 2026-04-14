@@ -28,13 +28,19 @@
                 return res.text();
             })
             .then((html) => {
-                // 1️⃣ header 삽입
                 headerEl.innerHTML = html;
-                // 2️⃣ 로그인 UI 실행 🔥
+
                 if (typeof checkLoginUI === "function") {
                     checkLoginUI();
                 }
 
+                if (typeof renderAlarmUI === "function") {
+                    renderAlarmUI();
+                }
+
+                if (typeof updateMobileUserUI === "function") {
+                    updateMobileUserUI();
+                }
             })
             .catch((err) => console.error(err));
     }
@@ -102,7 +108,12 @@ function loadBottomNav() {
         })
         .then(html => {
             wrap.innerHTML = html;
-            setActiveBottomNav(); // 🔥 페이지별 활성 처리
+
+            setActiveBottomNav();
+
+            if (typeof updateBottomProfile === "function") {
+                updateBottomProfile();
+            }
         })
         .catch(err => console.error(err));
 }
@@ -126,8 +137,8 @@ function setActiveBottomNav() {
         document.querySelector(".bottom-nav__item--partner")?.classList.add("is-active");
     }
 
-    if (page === "service-center") {
-        document.querySelector(".bottom-nav__item--cs")?.classList.add("is-active");
+    if (page === "jobMap") {
+        document.querySelector(".bottom-nav__item--map")?.classList.add("is-active");
     }
 
     if (page === "mypage") {
@@ -159,4 +170,34 @@ document.addEventListener("click", function (e) {
     } else {
         window.location.href = "/subPage/login.html";
     }
+});
+
+
+document.addEventListener("click", function (e) {
+
+    if (e.target.closest(".mobile-menu-btn")) {
+        const menu = document.getElementById("mobileMenu")
+        menu.classList.add("open")
+        document.body.style.overflow = "hidden"
+    }
+
+    if (e.target.closest(".mobile-menu__close")) {
+        const menu = document.getElementById("mobileMenu")
+        menu.classList.remove("open")
+        document.body.style.overflow = ""
+    }
+
+})
+
+
+document.addEventListener("click", function (e) {
+
+    const toggle = e.target.closest(".mobile-menu__mypage-toggle");
+    if (!toggle) return;
+
+    const submenu = toggle.nextElementSibling;
+
+    submenu.classList.toggle("open");
+    toggle.classList.toggle("active");
+
 });

@@ -106,7 +106,7 @@ function checkLoginUI() {
         const photo = localStorage.getItem("userPhoto") || "/assets/images/profile-user.png";
 
         area.innerHTML = `
-            <div class="user-profile">
+            <div class="user-profile d-none d-lg-inline-flex">
                 <img src="${photo}" class="user-profile__img">
                 <span class="user-profile__name">${name}님</span>
                 <button id="logoutBtn" class="btn btn-sm btn-outline-secondary">로그아웃</button>
@@ -115,9 +115,9 @@ function checkLoginUI() {
 
     } else {
         area.innerHTML = `
-            <a href="/subPage/login.html" class="site-user__btn text-decoration-none">
+            <a href="/subPage/login.html" class="site-user__btn text-decoration-none d-none d-lg-inline-flex">
                 <button id="loginBtn" class="btn btn-sm btn-outline-secondary">
-                <i class="fa-regular fa-user"></i> 로그인
+                    <i class="fa-regular fa-user"></i> 로그인
                 </button>
             </a>
         `;
@@ -138,6 +138,17 @@ document.addEventListener("click", function (e) {
 
         location.reload();
     }
+
+    if (e.target.classList.contains("mobile-menu__logout")) {
+        localStorage.removeItem("isLogin");
+        localStorage.removeItem("userName");
+        localStorage.removeItem("userPhoto");
+
+        alert("로그아웃 되었습니다.");
+
+        location.reload();
+    }
+
 });
 
 
@@ -233,13 +244,16 @@ function renderAlarmUI() {
         html: true,
         placement: "bottom",
         trigger: "click",
-        content: alarmContent
+        content: alarmContent,
+        offset: [20, 12]
     });
 
     // 클릭하면 읽음 처리
     setTimeout(() => {
         document.querySelectorAll(".alarm-item").forEach(item => {
             item.addEventListener("click", () => {
+
+
                 const id = Number(item.dataset.id);
                 const list = getAlarms();
                 const target = list.find(a => a.id === id);
@@ -292,4 +306,94 @@ document.addEventListener("DOMContentLoaded", () => {
         checkLoginUI();
         renderAlarmUI();
     }, 300);
+});
+
+
+/* ======================================================================
+   마이페이지 클릭 로직
+====================================================================== */
+document.addEventListener("DOMContentLoaded", () => {
+    const mypageBtn = document.getElementById("mypageBtn")
+
+    if (mypageBtn) {
+        mypageBtn.addEventListener("click", (e) => {
+            e.preventDefault()
+            const isLogin = localStorage.getItem("isLogin") === "true"
+            if (!isLogin) {
+                sessionStorage.setItem("redirectAfterLogin", "/mypage/index.html")
+                window.location.href = "/subPage/login.html"
+            } else {
+                window.location.href = "/mypage/index.html"
+            }
+        })
+    }
+})
+
+
+/* ======================================================================
+   하단 네비 프로필 이미지
+====================================================================== */
+function updateBottomProfile() {
+    const isLogin = localStorage.getItem("isLogin") === "true"
+    const img = document.querySelector(".bottom-nav__item--mypage img")
+    if (!img) return
+    if (isLogin) {
+        const photo =
+            localStorage.getItem("userPhoto") ||
+            "/assets/images/profile-default.png"
+        img.src = photo
+        img.style.borderRadius = "50%"
+    } else {
+        img.src = "/assets/images/profile-default.png"
+    }
+}
+
+/* 페이지 로드 후 실행 */
+window.addEventListener("load", () => {
+    updateBottomProfile();
+    updateMobileUserUI();
+})
+
+
+/* ======================================================================
+   모바일 메뉴 유저 정보
+====================================================================== */
+function updateMobileUserUI() {
+    const area = document.getElementById("mobileUserArea");
+    if (!area) return;
+
+    const isLogin = localStorage.getItem("isLogin") === "true";
+    if (!isLogin) {
+
+        area.innerHTML = `
+        <img src="/assets/images/profile-default.png" class="mobile-menu__profile">
+        <span class="mobile-menu__name">로그인이 필요합니다</span>
+    `;
+        return;
+    }
+
+    const name = localStorage.getItem("userName") || "회원";
+    const photo =
+        localStorage.getItem("userPhoto") ||
+        "/assets/images/profile-default.png";
+
+    area.innerHTML = `
+        <img src="${photo}" class="mobile-menu__profile">
+        <span class="mobile-menu__name">${name}님</span>
+        <button class="mobile-menu__logout">로그아웃</button>
+    `;
+}
+
+document.addEventListener("click", function(e){
+
+    const userArea = e.target.closest("#mobileUserArea");
+
+    if(!userArea) return;
+
+    const isLogin = localStorage.getItem("isLogin") === "true";
+
+    if(!isLogin){
+        window.location.href = "/subPage/login.html";
+    }
+
 });
