@@ -8,7 +8,7 @@ export const directorList = [
     complexName: "래미안 서초 에스티지",
     experience: "경력 5년 이상",
     complexSize: 820,
-    deadline: "2026-03-31",
+    deadline: "2026-09-30",
     isClosed: false
   },
   {
@@ -20,7 +20,7 @@ export const directorList = [
     complexName: "힐스테이트 판교",
     experience: "경력 무관",
     complexSize: 980,
-    deadline: "2026-03-31",
+    deadline: "2026-09-30",
     isClosed: false
   },
   {
@@ -32,7 +32,7 @@ export const directorList = [
     complexName: "광교 자이",
     experience: "경력 3년 이상",
     complexSize: 740,
-    deadline: "2026-03-31",
+    deadline: "2026-09-30",
     isClosed: false
   },
   {
@@ -44,7 +44,7 @@ export const directorList = [
     complexName: "마포 래미안 푸르지오",
     experience: "경력 무관",
     complexSize: 690,
-    deadline: "2026-03-31",
+    deadline: "2026-09-30",
     isClosed: false
   },
   {
@@ -56,7 +56,7 @@ export const directorList = [
     complexName: "동탄 센트럴자이",
     experience: "경력 무관",
     complexSize: 950,
-    deadline: "2026-03-31",
+    deadline: "2026-09-30",
     isClosed: false
   },
   {
@@ -68,7 +68,7 @@ export const directorList = [
     complexName: "송도 더샵 퍼스트월드",
     experience: "경력 5년 이상",
     complexSize: 1100,
-    deadline: "2026-03-31",
+    deadline: "2026-09-30",
     isClosed: false
   },
   {
@@ -80,7 +80,7 @@ export const directorList = [
     complexName: "잠실 엘스",
     experience: "고졸이상",
     complexSize: 1200,
-    deadline: "2026-03-31",
+    deadline: "2026-09-30",
     isClosed: false
   },
   {
@@ -92,7 +92,7 @@ export const directorList = [
     complexName: "과천 푸르지오 써밋",
     experience: "경력 무관",
     complexSize: 680,
-    deadline: "2026-03-31",
+    deadline: "2026-09-30",
     isClosed: false
   },
   {
@@ -104,7 +104,7 @@ export const directorList = [
     complexName: "광교 중흥 S-클래스",
     experience: "경력 무관",
     complexSize: 720,
-    deadline: "2026-03-31",
+    deadline: "2026-09-30",
     isClosed: false
   },
  {
